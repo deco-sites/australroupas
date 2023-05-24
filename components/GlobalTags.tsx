@@ -28,6 +28,29 @@ function GlobalTags() {
         href={asset("/favicon-32x32.png")}
       />
 
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        @font-face {
+          font-family: 'Lato';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: url(${
+            asset("/fonts/Lato-Regular.woff2")
+          }) format('woff2');
+        }
+        @font-face {
+          font-family: 'Lato';
+          font-style: bold;
+          font-weight: 700;
+          font-display: swap;
+          src: url(${
+            asset("/fonts/Lato-Bold.woff2")
+          }) format('woff2');
+        }
+        `
+      }}></style>
+
       {/* Web Manifest */}
       <link rel="manifest" href={asset("/site.webmanifest")} />
     </Head>

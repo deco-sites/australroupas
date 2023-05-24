@@ -30,6 +30,42 @@ export default {
       center: true,
     },
     extend: {
+      colors: {
+        "primary": "#5881CA",
+        "secundary": "#204d74",
+        "gray": "#3A3A3C",
+        "medium-gray": "#878787",
+        "light-gray": "#636366",
+        "hail-gray": "#F2F2F7",
+        "black": "#1C1C1E",
+        "white": "#ffffff",
+      },
+      textColor: {
+        "primary": "#5881CA",
+        "secundary": "#204d74",
+        "gray": "#3A3A3C",
+        "medium-gray": "#878787",
+        "light-gray": "#636366",
+        "hail-gray": "#F2F2F7",
+        "black": "#1C1C1E",
+        "white": "#ffffff",
+      },
+      borderColor: {
+        "primary": "#5881CA",
+        "secundary": "#204d74",
+        "gray": "#3A3A3C",
+        "medium-gray": "#878787",
+        "light-gray": "#636366",
+        "hail-gray": "#F2F2F7",
+        "black": "#1C1C1E",
+        "white": "#ffffff",
+      },
+      boxShadow: {
+        'header': '0px 1px 3px 1px rgba(0,0,0,0.1)',
+      },
+      maxWidth: {
+        '3xl': '1920px',
+      },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
         "slide-right": "slide-right-frame 0.4s ease normal",
