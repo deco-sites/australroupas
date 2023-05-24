@@ -61,10 +61,10 @@ export default {
         "white": "#ffffff",
       },
       boxShadow: {
-        'header': '0px 1px 3px 1px rgba(0,0,0,0.1)',
+        "header": "0px 1px 3px 1px rgba(0,0,0,0.1)",
       },
       maxWidth: {
-        '3xl': '1920px',
+        "3xl": "1920px",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
