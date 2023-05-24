@@ -116,7 +116,13 @@ function Header(
     <>
       <header style={{ height: headerHeight }}>
         <div class="bg-white fixed w-full z-50 shadow-header">
-          <Navbar iconsHeader={iconsHeader} callToUsItem={callToUsItems} logo={logo} items={navItems} searchbar={searchbar} />
+          <Navbar
+            iconsHeader={iconsHeader}
+            callToUsItem={callToUsItems}
+            logo={logo}
+            items={navItems}
+            searchbar={searchbar}
+          />
         </div>
         <Modals
           menu={{ items: navItems }}
