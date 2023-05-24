@@ -1,35 +1,51 @@
 import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
+import type { CallToUsItem } from "./Header.tsx";
+import type { IconsHeader } from "./Header.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 
-function Navbar({ items, searchbar }: {
+function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   items: INavItem[];
   searchbar: SearchbarProps;
+  logo: LiveImage;
+  callToUsItem: CallToUsItem[];
+  iconsHeader: IconsHeader;
 }) {
   return (
     <>
       {/* Mobile Version */}
       <div
         style={{ height: navbarHeight }}
-        class="md:hidden flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6 gap-2"
+        class="md:hidden flex flex-row justify-between items-center w-full"
       >
-        <Buttons variant="menu" />
+        <div>
+          <Buttons variant="menu" />
+
+          <Buttons variant="search" />
+        </div>
 
         <a
           href="/"
-          class="flex-grow inline-flex items-center"
-          style={{ minHeight: navbarHeight }}
+          class="flex justify-center items-center"
           aria-label="Store logo"
         >
-          <Icon id="Logo" width={126} height={16} />
+          <Image
+            src={logo}
+            alt={"Austral - Loja Oficial"}
+            width={120}
+            height={38}
+            class="object-cover object-center"
+          />
         </a>
 
-        <div class="flex gap-1">
-          <Buttons variant="search" />
+        <div>
+          <Buttons variant="cart" />
           <Buttons variant="cart" />
         </div>
       </div>

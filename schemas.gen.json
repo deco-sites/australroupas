@@ -8682,6 +8682,20 @@
           "type": "string",
           "title": "Href"
         },
+        "red": {
+          "anyOf": [
+            {
+              "type": "boolean",
+              "const": true
+            },
+            {
+              "type": "boolean",
+              "const": false
+            }
+          ],
+          "type": "boolean",
+          "title": "Red"
+        },
         "children": {
           "type": "array",
           "items": {
@@ -8695,26 +8709,19 @@
                 "type": "string",
                 "title": "Href"
               },
-              "children": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string",
-                      "title": "Label"
-                    },
-                    "href": {
-                      "type": "string",
-                      "title": "Href"
-                    }
+              "red": {
+                "anyOf": [
+                  {
+                    "type": "boolean",
+                    "const": true
                   },
-                  "required": [
-                    "label",
-                    "href"
-                  ]
-                },
-                "title": "Children"
+                  {
+                    "type": "boolean",
+                    "const": false
+                  }
+                ],
+                "type": "boolean",
+                "title": "Red"
               }
             },
             "required": [
@@ -8725,21 +8732,24 @@
           "title": "Children"
         },
         "image": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Src"
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "src": {
+                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+                "title": "Src"
+              },
+              "alt": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "title": "Alt"
+              }
             },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Alt"
-            }
+            "required": []
           },
-          "required": [],
           "title": "Image"
         }
       },
@@ -8756,16 +8766,736 @@
       },
       "title": "NavItem[]"
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@CallToUsItem": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "CallToUsItem"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@CallToUsItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@CallToUsItem"
+      },
+      "title": "CallToUsItem[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconsHeader": {
+      "type": "object",
+      "properties": {
+        "menuIcon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ChevronLeft"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRight"
+            },
+            {
+              "type": "string",
+              "const": "ChevronUp"
+            },
+            {
+              "type": "string",
+              "const": "ChevronDown"
+            },
+            {
+              "type": "string",
+              "const": "QuestionMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "User"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCart"
+            },
+            {
+              "type": "string",
+              "const": "Bars3"
+            },
+            {
+              "type": "string",
+              "const": "Heart"
+            },
+            {
+              "type": "string",
+              "const": "MagnifyingGlass"
+            },
+            {
+              "type": "string",
+              "const": "XMark"
+            },
+            {
+              "type": "string",
+              "const": "Plus"
+            },
+            {
+              "type": "string",
+              "const": "Minus"
+            },
+            {
+              "type": "string",
+              "const": "MapPin"
+            },
+            {
+              "type": "string",
+              "const": "Phone"
+            },
+            {
+              "type": "string",
+              "const": "Elo"
+            },
+            {
+              "type": "string",
+              "const": "Mastercard"
+            },
+            {
+              "type": "string",
+              "const": "Visa"
+            },
+            {
+              "type": "string",
+              "const": "Pix"
+            },
+            {
+              "type": "string",
+              "const": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "Truck"
+            },
+            {
+              "type": "string",
+              "const": "Discount"
+            },
+            {
+              "type": "string",
+              "const": "Return"
+            },
+            {
+              "type": "string",
+              "const": "CreditCard"
+            },
+            {
+              "type": "string",
+              "const": "Deco"
+            },
+            {
+              "type": "string",
+              "const": "Discord"
+            },
+            {
+              "type": "string",
+              "const": "Trash"
+            },
+            {
+              "type": "string",
+              "const": "FilterList"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "ArrowsPointingOut"
+            }
+          ],
+          "type": "string",
+          "title": "Menu Icon",
+          "description": "Menu Icon used both on mobile"
+        },
+        "searchIcon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ChevronLeft"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRight"
+            },
+            {
+              "type": "string",
+              "const": "ChevronUp"
+            },
+            {
+              "type": "string",
+              "const": "ChevronDown"
+            },
+            {
+              "type": "string",
+              "const": "QuestionMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "User"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCart"
+            },
+            {
+              "type": "string",
+              "const": "Bars3"
+            },
+            {
+              "type": "string",
+              "const": "Heart"
+            },
+            {
+              "type": "string",
+              "const": "MagnifyingGlass"
+            },
+            {
+              "type": "string",
+              "const": "XMark"
+            },
+            {
+              "type": "string",
+              "const": "Plus"
+            },
+            {
+              "type": "string",
+              "const": "Minus"
+            },
+            {
+              "type": "string",
+              "const": "MapPin"
+            },
+            {
+              "type": "string",
+              "const": "Phone"
+            },
+            {
+              "type": "string",
+              "const": "Elo"
+            },
+            {
+              "type": "string",
+              "const": "Mastercard"
+            },
+            {
+              "type": "string",
+              "const": "Visa"
+            },
+            {
+              "type": "string",
+              "const": "Pix"
+            },
+            {
+              "type": "string",
+              "const": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "Truck"
+            },
+            {
+              "type": "string",
+              "const": "Discount"
+            },
+            {
+              "type": "string",
+              "const": "Return"
+            },
+            {
+              "type": "string",
+              "const": "CreditCard"
+            },
+            {
+              "type": "string",
+              "const": "Deco"
+            },
+            {
+              "type": "string",
+              "const": "Discord"
+            },
+            {
+              "type": "string",
+              "const": "Trash"
+            },
+            {
+              "type": "string",
+              "const": "FilterList"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "ArrowsPointingOut"
+            }
+          ],
+          "type": "string",
+          "title": "Search Icon",
+          "description": "Search Icon used both on mobile and desktop"
+        },
+        "callToUsIcon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ChevronLeft"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRight"
+            },
+            {
+              "type": "string",
+              "const": "ChevronUp"
+            },
+            {
+              "type": "string",
+              "const": "ChevronDown"
+            },
+            {
+              "type": "string",
+              "const": "QuestionMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "User"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCart"
+            },
+            {
+              "type": "string",
+              "const": "Bars3"
+            },
+            {
+              "type": "string",
+              "const": "Heart"
+            },
+            {
+              "type": "string",
+              "const": "MagnifyingGlass"
+            },
+            {
+              "type": "string",
+              "const": "XMark"
+            },
+            {
+              "type": "string",
+              "const": "Plus"
+            },
+            {
+              "type": "string",
+              "const": "Minus"
+            },
+            {
+              "type": "string",
+              "const": "MapPin"
+            },
+            {
+              "type": "string",
+              "const": "Phone"
+            },
+            {
+              "type": "string",
+              "const": "Elo"
+            },
+            {
+              "type": "string",
+              "const": "Mastercard"
+            },
+            {
+              "type": "string",
+              "const": "Visa"
+            },
+            {
+              "type": "string",
+              "const": "Pix"
+            },
+            {
+              "type": "string",
+              "const": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "Truck"
+            },
+            {
+              "type": "string",
+              "const": "Discount"
+            },
+            {
+              "type": "string",
+              "const": "Return"
+            },
+            {
+              "type": "string",
+              "const": "CreditCard"
+            },
+            {
+              "type": "string",
+              "const": "Deco"
+            },
+            {
+              "type": "string",
+              "const": "Discord"
+            },
+            {
+              "type": "string",
+              "const": "Trash"
+            },
+            {
+              "type": "string",
+              "const": "FilterList"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "ArrowsPointingOut"
+            }
+          ],
+          "type": "string",
+          "title": "Call To Us Icon",
+          "description": "Call To Us Icon used both on mobile and desktop"
+        },
+        "myAccountIcon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ChevronLeft"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRight"
+            },
+            {
+              "type": "string",
+              "const": "ChevronUp"
+            },
+            {
+              "type": "string",
+              "const": "ChevronDown"
+            },
+            {
+              "type": "string",
+              "const": "QuestionMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "User"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCart"
+            },
+            {
+              "type": "string",
+              "const": "Bars3"
+            },
+            {
+              "type": "string",
+              "const": "Heart"
+            },
+            {
+              "type": "string",
+              "const": "MagnifyingGlass"
+            },
+            {
+              "type": "string",
+              "const": "XMark"
+            },
+            {
+              "type": "string",
+              "const": "Plus"
+            },
+            {
+              "type": "string",
+              "const": "Minus"
+            },
+            {
+              "type": "string",
+              "const": "MapPin"
+            },
+            {
+              "type": "string",
+              "const": "Phone"
+            },
+            {
+              "type": "string",
+              "const": "Elo"
+            },
+            {
+              "type": "string",
+              "const": "Mastercard"
+            },
+            {
+              "type": "string",
+              "const": "Visa"
+            },
+            {
+              "type": "string",
+              "const": "Pix"
+            },
+            {
+              "type": "string",
+              "const": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "Truck"
+            },
+            {
+              "type": "string",
+              "const": "Discount"
+            },
+            {
+              "type": "string",
+              "const": "Return"
+            },
+            {
+              "type": "string",
+              "const": "CreditCard"
+            },
+            {
+              "type": "string",
+              "const": "Deco"
+            },
+            {
+              "type": "string",
+              "const": "Discord"
+            },
+            {
+              "type": "string",
+              "const": "Trash"
+            },
+            {
+              "type": "string",
+              "const": "FilterList"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "ArrowsPointingOut"
+            }
+          ],
+          "type": "string",
+          "title": "My Account Icon",
+          "description": "My Account Icon used both on mobile and desktop"
+        },
+        "cartIcon": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "ChevronLeft"
+            },
+            {
+              "type": "string",
+              "const": "ChevronRight"
+            },
+            {
+              "type": "string",
+              "const": "ChevronUp"
+            },
+            {
+              "type": "string",
+              "const": "ChevronDown"
+            },
+            {
+              "type": "string",
+              "const": "QuestionMarkCircle"
+            },
+            {
+              "type": "string",
+              "const": "User"
+            },
+            {
+              "type": "string",
+              "const": "ShoppingCart"
+            },
+            {
+              "type": "string",
+              "const": "Bars3"
+            },
+            {
+              "type": "string",
+              "const": "Heart"
+            },
+            {
+              "type": "string",
+              "const": "MagnifyingGlass"
+            },
+            {
+              "type": "string",
+              "const": "XMark"
+            },
+            {
+              "type": "string",
+              "const": "Plus"
+            },
+            {
+              "type": "string",
+              "const": "Minus"
+            },
+            {
+              "type": "string",
+              "const": "MapPin"
+            },
+            {
+              "type": "string",
+              "const": "Phone"
+            },
+            {
+              "type": "string",
+              "const": "Elo"
+            },
+            {
+              "type": "string",
+              "const": "Mastercard"
+            },
+            {
+              "type": "string",
+              "const": "Visa"
+            },
+            {
+              "type": "string",
+              "const": "Pix"
+            },
+            {
+              "type": "string",
+              "const": "Logo"
+            },
+            {
+              "type": "string",
+              "const": "Facebook"
+            },
+            {
+              "type": "string",
+              "const": "Instagram"
+            },
+            {
+              "type": "string",
+              "const": "Tiktok"
+            },
+            {
+              "type": "string",
+              "const": "Truck"
+            },
+            {
+              "type": "string",
+              "const": "Discount"
+            },
+            {
+              "type": "string",
+              "const": "Return"
+            },
+            {
+              "type": "string",
+              "const": "CreditCard"
+            },
+            {
+              "type": "string",
+              "const": "Deco"
+            },
+            {
+              "type": "string",
+              "const": "Discord"
+            },
+            {
+              "type": "string",
+              "const": "Trash"
+            },
+            {
+              "type": "string",
+              "const": "FilterList"
+            },
+            {
+              "type": "string",
+              "const": "WhatsApp"
+            },
+            {
+              "type": "string",
+              "const": "ArrowsPointingOut"
+            }
+          ],
+          "type": "string",
+          "title": "Cart Icon",
+          "description": "Cart Icon used both on mobile and desktop"
+        }
+      },
+      "required": [],
+      "title": "IconsHeader"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props": {
       "type": "object",
       "properties": {
-        "alerts": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Alerts"
-        },
         "searchbar": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps",
           "title": "Search Bar"
@@ -8774,6 +9504,21 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]",
           "title": "Navigation items",
           "description": "Navigation items used both on mobile and desktop menus"
+        },
+        "logo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Image logo",
+          "description": "Image logo used both on mobile and desktop"
+        },
+        "callToUsItems": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@CallToUsItem[]",
+          "title": "Call to Us items",
+          "description": "Call to Us items used both on mobile and desktop"
+        },
+        "iconsHeader": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconsHeader",
+          "title": "Icons Header",
+          "description": "Icons Header used both on mobile and desktop"
         },
         "products": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
@@ -8786,7 +9531,9 @@
         }
       },
       "required": [
-        "alerts"
+        "logo",
+        "callToUsItems",
+        "iconsHeader"
       ],
       "title": "deco-sites/australroupas/components/header/Header.tsx@Props"
     },
