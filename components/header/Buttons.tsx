@@ -18,7 +18,7 @@ function SearchButton() {
 
   return (
     <Button
-      class="btn-square btn-ghost"
+      class="p-2 text-xl"
       aria-label="search icon button"
       onClick={() => {
         displaySearchbar.value = !displaySearchbar.peek();
@@ -34,7 +34,7 @@ function MenuButton() {
 
   return (
     <Button
-      class="btn-square btn-ghost"
+      class="p-2 text-xl"
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
@@ -72,7 +72,7 @@ function CartButton() {
 
   return (
     <Button
-      class="btn-square btn-ghost relative"
+      class="p-2 text-xl relative"
       aria-label="open cart"
       data-deco={displayCart.value && "open-cart"}
       loading={loading.value}
