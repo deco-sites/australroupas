@@ -12,7 +12,6 @@ import type { Props as SearchbarProps } from "$store/components/search/Searchbar
 import Button from "$store/components/ui/Button.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 
-
 function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   items: INavItem[];
   searchbar: SearchbarProps;
@@ -31,7 +30,6 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
         <div>
           <Buttons variant="menu" />
 
-          
           <Buttons variant="search" />
           <Searchbar searchbar={searchbar} />
         </div>

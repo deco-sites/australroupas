@@ -18,27 +18,32 @@ function SearchButton() {
 
   return (
     <>
-      {
-        displaySearchbar.value ? 
-        <Button
-          class="btp-2 text-xl"
-          onClick={() => (displaySearchbar.value = false)}
-        >
-          <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-        </Button> :
-        <Button
-          class="p-2 text-xl"
-          aria-label="search icon button"
-          onClick={() => {
-            displaySearchbar.value = !displaySearchbar.peek();
-          }}
-        >
-          <Icon id="MagnifyingGlass" width={20} height={20} strokeWidth={0.1} />
-        </Button>
-      }
-    
+      {displaySearchbar.value
+        ? (
+          <Button
+            class="btp-2 text-xl"
+            onClick={() => (displaySearchbar.value = false)}
+          >
+            <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+          </Button>
+        )
+        : (
+          <Button
+            class="p-2 text-xl"
+            aria-label="search icon button"
+            onClick={() => {
+              displaySearchbar.value = !displaySearchbar.peek();
+            }}
+          >
+            <Icon
+              id="MagnifyingGlass"
+              width={20}
+              height={20}
+              strokeWidth={0.1}
+            />
+          </Button>
+        )}
     </>
-    
   );
 }
 

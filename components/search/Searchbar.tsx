@@ -100,7 +100,6 @@ function Searchbar({
           action={action}
           class="flex-grow flex gap-3 px-5 items-center"
         >
-          
           <input
             ref={searchInputRef}
             id="search-input"

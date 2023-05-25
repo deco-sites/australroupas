@@ -44,7 +44,7 @@ function Modals({ menu, searchbar }: Props) {
         }}
       >
         <Suspense fallback={<Loading />}>
-          <Searchbar {...searchbar} variant="desktop"/>
+          <Searchbar {...searchbar} variant="desktop" />
         </Suspense>
       </Modal>
 
