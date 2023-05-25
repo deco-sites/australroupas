@@ -9,6 +9,9 @@ import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
 import type { IconsHeader } from "./Header.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+import Button from "$store/components/ui/Button.tsx";
+import { useUI } from "$store/sdk/useUI.ts";
+
 
 function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   items: INavItem[];
@@ -17,6 +20,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   callToUsItem: CallToUsItem[];
   iconsHeader: IconsHeader;
 }) {
+  const { displaySearchbar } = useUI();
   return (
     <>
       {/* Mobile Version */}
@@ -27,7 +31,9 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
         <div>
           <Buttons variant="menu" />
 
+          
           <Buttons variant="search" />
+          <Searchbar searchbar={searchbar} />
         </div>
 
         <a
@@ -54,7 +60,13 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
       <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
         <div class="flex-none w-44">
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
-            <Icon id="Logo" width={126} height={16} />
+            <Image
+              src={logo}
+              alt={"Austral - Loja Oficial"}
+              width={120}
+              height={38}
+              class="object-cover object-center"
+            />
           </a>
         </div>
         <div class="flex-auto flex justify-center">

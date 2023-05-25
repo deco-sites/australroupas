@@ -38,14 +38,13 @@ function Modals({ menu, searchbar }: Props) {
         title="Buscar"
         mode="sidebar-right"
         loading="lazy"
-        open={displaySearchbar.value &&
-          window?.matchMedia("(max-width: 767px)")?.matches}
+        open={false}
         onClose={() => {
           displaySearchbar.value = false;
         }}
       >
         <Suspense fallback={<Loading />}>
-          <Searchbar {...searchbar} />
+          <Searchbar {...searchbar} variant="desktop"/>
         </Suspense>
       </Modal>
 

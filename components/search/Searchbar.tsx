@@ -93,30 +93,18 @@ function Searchbar({
   }, []);
 
   return (
-    <div class="flex flex-col p-4 md:py-6 md:px-20">
-      <div class="flex items-center gap-4">
+    <div class="flex flex-col bg-hail-gray h-12">
+      <div class="flex items-center gap-4 px-4 h-12">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-3 py-2 border border-base-200"
+          class="flex-grow flex gap-3 px-5 items-center"
         >
-          <Button
-            class="btn-ghost"
-            aria-label="Search"
-            htmlFor="searchbar"
-            tabIndex={-1}
-          >
-            <Icon
-              class="text-base-300"
-              id="MagnifyingGlass"
-              size={20}
-              strokeWidth={0.01}
-            />
-          </Button>
+          
           <input
             ref={searchInputRef}
             id="search-input"
-            class="flex-grow outline-none placeholder-shown:sibling:hidden"
+            class="h-full bg-transparent flex-grow outline-none placeholder:text-black text-xs text-black"
             name={name}
             defaultValue={query}
             onInput={(e) => {
@@ -136,40 +124,29 @@ function Searchbar({
             aria-controls="search-suggestion"
             autocomplete="off"
           />
-          <button
-            type="button"
-            aria-label="Clean search"
-            class="focus:outline-none"
+          <Button
+            class="absolute right-4"
+            aria-label="Search"
+            htmlFor="searchbar"
             tabIndex={-1}
-            onClick={(e) => {
-              e.stopPropagation();
-              if (searchInputRef.current === null) return;
-
-              searchInputRef.current.value = "";
-              setSearch("");
-            }}
+            type="submit"
           >
-            <span class="text-sm">limpar</span>
-          </button>
+            <Icon
+              class="text-black"
+              id="MagnifyingGlass"
+              size={25}
+              strokeWidth={0.01}
+            />
+          </Button>
         </form>
-        {variant === "desktop" && <CloseButton />}
+        {/* {variant === "desktop" && <CloseButton />} */}
       </div>
       <div class="flex flex-col gap-6 divide-y divide-base-200 mt-6 empty:mt-0 md:flex-row md:divide-y-0">
         {notFound
           ? (
-            <div class="py-16 md:py-6! flex flex-col gap-4 w-full">
-              <span
-                class="font-medium text-xl text-center"
-                role="heading"
-                aria-level={3}
-              >
-                Nenhum resultado encontrado
-              </span>
-              <span class="text-center text-base-300">
-                Vamos tentar de outro jeito? Verifique a ortografia ou use um
-                termo diferente
-              </span>
-            </div>
+            <>
+              {/* Aqui vai a mensagem de nada encontrado */}
+            </>
           )
           : (
             <>
