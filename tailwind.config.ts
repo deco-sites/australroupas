@@ -1,14 +1,14 @@
 // Daisi UI theme
 export const theme = {
-  "primary": "hsl(180 100% 10%)",
-  "secondary": "hsl(0 39% 39%)",
-  "accent": "hsl(150 100% 50%)",
-  "neutral": "hsl(0 0% 20%)",
-  "base-100": "hsl(0 0% 100%)",
+  "primary": "#5881CA",
+  "secondary": "#204d74",
+  "accent": "#3A3A3C",
+  "neutral": "#878787",
+  "base-100": "#636366",
   "success": "hsl(150 62% 95%)",
   "warning": "hsl(43 100% 95%)",
   "error": "hsl(9 100% 95%)",
-  "info": "hsl(220 100% 97%)",
+  "info": "#1C1C1E",
 
   "--rounded-box": "1rem", // border radius rounded-box utility class, used in card and other large boxes
   "--rounded-btn": "0.5rem", // border radius rounded-btn utility class, used in buttons and similar element
@@ -30,36 +30,6 @@ export default {
       center: true,
     },
     extend: {
-      colors: {
-        "primary": "#5881CA",
-        "secundary": "#204d74",
-        "gray": "#3A3A3C",
-        "medium-gray": "#878787",
-        "light-gray": "#636366",
-        "hail-gray": "#F2F2F7",
-        "black": "#1C1C1E",
-        "white": "#ffffff",
-      },
-      textColor: {
-        "primary": "#5881CA",
-        "secundary": "#204d74",
-        "gray": "#3A3A3C",
-        "medium-gray": "#878787",
-        "light-gray": "#636366",
-        "hail-gray": "#F2F2F7",
-        "black": "#1C1C1E",
-        "white": "#ffffff",
-      },
-      borderColor: {
-        "primary": "#5881CA",
-        "secundary": "#204d74",
-        "gray": "#3A3A3C",
-        "medium-gray": "#878787",
-        "light-gray": "#636366",
-        "hail-gray": "#F2F2F7",
-        "black": "#1C1C1E",
-        "white": "#ffffff",
-      },
       boxShadow: {
         "header": "0px 1px 3px 1px rgba(0,0,0,0.1)",
       },
