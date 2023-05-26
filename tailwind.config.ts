@@ -4,7 +4,7 @@ export const theme = {
   "secondary": "#204d74",
   "accent": "#3A3A3C",
   "neutral": "#878787",
-  "base-100": "#636366",
+  "base-100": "#F2F2F7",
   "success": "hsl(150 62% 95%)",
   "warning": "hsl(43 100% 95%)",
   "error": "hsl(9 100% 95%)",

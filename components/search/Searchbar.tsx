@@ -93,7 +93,7 @@ function Searchbar({
   }, []);
 
   return (
-    <div class="flex flex-col bg-hail-gray h-12">
+    <div class="flex flex-col bg-base-100 h-12">
       <div class="flex items-center gap-4 px-4 h-12">
         <form
           id="searchbar"
@@ -141,10 +141,14 @@ function Searchbar({
         {/* {variant === "desktop" && <CloseButton />} */}
       </div>
       <div class="flex flex-col gap-6 divide-y divide-base-200 mt-6 empty:mt-0 md:flex-row md:divide-y-0">
+        {/* 
+        
+          VTEX INTELIGENT SEARCH NAO ESTA INSTALADO
+        
         {notFound
           ? (
             <>
-              {/* Aqui vai a mensagem de nada encontrado */}
+              Aqui vai a mensagem de nada encontrado 
             </>
           )
           : (
@@ -202,7 +206,7 @@ function Searchbar({
                 </Slider>
               </div>
             </>
-          )}
+          )} */}
       </div>
     </div>
   );
