@@ -10,24 +10,38 @@ export interface Props {
 function MenuItem({ item }: { item: INavItem }) {
   return (
     <div class="collapse relative">
-      {
-        item.children?.length ?
-        <Icon class="text-neutral absolute right-0 w-12 top-4" strokeWidth={1} size={17} id="ChevronRight" /> : ''
-      }
+      {item.children?.length
+        ? (
+          <Icon
+            class="text-neutral absolute right-0 w-12 top-4"
+            strokeWidth={1}
+            size={17}
+            id="ChevronRight"
+          />
+        )
+        : ""}
       <input class="absolute right-0 w-12" type="checkbox" />
-      <div class="collapse-title px-0 py-4 min-h-min"><a class="w-full block whitespace-nowrap uppercase text-sm leading-none" href={item.href}>{item.label}</a></div>
-      {
-        item.children?.length ? 
-        <div class="collapse-content">
-          <ul>
-            {item.children?.map((node) => (
-              <li>
-                <MenuItem item={node} />
-              </li>
-            ))}
-          </ul>
-        </div> : ''
-      }
+      <div class="collapse-title px-0 py-4 min-h-min">
+        <a
+          class="w-full block whitespace-nowrap uppercase text-sm leading-none"
+          href={item.href}
+        >
+          {item.label}
+        </a>
+      </div>
+      {item.children?.length
+        ? (
+          <div class="collapse-content">
+            <ul>
+              {item.children?.map((node) => (
+                <li>
+                  <MenuItem item={node} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+        : ""}
     </div>
   );
 }
@@ -36,13 +50,30 @@ function Menu({ items }: Props) {
   const { displayMenu } = useUI();
   return (
     <>
-      <div class={`${displayMenu.value ? "left-0" : "-left-full"} fixed top-0 transition-all w-full bg-info opacity-60 z-40 h-full duration-300 ease-linear`}></div>
-      <div class={`${displayMenu.value ? "left-0" : "-left-full"} fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}>
-        <Button class="absolute -right-10 top-2" 
+      <div
+        class={`${
+          displayMenu.value ? "left-0" : "-left-full"
+        } fixed top-0 transition-all w-full bg-info opacity-60 z-40 h-full duration-300 ease-linear`}
+      >
+      </div>
+      <div
+        class={`${
+          displayMenu.value ? "left-0" : "-left-full"
+        } fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
+      >
+        <Button
+          class="absolute -right-10 top-2"
           onClick={() => {
             displayMenu.value = !displayMenu.value;
-          }}>
-          <Icon id="XMark" width={35} height={35} strokeWidth={1.5} class="text-white" />
+          }}
+        >
+          <Icon
+            id="XMark"
+            width={35}
+            height={35}
+            strokeWidth={1.5}
+            class="text-white"
+          />
         </Button>
         <ul class={`px-4 flex-grow flex flex-col divide-y divide-base-100`}>
           {items.map((item) => (
