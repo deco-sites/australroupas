@@ -1,5 +1,6 @@
 import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
+import Menu from "$store/islands/Menu.tsx"
 import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
@@ -19,7 +20,6 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   callToUsItem: CallToUsItem[];
   iconsHeader: IconsHeader;
 }) {
-  const { displaySearchbar } = useUI();
   return (
     <>
       {/* Mobile Version */}
@@ -29,6 +29,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
       >
         <div>
           <Buttons variant="menu" />
+          <Menu items={items} />
 
           <Buttons variant="search" />
           <Searchbar searchbar={searchbar} />
@@ -43,7 +44,6 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
             src={logo}
             alt={"Austral - Loja Oficial"}
             width={120}
-            height={38}
             class="object-cover object-center"
           />
         </a>
@@ -62,7 +62,6 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
               src={logo}
               alt={"Austral - Loja Oficial"}
               width={120}
-              height={38}
               class="object-cover object-center"
             />
           </a>
