@@ -42,7 +42,6 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
               }}
             >
               <i class="icon-search"></i>
-              
             </Button>
           ))
         : (
@@ -110,9 +109,9 @@ function CartButton() {
       onClick={onClick}
     >
       <div class="">
-          <span class="bg-primary rounded-full absolute top-0 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-5 h-5 flex items-center justify-center">
-            {totalItems > 9 ? "9+" : totalItems}
-          </span>
+        <span class="bg-primary rounded-full absolute top-0 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-5 h-5 flex items-center justify-center">
+          {totalItems > 9 ? "9+" : totalItems}
+        </span>
         <i class="icon-minicart text-xl lg:text-2.5xl"></i>
       </div>
     </Button>

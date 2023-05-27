@@ -44,7 +44,7 @@ export default {
         "25": "100px",
       },
       fontSize: {
-        "2.5xl": "26px"
+        "2.5xl": "26px",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",

@@ -116,7 +116,9 @@ function Menu({ items, callToUsItem }: Props) {
               href="/"
             >
               <i class="icon-phone text-xl"></i>
-              <span class="text-sm text-[#636366] leading-none">ATENDIMENTO</span>
+              <span class="text-sm text-[#636366] leading-none">
+                ATENDIMENTO
+              </span>
             </a>
           </li>
           {callToUsItem.map((item) => (

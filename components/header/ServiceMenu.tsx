@@ -16,7 +16,6 @@ function ServiceMenu() {
         } z-10 absolute pointer-events-none bg-info right-full left-0 top-0 w-full transition-all duration-300 ease-linear`}
       >
       </div>
-      
     </>
   );
 }

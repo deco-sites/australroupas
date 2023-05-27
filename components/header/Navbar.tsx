@@ -49,7 +49,7 @@ function Navbar({ items, searchbar, logo, callToUsItem }: {
         </a>
 
         <div>
-          <a 
+          <a
             class="p-2.5"
             href="/minha-conta"
             aria-label="Log in"
@@ -79,10 +79,10 @@ function Navbar({ items, searchbar, logo, callToUsItem }: {
         <div class="flex-none w-44 flex items-center justify-end gap-2">
           <Searchbar searchbar={searchbar} />
           <Buttons variant="search" searchDesktop={true} />
-          
+
           <ServiceMenu />
 
-          <a 
+          <a
             class="p-2.5 lg:ml-7.5"
             href="/minha-conta"
             aria-label="Log in"
