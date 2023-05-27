@@ -63,8 +63,8 @@ function Header(
         <div class="bg-base-100 fixed w-full z-50">
           <Alert alerts={alerts} />
           <Navbar items={navItems} searchbar={searchbar} />
+          <i class="icon-menu"></i>
         </div>
-
         <Modals
           menu={{ items: navItems }}
           searchbar={searchbar}
