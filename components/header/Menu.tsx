@@ -1,4 +1,4 @@
-import { useState } from 'preact/compat';
+import { useState } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
@@ -24,7 +24,11 @@ function MenuItem({ item }: { item: INavItem }) {
           />
         )
         : ""}
-      <input class="absolute right-0 w-12" type="checkbox" onClick={() => setShow(!show)} />
+      <input
+        class="absolute right-0 w-12"
+        type="checkbox"
+        onClick={() => setShow(!show)}
+      />
       <div class="collapse-title px-0 py-4 min-h-min">
         <a
           class="w-full block whitespace-nowrap text-sm leading-none"
@@ -35,9 +39,11 @@ function MenuItem({ item }: { item: INavItem }) {
       </div>
       {item.children?.length
         ? (
-          <div class={`${
-            show ? "left-0" : "-left-full"
-          } fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}>
+          <div
+            class={`${
+              show ? "left-0" : "-left-full"
+            } fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
+          >
             <ul class="">
               <li class="border-b border-b-base-100 bg-base-100 py-4 leading-none">
                 <Icon
@@ -46,7 +52,12 @@ function MenuItem({ item }: { item: INavItem }) {
                   size={17}
                   id="ChevronLeft"
                 />
-                <button class="w-full h-full text-left text-primary text-base leading-none px-12" onClick={() => setShow(!show)}>Voltar</button>
+                <button
+                  class="w-full h-full text-left text-primary text-base leading-none px-12"
+                  onClick={() => setShow(!show)}
+                >
+                  Voltar
+                </button>
               </li>
               {item.children?.map((node) => (
                 <li class="border-b border-b-base-100 px-4">
@@ -108,7 +119,7 @@ function Menu({ items, callToUsItem }: Props) {
               <span class="text-sm">ATENDIMENTO</span>
             </a>
           </li>
-          {callToUsItem.map(item => (
+          {callToUsItem.map((item) => (
             <li>
               <a
                 class="flex items-center gap-5 px-4 pt-4"
