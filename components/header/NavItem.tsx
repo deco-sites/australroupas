@@ -14,7 +14,10 @@ function NavItem({ item }: { item: INavItem }) {
 
   return (
     <li class="flex items-center">
-      <a href={href} class="border-b-2 border-b-transparent transition-all duration-300 ease-linear px-5 py-8.5 pl-8.5 hover:border-b-primary">
+      <a
+        href={href}
+        class="border-b-2 border-b-transparent transition-all duration-300 ease-linear px-5 py-8.5 pl-8.5 hover:border-b-primary"
+      >
         <span class="text-sm text-[#636366] tracking-widest">
           {label}
         </span>

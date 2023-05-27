@@ -38,7 +38,7 @@ export default {
       },
       spacing: {
         "25": "100px",
-        "8.5": "35px"
+        "8.5": "35px",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
