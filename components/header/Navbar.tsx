@@ -25,11 +25,11 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
       {/* Mobile Version */}
       <div
         style={{ height: navbarHeight }}
-        class="md:hidden flex flex-row justify-between items-center w-full"
+        class="lg:hidden flex flex-row justify-between items-center w-full"
       >
         <div>
           <Buttons variant="menu" />
-          <Menu items={items} />
+          <Menu items={items} callToUsItem={callToUsItem} />
 
           <Buttons variant="search" />
           <Searchbar searchbar={searchbar} />
@@ -55,7 +55,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden md:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
+      <div class="hidden lg:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
         <div class="flex-none w-44">
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
             <Image
