@@ -13,21 +13,22 @@ declare global {
   }
 }
 
-function SearchButton({searchDesktop = false}: {searchDesktop: boolean}) {
+function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
   const { displaySearchbar } = useUI();
 
   return (
     <>
-      
-      {!searchDesktop ? 
-        (displaySearchbar.value ? (
+      {!searchDesktop
+        ? (displaySearchbar.value
+          ? (
             <Button
               class="btp-2 text-xl"
               onClick={() => (displaySearchbar.value = false)}
             >
               <Icon id="XMark" width={20} height={20} strokeWidth={2} />
             </Button>
-          ) : (
+          )
+          : (
             <Button
               class="p-2 text-xl"
               aria-label="search icon button"
@@ -42,7 +43,8 @@ function SearchButton({searchDesktop = false}: {searchDesktop: boolean}) {
                 strokeWidth={0.1}
               />
             </Button>
-          )) : 
+          ))
+        : (
           <Button
             class="p-2 text-xl"
             aria-label="search icon button"
@@ -57,7 +59,7 @@ function SearchButton({searchDesktop = false}: {searchDesktop: boolean}) {
               strokeWidth={0.1}
             />
           </Button>
-      }
+        )}
     </>
   );
 }
@@ -123,7 +125,12 @@ function CartButton() {
   );
 }
 
-function Buttons({ variant, searchDesktop = false }: { variant: "cart" | "search" | "menu", searchDesktop?: boolean }) {
+function Buttons(
+  { variant, searchDesktop = false }: {
+    variant: "cart" | "search" | "menu";
+    searchDesktop?: boolean;
+  },
+) {
   if (variant === "cart") {
     return <CartButton />;
   }
