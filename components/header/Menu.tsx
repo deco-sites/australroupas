@@ -115,8 +115,8 @@ function Menu({ items, callToUsItem }: Props) {
               class="flex items-center gap-4 px-4"
               href="/"
             >
-              <Icon id="Heart" width={20} height={20} strokeWidth={2} />
-              <span class="text-sm">ATENDIMENTO</span>
+              <i class="icon-phone text-xl"></i>
+              <span class="text-sm text-[#636366] leading-none">ATENDIMENTO</span>
             </a>
           </li>
           {callToUsItem.map((item) => (
@@ -125,7 +125,7 @@ function Menu({ items, callToUsItem }: Props) {
                 class="flex items-center gap-5 px-4 pt-4"
                 href={item.label}
               >
-                <span class="text-sm">{item.label}</span>
+                <span class="text-sm leading-none">{item.label}</span>
               </a>
             </li>
           ))}

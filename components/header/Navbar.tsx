@@ -7,6 +7,7 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
 import Overlay from "$store/islands/Overlay.tsx";
 import { navbarHeight } from "./constants.ts";
+import ServiceMenu from "$store/components/header/ServiceMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
@@ -19,13 +20,12 @@ function Navbar({ items, searchbar, logo, callToUsItem }: {
   logo: LiveImage;
   callToUsItem: CallToUsItem[];
 }) {
-  const { displayOverlay } = useUI();
   return (
     <>
       {/* Mobile Version */}
       <div
         style={{ height: navbarHeight }}
-        class="lg:hidden flex flex-row justify-between items-center w-full"
+        class="lg:hidden flex flex-row justify-between items-center w-full px-1.5"
       >
         <div>
           <Buttons variant="menu" />
@@ -49,7 +49,13 @@ function Navbar({ items, searchbar, logo, callToUsItem }: {
         </a>
 
         <div>
-          <Buttons variant="cart" />
+          <a 
+            class="p-2.5"
+            href="/minha-conta"
+            aria-label="Log in"
+          >
+            <i class="icon-user text-xl"></i>
+          </a>
           <Buttons variant="cart" />
         </div>
       </div>
@@ -73,19 +79,16 @@ function Navbar({ items, searchbar, logo, callToUsItem }: {
         <div class="flex-none w-44 flex items-center justify-end gap-2">
           <Searchbar searchbar={searchbar} />
           <Buttons variant="search" searchDesktop={true} />
-          <a
-            class=""
+          
+          <ServiceMenu />
+
+          <a 
+            class="p-2.5 lg:ml-7.5"
             href="/minha-conta"
             aria-label="Log in"
           >
-            <Icon id="User" width={20} height={20} strokeWidth={0.4} />
+            <i class="icon-user text-2.5xl"></i>
           </a>
-          <button
-            class=""
-            aria-label="Atendimento"
-          >
-            <Icon id="User" width={20} height={20} strokeWidth={0.4} />
-          </button>
           <Buttons variant="cart" />
         </div>
       </div>

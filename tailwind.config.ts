@@ -38,8 +38,13 @@ export default {
       },
       spacing: {
         "1.7": "7.5px",
+        "4.5": "15px",
+        "7.5": "30px",
         "8.5": "35px",
         "25": "100px",
+      },
+      fontSize: {
+        "2.5xl": "26px"
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",

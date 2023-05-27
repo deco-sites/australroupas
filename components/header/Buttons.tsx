@@ -22,42 +22,38 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
         ? (displaySearchbar.value
           ? (
             <Button
-              class="btp-2 text-xl"
+              class="p-2.5 text-xl lg:text-2.5xl"
               onClick={() => (displaySearchbar.value = false)}
             >
-              <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-            </Button>
-          )
-          : (
-            <Button
-              class="p-2 text-xl"
-              aria-label="search icon button"
-              onClick={() => {
-                displaySearchbar.value = !displaySearchbar.value;
-              }}
-            >
               <Icon
-                id="MagnifyingGlass"
+                id="XMark"
                 width={20}
                 height={20}
                 strokeWidth={0.1}
               />
             </Button>
+          )
+          : (
+            <Button
+              class="p-2.5 text-xl lg:text-2.5xl"
+              aria-label="search icon button"
+              onClick={() => {
+                displaySearchbar.value = !displaySearchbar.value;
+              }}
+            >
+              <i class="icon-search"></i>
+              
+            </Button>
           ))
         : (
           <Button
-            class="p-2 text-xl"
+            class="p-2.5 text-xl lg:text-2.5xl"
             aria-label="search icon button"
             onClick={() => {
               displaySearchbar.value = !displaySearchbar.value;
             }}
           >
-            <Icon
-              id="MagnifyingGlass"
-              width={20}
-              height={20}
-              strokeWidth={0.1}
-            />
+            <i class="icon-search"></i>
           </Button>
         )}
     </>
@@ -69,13 +65,13 @@ function MenuButton() {
 
   return (
     <Button
-      class="p-2 text-xl"
+      class="p-2.5 text-xl lg:text-2.5xl"
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <i class="icon-menu"></i>
     </Button>
   );
 }
@@ -83,7 +79,7 @@ function MenuButton() {
 function CartButton() {
   const { displayCart } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
-  const totalItems = cart.value?.items.length || null;
+  const totalItems = cart.value?.items.length || 0;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
   const total = cart.value?.totalizers.find((item) => item.id === "Items");
   const discounts = cart.value?.totalizers.find((item) =>
@@ -107,19 +103,17 @@ function CartButton() {
 
   return (
     <Button
-      class="p-2 text-xl relative"
+      class="p-2.5 text-xl relative lg:ml-7.5"
       aria-label="open cart"
       data-deco={displayCart.value && "open-cart"}
       loading={loading.value}
       onClick={onClick}
     >
-      <div class="indicator">
-        {totalItems && (
-          <span class="indicator-item badge badge-secondary badge-sm">
+      <div class="">
+          <span class="bg-primary rounded-full absolute top-0 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-5 h-5 flex items-center justify-center">
             {totalItems > 9 ? "9+" : totalItems}
           </span>
-        )}
-        <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+        <i class="icon-minicart text-xl lg:text-2.5xl"></i>
       </div>
     </Button>
   );
