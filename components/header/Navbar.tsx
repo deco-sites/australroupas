@@ -55,13 +55,13 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden lg:flex flex-row justify-between items-center border-b border-base-200 w-full pl-2 pr-6">
-        <div class="flex-none w-44">
+      <div class="hidden lg:flex max-w-3xl flex-row justify-between items-center border-b border-base-200 w-full px-25">
+        <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
             <Image
               src={logo}
               alt={"Austral - Loja Oficial"}
-              width={120}
+              width={150}
               class="object-cover object-center"
             />
           </a>

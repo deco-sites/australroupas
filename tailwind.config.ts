@@ -36,6 +36,10 @@ export default {
       maxWidth: {
         "3xl": "1920px",
       },
+      spacing: {
+        "25": "100px",
+        "8.5": "35px"
+      },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
         "slide-right": "slide-right-frame 0.4s ease normal",
