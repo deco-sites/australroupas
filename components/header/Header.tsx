@@ -17,8 +17,8 @@ export interface NavItem {
     red?: true | false;
   }>;
   image?: Array<{
-    src?: Image;
-    alt?: string;
+    src: Image;
+    alt: string;
   }>;
 }
 

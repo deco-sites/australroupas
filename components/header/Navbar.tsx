@@ -5,6 +5,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
+import Overlay from "$store/islands/Overlay.tsx"
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
@@ -20,6 +21,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   callToUsItem: CallToUsItem[];
   iconsHeader: IconsHeader;
 }) {
+  const { displayOverlay } = useUI();
   return (
     <>
       {/* Mobile Version */}
@@ -55,9 +57,10 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
       </div>
 
       {/* Desktop Version */}
-      <div class="hidden lg:flex max-w-3xl flex-row justify-between items-center border-b border-base-200 w-full px-25">
+      <Overlay />
+      <div class="hidden lg:flex max-w-3xl flex-row justify-between items-center border-b border-base-200 w-full px-25 bg-white relative z-50">
         <div class="flex-none">
-          <a href="/" aria-label="Store logo" class="block px-4 py-3 w-[160px]">
+          <a href="/" aria-label="Store logo" class="block px-4 py-3">
             <Image
               src={logo}
               alt={"Austral - Loja Oficial"}
@@ -73,23 +76,18 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
           <Buttons variant="search" />
           <Searchbar searchbar={searchbar} />
           <a
-            class="btn btn-square btn-ghost"
-            href="/login"
+            class=""
+            href="/minha-conta"
             aria-label="Log in"
           >
             <Icon id="User" width={20} height={20} strokeWidth={0.4} />
           </a>
           <a
-            class="btn btn-square btn-ghost"
-            href="/wishlist"
-            aria-label="Wishlist"
+            class=""
+            href="/minha-conta"
+            aria-label="Log in"
           >
-            <Icon
-              id="Heart"
-              size={20}
-              strokeWidth={2}
-              fill="none"
-            />
+            <Icon id="User" width={20} height={20} strokeWidth={0.4} />
           </a>
           <Buttons variant="cart" />
         </div>

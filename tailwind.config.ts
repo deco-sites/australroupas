@@ -37,8 +37,9 @@ export default {
         "3xl": "1920px",
       },
       spacing: {
-        "25": "100px",
+        "1.7": "7.5px",
         "8.5": "35px",
+        "25": "100px",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",
