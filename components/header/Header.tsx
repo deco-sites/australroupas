@@ -27,38 +27,6 @@ export interface CallToUsItem {
   href: string;
 }
 
-export interface IconsHeader {
-  /**
-   * @title Menu Icon
-   * @description Menu Icon used both on mobile
-   */
-  menuIcon?: AvailableIcons;
-
-  /**
-   * @title Search Icon
-   * @description Search Icon used both on mobile and desktop
-   */
-  searchIcon?: AvailableIcons;
-
-  /**
-   * @title Call To Us Icon
-   * @description Call To Us Icon used both on mobile and desktop
-   */
-  callToUsIcon?: AvailableIcons;
-
-  /**
-   * @title My Account Icon
-   * @description My Account Icon used both on mobile and desktop
-   */
-  myAccountIcon?: AvailableIcons;
-
-  /**
-   * @title Cart Icon
-   * @description Cart Icon used both on mobile and desktop
-   */
-  cartIcon?: AvailableIcons;
-}
-
 export interface Props {
   //alerts: string[];
   /** @title Search Bar */
@@ -82,12 +50,6 @@ export interface Props {
   callToUsItems: CallToUsItem[];
 
   /**
-   * @title Icons Header
-   * @description Icons Header used both on mobile and desktop
-   */
-  iconsHeader: IconsHeader;
-
-  /**
    * @title Product suggestions
    * @description Product suggestions displayed on search
    */
@@ -103,7 +65,6 @@ function Header(
   {
     logo,
     callToUsItems,
-    iconsHeader,
     searchbar: _searchbar,
     products,
     navItems = [],
@@ -116,7 +77,6 @@ function Header(
       <header style={{ height: headerHeight }}>
         <div class="bg-white fixed w-full z-50 shadow-header">
           <Navbar
-            iconsHeader={iconsHeader}
             callToUsItem={callToUsItems}
             logo={logo}
             items={navItems}

@@ -9,17 +9,15 @@ import Overlay from "$store/islands/Overlay.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
-import type { IconsHeader } from "./Header.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Button from "$store/components/ui/Button.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 
-function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
+function Navbar({ items, searchbar, logo, callToUsItem }: {
   items: INavItem[];
   searchbar: SearchbarProps;
   logo: LiveImage;
   callToUsItem: CallToUsItem[];
-  iconsHeader: IconsHeader;
 }) {
   const { displayOverlay } = useUI();
   return (
