@@ -73,8 +73,8 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
           {items.map((item) => <NavItem item={item} />)}
         </div>
         <div class="flex-none w-44 flex items-center justify-end gap-2">
-          <Buttons variant="search" />
           <Searchbar searchbar={searchbar} />
+          <Buttons variant="search" searchDesktop={true} />
           <a
             class=""
             href="/minha-conta"
@@ -82,13 +82,12 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
           >
             <Icon id="User" width={20} height={20} strokeWidth={0.4} />
           </a>
-          <a
+          <button
             class=""
-            href="/minha-conta"
-            aria-label="Log in"
+            aria-label="Atendimento"
           >
             <Icon id="User" width={20} height={20} strokeWidth={0.4} />
-          </a>
+          </button>
           <Buttons variant="cart" />
         </div>
       </div>

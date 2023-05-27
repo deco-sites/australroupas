@@ -30,7 +30,7 @@ function NavItem({ item }: { item: INavItem }) {
       {children && children.length > 0 &&
         (
           <div
-            class="fixed flex opacity-0 hover:opacity-90 group-hover:opacity-90 min-h-[366px] transition-all duration-300 ease-linear max-w-3xl py-8.5 bg-white z-50 items-start justify-center w-screen"
+            class="fixed flex opacity-0 group-hover:opacity-90 group-hover:pointer-events-auto min-h-[366px] transition-all duration-300 ease-linear pointer-events-none max-w-3xl py-8.5 bg-white z-50 items-start justify-center w-screen"
             style={{ top: "0px", left: "0px", marginTop: "95px" }}
           >
             <ul class="flex flex-col items-start justify-center">
