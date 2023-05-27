@@ -28,7 +28,9 @@ function GlobalTags() {
         href={asset("/favicon-32x32.png")}
       />
 
-    <style dangerouslySetInnerHTML={{__html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
       @font-face {
         font-family: "icomoon";
         src: url("https://austral.vteximg.com.br/arquivos/icomoon.eot.css?v=0.0.8");
@@ -177,7 +179,9 @@ function GlobalTags() {
       .icon-pinterest:before {
           content: ""
       }
-    `}} />
+    `,
+        }}
+      />
 
       {/* Web Manifest */}
       <link rel="manifest" href={asset("/site.webmanifest")} />
