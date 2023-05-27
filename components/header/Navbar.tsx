@@ -5,7 +5,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
-import Overlay from "$store/islands/Overlay.tsx"
+import Overlay from "$store/islands/Overlay.tsx";
 import { navbarHeight } from "./constants.ts";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";

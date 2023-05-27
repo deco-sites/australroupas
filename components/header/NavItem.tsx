@@ -6,14 +6,18 @@ export interface INavItem {
   href: string;
   red?: true | false;
   children?: INavItem[];
-  image?: Array<{ src: string; alt: string;}>;
+  image?: Array<{ src: string; alt: string }>;
 }
 
 function NavItem({ item }: { item: INavItem }) {
   const { href, label, children, image } = item;
   const { displayOverlay } = useUI();
   return (
-    <li class="group flex items-center" onMouseEnter={() => displayOverlay.value = !displayOverlay.value} onMouseLeave={() => displayOverlay.value = !displayOverlay.value}>
+    <li
+      class="group flex items-center"
+      onMouseEnter={() => displayOverlay.value = !displayOverlay.value}
+      onMouseLeave={() => displayOverlay.value = !displayOverlay.value}
+    >
       <a
         href={href}
         class="border-b-2 border-b-transparent transition-all duration-300 ease-linear px-5 py-8.5 pl-8.5 group-hover:border-b-primary"
@@ -38,19 +42,16 @@ function NavItem({ item }: { item: INavItem }) {
                 </li>
               ))}
             </ul>
-            {
-              image?.map((item:{src: string; alt: string;}) => (
-                <Image
-                  class="p-6"
-                  src={item.src}
-                  alt={item.alt}
-                  width={300}
-                  height={332}
-                  loading="lazy"
-                />
-
-              ))
-            }
+            {image?.map((item: { src: string; alt: string }) => (
+              <Image
+                class="p-6"
+                src={item.src}
+                alt={item.alt}
+                width={300}
+                height={332}
+                loading="lazy"
+              />
+            ))}
           </div>
         )}
     </li>
