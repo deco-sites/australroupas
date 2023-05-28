@@ -41,7 +41,7 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
                 displayOverlay.value = !displayOverlay.value;
               }}
             >
-              <i class="icon-search"></i>
+              <i class="icon-search text-[#636366]"></i>
             </Button>
           ))
         : (
@@ -56,7 +56,7 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
               displayOverlay.value = true;
             }}
           >
-            <i class="icon-search"></i>
+            <i class="icon-search text-[#636366]"></i>
           </Button>
         )}
     </>

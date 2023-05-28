@@ -118,7 +118,7 @@ function Searchbar({
             tabIndex={-1}
             type="submit"
           >
-            <i class="icon-search"></i>
+            <i class="icon-search text-[#636366]"></i>
           </Button>
         </form>
         {/* {variant === "desktop" && <CloseButton />} */}
