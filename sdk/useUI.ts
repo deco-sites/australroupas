@@ -16,7 +16,7 @@ const state = {
   displayMenu,
   displaySearchbar,
   displayOverlay,
-  displayServiceMenu
+  displayServiceMenu,
 };
 
 export const useUI = () => state;

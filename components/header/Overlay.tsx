@@ -1,7 +1,13 @@
 import { useUI } from "$store/sdk/useUI.ts";
 
 function Overlay() {
-  const { displayOverlay, displayCart, displayMenu, displaySearchbar, displayServiceMenu } = useUI();
+  const {
+    displayOverlay,
+    displayCart,
+    displayMenu,
+    displaySearchbar,
+    displayServiceMenu,
+  } = useUI();
   return (
     <>
       <div
