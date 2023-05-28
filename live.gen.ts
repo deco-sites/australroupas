@@ -10,6 +10,7 @@ import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/HeaderButton.tsx";
 import * as $$$$$2 from "./islands/HeaderModals.tsx";
 import * as $$$$$3 from "./islands/HeaderSearchbar.tsx";
+<<<<<<< HEAD
 import * as $$$$$4 from "./islands/Newsletter.tsx";
 import * as $$$$$5 from "./islands/OutOfStock.tsx";
 import * as $$$$$6 from "./islands/ProductImageZoom.tsx";
@@ -34,6 +35,34 @@ import * as $$$$$$$$13 from "./sections/ProductShelf.tsx";
 import * as $$$$$$$$14 from "./sections/SearchResult.tsx";
 import * as $$$$$$$$15 from "./sections/WhatsApp.tsx";
 import * as $$$$$$$$16 from "./sections/WishlistGallery.tsx";
+=======
+import * as $$$$$4 from "./islands/Menu.tsx";
+import * as $$$$$5 from "./islands/NavItem.tsx";
+import * as $$$$$6 from "./islands/Newsletter.tsx";
+import * as $$$$$7 from "./islands/OutOfStock.tsx";
+import * as $$$$$8 from "./islands/Overlay.tsx";
+import * as $$$$$9 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$10 from "./islands/SearchControls.tsx";
+import * as $$$$$11 from "./islands/ServiceMenu.tsx";
+import * as $$$$$12 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$13 from "./islands/SliderJS.tsx";
+import * as $$$$$14 from "./islands/WishlistButton.tsx";
+import * as $$$$$$$$0 from "./sections/BannerGrid.tsx";
+import * as $$$$$$$$1 from "./sections/BannerPLP.tsx";
+import * as $$$$$$$$2 from "./sections/Carousel.tsx";
+import * as $$$$$$$$3 from "./sections/CookieConsent.tsx";
+import * as $$$$$$$$4 from "./sections/DesignSystem.tsx";
+import * as $$$$$$$$5 from "./sections/Features.tsx";
+import * as $$$$$$$$6 from "./sections/Footer.tsx";
+import * as $$$$$$$$7 from "./sections/Header.tsx";
+import * as $$$$$$$$8 from "./sections/Highlights.tsx";
+import * as $$$$$$$$9 from "./sections/LinkTree.tsx";
+import * as $$$$$$$$10 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$11 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$12 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$13 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$14 from "./sections/WishlistGallery.tsx";
+>>>>>>> 87d6674 (servide menu finish)
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -172,9 +201,10 @@ const manifest = {
     "./islands/Overlay.tsx": $$$$$8,
     "./islands/ProductImageZoom.tsx": $$$$$9,
     "./islands/SearchControls.tsx": $$$$$10,
-    "./islands/ShippingSimulation.tsx": $$$$$11,
-    "./islands/SliderJS.tsx": $$$$$12,
-    "./islands/WishlistButton.tsx": $$$$$13,
+    "./islands/ServiceMenu.tsx": $$$$$11,
+    "./islands/ShippingSimulation.tsx": $$$$$12,
+    "./islands/SliderJS.tsx": $$$$$13,
+    "./islands/WishlistButton.tsx": $$$$$14,
   },
   "sections": {
     "$live/sections/PageInclude.tsx": i2$$$$0,

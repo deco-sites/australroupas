@@ -7,7 +7,7 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
 import Overlay from "$store/islands/Overlay.tsx";
 import { navbarHeight } from "./constants.ts";
-import ServiceMenu from "$store/components/header/ServiceMenu.tsx";
+import ServiceMenu from "$store/islands/ServiceMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
@@ -80,7 +80,7 @@ function Navbar({ items, searchbar, logo, callToUsItem }: {
           <Searchbar searchbar={searchbar} />
           <Buttons variant="search" searchDesktop={true} />
 
-          <ServiceMenu />
+          <ServiceMenu callToUsItem={callToUsItem} />
 
           <a
             class="p-2.5 lg:ml-7.5"
