@@ -14,7 +14,12 @@ declare global {
   }
 }
 
-function SearchButton({ searchDesktop = false, iconsHeader }: { searchDesktop: boolean, iconsHeader?:IconsHeader }) {
+function SearchButton(
+  { searchDesktop = false, iconsHeader }: {
+    searchDesktop: boolean;
+    iconsHeader?: IconsHeader;
+  },
+) {
   const { displaySearchbar, displayOverlay, displayServiceMenu } = useUI();
 
   return (
@@ -41,7 +46,10 @@ function SearchButton({ searchDesktop = false, iconsHeader }: { searchDesktop: b
                 displayOverlay.value = true;
               }}
             >
-              <i class={`${iconsHeader?.search || 'icon-search'} text-[#636366]`}></i>
+              <i
+                class={`${iconsHeader?.search || "icon-search"} text-[#636366]`}
+              >
+              </i>
             </Button>
           ))
         : (
@@ -56,14 +64,15 @@ function SearchButton({ searchDesktop = false, iconsHeader }: { searchDesktop: b
               displayOverlay.value = true;
             }}
           >
-            <i class={`${iconsHeader?.search || 'icon-search'} text-[#636366]`}></i>
+            <i class={`${iconsHeader?.search || "icon-search"} text-[#636366]`}>
+            </i>
           </Button>
         )}
     </>
   );
 }
 
-function MenuButton({ iconsHeader }: { iconsHeader?:IconsHeader }) {
+function MenuButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
   const { displayMenu, displaySearchbar, displayOverlay } = useUI();
 
   return (
@@ -76,12 +85,12 @@ function MenuButton({ iconsHeader }: { iconsHeader?:IconsHeader }) {
         displayOverlay.value = false;
       }}
     >
-      <i class={iconsHeader?.menu || 'icon-menu'}></i>
+      <i class={iconsHeader?.menu || "icon-menu"}></i>
     </Button>
   );
 }
 
-function CartButton({ iconsHeader }: { iconsHeader?:IconsHeader }) {
+function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
   const { displayCart, displayServiceMenu, displaySearchbar } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
   const totalItems = cart.value?.items.length || 0;
@@ -120,7 +129,12 @@ function CartButton({ iconsHeader }: { iconsHeader?:IconsHeader }) {
         <span class="bg-primary rounded-full absolute top-0 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-5 h-5 flex items-center justify-center">
           {totalItems > 9 ? "9+" : totalItems}
         </span>
-        <i class={`${iconsHeader?.minicart || 'icon-minicart'} text-xl lg:text-2.5xl`}></i>
+        <i
+          class={`${
+            iconsHeader?.minicart || "icon-minicart"
+          } text-xl lg:text-2.5xl`}
+        >
+        </i>
       </div>
     </Button>
   );
@@ -138,7 +152,9 @@ function Buttons(
   }
 
   if (variant === "search") {
-    return <SearchButton iconsHeader={iconsHeader} searchDesktop={searchDesktop} />;
+    return (
+      <SearchButton iconsHeader={iconsHeader} searchDesktop={searchDesktop} />
+    );
   }
 
   if (variant === "menu") {

@@ -53,7 +53,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
             href="/minha-conta"
             aria-label="Log in"
           >
-            <i class={`${iconsHeader?.myAccount || 'icon-user'} text-xl`}></i>
+            <i class={`${iconsHeader?.myAccount || "icon-user"} text-xl`}></i>
           </a>
           <Buttons variant="cart" iconsHeader={iconsHeader} />
         </div>
@@ -77,7 +77,11 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
         </div>
         <div class="flex-none flex items-center justify-end gap-2 relative">
           <Searchbar searchbar={searchbar} />
-          <Buttons variant="search" searchDesktop={true} iconsHeader={iconsHeader} />
+          <Buttons
+            variant="search"
+            searchDesktop={true}
+            iconsHeader={iconsHeader}
+          />
 
           <ServiceMenu callToUsItem={callToUsItem} iconsHeader={iconsHeader} />
 
@@ -86,7 +90,8 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
             href="/minha-conta"
             aria-label="Log in"
           >
-            <i class={`${iconsHeader?.myAccount || 'icon-user'} text-2.5xl`}></i>
+            <i class={`${iconsHeader?.myAccount || "icon-user"} text-2.5xl`}>
+            </i>
           </a>
           <Buttons variant="cart" iconsHeader={iconsHeader} />
         </div>

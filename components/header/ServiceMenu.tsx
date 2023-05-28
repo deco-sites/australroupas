@@ -2,7 +2,12 @@ import { useUI } from "$store/sdk/useUI.ts";
 import type { CallToUsItem } from "$store/components/header/Header.tsx";
 import type { IconsHeader } from "$store/components/header/Header.tsx";
 
-function ServiceMenu({ callToUsItem, iconsHeader }: { callToUsItem: CallToUsItem[], iconsHeader: IconsHeader }) {
+function ServiceMenu(
+  { callToUsItem, iconsHeader }: {
+    callToUsItem: CallToUsItem[];
+    iconsHeader: IconsHeader;
+  },
+) {
   const { displayOverlay, displayServiceMenu, displaySearchbar } = useUI();
 
   return (
@@ -16,7 +21,7 @@ function ServiceMenu({ callToUsItem, iconsHeader }: { callToUsItem: CallToUsItem
           displaySearchbar.value = false;
         }}
       >
-        <i class={`${iconsHeader?.callToUs || 'icon-phone'} lg:text-2.5xl`}></i>
+        <i class={`${iconsHeader?.callToUs || "icon-phone"} lg:text-2.5xl`}></i>
       </button>
       <div
         class={`${

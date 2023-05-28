@@ -14,38 +14,38 @@ export interface CallToUsItem {
 }
 
 export type AvailableIcons =
-  'icon-menu' | 
-  'icon-plus' | 
-  'icon-minus' | 
-  'icon-arrow' | 
-  'icon-close' | 
-  'icon-delete' | 
-  'icon-search' | 
-  'icon-phone' | 
-  'icon-user' | 
-  'icon-minicart' | 
-  'icon-heart' | 
-  'icon-heart-full' | 
-  'icon-mouse' | 
-  'icon-share' | 
-  'icon-edit' | 
-  'icon-email' | 
-  'icon-check' | 
-  'icon-zoom' | 
-  'icon-warning' | 
-  'icon-hanger' | 
-  'icon-rule' | 
-  'icon-security' | 
-  'icon-arroba' | 
-  'icon-embalagem' | 
-  'icon-notification' | 
-  'icon-pin' | 
-  'icon-play' | 
-  'icon-facebook' | 
-  'icon-whatsapp' | 
-  'icon-instagram' | 
-  'icon-youtube' | 
-  'icon-pinterest';
+  | "icon-menu"
+  | "icon-plus"
+  | "icon-minus"
+  | "icon-arrow"
+  | "icon-close"
+  | "icon-delete"
+  | "icon-search"
+  | "icon-phone"
+  | "icon-user"
+  | "icon-minicart"
+  | "icon-heart"
+  | "icon-heart-full"
+  | "icon-mouse"
+  | "icon-share"
+  | "icon-edit"
+  | "icon-email"
+  | "icon-check"
+  | "icon-zoom"
+  | "icon-warning"
+  | "icon-hanger"
+  | "icon-rule"
+  | "icon-security"
+  | "icon-arroba"
+  | "icon-embalagem"
+  | "icon-notification"
+  | "icon-pin"
+  | "icon-play"
+  | "icon-facebook"
+  | "icon-whatsapp"
+  | "icon-instagram"
+  | "icon-youtube"
+  | "icon-pinterest";
 
 export interface IconsHeader {
   search?: AvailableIcons;
@@ -103,7 +103,7 @@ function Header(
     products,
     navItems = [],
     suggestions,
-    iconsHeader
+    iconsHeader,
   }: Props,
 ) {
   const searchbar = { ..._searchbar, products, suggestions };
