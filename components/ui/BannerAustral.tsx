@@ -105,26 +105,27 @@ export interface Props{
     maxWidth?: number;
     /** @description Tela cheia */
     fullScreen: boolean;
+    /** @description Banner Principal */
+    isFirstBanner: boolean;
+    /** @description Bordas arredondadas */
+    borderRadius?: boolean;
 }
 
 const isImage= (item: Item): item is ImageProps =>
   // deno-lint-ignore no-explicit-any
   typeof (item as any)?.altImage === "string";
 
-export default function Container({column, maxWidth, fullScreen} : Props){
-    
+export default function Container({column, maxWidth, fullScreen, isFirstBanner, borderRadius} : Props){
     return(
-        <div class={`lg:max-w-${maxWidth ? "[" + maxWidth + "px]" : "none"} mx-auto flex flex-wrap justify-center mb-10`}>
+        <div class={`mx-auto flex flex-wrap justify-center mb-10`} style={`max-width: ${maxWidth}px`}>
             <div>
-                <BannerAustral column={column} maxWidth={maxWidth} fullScreen={fullScreen}/>
+                <BannerAustral column={column} maxWidth={maxWidth} fullScreen={fullScreen} isFirstBanner={isFirstBanner} borderRadius={borderRadius}/>
             </div>
-
-
         </div>
     )
 }
 
-function BannerAustral({column, maxWidth, fullScreen} : {column: Column; maxWidth: number | undefined; fullScreen: boolean}){
+function BannerAustral({column, maxWidth, fullScreen, isFirstBanner, borderRadius}  : Props){
     const { creativeCarousel, carouselOptions} = column
     const id = useId();
     return(
@@ -138,16 +139,16 @@ function BannerAustral({column, maxWidth, fullScreen} : {column: Column; maxWidt
                     const { content, padding } = creative
                     if(isImage(creative.creative)){
                         return(
-                            <Slider.Item index={index}  class={`carousel-item ${fullScreen ? "min-w-[100vw]" : "max-w-[calc(100vw-40px)]"}`}>
-                                <div class={`${fullScreen ? `min-w-[100vw]` : ``}`}>
-                                    <Image creative={creative.creative} />
+                            <Slider.Item index={index}  class={`carousel-item ${fullScreen ? "min-w-[100vw]" : "max-w-[calc(100vw-30px)] sm:max-w-full flex flex-col"}`}>
+                                <div class={`${fullScreen ? `min-w-[100vw]` : `w-full`}`}>
+                                    <Image creative={creative.creative} borderRadius={borderRadius} index={index} isFirstBanner={isFirstBanner}/>
                                 </div>
                                 <Content padding={padding} content={content}/>
                             </Slider.Item>
                         )
                     }else{
                         return(
-                            <Slider.Item index={index} class={`carousel-item ${fullScreen ? "min-w-[100vw]" : "max-w-[calc(100vw-40px)]"}`}>
+                            <Slider.Item index={index} class={`carousel-item ${fullScreen ? "min-w-[100vw]" : "max-w-[calc(100vw-30px)] sm:max-w-full"}`}>
                                 <VideoComponent creative={creative.creative} />
                                 <Content padding={padding} content={content}/>
                             </Slider.Item>
@@ -165,9 +166,11 @@ function BannerAustral({column, maxWidth, fullScreen} : {column: Column; maxWidt
                 creativeCarousel.length > 1 && <Dots creativeCarousel={creativeCarousel} interval={carouselOptions?.interval} />
             }
 
-            <a href="#scroll" class="absolute bottom-[10px] hover:bottom-[5px] left-1/2 transform -translate-x-1/2 px-4 py-3 transition-all duration-150 cursor-pointer">
+            {
+                isFirstBanner && <a href="#scroll" class="absolute bottom-[10px] hover:bottom-[5px] left-1/2 transform -translate-x-1/2 px-4 py-3 transition-all duration-150 cursor-pointer">
                 <i class="icon icon-mouse text-white text-[26px]"></i>
             </a>
+            }
 
             <SliderJS rootId={id} interval={carouselOptions?.interval && carouselOptions.interval * 1e3} />
             </div>
@@ -215,30 +218,29 @@ function Content({padding, content} : {padding: Padding | undefined; content: Co
     )
 }
 
-function Image({creative} : Creative){
+function Image({creative, borderRadius, index, isFirstBanner} : {creative: Item; borderRadius: boolean | undefined; index: number; isFirstBanner: boolean;}){
+    const isLcp = isFirstBanner && index == 0
     return(
         <a href={(creative as ImageProps).hrefImage}>
-            <Picture>
-            <Source
-                media="(max-width: 1024px)"
-                fetchPriority={"high"}
-                src={(creative as ImageProps).imageMobile}
-                width={360}
-                height={600}
-            />
-            <Source
-                media="(min-width: 1025px)"
-                fetchPriority={"high"}
-                src={(creative as ImageProps).imageDesktop}
-                width={1440}
-                height={680}
-            />
-            <img
-                class="object-cover w-full sm:h-full"
-                loading={"eager"}
-                src={(creative as ImageProps).imageDesktop}
-                alt={(creative as ImageProps).altImage}
-            />
+            <Picture preload={isLcp}>
+                <Source
+                    media="(max-width: 1024px)"
+                    fetchPriority={isLcp ? "high" : "low"}
+                    src={(creative as ImageProps).imageMobile}
+                    width={360}
+                />
+                <Source
+                    media="(min-width: 1025px)"
+                    fetchPriority={isLcp ? "high" : "low"}
+                    src={(creative as ImageProps).imageDesktop}
+                    width={1440}
+                />
+                <img
+                    class={`object-cover w-full sm:h-full ${borderRadius && "rounded-md"}`}
+                    loading={isLcp ? "eager" : "lazy"}
+                    src={(creative as ImageProps).imageDesktop}
+                    alt={(creative as ImageProps).altImage}
+                />
             </Picture>
         </a>
     )

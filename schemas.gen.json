@@ -7394,11 +7394,25 @@
           "type": "boolean",
           "description": "Tela cheia",
           "title": "Full Screen"
+        },
+        "isFirstBanner": {
+          "type": "boolean",
+          "description": "Banner Principal",
+          "title": "Is First Banner"
+        },
+        "borderRadius": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Bordas arredondadas",
+          "title": "Border Radius"
         }
       },
       "required": [
         "column",
-        "fullScreen"
+        "fullScreen",
+        "isFirstBanner"
       ],
       "title": "deco-sites/australroupas/components/ui/BannerAustral.tsx@Props"
     },
