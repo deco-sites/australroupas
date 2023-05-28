@@ -118,8 +118,7 @@ export default function Container(
 ) {
   return (
     <div
-      class={`mx-auto flex flex-wrap justify-center mb-10`}
-      style={`max-width: ${maxWidth}px`}
+      class={`mx-auto flex flex-wrap justify-center mb-10 ${fullScreen ? "" : "sm:px-[100px] max-w-[1920px]"}`}
     >
       <div>
         <BannerAustral
@@ -152,7 +151,7 @@ function BannerAustral(
               return (
                 <Slider.Item
                   index={index}
-                  class={`carousel-item ${
+                  class={`relative carousel-item ${
                     fullScreen
                       ? "min-w-[100vw]"
                       : "max-w-[calc(100vw-30px)] sm:max-w-full flex flex-col"
@@ -173,7 +172,7 @@ function BannerAustral(
               return (
                 <Slider.Item
                   index={index}
-                  class={`carousel-item ${
+                  class={`relative carousel-item ${
                     fullScreen
                       ? "min-w-[100vw]"
                       : "max-w-[calc(100vw-30px)] sm:max-w-full"
@@ -233,13 +232,12 @@ function Content(
 
   return (
     <div
+      style={`
+      padding: ${padding?.paddingTop || 0}px ${padding?.paddingRight || 0}px ${padding?.paddingBottom || 0}px ${padding?.paddingLeft || 0}px
+      `}
       class={`w-full h-full ${
         content?.where == "Dentro" ? "absolute top-0" : ""
-      } flex flex-col ${verticalAlign} 
-            pl-[${padding?.paddingLeft}px]
-            pr-[${padding?.paddingRight}px]
-            pt-[${padding?.paddingTop}px]
-            pb-[${padding?.paddingBottom}px]`}
+      } flex flex-col ${verticalAlign}`}
     >
       <div class="w-full">
         {content?.title?.map((title) => {
@@ -252,15 +250,13 @@ function Content(
       </div>
       <div class={`w-full flex gap-5 py-2.5 ${align}`}>
         {content?.buttons?.map((button) => {
-          const color = button.color;
           return (
-            <Button
-              as="a"
+            <a
               href={button.href}
-              class="flex items-center text-center"
+              class="flex items-center text-center bg-white text-black px-6 py-2 rounded-md text-[14px] tracking-wide"
             >
               {button.text}
-            </Button>
+            </a>
           );
         })}
       </div>

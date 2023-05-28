@@ -20,6 +20,10 @@ export const theme = {
   "--border-btn": "1px", // border width of buttons
   "--tab-border": "1px", // border width of tabs
   "--tab-radius": "0.5rem", // border radius of tabs
+  "home-container": {
+    "padding": "0px 100px",
+    "max-width": "1920px"
+  },
 };
 
 export default {

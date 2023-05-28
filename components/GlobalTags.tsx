@@ -52,6 +52,10 @@ function GlobalTags() {
           -moz-osx-font-smoothing: grayscale
       }
 
+      .ql-editor{
+        padding: 0px !important;
+      }
+
       .icon-menu:before {
           content: ""
       }
