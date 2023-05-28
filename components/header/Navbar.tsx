@@ -71,7 +71,7 @@ function Navbar({ items, searchbar, logo, callToUsItem }: {
           </a>
         </div>
         <div class="flex-auto flex justify-center ml-20">
-          {items.map((item) => <NavItem item={item} />)}
+          {items.map((item, index) => <NavItem item={item} index={index} />)}
         </div>
         <div class="flex-none flex items-center justify-end gap-2 relative">
           <Searchbar searchbar={searchbar} />

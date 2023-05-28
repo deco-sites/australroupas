@@ -3,25 +3,11 @@ import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
+import type { INavItem } from "$store/components/header/NavItem.tsx";
 import { AvailableIcons } from "$store/components/ui/Icon.tsx";
 
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
-
-export interface NavItem {
-  label: string;
-  href: string;
-  red?: true | false;
-  children?: Array<{
-    label: string;
-    href: string;
-    red?: true | false;
-  }>;
-  image?: Array<{
-    src: Image;
-    alt: string;
-  }>;
-}
 
 export interface CallToUsItem {
   label: string;
@@ -36,7 +22,7 @@ export interface Props {
    * @title Navigation items
    * @description Navigation items used both on mobile and desktop menus
    */
-  navItems?: NavItem[];
+  navItems?: INavItem[];
 
   /**
    * @title Image logo

@@ -6689,6 +6689,52 @@
             ]
           },
           "title": "Image"
+        },
+        "opacityMenu": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "0.10"
+            },
+            {
+              "type": "string",
+              "const": "0.20"
+            },
+            {
+              "type": "string",
+              "const": "0.30"
+            },
+            {
+              "type": "string",
+              "const": "0.40"
+            },
+            {
+              "type": "string",
+              "const": "0.50"
+            },
+            {
+              "type": "string",
+              "const": "0.60"
+            },
+            {
+              "type": "string",
+              "const": "0.70"
+            },
+            {
+              "type": "string",
+              "const": "0.80"
+            },
+            {
+              "type": "string",
+              "const": "0.90"
+            },
+            {
+              "type": "string",
+              "const": "1"
+            }
+          ],
+          "type": "string",
+          "title": "Opacity Menu"
         }
       },
       "required": [
@@ -8785,101 +8831,6 @@
       "required": [],
       "title": "EditableProps"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        },
-        "red": {
-          "anyOf": [
-            {
-              "type": "boolean",
-              "const": true
-            },
-            {
-              "type": "boolean",
-              "const": false
-            }
-          ],
-          "type": "boolean",
-          "title": "Red"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "red": {
-                "anyOf": [
-                  {
-                    "type": "boolean",
-                    "const": true
-                  },
-                  {
-                    "type": "boolean",
-                    "const": false
-                  }
-                ],
-                "type": "boolean",
-                "title": "Red"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
-          },
-          "title": "Children"
-        },
-        "image": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "src": {
-                "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-                "title": "Src"
-              },
-              "alt": {
-                "type": "string",
-                "title": "Alt"
-              }
-            },
-            "required": [
-              "src",
-              "alt"
-            ]
-          },
-          "title": "Image"
-        }
-      },
-      "required": [
-        "label",
-        "href"
-      ],
-      "title": "NavItem"
-    },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem"
-      },
-      "title": "NavItem[]"
-    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -8888,7 +8839,7 @@
           "title": "Search Bar"
         },
         "navItems": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@INavItem[]",
           "title": "Navigation items",
           "description": "Navigation items used both on mobile and desktop menus"
         },
