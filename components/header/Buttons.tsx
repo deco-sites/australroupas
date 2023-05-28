@@ -14,7 +14,7 @@ declare global {
 }
 
 function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
-  const { displaySearchbar, displayOverlay } = useUI();
+  const { displaySearchbar, displayOverlay, displayServiceMenu } = useUI();
 
   return (
     <>
@@ -24,8 +24,9 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
             <Button
               class="p-2.5 text-xl lg:text-2.5xl"
               onClick={() => {
-                displaySearchbar.value = false;
-                displayOverlay.value = !displayOverlay.value;
+                displaySearchbar.value = !displaySearchbar.value;
+                displayServiceMenu.value = false;
+                displayOverlay.value = true;
               }}
             >
               <i class="icon-close"></i>
@@ -51,7 +52,8 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
             aria-label="search icon button"
             onClick={() => {
               displaySearchbar.value = !displaySearchbar.value;
-              displayOverlay.value = !displayOverlay.value;
+              displayServiceMenu.value = false;
+              displayOverlay.value = true;
             }}
           >
             <i class="icon-search"></i>
@@ -78,7 +80,7 @@ function MenuButton() {
 }
 
 function CartButton() {
-  const { displayCart } = useUI();
+  const { displayCart, displayServiceMenu, displaySearchbar } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
   const totalItems = cart.value?.items.length || 0;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
@@ -89,6 +91,8 @@ function CartButton() {
 
   const onClick = () => {
     displayCart.value = true;
+    displaySearchbar.value = false;
+    displayServiceMenu.value = false;
     sendEvent({
       name: "view_cart",
       params: {

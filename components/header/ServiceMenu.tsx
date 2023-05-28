@@ -3,8 +3,8 @@ import type { CallToUsItem } from "$store/components/header/Header.tsx";
 import { useState } from "preact/compat";
 
 function ServiceMenu({ callToUsItem }: { callToUsItem: CallToUsItem[] }) {
-  const { displayOverlay } = useUI();
-  const [show, setShow] = useState<boolean>(false);
+  const { displayOverlay, displayServiceMenu, displaySearchbar } = useUI();
+
   return (
     <div class="relative">
       <button
@@ -12,14 +12,15 @@ function ServiceMenu({ callToUsItem }: { callToUsItem: CallToUsItem[] }) {
         aria-label="Atendimento"
         onClick={() => {
           displayOverlay.value = !displayOverlay.value;
-          setShow(!show);
+          displayServiceMenu.value = !displayServiceMenu.value;
+          displaySearchbar.value = false;
         }}
       >
         <i class="icon-phone text-2.5xl"></i>
       </button>
       <div
         class={`${
-          show
+          displayServiceMenu.value
             ? "opacity-1 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         } absolute top-14 -left-36 min-w-[240px] bg-white rounded-md shadow-service py-8.5 px-4.5`}

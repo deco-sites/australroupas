@@ -11,12 +11,16 @@ export interface INavItem {
 
 function NavItem({ item }: { item: INavItem }) {
   const { href, label, children, image } = item;
-  const { displayOverlay } = useUI();
+  const { displayOverlay, displaySearchbar, displayServiceMenu } = useUI();
   return (
     <li
       class="group flex items-center"
-      onMouseEnter={() => displayOverlay.value = !displayOverlay.value}
-      onMouseLeave={() => displayOverlay.value = !displayOverlay.value}
+      onMouseEnter={() => {
+        displayOverlay.value = true;
+        displaySearchbar.value = false;
+        displayServiceMenu.value = false;
+      }}
+      onMouseLeave={() => displayOverlay.value = false}
     >
       <a
         href={href}

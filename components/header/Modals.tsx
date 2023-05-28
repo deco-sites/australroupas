@@ -11,7 +11,7 @@ const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
 const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
 
 interface Props {
-  menu: MenuProps;
+  menu?: MenuProps;
   searchbar?: SearchbarProps;
 }
 
@@ -20,7 +20,7 @@ function Modals({ menu, searchbar }: Props) {
 
   return (
     <>
-      <Modal
+      {/* <Modal
         title="Menu"
         mode="sidebar-left"
         loading="lazy"
@@ -46,7 +46,7 @@ function Modals({ menu, searchbar }: Props) {
         <Suspense fallback={<Loading />}>
           <Searchbar {...searchbar} variant="desktop" />
         </Suspense>
-      </Modal>
+      </Modal> */}
 
       <Modal
         title="Minha sacola"

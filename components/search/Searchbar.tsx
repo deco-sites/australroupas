@@ -112,7 +112,7 @@ function Searchbar({
             autocomplete="off"
           />
           <Button
-            class="absolute right-4 lg:left-[104%] lg:top-[11px] lg:text-2xl"
+            class="absolute right-4 lg:left-[104%] lg:top-[6px] lg:text-2.5xl"
             aria-label="Search"
             htmlFor="searchbar"
             tabIndex={-1}
