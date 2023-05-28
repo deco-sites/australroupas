@@ -34,7 +34,7 @@ function SearchButton(
                 displayOverlay.value = false;
               }}
             >
-              <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+              <i class={`icon-close`}></i>
             </Button>
           )
           : (
