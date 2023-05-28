@@ -8831,6 +8831,683 @@
       "required": [],
       "title": "EditableProps"
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconsHeader": {
+      "type": "object",
+      "properties": {
+        "search": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "Search"
+        },
+        "callToUs": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "Call To Us"
+        },
+        "myAccount": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "My Account"
+        },
+        "minicart": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "Minicart"
+        },
+        "menu": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "Menu"
+        }
+      },
+      "required": [],
+      "title": "IconsHeader"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -8853,6 +9530,11 @@
           "title": "Call to Us items",
           "description": "Call to Us items used both on mobile and desktop"
         },
+        "iconsHeader": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconsHeader",
+          "title": "Header icons",
+          "description": "Header icons used both on mobile and desktop"
+        },
         "products": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Product suggestions",
@@ -8865,7 +9547,8 @@
       },
       "required": [
         "logo",
-        "callToUsItems"
+        "callToUsItems",
+        "iconsHeader"
       ],
       "title": "deco-sites/australroupas/components/header/Header.tsx@Props"
     },

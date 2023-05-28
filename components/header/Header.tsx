@@ -4,7 +4,6 @@ import type { EditableProps as SearchbarProps } from "$store/components/search/S
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import type { INavItem } from "$store/components/header/NavItem.tsx";
-import { AvailableIcons } from "$store/components/ui/Icon.tsx";
 
 import Navbar from "./Navbar.tsx";
 import { headerHeight } from "./constants.ts";
@@ -12,6 +11,48 @@ import { headerHeight } from "./constants.ts";
 export interface CallToUsItem {
   label: string;
   href: string;
+}
+
+export type AvailableIcons =
+  'icon-menu' | 
+  'icon-plus' | 
+  'icon-minus' | 
+  'icon-arrow' | 
+  'icon-close' | 
+  'icon-delete' | 
+  'icon-search' | 
+  'icon-phone' | 
+  'icon-user' | 
+  'icon-minicart' | 
+  'icon-heart' | 
+  'icon-heart-full' | 
+  'icon-mouse' | 
+  'icon-share' | 
+  'icon-edit' | 
+  'icon-email' | 
+  'icon-check' | 
+  'icon-zoom' | 
+  'icon-warning' | 
+  'icon-hanger' | 
+  'icon-rule' | 
+  'icon-security' | 
+  'icon-arroba' | 
+  'icon-embalagem' | 
+  'icon-notification' | 
+  'icon-pin' | 
+  'icon-play' | 
+  'icon-facebook' | 
+  'icon-whatsapp' | 
+  'icon-instagram' | 
+  'icon-youtube' | 
+  'icon-pinterest';
+
+export interface IconsHeader {
+  search?: AvailableIcons;
+  callToUs?: AvailableIcons;
+  myAccount?: AvailableIcons;
+  minicart?: AvailableIcons;
+  menu?: AvailableIcons;
 }
 
 export interface Props {
@@ -37,6 +78,12 @@ export interface Props {
   callToUsItems: CallToUsItem[];
 
   /**
+   * @title Header icons
+   * @description Header icons used both on mobile and desktop
+   */
+  iconsHeader: IconsHeader;
+
+  /**
    * @title Product suggestions
    * @description Product suggestions displayed on search
    */
@@ -56,6 +103,7 @@ function Header(
     products,
     navItems = [],
     suggestions,
+    iconsHeader
   }: Props,
 ) {
   const searchbar = { ..._searchbar, products, suggestions };
@@ -68,6 +116,7 @@ function Header(
             logo={logo}
             items={navItems}
             searchbar={searchbar}
+            iconsHeader={iconsHeader}
           />
         </div>
 

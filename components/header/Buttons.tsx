@@ -1,5 +1,6 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
+import type { IconsHeader } from "$store/components/header/Header.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
@@ -13,7 +14,7 @@ declare global {
   }
 }
 
-function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
+function SearchButton({ searchDesktop = false, iconsHeader }: { searchDesktop: boolean, iconsHeader?:IconsHeader }) {
   const { displaySearchbar, displayOverlay, displayServiceMenu } = useUI();
 
   return (
@@ -24,12 +25,11 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
             <Button
               class="p-2.5 text-xl lg:text-2.5xl"
               onClick={() => {
-                displaySearchbar.value = !displaySearchbar.value;
-                displayServiceMenu.value = false;
-                displayOverlay.value = true;
+                displaySearchbar.value = false;
+                displayOverlay.value = false;
               }}
             >
-              <i class="icon-close"></i>
+              <Icon id="XMark" width={20} height={20} strokeWidth={2} />
             </Button>
           )
           : (
@@ -37,11 +37,11 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
               class="p-2.5 text-xl lg:text-2.5xl"
               aria-label="search icon button"
               onClick={() => {
-                displaySearchbar.value = !displaySearchbar.value;
-                displayOverlay.value = !displayOverlay.value;
+                displaySearchbar.value = true;
+                displayOverlay.value = true;
               }}
             >
-              <i class="icon-search text-[#636366]"></i>
+              <i class={`${iconsHeader?.search || 'icon-search'} text-[#636366]`}></i>
             </Button>
           ))
         : (
@@ -56,14 +56,14 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
               displayOverlay.value = true;
             }}
           >
-            <i class="icon-search text-[#636366]"></i>
+            <i class={`${iconsHeader?.search || 'icon-search'} text-[#636366]`}></i>
           </Button>
         )}
     </>
   );
 }
 
-function MenuButton() {
+function MenuButton({ iconsHeader }: { iconsHeader?:IconsHeader }) {
   const { displayMenu, displaySearchbar, displayOverlay } = useUI();
 
   return (
@@ -76,12 +76,12 @@ function MenuButton() {
         displayOverlay.value = false;
       }}
     >
-      <i class="icon-menu"></i>
+      <i class={iconsHeader?.menu || 'icon-menu'}></i>
     </Button>
   );
 }
 
-function CartButton() {
+function CartButton({ iconsHeader }: { iconsHeader?:IconsHeader }) {
   const { displayCart, displayServiceMenu, displaySearchbar } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
   const totalItems = cart.value?.items.length || 0;
@@ -120,28 +120,29 @@ function CartButton() {
         <span class="bg-primary rounded-full absolute top-0 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-5 h-5 flex items-center justify-center">
           {totalItems > 9 ? "9+" : totalItems}
         </span>
-        <i class="icon-minicart text-xl lg:text-2.5xl"></i>
+        <i class={`${iconsHeader?.minicart || 'icon-minicart'} text-xl lg:text-2.5xl`}></i>
       </div>
     </Button>
   );
 }
 
 function Buttons(
-  { variant, searchDesktop = false }: {
+  { variant, searchDesktop = false, iconsHeader }: {
     variant: "cart" | "search" | "menu";
     searchDesktop?: boolean;
+    iconsHeader?: IconsHeader;
   },
 ) {
   if (variant === "cart") {
-    return <CartButton />;
+    return <CartButton iconsHeader={iconsHeader} />;
   }
 
   if (variant === "search") {
-    return <SearchButton searchDesktop={searchDesktop} />;
+    return <SearchButton iconsHeader={iconsHeader} searchDesktop={searchDesktop} />;
   }
 
   if (variant === "menu") {
-    return <MenuButton />;
+    return <MenuButton iconsHeader={iconsHeader} />;
   }
 
   return null;
