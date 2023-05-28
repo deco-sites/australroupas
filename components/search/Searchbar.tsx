@@ -12,11 +12,11 @@
 import { useEffect, useRef } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
-import Spinner from "$store/components/ui/Spinner.tsx";
-import ProductCard from "$store/components/product/ProductCard.tsx";
-import Slider from "$store/components/ui/Slider.tsx";
+// import Spinner from "$store/components/ui/Spinner.tsx";
+// import ProductCard from "$store/components/product/ProductCard.tsx";
+// import Slider from "$store/components/ui/Slider.tsx";
 import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
-import { useUI } from "$store/sdk/useUI.ts";
+// import { useUI } from "$store/sdk/useUI.ts";
 import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 
@@ -26,19 +26,6 @@ declare global {
       sendAnalyticsEvent: (args: AnalyticsEvent) => void;
     };
   }
-}
-
-function CloseButton() {
-  const { displaySearchbar } = useUI();
-
-  return (
-    <Button
-      class="btn-ghost btn-circle"
-      onClick={() => (displaySearchbar.value = false)}
-    >
-      <Icon id="XMark" width={20} height={20} strokeWidth={2} />
-    </Button>
-  );
 }
 
 // Editable props
@@ -80,9 +67,9 @@ function Searchbar({
 }: Props) {
   const searchInputRef = useRef<HTMLInputElement>(null);
   const { setSearch, suggestions, loading } = useAutocomplete();
-  const hasProducts = Boolean(suggestions.value?.products?.length);
-  const hasTerms = Boolean(suggestions.value?.searches?.length);
-  const notFound = !hasProducts && !hasTerms;
+  // const hasProducts = Boolean(suggestions.value?.products?.length);
+  // const hasTerms = Boolean(suggestions.value?.searches?.length);
+  //const notFound = !hasProducts && !hasTerms;
 
   useEffect(() => {
     if (!searchInputRef.current) {
@@ -93,18 +80,19 @@ function Searchbar({
   }, []);
 
   return (
-    <div class="flex flex-col bg-base-100 h-12">
-      <div class="flex items-center gap-4 px-4 h-12">
+    <div class="flex flex-col bg-base-100 h-12 lg:bg-transparent">
+      <div class="flex items-center gap-4 px-4 lg:px-5 h-12 w-64">
         <form
           id="searchbar"
           action={action}
-          class="flex-grow flex gap-3 px-5 items-center"
+          class="flex-grow flex gap-3 px-5 lg:px-0 items-center"
         >
           <input
             ref={searchInputRef}
             id="search-input"
             class="h-full bg-transparent flex-grow outline-none placeholder:text-black text-xs text-black"
             name={name}
+            required={true}
             defaultValue={query}
             onInput={(e) => {
               const value = e.currentTarget.value;
@@ -124,25 +112,20 @@ function Searchbar({
             autocomplete="off"
           />
           <Button
-            class="absolute right-4"
+            class="absolute right-4 lg:left-[104%] lg:top-[11px] lg:text-2xl"
             aria-label="Search"
             htmlFor="searchbar"
             tabIndex={-1}
             type="submit"
           >
-            <Icon
-              class="text-black"
-              id="MagnifyingGlass"
-              size={25}
-              strokeWidth={0.01}
-            />
+            <i class="icon-search"></i>
           </Button>
         </form>
         {/* {variant === "desktop" && <CloseButton />} */}
       </div>
-      <div class="flex flex-col gap-6 divide-y divide-base-200 mt-6 empty:mt-0 md:flex-row md:divide-y-0">
-        {
-          /*
+      {
+          /*<div class="flex flex-col gap-6 divide-y divide-base-200 mt-6 empty:mt-0 md:flex-row md:divide-y-0">
+        
 
           VTEX INTELIGENT SEARCH NAO ESTA INSTALADO
 
@@ -207,9 +190,9 @@ function Searchbar({
                 </Slider>
               </div>
             </>
-          )} */
+          )} 
         }
-      </div>
+      </div>*/}
     </div>
   );
 }

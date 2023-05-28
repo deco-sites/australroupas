@@ -1,7 +1,6 @@
 import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import Menu from "$store/islands/Menu.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
@@ -11,8 +10,6 @@ import ServiceMenu from "$store/islands/ServiceMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
-import Button from "$store/components/ui/Button.tsx";
-import { useUI } from "$store/sdk/useUI.ts";
 
 function Navbar({ items, searchbar, logo, callToUsItem }: {
   items: INavItem[];
@@ -25,7 +22,7 @@ function Navbar({ items, searchbar, logo, callToUsItem }: {
       {/* Mobile Version */}
       <div
         style={{ height: navbarHeight }}
-        class="lg:hidden flex flex-row justify-between items-center w-full px-1.5"
+        class="lg:hidden flex flex-row justify-between items-center w-full px-1.5 bg-white relative z-50"
       >
         <div>
           <Buttons variant="menu" />
@@ -73,10 +70,10 @@ function Navbar({ items, searchbar, logo, callToUsItem }: {
             />
           </a>
         </div>
-        <div class="flex-auto flex justify-center">
+        <div class="flex-auto flex justify-center ml-20">
           {items.map((item) => <NavItem item={item} />)}
         </div>
-        <div class="flex-none w-44 flex items-center justify-end gap-2">
+        <div class="flex-none flex items-center justify-end gap-2 relative">
           <Searchbar searchbar={searchbar} />
           <Buttons variant="search" searchDesktop={true} />
 

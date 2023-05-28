@@ -1,8 +1,4 @@
-import { lazy, Suspense } from "preact/compat";
-
 import { useUI } from "$store/sdk/useUI.ts";
-import Loading from "$store/components/ui/Loading.tsx";
-import { headerHeight } from "$store/components/header/constants.ts";
 import Searchcar, {
   Props as SearchbarProps,
 } from "$store/components/search/Searchbar.tsx";
@@ -22,23 +18,16 @@ function Searchbar({ searchbar }: Props) {
   return (
     <div
       class={`${
-        open ? "block border-y border-base-200 shadow" : "hidden"
-      } absolute left-0 top-0 w-screen z-50 bg-base-100`}
-      style={{ marginTop: headerHeight }}
+        open ? "block border-y border-base-200 shadow lg:shadow-none lg:border-0" : "hidden"
+      } absolute lg:pointer-events-none lg:mt-0 left-0 top-0 w-screen lg:w-auto z-50 bg-base-100 lg:bg-transparent mt-[58px]`}
     >
       <>
         <div
-          class={`z-20 fixed h-0 w-full bg-white transition-all duration-300 ease-linear opacity-0 ${
-            open ? "opacity-100 h-12" : ""
+          class={`z-20 fixed lg:relative h-0 lg:h-12 w-full bg-white lg:border-b lg:border-b-black lg:right-full transition-all duration-300 ease-linear opacity-0 ${
+            open ? "opacity-100 h-12 lg:pointer-events-auto" : ""
           }`}
         >
           <Searchcar {...searchbar} variant="desktop" />
-        </div>
-        <div
-          class={`z-10 fixed h-full w-full bg-black transition-all duration-300 ease-linear opacity-0 ${
-            open ? "opacity-60 h-full" : ""
-          }`}
-        >
         </div>
       </>
     </div>

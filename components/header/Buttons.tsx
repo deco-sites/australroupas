@@ -14,7 +14,7 @@ declare global {
 }
 
 function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
-  const { displaySearchbar } = useUI();
+  const { displaySearchbar, displayOverlay } = useUI();
 
   return (
     <>
@@ -23,14 +23,12 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
           ? (
             <Button
               class="p-2.5 text-xl lg:text-2.5xl"
-              onClick={() => (displaySearchbar.value = false)}
+              onClick={() => {
+                displaySearchbar.value = false;
+                displayOverlay.value = !displayOverlay.value;
+              }}
             >
-              <Icon
-                id="XMark"
-                width={20}
-                height={20}
-                strokeWidth={0.1}
-              />
+              <i class="icon-close"></i>
             </Button>
           )
           : (
@@ -39,22 +37,24 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
               aria-label="search icon button"
               onClick={() => {
                 displaySearchbar.value = !displaySearchbar.value;
+                displayOverlay.value = !displayOverlay.value;
               }}
             >
               <i class="icon-search"></i>
             </Button>
           ))
-        : (
+        :
           <Button
-            class="p-2.5 text-xl lg:text-2.5xl"
+            class={`p-2.5 text-xl lg:text-2.5xl ${displaySearchbar.value ? 'opacity-0': ''}`}
             aria-label="search icon button"
             onClick={() => {
               displaySearchbar.value = !displaySearchbar.value;
+              displayOverlay.value = !displayOverlay.value;
             }}
           >
             <i class="icon-search"></i>
           </Button>
-        )}
+        }
     </>
   );
 }
