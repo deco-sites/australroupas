@@ -43,9 +43,11 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
               <i class="icon-search"></i>
             </Button>
           ))
-        :
+        : (
           <Button
-            class={`p-2.5 text-xl lg:text-2.5xl ${displaySearchbar.value ? 'opacity-0': ''}`}
+            class={`p-2.5 text-xl lg:text-2.5xl ${
+              displaySearchbar.value ? "opacity-0" : ""
+            }`}
             aria-label="search icon button"
             onClick={() => {
               displaySearchbar.value = !displaySearchbar.value;
@@ -54,7 +56,7 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
           >
             <i class="icon-search"></i>
           </Button>
-        }
+        )}
     </>
   );
 }
