@@ -64,7 +64,7 @@ function SearchButton({ searchDesktop = false }: { searchDesktop: boolean }) {
 }
 
 function MenuButton() {
-  const { displayMenu } = useUI();
+  const { displayMenu, displaySearchbar, displayOverlay } = useUI();
 
   return (
     <Button
@@ -72,6 +72,8 @@ function MenuButton() {
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
+        displaySearchbar.value = false;
+        displayOverlay.value = false;
       }}
     >
       <i class="icon-menu"></i>
