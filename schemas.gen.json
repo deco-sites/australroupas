@@ -80,6 +80,7 @@
               "$live/sections/PageInclude.tsx",
               "$live/sections/Slot.tsx",
               "$live/sections/UseSlot.tsx",
+              "deco-sites/australroupas/sections/BannerAustral.tsx",
               "deco-sites/australroupas/sections/BannerGrid.tsx",
               "deco-sites/australroupas/sections/BannerPLP.tsx",
               "deco-sites/australroupas/sections/Carousel.tsx",
@@ -6991,6 +6992,416 @@
       "format": "image-uri",
       "title": "Image"
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@ImageProps": {
+      "type": "object",
+      "properties": {
+        "imageMobile": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "Seu banner Mobile",
+          "title": "Image Mobile"
+        },
+        "imageDesktop": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "Seu banner Desktop",
+          "title": "Image Desktop"
+        },
+        "altImage": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Texto Alternativo",
+          "title": "Alt Image"
+        },
+        "hrefImage": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Link para redirecionar",
+          "title": "Href Image"
+        }
+      },
+      "required": [
+        "imageMobile",
+        "imageDesktop"
+      ],
+      "title": "ImageProps"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@VideoProps": {
+      "type": "object",
+      "properties": {
+        "videoPlatform": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Vimeo"
+            },
+            {
+              "type": "string",
+              "const": "Youtube"
+            }
+          ],
+          "type": "string",
+          "title": "Video Platform"
+        },
+        "videoUrlCodeMobile": {
+          "type": "string",
+          "description": "o código do vídeo que fica no final da url ex: 539309773",
+          "title": "Video Url Code Mobile"
+        },
+        "videoUrlCodeDesktop": {
+          "type": "string",
+          "description": "o código do vídeo que fica no final da url ex: 539309773",
+          "title": "Video Url Code Desktop"
+        },
+        "title": {
+          "type": "string",
+          "description": "O título do seu vídeo",
+          "title": "Title"
+        }
+      },
+      "required": [
+        "videoPlatform",
+        "videoUrlCodeMobile",
+        "videoUrlCodeDesktop",
+        "title"
+      ],
+      "title": "VideoProps"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@ImageProps|VideoProps": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@ImageProps"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@VideoProps"
+        }
+      ],
+      "title": "ImageProps|VideoProps"
+    },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML": {
+      "type": "string",
+      "format": "html",
+      "title": "HTML"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Title": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Text"
+        },
+        "font": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "lusitana"
+            },
+            {
+              "type": "string",
+              "const": "nunito-sans"
+            },
+            {
+              "type": "string",
+              "const": "Roboto-ligth"
+            },
+            {
+              "type": "string",
+              "const": "Palatino"
+            }
+          ],
+          "type": "string",
+          "title": "Font"
+        }
+      },
+      "required": [
+        "text",
+        "font"
+      ],
+      "title": "Title"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Title[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Title"
+      },
+      "title": "Title[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Button": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Texto do botão",
+          "title": "Text"
+        },
+        "href": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Link do botão",
+          "title": "Href"
+        },
+        "color": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "blue"
+            },
+            {
+              "type": "string",
+              "const": "black"
+            },
+            {
+              "type": "string",
+              "const": "white"
+            },
+            {
+              "type": "string",
+              "const": "transparent"
+            },
+            {
+              "type": "string",
+              "const": "link"
+            }
+          ],
+          "type": "string",
+          "description": "Cor do botão",
+          "title": "Color"
+        }
+      },
+      "required": [
+        "color"
+      ],
+      "title": "Button"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Button[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Button"
+      },
+      "title": "Button[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Content": {
+      "type": "object",
+      "properties": {
+        "where": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "Dentro"
+            },
+            {
+              "type": "string",
+              "const": "Fora"
+            }
+          ],
+          "type": "string",
+          "description": "Dentro ou fora da imagem?",
+          "title": "Where"
+        },
+        "title": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Title[]",
+          "description": "Textos",
+          "title": "Title"
+        },
+        "align": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "center"
+            },
+            {
+              "type": "string",
+              "const": "left"
+            },
+            {
+              "type": "string",
+              "const": "right"
+            }
+          ],
+          "type": "string",
+          "description": "Alinhamento dos botões",
+          "title": "Align"
+        },
+        "verticalAlign": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "center"
+            },
+            {
+              "type": "string",
+              "const": "top"
+            },
+            {
+              "type": "string",
+              "const": "bottom"
+            }
+          ],
+          "type": "string",
+          "description": "Alinhamento vertical",
+          "title": "Vertical Align"
+        },
+        "buttons": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Button[]",
+          "description": "Botões",
+          "title": "Buttons"
+        }
+      },
+      "required": [],
+      "title": "Content"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Padding": {
+      "type": "object",
+      "properties": {
+        "paddingLeft": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Margem interna esquerda",
+          "title": "Padding Left"
+        },
+        "paddingRight": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Margem interna direita",
+          "title": "Padding Right"
+        },
+        "paddingTop": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Margem interna cima",
+          "title": "Padding Top"
+        },
+        "paddingBottom": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Margem interna baixo",
+          "title": "Padding Bottom"
+        }
+      },
+      "required": [],
+      "title": "Padding"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Creative": {
+      "type": "object",
+      "properties": {
+        "creative": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@ImageProps|VideoProps",
+          "title": "Creative"
+        },
+        "label": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Label"
+        },
+        "content": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Content",
+          "description": "Textos e Botões",
+          "title": "Content"
+        },
+        "padding": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Padding",
+          "description": "Margem interna",
+          "title": "Padding"
+        }
+      },
+      "required": [
+        "creative"
+      ],
+      "title": "Creative"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Creative[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Creative"
+      },
+      "title": "Creative[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Carousel": {
+      "type": "object",
+      "properties": {
+        "autoplay": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Autoplay"
+        },
+        "interval": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Intervalo de tempo para o Carrossel",
+          "title": "Interval"
+        }
+      },
+      "required": [],
+      "title": "Carousel"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Column": {
+      "type": "object",
+      "properties": {
+        "creativeCarousel": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Creative[]",
+          "description": "Suas imagens e vídeos",
+          "title": "Creative Carousel"
+        },
+        "carouselOptions": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Carousel",
+          "description": "Carrossel automático",
+          "title": "Carousel Options"
+        }
+      },
+      "required": [
+        "creativeCarousel"
+      ],
+      "title": "Column"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "column": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Column",
+          "description": "Colunas",
+          "title": "Column"
+        },
+        "maxWidth": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Largura máxima total",
+          "title": "Max Width"
+        },
+        "fullScreen": {
+          "type": "boolean",
+          "description": "Tela cheia",
+          "title": "Full Screen"
+        }
+      },
+      "required": [
+        "column",
+        "fullScreen"
+      ],
+      "title": "deco-sites/australroupas/components/ui/BannerAustral.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner": {
       "type": "object",
       "properties": {
@@ -7560,7 +7971,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors"
@@ -7576,7 +7987,7 @@
           "required": []
         }
       ],
-      "title": "Colors&f09ebb67297b758c758edd76bb1debb8"
+      "title": "3c0e6b2dde524214251cf38d92d3dbfe&Colors"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Miscellaneous": {
       "type": "object",
@@ -7679,7 +8090,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -9067,7 +9478,7 @@
       ],
       "title": "WorkflowRef"
     },
-    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@152d1319cf173b0e492fff2a74a4a49d|WorkflowRef": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@142fbddade88bf9fad57aa7ece64475d|WorkflowRef": {
       "anyOf": [
         {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef"
@@ -9085,13 +9496,13 @@
           ]
         }
       ],
-      "title": "152d1319cf173b0e492fff2a74a4a49d|WorkflowRef"
+      "title": "142fbddade88bf9fad57aa7ece64475d|WorkflowRef"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@152d1319cf173b0e492fff2a74a4a49d|WorkflowRef",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@142fbddade88bf9fad57aa7ece64475d|WorkflowRef",
           "title": "Workflow"
         },
         "id": {
@@ -10898,6 +11309,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Jhbm5lckF1c3RyYWwudHN4": {
+      "title": "deco-sites/australroupas/sections/BannerAustral.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/BannerAustral.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/BannerAustral.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Jhbm5lckdyaWQudHN4": {
       "title": "deco-sites/australroupas/sections/BannerGrid.tsx",
       "type": "object",
@@ -12374,6 +12806,9 @@
         },
         {
           "$ref": "#/definitions/JGxpdmUvc2VjdGlvbnMvVXNlU2xvdC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Jhbm5lckF1c3RyYWwudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Jhbm5lckdyaWQudHN4"
