@@ -90,6 +90,7 @@
               "deco-sites/australroupas/sections/Footer.tsx",
               "deco-sites/australroupas/sections/Header.tsx",
               "deco-sites/australroupas/sections/Highlights.tsx",
+              "deco-sites/australroupas/sections/Instafeed.tsx",
               "deco-sites/australroupas/sections/LinkTree.tsx",
               "deco-sites/australroupas/sections/ProductDetails.tsx",
               "deco-sites/australroupas/sections/ProductShelf.tsx",
@@ -8841,6 +8842,56 @@
       ],
       "title": "deco-sites/australroupas/components/ui/Highlights.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvSW5zdGFmZWVkLnRzeA==@InstagramImage": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Image"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "altText": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Alt Text"
+        }
+      },
+      "required": [
+        "image",
+        "href"
+      ],
+      "title": "InstagramImage"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvSW5zdGFmZWVkLnRzeA==@InstagramImage[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvSW5zdGFmZWVkLnRzeA==@InstagramImage"
+      },
+      "title": "InstagramImage[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvSW5zdGFmZWVkLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "images": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvSW5zdGFmZWVkLnRzeA==@InstagramImage[]",
+          "title": "Images"
+        },
+        "title": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Title"
+        }
+      },
+      "required": [
+        "images",
+        "title"
+      ],
+      "title": "deco-sites/australroupas/components/ui/Instafeed.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Link": {
       "type": "object",
       "properties": {
@@ -11639,6 +11690,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0luc3RhZmVlZC50c3g=": {
+      "title": "deco-sites/australroupas/sections/Instafeed.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvSW5zdGFmZWVkLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/Instafeed.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/Instafeed.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0xpbmtUcmVlLnRzeA==": {
       "title": "deco-sites/australroupas/sections/LinkTree.tsx",
       "type": "object",
@@ -12961,6 +13033,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0hpZ2hsaWdodHMudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0luc3RhZmVlZC50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0xpbmtUcmVlLnRzeA=="
