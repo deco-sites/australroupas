@@ -4,19 +4,18 @@ import type { ComponentChildren } from "preact";
 
 export type IconItem = { icon: AvailableIcons };
 
-
-export interface LinkItem{
+export interface LinkItem {
   label: string;
   href: string;
   openInNewPage: boolean;
 }
 
-export interface paymentItem{
+export interface paymentItem {
   icon: IconItem;
   width?: number;
 }
 
-export interface socialMediaItem{
+export interface socialMediaItem {
   icon: IconItem;
   href: string;
   openInNewPage: boolean;
@@ -36,8 +35,8 @@ export interface Props {
   allRightsReserved: string;
 }
 
-function SocialMediaFooter({ item }: { item: socialMediaItem }){
-  return(
+function SocialMediaFooter({ item }: { item: socialMediaItem }) {
+  return (
     <div class="border-base-100 border border-solid py-1.5 px-3.5">
       <Icon
         id={item.icon.icon}
@@ -46,11 +45,11 @@ function SocialMediaFooter({ item }: { item: socialMediaItem }){
         strokeWidth={1}
       />
     </div>
-  )
+  );
 }
 
-function PaymentIconFooter({ item }: { item: paymentItem }){
-  return(
+function PaymentIconFooter({ item }: { item: paymentItem }) {
+  return (
     <div class="border-base-100 border border-solid py-1.5 px-1.5">
       <Icon
         id={item.icon.icon}
@@ -59,106 +58,109 @@ function PaymentIconFooter({ item }: { item: paymentItem }){
         strokeWidth={1}
       />
     </div>
-  )
+  );
 }
 
-function LinkItemFooter({ item }: { item: LinkItem }){
-  return(
+function LinkItemFooter({ item }: { item: LinkItem }) {
+  return (
     <a href={item.href}>
       {item.label}
     </a>
-  )
+  );
 }
 
-
-function Footer({ sections = [], socialMedia, payment, allRightsReserved }: Props) {
+function Footer(
+  { sections = [], socialMedia, payment, allRightsReserved }: Props,
+) {
   return (
     <footer class="w-full bg-base-100 flex flex-col">
-
       <div class="home-container-mobile sm:home-container flex flex-col sm:flex-row">
-          {/* Desktop view */}
-          <ul class="hidden sm:flex flex-row justify-between w-full pt-12 pb-10">
-            {sections.map((section) => (
-              <li class="mr-80">
-                <div>
-                  <span class="font-semibold text-[14px] text-info">
-                    <a href={section.href} target={section.openInNewPage ? "_blank" : ""}>
+        {/* Desktop view */}
+        <ul class="hidden sm:flex flex-row justify-between w-full pt-12 pb-10">
+          {sections.map((section) => (
+            <li class="mr-80">
+              <div>
+                <span class="font-semibold text-[14px] text-info">
+                  <a
+                    href={section.href}
+                    target={section.openInNewPage ? "_blank" : ""}
+                  >
+                    {section.label}
+                  </a>
+                </span>
+
+                <ul
+                  class={`flex flex-col gap-3 pt-2 flex-wrap`}
+                >
+                  {section.children.map((item) => (
+                    <li class="text-[14px]">
+                      <LinkItemFooter item={item} />
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile view */}
+        <ul class="flex flex-col sm:hidden sm:flex-row sm:gap-4">
+          {sections.map((section) => (
+            <li>
+              <span class="text-info">
+                <details class="border-b-[1px] border-[#C7C7CC] group">
+                  <summary class="py-[15px] relative">
+                    <a
+                      href={section.href}
+                      target={section.openInNewPage ? "_blank" : ""}
+                      class="text-[12px] font-semibold"
+                    >
                       {section.label}
-                    </a> 
-                  </span>
+                    </a>
+                    <span class="block absolute right-0 top-[22px] group-open:hidden text-[9px] text-info">
+                      <i class="icon icon-plus"></i>
+                    </span>
+                    <span class="hidden absolute right-0 top-[22px] group-open:block text-[9px] text-info">
+                      <i class="icon icon-minus"></i>
+                    </span>
+                  </summary>
 
                   <ul
-                    class={`flex flex-col gap-3 pt-2 flex-wrap`}
+                    class={`flex flex-col gap-2 text-[12px]`}
                   >
                     {section.children.map((item) => (
-                      <li class="text-[14px]">
+                      <li>
                         <LinkItemFooter item={item} />
                       </li>
                     ))}
                   </ul>
-                </div>
-              </li>
-            ))}
+                </details>
+              </span>
+            </li>
+          ))}
+        </ul>
+
+        <div class="flex flex-col gap-2.5 w-full sm:w-[16%] items-center pt-12 pb-10">
+          <ul class="flex w-full justify-around sm:justify-center">
+            {socialMedia?.map((icon) => {
+              return (
+                <li class="cursor-pointer">
+                  <SocialMediaFooter item={icon} />
+                </li>
+              );
+            })}
           </ul>
 
-          {/* Mobile view */}
-          <ul class="flex flex-col sm:hidden sm:flex-row sm:gap-4">
-            {sections.map((section) => (
-              <li>
-                <span class="text-info">
-                  <details class="border-b-[1px] border-[#C7C7CC] group">
-                    <summary class="py-[15px] relative">
-                      <a href={section.href} target={section.openInNewPage ? "_blank" : ""} class="text-[12px] font-semibold">
-                        {section.label}
-                      </a>           
-                      <span class="block absolute right-0 top-[22px] group-open:hidden text-[9px] text-info">
-                        <i class="icon icon-plus"></i>
-                      </span>  
-                      <span class="hidden absolute right-0 top-[22px] group-open:block text-[9px] text-info">
-                        <i class="icon icon-minus"></i>
-                      </span>
-                    </summary>
-
-                    <ul
-                      class={`flex flex-col gap-2 text-[12px]`}
-                    >
-                      {section.children.map((item) => (
-                        <li>
-                          <LinkItemFooter item={item} />
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                </span>
-              </li>
-            ))}
+          <ul class="flex w-full justify-around sm:justify-center">
+            {payment?.map((icon) => {
+              return (
+                <li>
+                  <PaymentIconFooter item={icon} />
+                </li>
+              );
+            })}
           </ul>
-                        
-          <div class="flex flex-col gap-2.5 w-full sm:w-[16%] items-center pt-12 pb-10">
-            <ul class="flex w-full justify-around sm:justify-center">
-              {
-                socialMedia?.map(icon => {
-                  return(
-                    <li class="cursor-pointer">
-                      <SocialMediaFooter item={icon}/>
-                    </li>
-                  )
-                })
-              }
-            </ul>
-
-            <ul class="flex w-full justify-around sm:justify-center">
-              {
-                payment?.map(icon => {
-                  return(
-                    <li>
-                      <PaymentIconFooter item={icon}/>
-                    </li>
-                  )
-                })
-              }
-            </ul>
-          </div>
+        </div>
       </div>
 
       <div class="home-container-mobile sm:home-container w-full">
