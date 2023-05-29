@@ -76,20 +76,16 @@ function NavItem({ item, index }: { item: INavItem; index: number }) {
               ))}
             </ul>
             <div class="flex gap-5 max-w-[850px]">
-                {
-                  firstCard && (
-                    <div class="max-w-md">
-                      <Card {...firstCard} />
-                    </div>
-                  )
-                }
-                {
-                  secondCard && (
-                    <div class="max-w-md">
-                      <Card {...secondCard} />
-                    </div>
-                  )
-                }
+              {firstCard && (
+                <div class="max-w-md">
+                  <Card {...firstCard} />
+                </div>
+              )}
+              {secondCard && (
+                <div class="max-w-md">
+                  <Card {...secondCard} />
+                </div>
+              )}
             </div>
           </div>
         )}
