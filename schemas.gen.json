@@ -62,10 +62,14 @@
               "./islands/HeaderButton.tsx",
               "./islands/HeaderModals.tsx",
               "./islands/HeaderSearchbar.tsx",
+              "./islands/Menu.tsx",
+              "./islands/NavItem.tsx",
               "./islands/Newsletter.tsx",
               "./islands/OutOfStock.tsx",
+              "./islands/Overlay.tsx",
               "./islands/ProductImageZoom.tsx",
               "./islands/SearchControls.tsx",
+              "./islands/ServiceMenu.tsx",
               "./islands/ShippingSimulation.tsx",
               "./islands/SliderJS.tsx",
               "./islands/WishlistButton.tsx",
@@ -83,6 +87,7 @@
               "deco-sites/australroupas/sections/BannerAustral.tsx",
               "deco-sites/australroupas/sections/BannerGrid.tsx",
               "deco-sites/australroupas/sections/BannerPLP.tsx",
+              "deco-sites/australroupas/sections/Card.tsx",
               "deco-sites/australroupas/sections/Carousel.tsx",
               "deco-sites/australroupas/sections/CookieConsent.tsx",
               "deco-sites/australroupas/sections/DesignSystem.tsx",
@@ -6633,6 +6638,864 @@
       ],
       "title": "deco-sites/std/packs/vtex/loaders/wishlist.ts@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image": {
+      "type": "string",
+      "format": "image-uri",
+      "title": "Image"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Image"
+        },
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description"
+        },
+        "callToAction": {
+          "type": "string",
+          "title": "Call To Action"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "image",
+        "title",
+        "description",
+        "callToAction",
+        "href"
+      ],
+      "title": "Props"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@INavItem": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "red": {
+          "anyOf": [
+            {
+              "type": "boolean",
+              "const": true
+            },
+            {
+              "type": "boolean",
+              "const": false
+            }
+          ],
+          "type": "boolean",
+          "title": "Red"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@INavItem"
+          },
+          "title": "Children"
+        },
+        "firstCard": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props",
+          "title": "First Card"
+        },
+        "secondCard": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props",
+          "title": "Second Card"
+        },
+        "opacityMenu": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "0.10"
+            },
+            {
+              "type": "string",
+              "const": "0.20"
+            },
+            {
+              "type": "string",
+              "const": "0.30"
+            },
+            {
+              "type": "string",
+              "const": "0.40"
+            },
+            {
+              "type": "string",
+              "const": "0.50"
+            },
+            {
+              "type": "string",
+              "const": "0.60"
+            },
+            {
+              "type": "string",
+              "const": "0.70"
+            },
+            {
+              "type": "string",
+              "const": "0.80"
+            },
+            {
+              "type": "string",
+              "const": "0.90"
+            },
+            {
+              "type": "string",
+              "const": "1"
+            }
+          ],
+          "type": "string",
+          "title": "Opacity Menu"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "INavItem"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@INavItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@INavItem"
+      },
+      "title": "INavItem[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@CallToUsItem": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "label",
+        "href"
+      ],
+      "title": "CallToUsItem"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@CallToUsItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@CallToUsItem"
+      },
+      "title": "CallToUsItem[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL01lbnUudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@INavItem[]",
+          "title": "Items"
+        },
+        "callToUsItem": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@CallToUsItem[]",
+          "title": "Call To Us Item"
+        }
+      },
+      "required": [
+        "items",
+        "callToUsItem"
+      ],
+      "title": "deco-sites/australroupas/components/header/Menu.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconsHeader": {
+      "type": "object",
+      "properties": {
+        "search": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "Search"
+        },
+        "callToUs": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "Call To Us"
+        },
+        "myAccount": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "My Account"
+        },
+        "minicart": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "Minicart"
+        },
+        "menu": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "icon-menu"
+            },
+            {
+              "type": "string",
+              "const": "icon-plus"
+            },
+            {
+              "type": "string",
+              "const": "icon-minus"
+            },
+            {
+              "type": "string",
+              "const": "icon-arrow"
+            },
+            {
+              "type": "string",
+              "const": "icon-close"
+            },
+            {
+              "type": "string",
+              "const": "icon-delete"
+            },
+            {
+              "type": "string",
+              "const": "icon-search"
+            },
+            {
+              "type": "string",
+              "const": "icon-phone"
+            },
+            {
+              "type": "string",
+              "const": "icon-user"
+            },
+            {
+              "type": "string",
+              "const": "icon-minicart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart"
+            },
+            {
+              "type": "string",
+              "const": "icon-heart-full"
+            },
+            {
+              "type": "string",
+              "const": "icon-mouse"
+            },
+            {
+              "type": "string",
+              "const": "icon-share"
+            },
+            {
+              "type": "string",
+              "const": "icon-edit"
+            },
+            {
+              "type": "string",
+              "const": "icon-email"
+            },
+            {
+              "type": "string",
+              "const": "icon-check"
+            },
+            {
+              "type": "string",
+              "const": "icon-zoom"
+            },
+            {
+              "type": "string",
+              "const": "icon-warning"
+            },
+            {
+              "type": "string",
+              "const": "icon-hanger"
+            },
+            {
+              "type": "string",
+              "const": "icon-rule"
+            },
+            {
+              "type": "string",
+              "const": "icon-security"
+            },
+            {
+              "type": "string",
+              "const": "icon-arroba"
+            },
+            {
+              "type": "string",
+              "const": "icon-embalagem"
+            },
+            {
+              "type": "string",
+              "const": "icon-notification"
+            },
+            {
+              "type": "string",
+              "const": "icon-pin"
+            },
+            {
+              "type": "string",
+              "const": "icon-play"
+            },
+            {
+              "type": "string",
+              "const": "icon-facebook"
+            },
+            {
+              "type": "string",
+              "const": "icon-whatsapp"
+            },
+            {
+              "type": "string",
+              "const": "icon-instagram"
+            },
+            {
+              "type": "string",
+              "const": "icon-youtube"
+            },
+            {
+              "type": "string",
+              "const": "icon-pinterest"
+            }
+          ],
+          "type": "string",
+          "title": "Menu"
+        }
+      },
+      "required": [],
+      "title": "IconsHeader"
+    },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
       "properties": {
@@ -6987,11 +7850,6 @@
         "sections"
       ],
       "title": "deco-cx/live/sections/UseSlot.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image": {
-      "type": "string",
-      "format": "image-uri",
-      "title": "Image"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQXVzdHJhbC50c3g=@ImageProps": {
       "type": "object",
@@ -7986,7 +8844,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors"
@@ -8002,7 +8860,7 @@
           "required": []
         }
       ],
-      "title": "3c0e6b2dde524214251cf38d92d3dbfe&Colors"
+      "title": "Colors&f09ebb67297b758c758edd76bb1debb8"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Miscellaneous": {
       "type": "object",
@@ -8105,7 +8963,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -8671,109 +9529,32 @@
       "required": [],
       "title": "EditableProps"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem": {
-      "type": "object",
-      "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "label": {
-                "type": "string",
-                "title": "Label"
-              },
-              "href": {
-                "type": "string",
-                "title": "Href"
-              },
-              "children": {
-                "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "label": {
-                      "type": "string",
-                      "title": "Label"
-                    },
-                    "href": {
-                      "type": "string",
-                      "title": "Href"
-                    }
-                  },
-                  "required": [
-                    "label",
-                    "href"
-                  ]
-                },
-                "title": "Children"
-              }
-            },
-            "required": [
-              "label",
-              "href"
-            ]
-          },
-          "title": "Children"
-        },
-        "image": {
-          "type": "object",
-          "properties": {
-            "src": {
-              "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-              "title": "Src"
-            },
-            "alt": {
-              "type": [
-                "string",
-                "null"
-              ],
-              "title": "Alt"
-            }
-          },
-          "required": [],
-          "title": "Image"
-        }
-      },
-      "required": [
-        "label",
-        "href"
-      ],
-      "title": "NavItem"
-    },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem"
-      },
-      "title": "NavItem[]"
-    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@Props": {
       "type": "object",
       "properties": {
-        "alerts": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "title": "Alerts"
-        },
         "searchbar": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps",
           "title": "Search Bar"
         },
         "navItems": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@NavItem[]",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@INavItem[]",
           "title": "Navigation items",
           "description": "Navigation items used both on mobile and desktop menus"
+        },
+        "logo": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Image logo",
+          "description": "Image logo used both on mobile and desktop"
+        },
+        "callToUsItems": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@CallToUsItem[]",
+          "title": "Call to Us items",
+          "description": "Call to Us items used both on mobile and desktop"
+        },
+        "iconsHeader": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconsHeader",
+          "title": "Header icons",
+          "description": "Header icons used both on mobile and desktop"
         },
         "products": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
@@ -8786,7 +9567,9 @@
         }
       },
       "required": [
-        "alerts"
+        "logo",
+        "callToUsItems",
+        "iconsHeader"
       ],
       "title": "deco-sites/australroupas/components/header/Header.tsx@Props"
     },
@@ -11133,6 +11916,43 @@
         }
       }
     },
+    "Li9pc2xhbmRzL01lbnUudHN4": {
+      "title": "./islands/Menu.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL01lbnUudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/Menu.tsx"
+          ],
+          "default": "./islands/Menu.tsx"
+        }
+      }
+    },
+    "Li9pc2xhbmRzL05hdkl0ZW0udHN4": {
+      "title": "./islands/NavItem.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/NavItem.tsx"
+          ],
+          "default": "./islands/NavItem.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL05ld3NsZXR0ZXIudHN4": {
       "title": "./islands/Newsletter.tsx",
       "type": "object",
@@ -11165,6 +11985,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL092ZXJsYXkudHN4": {
+      "title": "./islands/Overlay.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/Overlay.tsx"
+          ],
+          "default": "./islands/Overlay.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4": {
       "title": "./islands/ProductImageZoom.tsx",
       "type": "object",
@@ -11194,6 +12030,22 @@
             "./islands/SearchControls.tsx"
           ],
           "default": "./islands/SearchControls.tsx"
+        }
+      }
+    },
+    "Li9pc2xhbmRzL1NlcnZpY2VNZW51LnRzeA==": {
+      "title": "./islands/ServiceMenu.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ServiceMenu.tsx"
+          ],
+          "default": "./islands/ServiceMenu.tsx"
         }
       }
     },
@@ -11545,6 +12397,27 @@
             "deco-sites/australroupas/sections/BannerPLP.tsx"
           ],
           "default": "deco-sites/australroupas/sections/BannerPLP.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmQudHN4": {
+      "title": "deco-sites/australroupas/sections/Card.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/Card.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/Card.tsx"
         }
       }
     },
@@ -12927,16 +13800,28 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlclNlYXJjaGJhci50c3g="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL01lbnUudHN4"
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL05hdkl0ZW0udHN4"
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL05ld3NsZXR0ZXIudHN4"
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL091dE9mU3RvY2sudHN4"
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL092ZXJsYXkudHN4"
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1NlcnZpY2VNZW51LnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NoaXBwaW5nU2ltdWxhdGlvbi50c3g="
@@ -13012,6 +13897,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Jhbm5lclBMUC50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmQudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Nhcm91c2VsLnRzeA=="

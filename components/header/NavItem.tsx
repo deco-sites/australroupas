@@ -1,20 +1,59 @@
 import Image from "deco-sites/std/components/Image.tsx";
-import { headerHeight } from "./constants.ts";
+import { useUI } from "$store/sdk/useUI.ts";
+import type { Props as ICard } from "$store/components/ui/Card.tsx";
+import Card from "$store/components/ui/Card.tsx";
 
 export interface INavItem {
   label: string;
   href: string;
+  red?: true | false;
   children?: INavItem[];
-  image?: { src?: string; alt?: string };
+  firstCard?: ICard;
+  secondCard?: ICard;
+  opacityMenu?:
+    | "0.10"
+    | "0.20"
+    | "0.30"
+    | "0.40"
+    | "0.50"
+    | "0.60"
+    | "0.70"
+    | "0.80"
+    | "0.90"
+    | "1";
 }
 
-function NavItem({ item }: { item: INavItem }) {
-  const { href, label, children, image } = item;
-
+function NavItem({ item, index }: { item: INavItem; index: number }) {
+  const { href, label, children, firstCard, secondCard, red } = item;
+  const { displayOverlay, displaySearchbar, displayServiceMenu } = useUI();
   return (
-    <li class="group flex items-center">
-      <a href={href} class="px-4 py-3">
-        <span class="group-hover:underline">
+    <li
+      class={`group flex items-center NavItemFather${index}`}
+      onMouseEnter={() => {
+        displayOverlay.value = true;
+        displaySearchbar.value = false;
+        displayServiceMenu.value = false;
+      }}
+      onMouseLeave={() => displayOverlay.value = false}
+    >
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          .NavItemFather${index}:hover .NavItemChildren {
+            opacity: ${item.opacityMenu}
+          }
+        `,
+        }}
+      />
+      <a
+        href={href}
+        class="border-b-2 border-b-transparent transition-all duration-300 ease-linear px-5 py-8.5 pl-8.5 group-hover:border-b-primary"
+      >
+        <span
+          class={`text-sm tracking-widest leading-none ${
+            red ? "text-[#DB1616]" : "text-[#636366]"
+          }`}
+        >
           {label}
         </span>
       </a>
@@ -22,38 +61,32 @@ function NavItem({ item }: { item: INavItem }) {
       {children && children.length > 0 &&
         (
           <div
-            class="fixed hidden hover:flex group-hover:flex bg-base-100 z-50 items-start justify-center gap-6 border-t border-b-2 border-base-200 w-screen"
-            style={{ top: "0px", left: "0px", marginTop: headerHeight }}
+            class={`NavItemChildren fixed flex justify-evenly opacity-0 group-hover:pointer-events-auto min-h-[366px] transition-all duration-300 ease-linear pointer-events-none max-w-3xl py-8.5 bg-white z-50 items-start w-screen`}
+            style={{ top: "0px", left: "0px", marginTop: "95px" }}
           >
-            {image?.src && (
-              <Image
-                class="p-6"
-                src={image.src}
-                alt={image.alt}
-                width={300}
-                height={332}
-                loading="lazy"
-              />
-            )}
-            <ul class="flex items-start justify-center gap-6">
+            <ul class="flex flex-col items-start justify-center">
               {children.map((node) => (
-                <li class="p-6">
-                  <a class="hover:underline" href={node.href}>
-                    <span>{node.label}</span>
+                <li class="py-1.7">
+                  <a class="text-base text-info" href={node.href}>
+                    <span class={`${node.red ? "text-[#DB1616]" : ""}`}>
+                      {node.label}
+                    </span>
                   </a>
-
-                  <ul class="flex flex-col gap-1 mt-4">
-                    {node.children?.map((leaf) => (
-                      <li>
-                        <a class="hover:underline" href={leaf.href}>
-                          <span class="text-xs">{leaf.label}</span>
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
                 </li>
               ))}
             </ul>
+            <div class="flex gap-5 max-w-[850px]">
+              {firstCard && (
+                <div class="max-w-md">
+                  <Card {...firstCard} />
+                </div>
+              )}
+              {secondCard && (
+                <div class="max-w-md">
+                  <Card {...secondCard} />
+                </div>
+              )}
+            </div>
           </div>
         )}
     </li>

@@ -1,13 +1,11 @@
-import { lazy, Suspense } from "preact/compat";
-
 import { useUI } from "$store/sdk/useUI.ts";
-import Loading from "$store/components/ui/Loading.tsx";
-import { headerHeight } from "$store/components/header/constants.ts";
-import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
+import Searchcar, {
+  Props as SearchbarProps,
+} from "$store/components/search/Searchbar.tsx";
 
-const LazySearchbar = lazy(() =>
-  import("$store/components/search/Searchbar.tsx")
-);
+// const LazySearchbar = lazy(() =>
+//   import("$store/components/search/Searchbar.tsx")
+// );
 
 interface Props {
   searchbar: SearchbarProps;
@@ -15,21 +13,25 @@ interface Props {
 
 function Searchbar({ searchbar }: Props) {
   const { displaySearchbar } = useUI();
-  const open = displaySearchbar.value &&
-    window?.matchMedia?.("(min-width: 768px)")?.matches;
+  const open = displaySearchbar.value;
 
   return (
     <div
       class={`${
-        open ? "block border-y border-base-200 shadow" : "hidden"
-      } absolute left-0 top-0 w-screen z-50 bg-base-100`}
-      style={{ marginTop: headerHeight }}
+        open
+          ? "block border-y border-base-200 shadow lg:shadow-none lg:border-0"
+          : "hidden"
+      } absolute lg:pointer-events-none lg:mt-0 left-0 top-0 w-screen lg:w-auto z-50 bg-base-100 lg:bg-transparent mt-[58px]`}
     >
-      {open && (
-        <Suspense fallback={<Loading />}>
-          <LazySearchbar {...searchbar} variant="desktop" />
-        </Suspense>
-      )}
+      <>
+        <div
+          class={`z-20 fixed lg:relative h-0 lg:h-12 w-full bg-white lg:border-b lg:border-b-black lg:right-full transition-all duration-300 ease-linear opacity-0 ${
+            open ? "opacity-100 h-12 lg:pointer-events-auto" : ""
+          }`}
+        >
+          <Searchcar {...searchbar} variant="desktop" />
+        </div>
+      </>
     </div>
   );
 }

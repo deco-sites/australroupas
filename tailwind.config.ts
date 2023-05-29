@@ -4,7 +4,7 @@ export const theme = {
   "secondary": "#204d74",
   "accent": "#3A3A3C",
   "neutral": "#878787",
-  "base-100": "#636366",
+  "base-100": "#F2F2F7",
   "success": "hsl(150 62% 95%)",
   "warning": "hsl(43 100% 95%)",
   "error": "hsl(9 100% 95%)",
@@ -32,9 +32,21 @@ export default {
     extend: {
       boxShadow: {
         "header": "0px 1px 3px 1px rgba(0,0,0,0.1)",
+        "service": "0 0 1px 1px #C7C7CC",
       },
       maxWidth: {
         "3xl": "1920px",
+      },
+      spacing: {
+        "1.7": "7.5px",
+        "4.5": "15px",
+        "7.5": "30px",
+        "8.5": "35px",
+        "25": "100px",
+      },
+      fontSize: {
+        "1.5xl": "22px",
+        "2.5xl": "26px",
       },
       animation: {
         "slide-left": "slide-left-frame 0.4s ease normal",

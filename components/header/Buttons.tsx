@@ -1,5 +1,6 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
+import type { IconsHeader } from "$store/components/header/Header.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
@@ -13,42 +14,86 @@ declare global {
   }
 }
 
-function SearchButton() {
-  const { displaySearchbar } = useUI();
+function SearchButton(
+  { searchDesktop = false, iconsHeader }: {
+    searchDesktop: boolean;
+    iconsHeader?: IconsHeader;
+  },
+) {
+  const { displaySearchbar, displayOverlay, displayServiceMenu } = useUI();
 
   return (
-    <Button
-      class="btn-square btn-ghost"
-      aria-label="search icon button"
-      onClick={() => {
-        displaySearchbar.value = !displaySearchbar.peek();
-      }}
-    >
-      <Icon id="MagnifyingGlass" width={20} height={20} strokeWidth={0.1} />
-    </Button>
+    <>
+      {!searchDesktop
+        ? (displaySearchbar.value
+          ? (
+            <Button
+              class="p-2.5 text-xl lg:text-2.5xl"
+              onClick={() => {
+                displaySearchbar.value = false;
+                displayOverlay.value = false;
+              }}
+            >
+              <i class={`icon-close`}></i>
+            </Button>
+          )
+          : (
+            <Button
+              class="p-2.5 text-xl lg:text-2.5xl"
+              aria-label="search icon button"
+              onClick={() => {
+                displaySearchbar.value = true;
+                displayOverlay.value = true;
+              }}
+            >
+              <i
+                class={`${iconsHeader?.search || "icon-search"} text-[#636366]`}
+              >
+              </i>
+            </Button>
+          ))
+        : (
+          <Button
+            class={`p-2.5 text-xl lg:text-2.5xl ${
+              displaySearchbar.value ? "opacity-0" : ""
+            }`}
+            aria-label="search icon button"
+            onClick={() => {
+              displaySearchbar.value = !displaySearchbar.value;
+              displayServiceMenu.value = false;
+              displayOverlay.value = true;
+            }}
+          >
+            <i class={`${iconsHeader?.search || "icon-search"} text-[#636366]`}>
+            </i>
+          </Button>
+        )}
+    </>
   );
 }
 
-function MenuButton() {
-  const { displayMenu } = useUI();
+function MenuButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
+  const { displayMenu, displaySearchbar, displayOverlay } = useUI();
 
   return (
     <Button
-      class="btn-square btn-ghost"
+      class="p-2.5 text-xl lg:text-2.5xl"
       aria-label="open menu"
       onClick={() => {
         displayMenu.value = true;
+        displaySearchbar.value = false;
+        displayOverlay.value = false;
       }}
     >
-      <Icon id="Bars3" width={20} height={20} strokeWidth={0.01} />
+      <i class={iconsHeader?.menu || "icon-menu"}></i>
     </Button>
   );
 }
 
-function CartButton() {
-  const { displayCart } = useUI();
+function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
+  const { displayCart, displayServiceMenu, displaySearchbar } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
-  const totalItems = cart.value?.items.length || null;
+  const totalItems = cart.value?.items.length || 0;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
   const total = cart.value?.totalizers.find((item) => item.id === "Items");
   const discounts = cart.value?.totalizers.find((item) =>
@@ -57,6 +102,8 @@ function CartButton() {
 
   const onClick = () => {
     displayCart.value = true;
+    displaySearchbar.value = false;
+    displayServiceMenu.value = false;
     sendEvent({
       name: "view_cart",
       params: {
@@ -72,35 +119,46 @@ function CartButton() {
 
   return (
     <Button
-      class="btn-square btn-ghost relative"
+      class="p-2.5 text-xl relative lg:ml-7.5"
       aria-label="open cart"
       data-deco={displayCart.value && "open-cart"}
       loading={loading.value}
       onClick={onClick}
     >
-      <div class="indicator">
-        {totalItems && (
-          <span class="indicator-item badge badge-secondary badge-sm">
-            {totalItems > 9 ? "9+" : totalItems}
-          </span>
-        )}
-        <Icon id="ShoppingCart" width={20} height={20} strokeWidth={2} />
+      <div class="">
+        <span class="bg-primary rounded-full absolute top-0 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-5 h-5 flex items-center justify-center">
+          {totalItems > 9 ? "9+" : totalItems}
+        </span>
+        <i
+          class={`${
+            iconsHeader?.minicart || "icon-minicart"
+          } text-xl lg:text-2.5xl`}
+        >
+        </i>
       </div>
     </Button>
   );
 }
 
-function Buttons({ variant }: { variant: "cart" | "search" | "menu" }) {
+function Buttons(
+  { variant, searchDesktop = false, iconsHeader }: {
+    variant: "cart" | "search" | "menu";
+    searchDesktop?: boolean;
+    iconsHeader?: IconsHeader;
+  },
+) {
   if (variant === "cart") {
-    return <CartButton />;
+    return <CartButton iconsHeader={iconsHeader} />;
   }
 
   if (variant === "search") {
-    return <SearchButton />;
+    return (
+      <SearchButton iconsHeader={iconsHeader} searchDesktop={searchDesktop} />
+    );
   }
 
   if (variant === "menu") {
-    return <MenuButton />;
+    return <MenuButton iconsHeader={iconsHeader} />;
   }
 
   return null;
