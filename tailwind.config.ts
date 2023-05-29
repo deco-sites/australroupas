@@ -45,6 +45,7 @@ export default {
         "25": "100px",
       },
       fontSize: {
+        "1.5xl": "22px",
         "2.5xl": "26px",
       },
       animation: {
