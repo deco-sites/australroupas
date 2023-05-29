@@ -6638,6 +6638,44 @@
       ],
       "title": "deco-sites/std/packs/vtex/loaders/wishlist.ts@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image": {
+      "type": "string",
+      "format": "image-uri",
+      "title": "Image"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "title": "Image"
+        },
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "description": {
+          "type": "string",
+          "title": "Description"
+        },
+        "callToAction": {
+          "type": "string",
+          "title": "Call To Action"
+        },
+        "href": {
+          "type": "string",
+          "title": "Href"
+        }
+      },
+      "required": [
+        "image",
+        "title",
+        "description",
+        "callToAction",
+        "href"
+      ],
+      "title": "Props"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL05hdkl0ZW0udHN4@INavItem": {
       "type": "object",
       "properties": {
@@ -6670,26 +6708,13 @@
           },
           "title": "Children"
         },
-        "image": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "src": {
-                "type": "string",
-                "title": "Src"
-              },
-              "alt": {
-                "type": "string",
-                "title": "Alt"
-              }
-            },
-            "required": [
-              "src",
-              "alt"
-            ]
-          },
-          "title": "Image"
+        "firstCard": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props",
+          "title": "First Card"
+        },
+        "secondCard": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props",
+          "title": "Second Card"
         },
         "opacityMenu": {
           "anyOf": [
@@ -7149,6 +7174,7 @@
       ],
       "title": "deco-cx/live/sections/UseSlot.tsx@Props"
     },
+<<<<<<< HEAD
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image": {
       "type": "string",
       "format": "image-uri",
@@ -7578,6 +7604,8 @@
       ],
       "title": "deco-sites/australroupas/components/ui/BannerAustral.tsx@Props"
     },
+=======
+>>>>>>> ef8695e (feat: Card in header)
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyR3JpZC50c3g=@Banner": {
       "type": "object",
       "properties": {
@@ -7845,39 +7873,6 @@
       },
       "required": [],
       "title": "deco-sites/australroupas/components/ui/BannerPLP.tsx@Props"
-    },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props": {
-      "type": "object",
-      "properties": {
-        "image": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
-          "title": "Image"
-        },
-        "title": {
-          "type": "string",
-          "title": "Title"
-        },
-        "description": {
-          "type": "string",
-          "title": "Description"
-        },
-        "callToAction": {
-          "type": "string",
-          "title": "Call To Action"
-        },
-        "href": {
-          "type": "string",
-          "title": "Href"
-        }
-      },
-      "required": [
-        "image",
-        "title",
-        "description",
-        "callToAction",
-        "href"
-      ],
-      "title": "deco-sites/australroupas/components/ui/Card.tsx@Props"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Banner": {
       "type": "object",
