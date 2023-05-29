@@ -21,6 +21,10 @@
     -moz-appearance: textfield;
     appearance: textfield;
   }
+  
+  body{
+    background-color: white;
+  }
 }
 
 @layer components {
@@ -43,4 +47,17 @@
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
+
+  .home-container{
+    width: 100%;
+    max-width: 1920px;
+    padding: 0px 100px;
+  }
+
+  .home-container-mobile{
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px 15px;
+  }
+  
 }

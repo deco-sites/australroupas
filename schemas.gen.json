@@ -8255,6 +8255,22 @@
             {
               "type": "string",
               "const": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "LinkedIn"
+            },
+            {
+              "type": "string",
+              "const": "Spotify"
+            },
+            {
+              "type": "string",
+              "const": "Hipercard"
+            },
+            {
+              "type": "string",
+              "const": "AmericanExpress"
             }
           ],
           "type": "string",
@@ -8299,7 +8315,7 @@
       ],
       "title": "deco-sites/australroupas/components/ui/Features.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@StringItem": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@LinkItem": {
       "type": "object",
       "properties": {
         "label": {
@@ -8309,13 +8325,64 @@
         "href": {
           "type": "string",
           "title": "Href"
+        },
+        "openInNewPage": {
+          "type": "boolean",
+          "title": "Open In New Page"
         }
       },
       "required": [
         "label",
-        "href"
+        "href",
+        "openInNewPage"
       ],
-      "title": "StringItem"
+      "title": "LinkItem"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@LinkItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@LinkItem"
+      },
+      "title": "LinkItem[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "title": "Label"
+        },
+        "href": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Href"
+        },
+        "openInNewPage": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "title": "Open In New Page"
+        },
+        "children": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@LinkItem[]",
+          "title": "Children"
+        }
+      },
+      "required": [
+        "label",
+        "children"
+      ],
+      "title": "Section"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section"
+      },
+      "title": "Section[]"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem": {
       "type": "object",
@@ -8453,6 +8520,22 @@
             {
               "type": "string",
               "const": "ArrowsPointingOut"
+            },
+            {
+              "type": "string",
+              "const": "LinkedIn"
+            },
+            {
+              "type": "string",
+              "const": "Spotify"
+            },
+            {
+              "type": "string",
+              "const": "Hipercard"
+            },
+            {
+              "type": "string",
+              "const": "AmericanExpress"
             }
           ],
           "type": "string",
@@ -8464,48 +8547,62 @@
       ],
       "title": "IconItem"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem": {
-      "anyOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@StringItem"
-        },
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem"
-        }
-      ],
-      "title": "IconItem|StringItem"
-    },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem[]": {
-      "type": "array",
-      "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem"
-      },
-      "title": "IconItem|StringItem[]"
-    },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@socialMediaItem": {
       "type": "object",
       "properties": {
-        "label": {
-          "type": "string",
-          "title": "Label"
+        "icon": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem",
+          "title": "Icon"
         },
-        "children": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem|StringItem[]",
-          "title": "Children"
+        "href": {
+          "type": "string",
+          "title": "Href"
+        },
+        "openInNewPage": {
+          "type": "boolean",
+          "title": "Open In New Page"
         }
       },
       "required": [
-        "label",
-        "children"
+        "icon",
+        "href",
+        "openInNewPage"
       ],
-      "title": "Section"
+      "title": "socialMediaItem"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section[]": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@socialMediaItem[]": {
       "type": "array",
       "items": {
-        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section"
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@socialMediaItem"
       },
-      "title": "Section[]"
+      "title": "socialMediaItem[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@paymentItem": {
+      "type": "object",
+      "properties": {
+        "icon": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@IconItem",
+          "title": "Icon"
+        },
+        "width": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "title": "Width"
+        }
+      },
+      "required": [
+        "icon"
+      ],
+      "title": "paymentItem"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@paymentItem[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@paymentItem"
+      },
+      "title": "paymentItem[]"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Props": {
       "type": "object",
@@ -8513,9 +8610,23 @@
         "sections": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@Section[]",
           "title": "Sections"
+        },
+        "socialMedia": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@socialMediaItem[]",
+          "title": "Social Media"
+        },
+        "payment": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvZm9vdGVyL0Zvb3Rlci50c3g=@paymentItem[]",
+          "title": "Payment"
+        },
+        "allRightsReserved": {
+          "type": "string",
+          "title": "All Rights Reserved"
         }
       },
-      "required": [],
+      "required": [
+        "allRightsReserved"
+      ],
       "title": "deco-sites/australroupas/components/footer/Footer.tsx@Props"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaGJhci50c3g=@EditableProps": {

@@ -118,7 +118,9 @@ export default function Container(
 ) {
   return (
     <div
-      class={`mx-auto flex flex-wrap justify-center mb-10 ${fullScreen ? "" : "sm:px-[100px] max-w-[1920px]"}`}
+      class={`mx-auto flex flex-wrap justify-center mb-10 ${
+        fullScreen ? "" : "sm:home-container"
+      }`}
     >
       <div>
         <BannerAustral
@@ -233,7 +235,9 @@ function Content(
   return (
     <div
       style={`
-      padding: ${padding?.paddingTop || 0}px ${padding?.paddingRight || 0}px ${padding?.paddingBottom || 0}px ${padding?.paddingLeft || 0}px
+      padding: ${padding?.paddingTop || 0}px ${padding?.paddingRight || 0}px ${
+        padding?.paddingBottom || 0
+      }px ${padding?.paddingLeft || 0}px
       `}
       class={`w-full h-full ${
         content?.where == "Dentro" ? "absolute top-0" : ""
