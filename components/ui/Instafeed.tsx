@@ -43,7 +43,7 @@ export default function Instafeed({ images, title } : Props){
                                 index={index}
                                 class={`relative carousel-item w-[80%] sm:w-[23.5%] first:ml-[15px] last:mr-[15px]`}
                                 >
-                                    <a class="" src={image.href} target="_blank">
+                                    <a class="cursor-pointer" src={image.href} target="_blank">
                                         <Image
                                             class="w-full rounded-md"
                                             src={image.image}
