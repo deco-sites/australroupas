@@ -61,7 +61,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
 
       {/* Desktop Version */}
       <Overlay />
-      <div class="hidden lg:flex max-w-3xl flex-row justify-between items-center border-b border-base-200 w-full px-25 bg-white relative z-50">
+      <div class="hidden lg:flex mx-auto max-w-3xl flex-row justify-between items-center border-b border-base-200 w-full px-25 bg-white relative z-50">
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block px-4 py-3">
             <Image
