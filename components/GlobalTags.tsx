@@ -56,6 +56,18 @@ function GlobalTags() {
         padding: 0px !important;
       }
 
+      summary::marker{
+        display: none;
+      }
+
+      details summary::-webkit-details-marker {
+        display: none;
+      }
+
+      details > summary {
+        list-style: none;
+      }
+
       .icon-menu:before {
           content: ""
       }
