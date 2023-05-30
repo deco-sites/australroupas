@@ -27,7 +27,6 @@ const WIDTH = 200;
 const HEIGHT = 279;
 
 function ProductCard({ product, preload, itemListName }: Props) {
-  console.log(product);
   const {
     url,
     productID,

@@ -67,16 +67,20 @@ function FilterValues({ key, values }: FilterToggle) {
 
 function Filters({ filters }: Props) {
   return (
-    <ul class="flex flex-col gap-6 p-4">
-      {filters
-        .filter(isToggle)
-        .map((filter) => (
-          <li class="flex flex-col gap-4">
-            <span>{filter.label}</span>
-            <FilterValues {...filter} />
-          </li>
-        ))}
-    </ul>
+    <div>
+      <span class="text-[18px] text-[30px] font-bold">Filtrar por</span>
+      <ul class="flex flex-col gap-6 p-4">
+        {filters
+          .filter(isToggle)
+          .map((filter) => (
+            <li class="flex flex-col gap-4">
+              <span>{filter.label}</span>
+              <FilterValues {...filter} />
+            </li>
+          ))}
+      </ul>
+    </div>
+    
   );
 }
 
