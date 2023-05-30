@@ -24,7 +24,11 @@ function AddToCartButton(
   });
 
   return (
-    <Button data-deco="add-to-cart" {...props} class="w-full">
+    <Button
+      data-deco="add-to-cart"
+      {...props}
+      class="w-full bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:bg-primary hover:opacity-80"
+    >
       Adicionar à Sacola
     </Button>
   );

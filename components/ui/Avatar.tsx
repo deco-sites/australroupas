@@ -17,8 +17,10 @@ const colors: Record<string, string> = {
 
   // Color variants - only applied when no color as content is passed
   "active": "bg-neutral-focus text-neutral-content ring-neutral-focus ",
-  "disabled": "bg-neutral-content text-neutral",
-  "default": "bg-neutral text-neutral-content",
+  "disabled":
+    "bg-transparent-content text-neutral border-[#878787] border-[1px] opacity-50 pointer-events-none",
+  "default":
+    "bg-transparent text-neutral-content border-[#878787] border-[1px]",
 };
 
 interface Props {
@@ -27,9 +29,9 @@ interface Props {
 }
 
 const variants = {
-  active: "ring ring-1 ring-offset-base-100 ring-offset-2",
+  active: "bg-primary text-white",
   disabled:
-    `relative after:absolute after:left-0 after:top-1/2 after:h-[1px] after:bg-red-800 after:w-full after:block after:-rotate-45 after:content-[""]`,
+    `relative after:absolute after:left-0 after:top-1/2 after:h-[1px] after:bg-[#878787] after:w-full after:block after:-rotate-45 after:content-[""]`,
   default: "",
 };
 
@@ -37,11 +39,11 @@ function Avatar({ content, variant = "default" }: Props) {
   return (
     <div class="avatar placeholder">
       <div
-        class={`rounded-full w-8  ${colors[content] ?? colors[variant]} ${
+        class={`rounded-md w-8 ${colors[content] ?? colors[variant]} ${
           variants[variant]
         }`}
       >
-        <span class="text-caption font-caption uppercase text-">
+        <span class="text-caption font-caption uppercase text-[12px]">
           {colors[content] ? "" : content.substring(0, 2)}
         </span>
       </div>

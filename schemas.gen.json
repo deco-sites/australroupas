@@ -67,6 +67,7 @@
               "./islands/Newsletter.tsx",
               "./islands/OutOfStock.tsx",
               "./islands/Overlay.tsx",
+              "./islands/ProductCardButton.tsx",
               "./islands/ProductImageZoom.tsx",
               "./islands/SearchControls.tsx",
               "./islands/ServiceMenu.tsx",
@@ -6129,7 +6130,7 @@
         },
         "count": {
           "type": "number",
-          "description": "total number of items to display",
+          "description": "total number of items to display. Required for collection",
           "title": "Count"
         }
       },
@@ -6190,7 +6191,7 @@
         },
         "count": {
           "type": "number",
-          "description": "total number of items to display",
+          "description": "total number of items to display. Required for query",
           "title": "Count"
         }
       },
@@ -6491,6 +6492,14 @@
           ],
           "description": "ProductGroup ID",
           "title": "Id"
+        },
+        "hideUnavailableItems": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "remove unavailable items from result",
+          "title": "Hide Unavailable Items"
         }
       },
       "required": [
@@ -8845,7 +8854,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors"
@@ -8861,7 +8870,7 @@
           "required": []
         }
       ],
-      "title": "Colors&f09ebb67297b758c758edd76bb1debb8"
+      "title": "3c0e6b2dde524214251cf38d92d3dbfe&Colors"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Miscellaneous": {
       "type": "object",
@@ -8964,7 +8973,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -9822,7 +9831,7 @@
       "type": "object",
       "properties": {
         "title": {
-          "type": "string",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
           "title": "Title"
         },
         "products": {
@@ -9922,6 +9931,14 @@
           },
           "description": "google tag manager container id. For more info: https://developers.google.com/tag-platform/tag-manager/web#standard_web_page_installation .",
           "title": "Tracking Ids"
+        },
+        "src": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "custom url for serving google tag manager. Set either this url or the tracking id",
+          "title": "Src"
         }
       },
       "required": [],
@@ -12015,6 +12032,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1Byb2R1Y3RDYXJkQnV0dG9uLnRzeA==": {
+      "title": "./islands/ProductCardButton.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ProductCardButton.tsx"
+          ],
+          "default": "./islands/ProductCardButton.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4": {
       "title": "./islands/ProductImageZoom.tsx",
       "type": "object",
@@ -13848,6 +13881,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL092ZXJsYXkudHN4"
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RDYXJkQnV0dG9uLnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"
