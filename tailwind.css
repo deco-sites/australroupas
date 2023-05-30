@@ -52,13 +52,20 @@
     width: 100%;
     max-width: 1920px;
     margin: 0px auto;
-    padding: 0px 100px;
+    padding-left: 100px;
+    padding-right: 100px;
   }
 
   .home-container-mobile{
     width: 100%;
     margin: 0px auto;
-    padding: 0px 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .no-container{
+    margin: 0px;
+    padding: 0px;
   }
   
 }
