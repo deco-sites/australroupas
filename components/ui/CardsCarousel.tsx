@@ -20,7 +20,7 @@ function CardsCarousel(
   const id = useId();
 
   return (
-    <div class="sm:home-container">
+    <div class="sm:home-container mb-10 lg:mb-15">
       <div class="home-container-mobile">
         <Quilltext html={title} />
       </div>
