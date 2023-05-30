@@ -12,7 +12,7 @@ import type { HTML } from "deco-sites/std/components/types.ts";
 import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 export interface Props {
-  title: HTML;
+  title?: HTML;
   products: LoaderReturnType<Product[] | null>;
   itemsPerPage?: number;
 }
@@ -32,9 +32,12 @@ function ProductShelf({
       id={id}
       class="sm:home-container relative grid grid-cols-[48px_1fr_48px] grid-rows-[94px_1fr_48px_1fr] py-10 px-0 my-10 mb-10"
     >
-      <div class="absolute home-container-mobile sm:home-container">
-        <Quilltext html={title} />
-      </div>
+      {
+        title && 
+        <div class="absolute home-container-mobile sm:home-container">
+          <Quilltext html={title} />
+        </div>
+      }
 
       <Slider class="carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5 gap-4 sm:gap-[1.33%] pb-10">
         {products?.map((product, index) => (
