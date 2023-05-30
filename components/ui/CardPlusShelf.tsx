@@ -9,7 +9,10 @@ import { BlockInstance } from "$live/engine/block.ts";
 export interface Props {
   card: ICard;
   // productShelf: IProductShelf;
-  productShelf: BlockInstance<"deco-sites/australroupas/sections/ProductShelf.tsx", Manifest>
+  productShelf: BlockInstance<
+    "deco-sites/australroupas/sections/ProductShelf.tsx",
+    Manifest
+  >;
 }
 
 function CardPlusShelf(

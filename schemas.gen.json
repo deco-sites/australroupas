@@ -8559,7 +8559,7 @@
       "type": "object",
       "properties": {
         "card": {
-          "type": "string",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props",
           "title": "Card"
         },
         "productShelf": {
