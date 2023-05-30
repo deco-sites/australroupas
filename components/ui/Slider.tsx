@@ -27,11 +27,25 @@ function Item({
 }
 
 function NextButton(props: JSX.IntrinsicElements["button"]) {
-  return <button class="text-[#1C1C1E]" data-slide="next" aria-label="Next item" {...props} />;
+  return (
+    <button
+      class="text-[#1C1C1E]"
+      data-slide="next"
+      aria-label="Next item"
+      {...props}
+    />
+  );
 }
 
 function PrevButton(props: JSX.IntrinsicElements["button"]) {
-  return <button class="text-[#1C1C1E]" data-slide="prev" aria-label="Previous item" {...props} />;
+  return (
+    <button
+      class="text-[#1C1C1E]"
+      data-slide="prev"
+      aria-label="Previous item"
+      {...props}
+    />
+  );
 }
 
 Slider.Dot = Dot;
