@@ -1,7 +1,6 @@
 {
   "definitions": {
     "Resolvable": {
-      "$id": "Resolvable",
       "title": "Select from saved",
       "required": [
         "__resolveType"
@@ -89,6 +88,7 @@
               "deco-sites/australroupas/sections/BannerGrid.tsx",
               "deco-sites/australroupas/sections/BannerPLP.tsx",
               "deco-sites/australroupas/sections/Card.tsx",
+              "deco-sites/australroupas/sections/CardsCarousel.tsx",
               "deco-sites/australroupas/sections/Carousel.tsx",
               "deco-sites/australroupas/sections/CookieConsent.tsx",
               "deco-sites/australroupas/sections/DesignSystem.tsx",
@@ -8565,6 +8565,31 @@
       "required": [],
       "title": "deco-sites/australroupas/components/ui/BannerPLP.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props"
+      },
+      "title": "Props[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZHNDYXJvdXNlbC50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
+          "title": "Title"
+        },
+        "cards": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props[]",
+          "title": "Cards"
+        }
+      },
+      "required": [
+        "title",
+        "cards"
+      ],
+      "title": "deco-sites/australroupas/components/ui/CardsCarousel.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQmFubmVyQ2Fyb3VzZWwudHN4@Banner": {
       "type": "object",
       "properties": {
@@ -10503,7 +10528,7 @@
       ],
       "title": "WorkflowRef"
     },
-    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@142fbddade88bf9fad57aa7ece64475d|WorkflowRef": {
+    "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef|d0c0b543ad81128b49bb50d69a531f40": {
       "anyOf": [
         {
           "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef"
@@ -10521,13 +10546,13 @@
           ]
         }
       ],
-      "title": "142fbddade88bf9fad57aa7ece64475d|WorkflowRef"
+      "title": "WorkflowRef|d0c0b543ad81128b49bb50d69a531f40"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@Props": {
       "type": "object",
       "properties": {
         "workflow": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@142fbddade88bf9fad57aa7ece64475d|WorkflowRef",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@WorkflowRef|d0c0b543ad81128b49bb50d69a531f40",
           "title": "Workflow"
         },
         "id": {
@@ -12503,6 +12528,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmRzQ2Fyb3VzZWwudHN4": {
+      "title": "deco-sites/australroupas/sections/CardsCarousel.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZHNDYXJvdXNlbC50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/CardsCarousel.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/CardsCarousel.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Nhcm91c2VsLnRzeA==": {
       "title": "deco-sites/australroupas/sections/Carousel.tsx",
       "type": "object",
@@ -14027,6 +14073,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmQudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmRzQ2Fyb3VzZWwudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Nhcm91c2VsLnRzeA=="
