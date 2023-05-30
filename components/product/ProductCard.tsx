@@ -56,7 +56,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
 
   return (
     <div
-      class="card card-compact card-bordered border-transparent hover:border-base-200 group w-full rounded-md"
+      class="card card-compact card-bordered border-transparent group w-full rounded-md"
       data-deco="view-product"
       id={`product-card-${productID}`}
       {...sendEventOnClick(clickEvent)}
@@ -91,13 +91,19 @@ function ProductCard({ product, preload, itemListName }: Props) {
           />
         </a>
         <ProductCardButton
-          product={product}
+          isVariantOf={isVariantOf}
+          variants={variants}
         />
       </figure>
       {/* Prices & Name */}
       <div class="py-2.5">
         <h2 class="whitespace-nowrap overflow-hidden text-[14px]">{name}</h2>
         <div class="flex items-end gap-2">
+          {
+            listPrice != price &&  <span class="text-[12px] text-[#878787] line-through self-start">
+            {formatPrice(listPrice, offers!.priceCurrency!)}
+          </span>
+          }
           <span class="text-[14px] font-semibold">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>

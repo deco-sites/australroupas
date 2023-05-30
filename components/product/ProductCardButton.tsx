@@ -1,18 +1,15 @@
 import Avatar from "$store/components/ui/Avatar.tsx";
 import { useSignal } from "@preact/signals";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product, ProductGroup } from "deco-sites/std/commerce/types.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 
-export default function ProductCardButton({ product }: { product: Product }) {
-  const {
-    isVariantOf,
-  } = product;
-  const productGroupID = isVariantOf?.productGroupID;
+type Variant = [string, string[]];
 
-  const possibilities = useVariantPossibilities(product);
-  const variants = Object.entries(Object.values(possibilities)[1] ?? {});
+export default function ProductCardButton({ isVariantOf, variants }: { isVariantOf: ProductGroup | undefined; variants: Variant[] }) {
+
+  const productGroupID = isVariantOf?.productGroupID;
 
   const selectedUrl = useSignal("");
 
@@ -26,14 +23,13 @@ export default function ProductCardButton({ product }: { product: Product }) {
   });
 
   return (
-    <figcaption class="absolute bottom-0 left-0 w-full transition-opacity bg-[rgba(255,255,255,0.8)] hidden group-hover:block py-3 px-4">
+    <figcaption class=" absolute bottom-0 left-0 w-full transition-opacity bg-[rgba(255,255,255,0.8)] hidden sm:group-hover:block py-3 px-4">
       {/* SKU Selector */}
       <ul class="flex justify-center items-center gap-2 w-full">
         {variants.map(([value, [link]]) => {
-          const currentProduct = product.isVariantOf?.hasVariant.filter(
+          const currentProduct = isVariantOf?.hasVariant.filter(
             (variant) => variant.url == link,
           )!;
-          console.log(currentProduct);
           const { listPrice, price, seller, availability } = useOffer(
             currentProduct[0].offers,
           );
@@ -41,7 +37,6 @@ export default function ProductCardButton({ product }: { product: Product }) {
             <button
               disabled={availability == "https://schema.org/OutOfStock"}
               onClick={() => {
-                console.log("show");
                 selectedUrl.value = link;
                 selected.value = {
                   skuId: currentProduct[0].productID,
