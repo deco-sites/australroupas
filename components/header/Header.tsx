@@ -6,7 +6,6 @@ import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import type { INavItem } from "$store/components/header/NavItem.tsx";
 
 import Navbar from "./Navbar.tsx";
-import { headerHeight } from "./constants.ts";
 
 export interface CallToUsItem {
   label: string;
@@ -109,7 +108,7 @@ function Header(
   const searchbar = { ..._searchbar, products, suggestions };
   return (
     <>
-      <header style={{ height: headerHeight }}>
+      <header class="h-[58px] sm:h-[97px]">
         <div class="bg-white fixed w-full z-50 shadow-header">
           <Navbar
             callToUsItem={callToUsItems}

@@ -8496,20 +8496,9 @@
           "title": "Matcher"
         },
         "title": {
-          "type": [
-            "string",
-            "null"
-          ],
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
           "description": "text to be rendered on top of the image",
           "title": "Title"
-        },
-        "subtitle": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "text to be rendered on top of the image",
-          "title": "Subtitle"
         },
         "image": {
           "type": "object",
@@ -8891,7 +8880,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors"
@@ -8907,7 +8896,7 @@
           "required": []
         }
       ],
-      "title": "Colors&f09ebb67297b758c758edd76bb1debb8"
+      "title": "3c0e6b2dde524214251cf38d92d3dbfe&Colors"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Miscellaneous": {
       "type": "object",
@@ -9010,7 +8999,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -9889,27 +9878,6 @@
       ],
       "title": "deco-sites/australroupas/components/product/ProductShelf.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0R2FsbGVyeS50c3g=@Columns": {
-      "type": "object",
-      "properties": {
-        "mobile": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "title": "Mobile"
-        },
-        "desktop": {
-          "type": [
-            "number",
-            "null"
-          ],
-          "title": "Desktop"
-        }
-      },
-      "required": [],
-      "title": "Columns"
-    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvc2VhcmNoL1NlYXJjaFJlc3VsdC50c3g=@Props": {
       "type": "object",
       "properties": {
@@ -9931,16 +9899,10 @@
           "type": "string",
           "description": "Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products",
           "title": "Variant"
-        },
-        "columns": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvcHJvZHVjdC9Qcm9kdWN0R2FsbGVyeS50c3g=@Columns",
-          "description": "Number of products per line on grid",
-          "title": "Columns"
         }
       },
       "required": [
-        "page",
-        "columns"
+        "page"
       ],
       "title": "deco-sites/australroupas/components/search/SearchResult.tsx@Props"
     },

@@ -70,5 +70,22 @@
     margin: 0px;
     padding: 0px;
   }
+
+  .breadcrumb-austral ul{
+    display: flex;
+    color: #636366;
+  }
+
+  .breadcrumb-austral ul li::before{
+    content: '>';
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .breadcrumb-austral ul li:first-child::before{
+    content: '';
+    margin-right: 0px;
+    margin-left: 0px;
+  }
   
 }

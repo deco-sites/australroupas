@@ -3,13 +3,14 @@ import type { LoaderReturnType } from "$live/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
+import type { HTML } from "deco-sites/std/components/types.ts";
+import Quilltext from "deco-sites/std/components/QuillText.tsx";
+
 export interface Banner {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
   matcher: string;
   /** @description text to be rendered on top of the image */
-  title?: string;
-  /** @description text to be rendered on top of the image */
-  subtitle?: string;
+  title?: HTML;
   image: {
     /** @description Image for big screens */
     desktop: LiveImage;
@@ -26,7 +27,7 @@ export interface Props {
 }
 
 function BannerUI({ banner }: { banner: Banner }) {
-  const { title, subtitle, image } = banner;
+  const { title, image } = banner;
 
   return (
     <div class="grid grid-cols-1 grid-rows-1">
@@ -34,29 +35,20 @@ function BannerUI({ banner }: { banner: Banner }) {
         <Source
           src={image.mobile}
           width={360}
-          height={120}
+          height={224}
           media="(max-width: 767px)"
         />
         <Source
           src={image.desktop}
           width={1440}
-          height={200}
+          height={262}
           media="(min-width: 767px)"
         />
         <img class="w-full" src={image.desktop} alt={image.alt ?? title} />
       </Picture>
 
       <div class="container flex flex-col items-center justify-center sm:items-start col-start-1 col-span-1 row-start-1 row-span-1 w-full">
-        <h1>
-          <span class="text-5xl font-medium text-base-100">
-            {title}
-          </span>
-        </h1>
-        <h2>
-          <span class="text-xl font-medium text-base-100">
-            {subtitle}
-          </span>
-        </h2>
+        <Quilltext html={title || ""}/>
       </div>
     </div>
   );
