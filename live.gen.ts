@@ -34,11 +34,12 @@ import * as $$$$$$$$9 from "./sections/Header.tsx";
 import * as $$$$$$$$10 from "./sections/Highlights.tsx";
 import * as $$$$$$$$11 from "./sections/Instafeed.tsx";
 import * as $$$$$$$$12 from "./sections/LinkTree.tsx";
-import * as $$$$$$$$13 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$14 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$15 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$16 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$17 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$13 from "./sections/MyAccount.tsx";
+import * as $$$$$$$$14 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$15 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$16 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$17 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$18 from "./sections/WishlistGallery.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -199,11 +200,12 @@ const manifest = {
     "deco-sites/australroupas/sections/Highlights.tsx": $$$$$$$$10,
     "deco-sites/australroupas/sections/Instafeed.tsx": $$$$$$$$11,
     "deco-sites/australroupas/sections/LinkTree.tsx": $$$$$$$$12,
-    "deco-sites/australroupas/sections/ProductDetails.tsx": $$$$$$$$13,
-    "deco-sites/australroupas/sections/ProductShelf.tsx": $$$$$$$$14,
-    "deco-sites/australroupas/sections/SearchResult.tsx": $$$$$$$$15,
-    "deco-sites/australroupas/sections/WhatsApp.tsx": $$$$$$$$16,
-    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$$$17,
+    "deco-sites/australroupas/sections/MyAccount.tsx": $$$$$$$$13,
+    "deco-sites/australroupas/sections/ProductDetails.tsx": $$$$$$$$14,
+    "deco-sites/australroupas/sections/ProductShelf.tsx": $$$$$$$$15,
+    "deco-sites/australroupas/sections/SearchResult.tsx": $$$$$$$$16,
+    "deco-sites/australroupas/sections/WhatsApp.tsx": $$$$$$$$17,
+    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$$$18,
     "deco-sites/std/sections/Analytics.tsx": i2$$$$3,
     "deco-sites/std/sections/configButterCMS.global.tsx": i2$$$$4,
     "deco-sites/std/sections/configOCC.global.tsx": i2$$$$5,
