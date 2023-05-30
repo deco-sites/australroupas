@@ -27,19 +27,19 @@ export default function Instafeed({ images, title }: Props) {
 
   return (
     <div class="sm:home-container">
-      <div class="home-container-mobile">
+      <div class="home-container-mobile sm:no-container">
         <Quilltext html={title} />
       </div>
       <div
         id={id}
         class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px] relative"
       >
-        <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6">
+        <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-6 sm:gap-[1.33%]">
           {images.map((image, index) => {
             return (
               <Slider.Item
                 index={index}
-                class={`relative carousel-item w-[80%] sm:w-[23.5%] first:ml-[15px] last:mr-[15px]`}
+                class={`relative carousel-item w-[80%] sm:w-[24%] first:ml-[15px] last:mr-[15px] sm:first:ml-0 sm:last:mr-0`}
               >
                 <a class="cursor-pointer" src={image.href} target="_blank">
                   <Image
