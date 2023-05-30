@@ -7,8 +7,13 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 
 type Variant = [string, string[]];
 
-export default function ProductCardButton({ isVariantOf, variants }: { isVariantOf: ProductGroup | undefined; variants: Variant[] }) {
-
+export default function ProductCardButton(
+  { isVariantOf, variants, urlInStock }: {
+    isVariantOf: ProductGroup | undefined;
+    variants: Variant[];
+    urlInStock: string | undefined;
+  },
+) {
   const productGroupID = isVariantOf?.productGroupID;
 
   const selectedUrl = useSignal("");
@@ -67,6 +72,8 @@ export default function ProductCardButton({ isVariantOf, variants }: { isVariant
         discount={selected.value.discount}
         name={selected.value.name}
         productGroupId={selected.value.productGroupId}
+        openPdp={selected.value.skuId == ""}
+        url={urlInStock || ""}
       />
     </figcaption>
   );

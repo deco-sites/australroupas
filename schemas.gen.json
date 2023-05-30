@@ -6829,6 +6829,17 @@
       ],
       "title": "deco-sites/australroupas/components/header/Menu.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductGroup|null": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductGroup"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "ProductGroup|null"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvaGVhZGVyL0hlYWRlci50c3g=@IconsHeader": {
       "type": "object",
       "properties": {

@@ -30,14 +30,13 @@ function ProductShelf({
   return (
     <div
       id={id}
-      class="sm:home-container relative grid grid-cols-[48px_1fr_48px] grid-rows-[94px_1fr_48px_1fr] py-10 px-0 my-10"
+      class="sm:home-container relative grid grid-cols-[48px_1fr_48px] grid-rows-[94px_1fr_48px_1fr] py-10 px-0 my-10 mb-10"
     >
       <div class="absolute home-container-mobile sm:home-container">
         <Quilltext html={title} />
       </div>
-      
 
-      <Slider class="carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5 gap-4 sm:gap-[1.33%]">
+      <Slider class="carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5 gap-4 sm:gap-[1.33%] pb-10">
         {products?.map((product, index) => (
           <Slider.Item
             index={index}
@@ -106,7 +105,7 @@ function Dots(
               `,
         }}
       />
-      <ul class="flex w-full absolute top-[100%] carousel justify-center col-span-full gap-2 z-10 row-start-4">
+      <ul class="flex w-full absolute bottom-0 carousel justify-center col-span-full gap-2 z-10 row-start-4">
         {products?.map((_, index) => (
           <li class={`carousel-item ${(index + 1) % 4 != 0 && "sm:hidden"}`}>
             <Slider.Dot index={index}>

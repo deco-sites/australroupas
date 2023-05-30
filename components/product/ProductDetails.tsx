@@ -115,6 +115,8 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                   discount={price && listPrice ? listPrice - price : 0}
                   name={product.name ?? ""}
                   productGroupId={product.isVariantOf?.productGroupID ?? ""}
+                  openPdp={false}
+                  url={""}
                 />
               )}
               <WishlistButton
