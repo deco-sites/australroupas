@@ -48,7 +48,7 @@ function BannerUI({ banner }: { banner: Banner }) {
       </Picture>
 
       <div class="container flex flex-col items-center justify-center sm:items-start col-start-1 col-span-1 row-start-1 row-span-1 w-full">
-        <Quilltext html={title || ""}/>
+        <Quilltext html={title || ""} />
       </div>
     </div>
   );

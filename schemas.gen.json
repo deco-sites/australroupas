@@ -88,6 +88,7 @@
               "deco-sites/australroupas/sections/BannerGrid.tsx",
               "deco-sites/australroupas/sections/BannerPLP.tsx",
               "deco-sites/australroupas/sections/Card.tsx",
+              "deco-sites/australroupas/sections/CardPlusShelf.tsx",
               "deco-sites/australroupas/sections/CardsCarousel.tsx",
               "deco-sites/australroupas/sections/Carousel.tsx",
               "deco-sites/australroupas/sections/CookieConsent.tsx",
@@ -6676,6 +6677,20 @@
         "href": {
           "type": "string",
           "title": "Href"
+        },
+        "hasPaddingDesktop": {
+          "anyOf": [
+            {
+              "type": "boolean",
+              "const": true
+            },
+            {
+              "type": "boolean",
+              "const": false
+            }
+          ],
+          "type": "boolean",
+          "title": "Has Padding Desktop"
         }
       },
       "required": [
@@ -8554,6 +8569,24 @@
       "required": [],
       "title": "deco-sites/australroupas/components/ui/BannerPLP.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZFBsdXNTaGVsZi50c3g=@Props": {
+      "type": "object",
+      "properties": {
+        "card": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props",
+          "title": "Card"
+        },
+        "productShelf": {
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section",
+          "title": "Product Shelf"
+        }
+      },
+      "required": [
+        "card",
+        "productShelf"
+      ],
+      "title": "deco-sites/australroupas/components/ui/CardPlusShelf.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZC50c3g=@Props[]": {
       "type": "array",
       "items": {
@@ -8880,7 +8913,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors"
@@ -8896,7 +8929,7 @@
           "required": []
         }
       ],
-      "title": "3c0e6b2dde524214251cf38d92d3dbfe&Colors"
+      "title": "Colors&f09ebb67297b758c758edd76bb1debb8"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Miscellaneous": {
       "type": "object",
@@ -8999,7 +9032,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@3c0e6b2dde524214251cf38d92d3dbfe&Colors",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -9864,16 +9897,22 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Products"
         },
-        "itemsPerPage": {
-          "type": [
-            "number",
-            "null"
+        "twoItemsPerPage": {
+          "anyOf": [
+            {
+              "type": "boolean",
+              "const": true
+            },
+            {
+              "type": "boolean",
+              "const": false
+            }
           ],
-          "title": "Items Per Page"
+          "type": "boolean",
+          "title": "Two Items Per Page"
         }
       },
       "required": [
-        "title",
         "products"
       ],
       "title": "deco-sites/australroupas/components/product/ProductShelf.tsx@Props"
@@ -10025,7 +10064,18 @@
       ],
       "title": "deco-sites/std/commerce/butterCMS/client.ts@ConfigButterCMS"
     },
-    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy9zZW8vU0VPQmFzZS50c3g=@Props": {
+    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null|ProductListingPage|null": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductListingPage|null"
+        }
+      ],
+      "title": "ProductDetailsPage|null|ProductListingPage|null"
+    },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy9zZW8vdHlwZXMudHM=@Props": {
       "type": "object",
       "properties": {
         "title": {
@@ -10035,6 +10085,15 @@
           ],
           "title": "Title"
         },
+        "titleTemplate": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Title template",
+          "description": "add a %s whenever you want it to be replaced with the category name or search term",
+          "default": "%s | Deco.cx"
+        },
         "description": {
           "type": [
             "string",
@@ -10042,39 +10101,57 @@
           ],
           "title": "Description"
         },
-        "canonical": {
-          "type": [
-            "string",
-            "null"
+        "type": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "website"
+            },
+            {
+              "type": "string",
+              "const": "article"
+            }
           ],
-          "title": "Canonical URL",
-          "default": "https://example.com"
+          "type": "string",
+          "default": "website",
+          "title": "Type"
         },
-        "imageUrl": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Image Url"
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "Recommended: 1200 x 630 px (up to 5MB)",
+          "title": "Image"
+        },
+        "favicon": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
+          "description": "Recommended: 16 x 16 px",
+          "title": "Favicon"
         },
         "themeColor": {
           "type": [
             "string",
             "null"
           ],
+          "description": "Suggested color that browsers should use to customize the display of the page or of the surrounding user interface",
           "title": "Theme Color"
+        },
+        "canonical": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Canonical URL"
+        },
+        "context": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null|ProductListingPage|null",
+          "title": "Context"
         }
       },
       "required": [],
-      "title": "deco-sites/std/components/seo/SEOBase.tsx@Props"
+      "title": "deco-sites/std/components/seo/types.ts@Props"
     },
     "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy9zZW8vU0VPUERQLnRzeA==@Props": {
       "type": "object",
       "properties": {
-        "page": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null",
-          "title": "Page"
-        },
         "titleTemplate": {
           "type": [
             "string",
@@ -10097,6 +10174,10 @@
             "null"
           ],
           "title": "Meta tag description override"
+        },
+        "page": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductDetailsPage|null",
+          "title": "Page"
         }
       },
       "required": [
@@ -12490,6 +12571,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmRQbHVzU2hlbGYudHN4": {
+      "title": "deco-sites/australroupas/sections/CardPlusShelf.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvQ2FyZFBsdXNTaGVsZi50c3g=@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/CardPlusShelf.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/CardPlusShelf.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmRzQ2Fyb3VzZWwudHN4": {
       "title": "deco-sites/australroupas/sections/CardsCarousel.tsx",
       "type": "object",
@@ -12994,7 +13096,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy9zZW8vU0VPQmFzZS50c3g=@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy9zZW8vdHlwZXMudHM=@Props"
         }
       ],
       "required": [
@@ -14035,6 +14137,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmQudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmRQbHVzU2hlbGYudHN4"
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0NhcmRzQ2Fyb3VzZWwudHN4"

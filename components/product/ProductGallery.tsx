@@ -2,7 +2,6 @@ import { Product } from "deco-sites/std/commerce/types.ts";
 
 import ProductCard from "./ProductCard.tsx";
 
-
 export interface Props {
   products: Product[] | null;
 }
