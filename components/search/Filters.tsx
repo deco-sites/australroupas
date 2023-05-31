@@ -80,7 +80,6 @@ function Filters({ filters }: Props) {
           ))}
       </ul>
     </div>
-    
   );
 }
 

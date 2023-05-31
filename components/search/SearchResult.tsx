@@ -56,7 +56,12 @@ function Result({
                   href={pageInfo.previousPage ?? "#"}
                   class="btn btn-ghost"
                 >
-                  <Icon id="ChevronLeft" width={20} height={20} strokeWidth={2} />
+                  <Icon
+                    id="ChevronLeft"
+                    width={20}
+                    height={20}
+                    strokeWidth={2}
+                  />
                 </a>
                 <span class="btn btn-ghost">
                   Page {pageInfo.currentPage + 1}
@@ -76,10 +81,8 @@ function Result({
                 </a>
               </div>
             </div>
-            
           </div>
         </div>
-
       </div>
       <SendEventOnLoad
         event={{
