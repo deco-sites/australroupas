@@ -14,12 +14,13 @@ import Quilltext from "deco-sites/std/components/QuillText.tsx";
 export interface Props {
   title?: HTML;
   products: LoaderReturnType<Product[] | null>;
-  itemsPerPage?: number;
+  twoItemsPerPage?: true | false;
 }
 
 function ProductShelf({
   title,
   products,
+  twoItemsPerPage = false
 }: Props) {
   const id = useId();
 
@@ -27,10 +28,16 @@ function ProductShelf({
     return null;
   }
 
+  const itemsDesktop = twoItemsPerPage ? "md:w-[49%]" : "sm:w-[24%]";
+  const paddingXitemsDesktop = twoItemsPerPage ? "0 62px" : "";
+
+  const gridRows = title ? "grid-rows-[94px_1fr_48px_1fr] py-10" : "grid-rows-[1fr]";
+
   return (
     <div
       id={id}
-      class="sm:home-container relative grid grid-cols-[48px_1fr_48px] grid-rows-[94px_1fr_48px_1fr] py-10 px-0 my-10 mb-10"
+      class={`sm:home-container relative grid grid-cols-[48px_1fr_48px] ${gridRows} px-0 my-10 mb-10`}
+      style={{padding: paddingXitemsDesktop}}
     >
       {title &&
         (
@@ -43,7 +50,7 @@ function ProductShelf({
         {products?.map((product, index) => (
           <Slider.Item
             index={index}
-            class="carousel-item w-[80%] sm:w-[24%] first:ml-[15px] sm:first:ml-0 last:mr-[15px] sm:last:mr-0"
+            class={`carousel-item w-[80%] ${itemsDesktop} first:ml-[15px] sm:first:ml-0 last:mr-[15px] sm:last:mr-0`}
           >
             <ProductCard product={product} itemListName={title} />
           </Slider.Item>

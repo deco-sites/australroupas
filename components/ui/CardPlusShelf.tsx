@@ -1,30 +1,24 @@
 import type { Props as ICard } from "$store/components/ui/Card.tsx";
-import type { Props as IProductShelf } from "$store/components/product/ProductShelf.tsx";
 import Card from "$store/components/ui/Card.tsx";
-import ProductShelf from "$store/sections/ProductShelf.tsx";
 
-import type { Manifest } from "deco-sites/australroupas/live.gen.ts";
-import { BlockInstance } from "$live/engine/block.ts";
+import { Section } from "$live/blocks/section.ts";
 
 export interface Props {
   card: ICard;
-  // productShelf: IProductShelf;
-  productShelf: BlockInstance<
-    "deco-sites/australroupas/sections/ProductShelf.tsx",
-    Manifest
-  >;
+  productShelf: Section;
 }
 
 function CardPlusShelf(
   { card, productShelf }: Props,
 ) {
+  const { Component, props } = productShelf;
   return (
-    <div class="sm:home-container mb-10 lg:mb-15">
-      <div>
+    <div class="sm:home-container mb-10 md:my-15 flex flex-col md:flex-row">
+      <div class="w-full md:w-1/2">
         <Card {...card} />
       </div>
-      <div>
-        {/* <ProductShelf {...productShelf} /> */}
+      <div class="w-full md:w-1/2">
+        <Component {...props} />
       </div>
     </div>
   );

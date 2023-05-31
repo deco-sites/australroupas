@@ -6677,6 +6677,20 @@
         "href": {
           "type": "string",
           "title": "Href"
+        },
+        "hasPaddingDesktop": {
+          "anyOf": [
+            {
+              "type": "boolean",
+              "const": true
+            },
+            {
+              "type": "boolean",
+              "const": false
+            }
+          ],
+          "type": "boolean",
+          "title": "Has Padding Desktop"
         }
       },
       "required": [
@@ -8563,7 +8577,7 @@
           "title": "Card"
         },
         "productShelf": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1Byb2R1Y3RTaGVsZi50c3g=",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy9zZWN0aW9uLnRz@Section",
           "title": "Product Shelf"
         }
       },
@@ -9883,12 +9897,19 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@Product[]|null",
           "title": "Products"
         },
-        "itemsPerPage": {
-          "type": [
-            "number",
-            "null"
+        "twoItemsPerPage": {
+          "anyOf": [
+            {
+              "type": "boolean",
+              "const": true
+            },
+            {
+              "type": "boolean",
+              "const": false
+            }
           ],
-          "title": "Items Per Page"
+          "type": "boolean",
+          "title": "Two Items Per Page"
         }
       },
       "required": [

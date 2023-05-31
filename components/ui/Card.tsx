@@ -7,13 +7,15 @@ export interface Props {
   description: string;
   callToAction: string;
   href: string;
+  hasPaddingDesktop?: true | false;
 }
 
 function FeatureHighlights(
-  { image, title, description, callToAction, href }: Props,
+  { image, title, description, callToAction, href, hasPaddingDesktop = true }: Props,
 ) {
+  const paddingY = hasPaddingDesktop ? "lg:px-2.5" : "lg:px-0"
   return (
-    <div class="w-full px-4.5 lg:px-2.5">
+    <div class={`w-full px-4.5 ${paddingY}`}>
       <a class="block w-full" href={href}>
         <Image
           class="w-full rounded-md"
