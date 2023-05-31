@@ -20,7 +20,7 @@ export interface Props {
 function ProductShelf({
   title,
   products,
-  twoItemsPerPage = false
+  twoItemsPerPage = false,
 }: Props) {
   const id = useId();
 
@@ -31,13 +31,15 @@ function ProductShelf({
   const itemsDesktop = twoItemsPerPage ? "md:w-[49%]" : "sm:w-[24%]";
   const paddingXitemsDesktop = twoItemsPerPage ? "0 62px" : "";
 
-  const gridRows = title ? "grid-rows-[94px_1fr_48px_1fr] py-10" : "grid-rows-[1fr]";
+  const gridRows = title
+    ? "grid-rows-[94px_1fr_48px_1fr] py-10"
+    : "grid-rows-[1fr]";
 
   return (
     <div
       id={id}
       class={`sm:home-container relative grid grid-cols-[48px_1fr_48px] ${gridRows} px-0 my-10 mb-10`}
-      style={{padding: paddingXitemsDesktop}}
+      style={{ padding: paddingXitemsDesktop }}
     >
       {title &&
         (
