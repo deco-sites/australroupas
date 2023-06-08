@@ -33,7 +33,7 @@ function Newsletter({
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
-  const [messageResult, setMessageResult]= useState("");
+  const [messageResult, setMessageResult] = useState("");
 
   const handleSubmit = async (e: JSX.TargetedEvent<HTMLFormElement, Event>) => {
     e.preventDefault();
@@ -49,10 +49,10 @@ function Newsletter({
       headers: {
         "content-type": "application/json",
         "accept": "application/json",
-      }
+      },
     });
 
-    const result = await response.json()
+    const result = await response.json();
 
     if (response.status == 201) {
       setShowSuccess(true);
@@ -61,14 +61,14 @@ function Newsletter({
       setMessageResult("");
     } else {
       setShowSuccess(false);
-      if(result?.Message == "duplicated entry") {
+      if (result?.Message == "duplicated entry") {
         setMessageResult("e-mail já cadastrado");
       } else {
         setMessageResult("Erro ao enviar informações");
       }
     }
     setVisibility(true);
-  }
+  };
 
   return (
     <div class="max-w-3xl lg:mx-25 bg-white lg:flex border-t border-t-[#E4E4EA] p-6 lg:px-0">
@@ -85,7 +85,10 @@ function Newsletter({
             : "Cadastre-se e ganhe 10%OFF em sua primeira compra"}
         </p>
       </div>
-      <form onSubmit={(e) => handleSubmit(e)} class="flex flex-col items-center lg:flex-row lg:w-3/5 gap-2.5 px-4.5 mb-2.5 lg:px-0">
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        class="flex flex-col items-center lg:flex-row lg:w-3/5 gap-2.5 px-4.5 mb-2.5 lg:px-0"
+      >
         <input
           class="outline-none bg-white lg:w-2/5 rounded-md indent-2.5 border border-[#AEAEB2] w-full h-10 text-sm placeholder:text-sm placeholder:indent-2.5"
           required
@@ -93,7 +96,8 @@ function Newsletter({
           name="name"
           id="name"
           placeholder={placeholderName ? placeholderName : "Nome"}
-          onChange={(e) => setFirstName((e?.target as HTMLTextAreaElement).value)}
+          onChange={(e) =>
+            setFirstName((e?.target as HTMLTextAreaElement).value)}
           value={firstName}
         />
         <input
@@ -114,31 +118,41 @@ function Newsletter({
         />
       </form>
       <div
-        class={`${visibility ? "flex" : "hidden"} justify-center items-center overflow-y-hidden fixed inset-0 z-50`}
+        class={`${
+          visibility ? "flex" : "hidden"
+        } justify-center items-center overflow-y-hidden fixed inset-0 z-50`}
         style={{ backgroundColor: "rgba(0,0,0,.4)" }}
       >
         <div
           class={`bg-white w-[32em] flex flex-col justify-center items-center p-5 relative`}
         >
-          <button class="absolute top-3 right-3" onClick={() => setVisibility(false)}>
-            <i class={`icon-close text-base text-black hover:text-[#f27474]`}></i>
+          <button
+            class="absolute top-3 right-3"
+            onClick={() => setVisibility(false)}
+          >
+            <i class={`icon-close text-base text-black hover:text-[#f27474]`}>
+            </i>
           </button>
-          {
-            showSuccess ?
-            <>
-              <i class={`icon-check text-3xl text-neutral`}></i>
-              <h4 class="text-base mt-4.5 mb-5 text-black">{successText ? successText : "Cadastro realizado com sucesso"}</h4>
-            </> :
-            <>
-              <i class={`icon-warning text-3xl text-neutral`}></i>
-              <h4 class="text-base mt-4.5 mb-5 text-black">{errorText ? errorText : "Ocorreu um erro!"}</h4>
-            </>
-          }
-          {
-            messageResult ? 
-            <span class="text-xs text-black">{messageResult}</span> :
-            <></>  
-          }
+          {showSuccess
+            ? (
+              <>
+                <i class={`icon-check text-3xl text-neutral`}></i>
+                <h4 class="text-base mt-4.5 mb-5 text-black">
+                  {successText ? successText : "Cadastro realizado com sucesso"}
+                </h4>
+              </>
+            )
+            : (
+              <>
+                <i class={`icon-warning text-3xl text-neutral`}></i>
+                <h4 class="text-base mt-4.5 mb-5 text-black">
+                  {errorText ? errorText : "Ocorreu um erro!"}
+                </h4>
+              </>
+            )}
+          {messageResult
+            ? <span class="text-xs text-black">{messageResult}</span>
+            : <></>}
         </div>
       </div>
     </div>

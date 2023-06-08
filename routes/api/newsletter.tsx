@@ -10,10 +10,10 @@ export const handler: Handlers = {
 
     const data = await req.json();
     const requestData = {
-        email: data.email,
-        firstName: data.firstName,
-        isNewsletterOptIn: "true",
-    }
+      email: data.email,
+      firstName: data.firstName,
+      isNewsletterOptIn: "true",
+    };
 
     const response = await fetch(SUBDOMAIN + "/api/dataentities/CL/documents", {
       method: "POST",
@@ -21,7 +21,7 @@ export const handler: Handlers = {
       headers: {
         "content-type": "application/json",
         "accept": "application/json",
-      }
+      },
     });
 
     const headers = new Headers(response.headers);
