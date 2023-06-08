@@ -38,12 +38,12 @@ function CardsCarousel(
                 <div>
                   <Card
                     image={card.image}
-                    title={card.title} 
-                    description={card.description} 
-                    callToAction={card.callToAction} 
-                    href={card.href} 
-                    hasPaddingDesktop={false} 
-                   />
+                    title={card.title}
+                    description={card.description}
+                    callToAction={card.callToAction}
+                    href={card.href}
+                    hasPaddingDesktop={false}
+                  />
                 </div>
               </Slider.Item>
             );

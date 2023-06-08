@@ -14,7 +14,8 @@ interface Card extends Props {
 }
 
 function Card(
-  { image, title, description, callToAction, href, hasPaddingDesktop = true }: Card
+  { image, title, description, callToAction, href, hasPaddingDesktop = true }:
+    Card,
 ) {
   const paddingY = hasPaddingDesktop ? "lg:px-2.5" : "lg:px-0";
   return (
