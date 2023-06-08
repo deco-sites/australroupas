@@ -28,15 +28,22 @@ function CardsCarousel(
         id={id}
         class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px] relative"
       >
-        <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none">
+        <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none lg:gap-5">
           {cards.map((card, index) => {
             return (
               <Slider.Item
                 index={index}
-                class={`relative carousel-item w-[80%] sm:w-[33%] first:ml-[15px] last:mr-[15px]`}
+                class={`relative carousel-item w-[80%] sm:w-[32%] first:ml-[15px] last:mr-[15px]`}
               >
                 <div>
-                  <Card {...card} />
+                  <Card
+                    image={card.image}
+                    title={card.title} 
+                    description={card.description} 
+                    callToAction={card.callToAction} 
+                    href={card.href} 
+                    hasPaddingDesktop={false} 
+                   />
                 </div>
               </Slider.Item>
             );

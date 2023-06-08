@@ -7,12 +7,14 @@ export interface Props {
   description: string;
   callToAction: string;
   href: string;
-  hasPaddingDesktop?: true | false;
 }
 
-function FeatureHighlights(
-  { image, title, description, callToAction, href, hasPaddingDesktop = true }:
-    Props,
+interface Card extends Props {
+  hasPaddingDesktop?: boolean;
+}
+
+function Card(
+  { image, title, description, callToAction, href, hasPaddingDesktop = true }: Card
 ) {
   const paddingY = hasPaddingDesktop ? "lg:px-2.5" : "lg:px-0";
   return (
@@ -46,4 +48,4 @@ function FeatureHighlights(
   );
 }
 
-export default FeatureHighlights;
+export default Card;

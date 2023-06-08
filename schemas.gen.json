@@ -7560,20 +7560,6 @@
         "href": {
           "type": "string",
           "title": "Href"
-        },
-        "hasPaddingDesktop": {
-          "anyOf": [
-            {
-              "type": "boolean",
-              "const": true
-            },
-            {
-              "type": "boolean",
-              "const": false
-            }
-          ],
-          "type": "boolean",
-          "title": "Has Padding Desktop"
         }
       },
       "required": [
