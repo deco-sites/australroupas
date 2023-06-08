@@ -1,6 +1,7 @@
 import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Newsletter from "$store/islands/Newsletter.tsx";
 import type { ComponentChildren } from "preact";
+import type { Props as INewsletter } from "$store/components/footer/Newsletter.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 
@@ -29,6 +30,7 @@ export type Section = {
 };
 
 export interface Props {
+  newsletter: INewsletter;
   sections?: Section[];
   socialMedia?: socialMediaItem[];
   payment?: paymentItem[];
@@ -70,115 +72,118 @@ function LinkItemFooter({ item }: { item: LinkItem }) {
 }
 
 function Footer(
-  { sections = [], socialMedia, payment, allRightsReserved }: Props,
+  { newsletter, sections = [], socialMedia, payment, allRightsReserved }: Props,
 ) {
   return (
-    <footer class="w-full bg-base-100 flex flex-col">
-      <div class="home-container-mobile sm:home-container flex flex-col sm:flex-row">
-        {/* Desktop view */}
-        <ul class="hidden sm:flex flex-row justify-between w-full pt-12 pb-10">
-          {sections.map((section) => (
-            <li class="mr-80">
-              <div>
-                <span class="font-semibold text-[14px] text-info">
-                  <a
-                    href={section.href}
-                    target={section.openInNewPage ? "_blank" : ""}
-                  >
-                    {section.label}
-                  </a>
-                </span>
-
-                <ul
-                  class={`flex flex-col gap-3 pt-2 flex-wrap`}
-                >
-                  {section.children.map((item) => (
-                    <li class="text-[14px]">
-                      <LinkItemFooter item={item} />
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          ))}
-        </ul>
-
-        {/* Mobile view */}
-        <ul class="flex flex-col sm:hidden sm:flex-row sm:gap-4">
-          {sections.map((section) => (
-            <li>
-              <span class="text-info">
-                <details class="border-b-[1px] border-[#C7C7CC] group">
-                  <summary class="py-[15px] relative">
+    <>
+      <Newsletter {...newsletter} />
+      <footer class="w-full bg-base-100 flex flex-col">
+        <div class="home-container-mobile sm:home-container flex flex-col sm:flex-row">
+          {/* Desktop view */}
+          <ul class="hidden sm:flex flex-row justify-between w-full pt-12 pb-10">
+            {sections.map((section) => (
+              <li class="mr-80">
+                <div>
+                  <span class="font-semibold text-[14px] text-info">
                     <a
                       href={section.href}
                       target={section.openInNewPage ? "_blank" : ""}
-                      class="text-[12px] font-semibold"
                     >
                       {section.label}
                     </a>
-                    <span class="block absolute right-0 top-[22px] group-open:hidden text-[9px] text-info">
-                      <i class="icon icon-plus"></i>
-                    </span>
-                    <span class="hidden absolute right-0 top-[22px] group-open:block text-[9px] text-info">
-                      <i class="icon icon-minus"></i>
-                    </span>
-                  </summary>
+                  </span>
 
                   <ul
-                    class={`flex flex-col gap-2 text-[12px]`}
+                    class={`flex flex-col gap-3 pt-2 flex-wrap`}
                   >
                     {section.children.map((item) => (
-                      <li>
+                      <li class="text-[14px]">
                         <LinkItemFooter item={item} />
                       </li>
                     ))}
                   </ul>
-                </details>
-              </span>
-            </li>
-          ))}
-        </ul>
-
-        <div class="flex flex-col gap-2.5 w-full sm:w-[16%] items-center pt-12 pb-10">
-          <ul class="flex w-full justify-around sm:justify-center">
-            {socialMedia?.map((icon) => {
-              return (
-                <li class="cursor-pointer">
-                  <SocialMediaFooter item={icon} />
-                </li>
-              );
-            })}
+                </div>
+              </li>
+            ))}
           </ul>
 
-          <ul class="flex w-full justify-around sm:justify-center">
-            {payment?.map((icon) => {
-              return (
-                <li>
-                  <PaymentIconFooter item={icon} />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
+          {/* Mobile view */}
+          <ul class="flex flex-col sm:hidden sm:flex-row sm:gap-4">
+            {sections.map((section) => (
+              <li>
+                <span class="text-info">
+                  <details class="border-b-[1px] border-[#C7C7CC] group">
+                    <summary class="py-[15px] relative">
+                      <a
+                        href={section.href}
+                        target={section.openInNewPage ? "_blank" : ""}
+                        class="text-[12px] font-semibold"
+                      >
+                        {section.label}
+                      </a>
+                      <span class="block absolute right-0 top-[22px] group-open:hidden text-[9px] text-info">
+                        <i class="icon icon-plus"></i>
+                      </span>
+                      <span class="hidden absolute right-0 top-[22px] group-open:block text-[9px] text-info">
+                        <i class="icon icon-minus"></i>
+                      </span>
+                    </summary>
 
-      <div class="home-container-mobile sm:home-container w-full">
-        <div class="flex flex-col sm:flex-row gap-5 sm:gap-0 justify-between pt-[30px] pb-10 border-t-[1px] border-[#C7C7CC]">
-          <p class="text-info text-center sm:text-left text-[12px] tracking-wide">
-            {allRightsReserved}
-          </p>
-          <span class="flex items-center justify-center gap-1 text-info">
-            <a
-              href="https://www.deco.cx"
-              aria-label="powered by https://www.deco.cx"
-            >
-              <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-            </a>
-          </span>
+                    <ul
+                      class={`flex flex-col gap-2 text-[12px]`}
+                    >
+                      {section.children.map((item) => (
+                        <li>
+                          <LinkItemFooter item={item} />
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex flex-col gap-2.5 w-full sm:w-[16%] items-center pt-12 pb-10">
+            <ul class="flex w-full justify-around sm:justify-center">
+              {socialMedia?.map((icon) => {
+                return (
+                  <li class="cursor-pointer">
+                    <SocialMediaFooter item={icon} />
+                  </li>
+                );
+              })}
+            </ul>
+
+            <ul class="flex w-full justify-around sm:justify-center">
+              {payment?.map((icon) => {
+                return (
+                  <li>
+                    <PaymentIconFooter item={icon} />
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         </div>
-      </div>
-    </footer>
+
+        <div class="home-container-mobile sm:home-container w-full">
+          <div class="flex flex-col sm:flex-row gap-5 sm:gap-0 justify-between pt-[30px] pb-10 border-t-[1px] border-[#C7C7CC]">
+            <p class="text-info text-center sm:text-left text-[12px] tracking-wide">
+              {allRightsReserved}
+            </p>
+            <span class="flex items-center justify-center gap-1 text-info">
+              <a
+                href="https://www.deco.cx"
+                aria-label="powered by https://www.deco.cx"
+              >
+                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer>
+    </>
   );
 }
 
