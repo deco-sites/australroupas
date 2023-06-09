@@ -39,7 +39,7 @@ export interface Props {
 
 function SocialMediaFooter({ item }: { item: socialMediaItem }) {
   return (
-    <div class="border-base-100 border border-solid py-1.5 px-3.5">
+    <div class="border-base-100 border border-solid py-1.5 px-2.5">
       <Icon
         id={item.icon.icon}
         width={25}
@@ -52,7 +52,7 @@ function SocialMediaFooter({ item }: { item: socialMediaItem }) {
 
 function PaymentIconFooter({ item }: { item: paymentItem }) {
   return (
-    <div class="border-base-100 border border-solid py-1.5 px-1.5">
+    <div class="border-base-100 border border-solid py-1.5 px-1">
       <Icon
         id={item.icon.icon}
         height={25}
@@ -82,7 +82,7 @@ function Footer(
           {/* Desktop view */}
           <ul class="hidden sm:flex flex-row justify-between w-full pt-12 pb-10">
             {sections.map((section) => (
-              <li class="mr-80">
+              <li class="w-full">
                 <div>
                   <span class="font-semibold text-[14px] text-info">
                     <a
@@ -130,7 +130,7 @@ function Footer(
                     </summary>
 
                     <ul
-                      class={`flex flex-col gap-2 text-[12px]`}
+                      class={`flex flex-col gap-2 text-[12px] mb-5`}
                     >
                       {section.children.map((item) => (
                         <li>
@@ -144,7 +144,7 @@ function Footer(
             ))}
           </ul>
 
-          <div class="flex flex-col gap-2.5 w-full sm:w-[16%] items-center pt-12 pb-10">
+          <div class="flex flex-col gap-2.5 w-full sm:w-[25%] items-center pt-12 pb-10">
             <ul class="flex w-full justify-around sm:justify-center">
               {socialMedia?.map((icon) => {
                 return (
