@@ -32,7 +32,7 @@ function ProductShelf({
   const paddingXitemsDesktop = twoItemsPerPage ? "lg:px-[62px]" : "";
 
   const gridRows = title
-    ? "grid-rows-[94px_1fr_48px_1fr] py-10"
+    ? "grid-rows-[64px_1fr_48px_1fr] py-10"
     : "grid-rows-[1fr]";
 
   return (
@@ -116,7 +116,7 @@ function Dots(
               `,
         }}
       />
-      <ul class="flex w-full absolute bottom-0 carousel justify-center col-span-full gap-2 z-10 row-start-4">
+      <ul class="flex w-full absolute bottom-0 carousel justify-center col-span-full gap-1.5 z-10 row-start-4">
         {products?.map((_, index) => (
           <li class={`carousel-item ${(index + 1) % 4 != 0 && "sm:hidden"}`}>
             <Slider.Dot index={index}>

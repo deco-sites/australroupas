@@ -108,8 +108,6 @@ function Banner({ page, banners = [] }: Props) {
     return null;
   }
 
-  console.log(page.breadcrumb.itemListElement);
-
   const { item: canonical } = page
     .breadcrumb
     .itemListElement
