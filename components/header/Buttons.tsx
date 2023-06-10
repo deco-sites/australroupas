@@ -20,7 +20,7 @@ function SearchButton(
     iconsHeader?: IconsHeader;
   },
 ) {
-  const { displaySearchbar, displayOverlay, displayServiceMenu } = useUI();
+  const { displaySearchbar, displayOverlay, displayServiceMenu, displayOverlayServiceMenu } = useUI();
 
   return (
     <>
@@ -32,6 +32,7 @@ function SearchButton(
               onClick={() => {
                 displaySearchbar.value = false;
                 displayOverlay.value = false;
+                displayOverlayServiceMenu.value = false;
               }}
             >
               <i class={`icon-close`}></i>
@@ -91,7 +92,7 @@ function MenuButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
 }
 
 function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
-  const { displayCart, displayServiceMenu, displaySearchbar } = useUI();
+  const { displayCart, displayServiceMenu, displaySearchbar, displayOverlayServiceMenu } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
   const totalItems = cart.value?.items.length || 0;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
@@ -104,6 +105,7 @@ function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
     displayCart.value = true;
     displaySearchbar.value = false;
     displayServiceMenu.value = false;
+    displayOverlayServiceMenu.value = false;
     sendEvent({
       name: "view_cart",
       params: {
