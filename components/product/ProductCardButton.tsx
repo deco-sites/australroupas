@@ -30,7 +30,7 @@ export default function ProductCardButton(
   return (
     <figcaption class=" absolute bottom-0 left-0 w-full transition-opacity bg-[rgba(255,255,255,0.8)] hidden sm:group-hover:block py-3 px-4">
       {/* SKU Selector */}
-      <ul class="flex justify-center items-center gap-2 w-full">
+      <ul class="flex justify-center items-center flex-wrap gap-2 w-full">
         {variants.map(([value, [link]]) => {
           const currentProduct = isVariantOf?.hasVariant.filter(
             (variant) => variant.url == link,
