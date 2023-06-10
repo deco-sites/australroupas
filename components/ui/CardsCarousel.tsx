@@ -21,7 +21,7 @@ function CardsCarousel(
 
   return (
     <div class="sm:home-container mb-10 lg:mb-15">
-      <div>
+      <div class="px-4.5 lg:px-0">
         <Quilltext html={title} />
       </div>
       <div
