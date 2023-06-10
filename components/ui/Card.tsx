@@ -24,7 +24,7 @@ function Card(
         />
       </a>
       {subTitle &&
-        <span class="mt-5 text-sm mb-2.5">{subTitle}</span>}
+        <p class="mt-5 text-sm mb-2.5">{subTitle}</p>}
       <h3 class="font-bold text-1.5xl pt-2.5 mt-2.5">{title}</h3>
       <p
         class="text-sm h-10 mt-2.5 overflow-hidden leading-normal"
