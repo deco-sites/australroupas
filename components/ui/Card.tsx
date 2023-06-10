@@ -9,17 +9,12 @@ export interface Props {
   href: string;
 }
 
-interface Card extends Props {
-  hasPaddingDesktop?: boolean;
-}
-
 function Card(
-  { image, title, description, callToAction, href, hasPaddingDesktop = true }:
-    Card,
+  { image, title, description, callToAction, href }:
+  Props,
 ) {
-  const paddingY = hasPaddingDesktop ? "lg:px-2.5" : "lg:px-0";
   return (
-    <div class={`w-full px-4.5 ${paddingY}`}>
+    <div class={`w-full px-4.5 lg:px-0`}>
       <a class="block w-full" href={href}>
         <Image
           class="w-full rounded-md"
