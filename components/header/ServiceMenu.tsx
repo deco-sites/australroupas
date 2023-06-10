@@ -8,7 +8,12 @@ function ServiceMenu(
     iconsHeader: IconsHeader;
   },
 ) {
-  const { displayOverlay, displayServiceMenu, displaySearchbar, displayOverlayServiceMenu } = useUI();
+  const {
+    displayOverlay,
+    displayServiceMenu,
+    displaySearchbar,
+    displayOverlayServiceMenu,
+  } = useUI();
 
   return (
     <>
@@ -23,7 +28,8 @@ function ServiceMenu(
             displaySearchbar.value = false;
           }}
         >
-          <i class={`${iconsHeader?.callToUs || "icon-phone"} lg:text-2.5xl`}></i>
+          <i class={`${iconsHeader?.callToUs || "icon-phone"} lg:text-2.5xl`}>
+          </i>
         </button>
         <div
           class={`${

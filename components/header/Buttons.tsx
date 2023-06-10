@@ -20,7 +20,12 @@ function SearchButton(
     iconsHeader?: IconsHeader;
   },
 ) {
-  const { displaySearchbar, displayOverlay, displayServiceMenu, displayOverlayServiceMenu } = useUI();
+  const {
+    displaySearchbar,
+    displayOverlay,
+    displayServiceMenu,
+    displayOverlayServiceMenu,
+  } = useUI();
 
   return (
     <>
@@ -92,7 +97,12 @@ function MenuButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
 }
 
 function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
-  const { displayCart, displayServiceMenu, displaySearchbar, displayOverlayServiceMenu } = useUI();
+  const {
+    displayCart,
+    displayServiceMenu,
+    displaySearchbar,
+    displayOverlayServiceMenu,
+  } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
   const totalItems = cart.value?.items.length || 0;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
