@@ -7545,6 +7545,13 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
           "title": "Image"
         },
+        "subTitle": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "title": "Sub Title"
+        },
         "title": {
           "type": "string",
           "title": "Title"

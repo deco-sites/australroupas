@@ -3,6 +3,7 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Props {
   image: LiveImage;
+  subTitle?: string;
   title: string;
   description: string;
   callToAction: string;
@@ -10,7 +11,7 @@ export interface Props {
 }
 
 function Card(
-  { image, title, description, callToAction, href }: Props,
+  { image, title, description, callToAction, href, subTitle = "" }: Props,
 ) {
   return (
     <div class={`w-full px-4.5 lg:px-0`}>
@@ -22,6 +23,10 @@ function Card(
           width={315}
         />
       </a>
+      {
+        subTitle && 
+        <span class="mt-5 text-sm mb-2.5">{subTitle}</span>
+      }
       <h3 class="font-bold text-1.5xl pt-2.5 mt-2.5">{title}</h3>
       <p
         class="text-sm h-10 mt-2.5 overflow-hidden leading-normal"
