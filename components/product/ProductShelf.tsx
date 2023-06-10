@@ -29,7 +29,7 @@ function ProductShelf({
   }
 
   const itemsDesktop = twoItemsPerPage ? "md:w-[49%]" : "sm:w-[24%]";
-  const paddingXitemsDesktop = twoItemsPerPage ? "0 62px" : "";
+  const paddingXitemsDesktop = twoItemsPerPage ? "lg:px-[62px]" : "";
 
   const gridRows = title
     ? "grid-rows-[94px_1fr_48px_1fr] py-10"
@@ -38,8 +38,7 @@ function ProductShelf({
   return (
     <div
       id={id}
-      class={`sm:home-container relative grid grid-cols-[48px_1fr_48px] ${gridRows} px-0 my-10 mb-10`}
-      style={{ padding: paddingXitemsDesktop }}
+      class={`sm:home-container relative grid grid-cols-[48px_1fr_48px] ${gridRows} px-0 ${paddingXitemsDesktop} my-10 mb-10`}
     >
       {title &&
         (
