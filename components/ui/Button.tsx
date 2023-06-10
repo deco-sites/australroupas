@@ -1,5 +1,5 @@
 import { forwardRef } from "preact/compat";
-import type { JSX, ComponentType } from "preact";
+import type { ComponentType, JSX } from "preact";
 
 import Spinner from "./Spinner.tsx";
 
@@ -13,14 +13,13 @@ export type Props =
     type?: string;
   };
 
-  const variants = {
-    primary:
-      "",
-    white:
-      "flex items-center text-center bg-white text-black px-6 py-2 rounded-md text-[14px] tracking-wide",
-    blue:
-      "flex justify-center items-center w-full bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:bg-primary hover:opacity-80",
-  };
+const variants = {
+  primary: "",
+  white:
+    "flex items-center text-center bg-white text-black px-6 py-2 rounded-md text-[14px] tracking-wide",
+  blue:
+    "flex justify-center items-center w-full bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:bg-primary hover:opacity-80",
+};
 
 const Button = forwardRef<HTMLButtonElement, Props>(({
   variant = "primary",
@@ -32,12 +31,10 @@ const Button = forwardRef<HTMLButtonElement, Props>(({
   disabled,
   ...props
 }, ref) => {
-
   const Component = as as ComponentType<
     { disabled?: boolean; className: string; type: string }
   >;
   const styles = variants[variant];
-
 
   return (
     <Component
@@ -50,7 +47,6 @@ const Button = forwardRef<HTMLButtonElement, Props>(({
       {loading === true ? <Spinner size={24} /> : children}
     </Component>
   );
-  
 });
 
 export default Button;
