@@ -10,8 +10,7 @@ export interface Props {
 }
 
 function Card(
-  { image, title, description, callToAction, href }:
-  Props,
+  { image, title, description, callToAction, href }: Props,
 ) {
   return (
     <div class={`w-full px-4.5 lg:px-0`}>
