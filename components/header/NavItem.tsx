@@ -61,31 +61,33 @@ function NavItem({ item, index }: { item: INavItem; index: number }) {
       {children && children.length > 0 &&
         (
           <div
-            class={`NavItemChildren fixed flex justify-evenly opacity-0 group-hover:pointer-events-auto min-h-[366px] transition-all duration-300 ease-linear pointer-events-none max-w-3xl py-8.5 bg-white z-50 items-start w-screen`}
+            class={`NavItemChildren fixed opacity-0 group-hover:pointer-events-auto min-h-[366px] transition-all duration-300 ease-linear pointer-events-none py-8.5 bg-white z-50 w-screen`}
             style={{ top: "0px", left: "0px", marginTop: "95px" }}
           >
-            <ul class="flex flex-col items-start justify-center">
-              {children.map((node) => (
-                <li class="py-1.7">
-                  <a class="text-base text-info" href={node.href}>
-                    <span class={`${node.red ? "text-[#DB1616]" : ""}`}>
-                      {node.label}
-                    </span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div class="flex gap-5 max-w-[850px]">
-              {firstCard && (
-                <div class="max-w-md">
-                  <Card {...firstCard} />
-                </div>
-              )}
-              {secondCard && (
-                <div class="max-w-md">
-                  <Card {...secondCard} />
-                </div>
-              )}
+            <div class="max-w-3xl flex justify-evenly items-start mx-auto">
+              <ul class="flex flex-col items-start justify-center">
+                {children.map((node) => (
+                  <li class="py-1.7">
+                    <a class="text-base text-info" href={node.href}>
+                      <span class={`${node.red ? "text-[#DB1616]" : ""}`}>
+                        {node.label}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div class="flex gap-5 max-w-[850px]">
+                {firstCard && (
+                  <div class="max-w-md">
+                    <Card {...firstCard} />
+                  </div>
+                )}
+                {secondCard && (
+                  <div class="max-w-md">
+                    <Card {...secondCard} />
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         )}
