@@ -57,12 +57,11 @@ export interface Button {
   /** @description Link do botão */
   href?: string;
   /** @description Cor do botão */
-  color: "blue" | "black" | "white" | "transparent" | "link";
+  color: "white" | "blue";
 }
 
 export interface Title {
   text: HTML;
-  font: "lusitana" | "nunito-sans" | "Roboto-ligth" | "Palatino";
 }
 
 export interface Content {
@@ -246,7 +245,7 @@ function Content(
       <div class="w-full">
         {content?.title?.map((title) => {
           return (
-            <div class={`font-${title.font}`}>
+            <div>
               <Quilltext html={title.text} />
             </div>
           );
@@ -255,12 +254,13 @@ function Content(
       <div class={`w-full flex gap-5 py-2.5 ${align}`}>
         {content?.buttons?.map((button) => {
           return (
-            <a
+            <Button
+              as="a"
               href={button.href}
-              class="flex items-center text-center bg-white text-black px-6 py-2 rounded-md text-[14px] tracking-wide"
+              variant={button.color}
             >
               {button.text}
-            </a>
+            </Button>
           );
         })}
       </div>

@@ -31,12 +31,13 @@ function AddToCartButton(
 
   if (openPdp) {
     return (
-      <a
+      <Button
         href={url}
-        class={classBtn}
+        variant="blue"
+        as="a"
       >
         Adicionar à Sacola
-      </a>
+      </Button>
     );
   }
 

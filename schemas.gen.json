@@ -8181,33 +8181,10 @@
         "text": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML",
           "title": "Text"
-        },
-        "font": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "lusitana"
-            },
-            {
-              "type": "string",
-              "const": "nunito-sans"
-            },
-            {
-              "type": "string",
-              "const": "Roboto-ligth"
-            },
-            {
-              "type": "string",
-              "const": "Palatino"
-            }
-          ],
-          "type": "string",
-          "title": "Font"
         }
       },
       "required": [
-        "text",
-        "font"
+        "text"
       ],
       "title": "Title"
     },
@@ -8241,23 +8218,11 @@
           "anyOf": [
             {
               "type": "string",
-              "const": "blue"
-            },
-            {
-              "type": "string",
-              "const": "black"
-            },
-            {
-              "type": "string",
               "const": "white"
             },
             {
               "type": "string",
-              "const": "transparent"
-            },
-            {
-              "type": "string",
-              "const": "link"
+              "const": "blue"
             }
           ],
           "type": "string",
