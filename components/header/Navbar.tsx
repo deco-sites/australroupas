@@ -4,7 +4,7 @@ import Menu from "$store/islands/Menu.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
-import Overlay from "$store/islands/Overlay.tsx";
+
 import { navbarHeight } from "./constants.ts";
 import ServiceMenu from "$store/islands/ServiceMenu.tsx";
 import type { INavItem } from "./NavItem.tsx";
@@ -60,7 +60,6 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
       </div>
 
       {/* Desktop Version */}
-      <Overlay />
       <div class="hidden lg:flex mx-auto max-w-3xl flex-row justify-between items-center border-b border-base-200 w-full px-25 bg-white relative z-50">
         <div class="flex-none">
           <a href="/" aria-label="Store logo" class="block px-4 py-3">

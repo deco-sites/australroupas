@@ -4,6 +4,7 @@ import type { EditableProps as SearchbarProps } from "$store/components/search/S
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
 import type { INavItem } from "$store/components/header/NavItem.tsx";
+import Overlay from "$store/islands/Overlay.tsx";
 
 import Navbar from "./Navbar.tsx";
 
@@ -118,6 +119,8 @@ function Header(
             iconsHeader={iconsHeader}
           />
         </div>
+
+        <Overlay />
 
         <Modals />
       </header>
