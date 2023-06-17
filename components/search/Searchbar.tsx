@@ -9,7 +9,7 @@
  * no JavaScript is shipped to the browser!
  */
 
-import { useEffect, useRef } from "preact/compat";
+import { useEffect, useRef, useState  } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 // import Spinner from "$store/components/ui/Spinner.tsx";
@@ -66,7 +66,8 @@ function Searchbar({
   variant = "mobile",
 }: Props) {
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { setSearch, suggestions, loading } = useAutocomplete();
+  // const { setSearch, suggestions, loading } = useAutocomplete();
+  const [searchTerm, setSearchTerm] = useState("");
   // const hasProducts = Boolean(suggestions.value?.products?.length);
   // const hasTerms = Boolean(suggestions.value?.searches?.length);
   //const notFound = !hasProducts && !hasTerms;
@@ -78,6 +79,23 @@ function Searchbar({
 
     searchInputRef.current.focus();
   }, []);
+
+  useEffect(() => {
+    if(searchTerm.length > 2) {
+      fetch("/api/autocomplete?term=" + searchTerm, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          "accept": "application/json",
+        },
+      })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result)
+      })
+
+    }
+  }, [searchTerm])
 
   return (
     <div class="flex flex-col bg-base-100 h-12 lg:bg-transparent">
@@ -104,8 +122,10 @@ function Searchbar({
                 });
               }
 
-              setSearch(value);
+              // setSearch(value);
+              setSearchTerm(value);
             }}
+            value={searchTerm}
             placeholder={placeholder}
             role="combobox"
             aria-controls="search-suggestion"
@@ -124,75 +144,7 @@ function Searchbar({
         {/* {variant === "desktop" && <CloseButton />} */}
       </div>
       {
-        /*<div class="flex flex-col gap-6 divide-y divide-base-200 mt-6 empty:mt-0 md:flex-row md:divide-y-0">
-
-
-          VTEX INTELIGENT SEARCH NAO ESTA INSTALADO
-
-        {notFound
-          ? (
-            <>
-              Aqui vai a mensagem de nada encontrado
-            </>
-          )
-          : (
-            <>
-              <div class="flex flex-col gap-6 md:w-[15.25rem] md:max-w-[15.25rem]\">
-                <div class="flex gap-2 items-center">
-                  <span
-                    class="font-medium text-xl"
-                    role="heading"
-                    aria-level={3}
-                  >
-                    Sugestões
-                  </span>
-                  {loading.value && <Spinner />}
-                </div>
-                <ul id="search-suggestion" class="flex flex-col gap-6">
-                  {suggestions.value!.searches?.map(({ term }) => (
-                    <li>
-                      <a href={`/s?q=${term}`} class="flex gap-4 items-center">
-                        <span>
-                          <Icon
-                            id="MagnifyingGlass"
-                            size={20}
-                            strokeWidth={0.01}
-                          />
-                        </span>
-                        <span>
-                          {term}
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
-                <div class="flex gap-2 items-center">
-                  <span
-                    class="font-medium text-xl"
-                    role="heading"
-                    aria-level={3}
-                  >
-                    Produtos sugeridos
-                  </span>
-                  {loading.value && <Spinner />}
-                </div>
-                <Slider class="carousel">
-                  {suggestions.value!.products?.map((product, index) => (
-                    <Slider.Item
-                      index={index}
-                      class="carousel-item first:ml-4 last:mr-4 min-w-[200px] max-w-[200px]"
-                    >
-                      <ProductCard product={product} />
-                    </Slider.Item>
-                  ))}
-                </Slider>
-              </div>
-            </>
-          )}
-        }
-      </div>*/
+        
       }
     </div>
   );
