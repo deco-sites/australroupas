@@ -10,13 +10,16 @@ export const handler: Handlers = {
 
     const term = req.url.split("=")[1];
 
-    const response = await fetch(SUBDOMAIN + "/buscaautocomplete?maxRows=10&productNameContains=" + term, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        "accept": "application/json",
+    const response = await fetch(
+      SUBDOMAIN + "/buscaautocomplete?maxRows=10&productNameContains=" + term,
+      {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          "accept": "application/json",
+        },
       },
-    });
+    );
 
     const headers = new Headers(response.headers);
     headers.set("access-control-allow-origin", "*");

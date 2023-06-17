@@ -9,7 +9,7 @@
  * no JavaScript is shipped to the browser!
  */
 
-import { useEffect, useRef, useState  } from "preact/compat";
+import { useEffect, useRef, useState } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 // import Spinner from "$store/components/ui/Spinner.tsx";
@@ -81,7 +81,7 @@ function Searchbar({
   }, []);
 
   useEffect(() => {
-    if(searchTerm.length > 2) {
+    if (searchTerm.length > 2) {
       fetch("/api/autocomplete?term=" + searchTerm, {
         method: "GET",
         headers: {
@@ -89,13 +89,12 @@ function Searchbar({
           "accept": "application/json",
         },
       })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result)
-      })
-
+        .then((response) => response.json())
+        .then((result) => {
+          console.log(result);
+        });
     }
-  }, [searchTerm])
+  }, [searchTerm]);
 
   return (
     <div class="flex flex-col bg-base-100 h-12 lg:bg-transparent">
@@ -143,9 +142,7 @@ function Searchbar({
         </form>
         {/* {variant === "desktop" && <CloseButton />} */}
       </div>
-      {
-        
-      }
+      {}
     </div>
   );
 }
