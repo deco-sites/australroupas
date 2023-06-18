@@ -87,5 +87,14 @@
     margin-right: 0px;
     margin-left: 0px;
   }
+
+  details#footer {
+    max-height: 55px;
+    transition: all 500ms ease-in-out;
+  }
+
+  details#footer[open] {
+    max-height: 250px;
+  }
   
 }

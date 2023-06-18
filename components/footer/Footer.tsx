@@ -112,7 +112,7 @@ function Footer(
             {sections.map((section) => (
               <li>
                 <span class="text-info">
-                  <details class="border-b-[1px] border-[#C7C7CC] group">
+                  <details id="footer" class="border-b-[1px] border-[#C7C7CC] group">
                     <summary class="py-[15px] relative">
                       <a
                         href={section.href}
