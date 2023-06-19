@@ -13,7 +13,7 @@ function CardPlusShelf(
 ) {
   const { Component, props } = productShelf;
   return (
-    <div class="sm:home-container mb-10 md:my-15 flex flex-col md:flex-row">
+    <div class="sm:home-container md:my-15 flex flex-col md:flex-row">
       <div class="w-full md:w-1/2">
         <Card {...card} />
       </div>
