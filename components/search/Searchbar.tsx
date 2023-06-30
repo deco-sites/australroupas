@@ -135,9 +135,6 @@ function Searchbar({
     return () => clearTimeout(timer);
   }, [searchTerm]);
 
-  console.log(sugestions);
-  console.log(sugestionsProducts);
-
   return (
     <div class="flex flex-col bg-base-100 lg:bg-transparent">
       <div class="flex items-center gap-4 px-4 lg:px-5 h-12 w-64">
