@@ -114,14 +114,14 @@ function Searchbar({
                 setSugestions(
                   (prevSugestions) => [...prevSugestions, {
                     label: item.criteria,
-                    href: item.href,
+                    href: item.href.replace("https://www.austral.com.br", ""),
                   }],
                 );
               }
               if (!item.criteria) {
                 setSugestionsProducts(
                   (prevSugestionsProducts) => [...prevSugestionsProducts, {
-                    href: item.href,
+                    href: item.href.replace("https://www.austral.com.br", ""),
                     image: item.thumbUrl,
                     label: item.name,
                   }],
