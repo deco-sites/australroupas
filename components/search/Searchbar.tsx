@@ -58,6 +58,17 @@ export type Props = EditableProps & {
   variant?: "desktop" | "mobile";
 };
 
+interface productCardSugestion {
+  href: string;
+  image: string;
+  label: string;
+}
+
+interface searchSugestion {
+  href: string;
+  label: string;
+}
+
 function Searchbar({
   placeholder = "What are you looking for?",
   action = "/s",
@@ -68,6 +79,10 @@ function Searchbar({
   const searchInputRef = useRef<HTMLInputElement>(null);
   // const { setSearch, suggestions, loading } = useAutocomplete();
   const [searchTerm, setSearchTerm] = useState("");
+  const [sugestions, setSugestions] = useState<Array<searchSugestion>>([]);
+  const [sugestionsProducts, setSugestionsProducts] = useState<
+    Array<productCardSugestion>
+  >([]);
   // const hasProducts = Boolean(suggestions.value?.products?.length);
   // const hasTerms = Boolean(suggestions.value?.searches?.length);
   //const notFound = !hasProducts && !hasTerms;
@@ -81,23 +96,50 @@ function Searchbar({
   }, []);
 
   useEffect(() => {
-    if (searchTerm.length > 2) {
-      fetch("/api/autocomplete?term=" + searchTerm, {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-          "accept": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((result) => {
-          console.log(result);
-        });
-    }
+    const timer = setTimeout(() => {
+      if (searchTerm.length > 2) {
+        fetch("/api/autocomplete?term=" + searchTerm, {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            "accept": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            // deno-lint-ignore no-explicit-any
+            result?.itemsReturned?.forEach((item: any) => {
+              if (item.criteria) {
+                setSugestions(
+                  (prevSugestions) => [...prevSugestions, {
+                    label: item.criteria,
+                    href: item.href,
+                  }],
+                );
+              }
+              if (!item.criteria) {
+                setSugestionsProducts(
+                  (prevSugestionsProducts) => [...prevSugestionsProducts, {
+                    href: item.href,
+                    image: item.thumbUrl,
+                    label: item.name,
+                  }],
+                );
+              }
+            });
+          });
+      }
+    }, 1500);
+
+    return () => clearTimeout(timer);
   }, [searchTerm]);
 
+  console.log(sugestions);
+  console.log(sugestionsProducts);
+
   return (
-    <div class="flex flex-col bg-base-100 h-12 lg:bg-transparent">
+    <div class="flex flex-col bg-base-100 lg:bg-transparent">
       <div class="flex items-center gap-4 px-4 lg:px-5 h-12 w-64">
         <form
           id="searchbar"
@@ -123,6 +165,16 @@ function Searchbar({
 
               // setSearch(value);
               setSearchTerm(value);
+
+              if (
+                // deno-lint-ignore no-explicit-any
+                (e as any).inputType == "deleteContentBackward" ||
+                // deno-lint-ignore no-explicit-any
+                (e as any).inputType == "deleteContentForward"
+              ) {
+                setSugestions([]);
+                setSugestionsProducts([]);
+              }
             }}
             value={searchTerm}
             placeholder={placeholder}
@@ -142,7 +194,40 @@ function Searchbar({
         </form>
         {/* {variant === "desktop" && <CloseButton />} */}
       </div>
-      {}
+      {sugestions.length > 0 &&
+        sugestionsProducts.length > 0 &&
+        (
+          <div class="w-full bg-white px-4.5 lg:px-5 lg:py-5 lg:max-w-[460px] lg:absolute lg:top-[150%] lg:right-[-20%] lg:w-[460px] lg:shadow-searchsugestions lg:rounded-tl-md lg:rounded-tr-md">
+            <div class="hidden lg:block w-3 h-3 border-l border-l-[#C7C7CC] border-t border-t-[#C7C7CC] rotate-45 bg-white absolute top-[-7px] right-5">
+            </div>
+            <div class="py-2.5 pt-[5px]">
+              {sugestions.length > 0 &&
+                sugestions.map((item) => (
+                  <a
+                    class="block py-2.5 text-sm pb-5 text-black"
+                    href={item.href}
+                  >
+                    {searchTerm} em {item.label.split("¢")[0]}
+                  </a>
+                ))}
+            </div>
+            <div class="max-h-[400px] border-t border-t-[#AEAEB2] py-2.5 overflow-y-auto">
+              {sugestionsProducts.length > 0 &&
+                sugestionsProducts.map((item) => (
+                  <a class="flex my-2.5 py-2.5 items-center" href={item.href}>
+                    <img
+                      class="rounded-[15px] w-11"
+                      src={item.image}
+                      alt={item.label}
+                    />
+                    <span class="text-xs font-black capitalize">
+                      {item.label}
+                    </span>
+                  </a>
+                ))}
+            </div>
+          </div>
+        )}
     </div>
   );
 }
