@@ -14,6 +14,7 @@ export interface Props {
    * @description Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products
    */
   variant?: "aside" | "drawer";
+  pageType?: "Category" | "Search";
 }
 
 function NotFound() {
@@ -27,6 +28,7 @@ function NotFound() {
 function Result({
   page,
   variant,
+  pageType = "Category"
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
@@ -47,7 +49,7 @@ function Result({
             </aside>
           )}
           <div class="flex-grow sm:ml-[80px]">
-            <ProductGallery products={products} />
+            <ProductGallery products={products} pageType={pageType} />
             <div class="flex justify-center my-4">
               <div class="btn-group">
                 <a
