@@ -28,7 +28,7 @@ function NotFound() {
 function Result({
   page,
   variant,
-  pageType = "Category"
+  pageType = "Category",
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 

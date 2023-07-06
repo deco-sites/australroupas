@@ -8,9 +8,15 @@ export interface Props {
 }
 
 function ProductGallery({ products, pageType = "Category" }: Props) {
-  const itemsLine = pageType == "Category" ? "sm:grid-cols-3" : "sm:grid-cols-4";
+  const itemsLine = pageType == "Category"
+    ? "sm:grid-cols-3"
+    : "sm:grid-cols-4";
   return (
-    <div class={`grid grid-cols-2 gap-2 items-center  sm:gap-5 ${itemsLine && itemsLine}`}>
+    <div
+      class={`grid grid-cols-2 gap-2 items-center  sm:gap-5 ${
+        itemsLine && itemsLine
+      }`}
+    >
       {products?.map((product, index) => (
         <ProductCard product={product} preload={index === 0} />
       ))}
