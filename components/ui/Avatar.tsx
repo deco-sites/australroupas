@@ -39,9 +39,9 @@ function Avatar({ content, variant = "default" }: Props) {
   return (
     <div class="avatar placeholder">
       <div
-        class={`rounded-md duration-300 transition-all w-8 ${colors[content] ?? colors[variant]} ${
-          variants[variant]
-        }`}
+        class={`rounded-md duration-300 transition-all w-8 ${
+          colors[content] ?? colors[variant]
+        } ${variants[variant]}`}
       >
         <span class="text-caption font-caption uppercase text-[12px] leading-[initial]">
           {colors[content] ? "" : content.substring(0, 2)}
