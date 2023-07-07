@@ -30,6 +30,7 @@ function ProductShelf({
 
   const itemsDesktop = twoItemsPerPage ? "md:w-[49%]" : "sm:w-[24%]";
   const paddingXitemsDesktop = twoItemsPerPage ? "lg:px-[62px]" : "";
+  const gapDesktop = twoItemsPerPage ? "gap-[2.5%]" : "gap-[1.33%]"
 
   const gridRows = title
     ? "grid-rows-[64px_1fr_48px_1fr] py-10"
@@ -47,7 +48,7 @@ function ProductShelf({
           </div>
         )}
 
-      <Slider class="carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5 gap-4 sm:gap-[1.33%] pb-10">
+      <Slider class={`carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5 gap-4 sm:${twoItemsPerPage}`}>
         {products?.map((product, index) => (
           <Slider.Item
             index={index}

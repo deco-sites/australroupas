@@ -37,7 +37,7 @@ function Card(
         {description}
       </p>
       <a
-        class="text-sm text-primary underline tracking-wider mt-2.5"
+        class="text-sm text-primary underline tracking-wider block mt-2.5"
         href={href}
       >
         {callToAction}
