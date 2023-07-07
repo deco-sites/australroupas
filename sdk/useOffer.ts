@@ -3,6 +3,8 @@ import type {
   UnitPriceSpecification,
 } from "deco-sites/std/commerce/types.ts";
 
+import { formatPrice } from "$store/sdk/format.ts";
+
 const bestInstallment = (
   acc: UnitPriceSpecification | null,
   curr: UnitPriceSpecification,
@@ -42,7 +44,7 @@ const installmentToString = (
     return "";
   }
 
-  return `${billingDuration}x de R$ ${billingIncrement}`;
+  return `${billingDuration}x de ${formatPrice(billingIncrement)}`;
 };
 
 export const useOffer = (aggregateOffer?: AggregateOffer) => {

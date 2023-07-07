@@ -20,7 +20,7 @@ const colors: Record<string, string> = {
   "disabled":
     "bg-transparent-content text-neutral border-[#878787] border-[1px] opacity-50 pointer-events-none",
   "default":
-    "bg-transparent text-neutral-content border-[#878787] border-[1px]",
+    "bg-transparent text-[#636366] border-[rgb(133,133,133)] border-[1px] hover:bg-primary hover:text-white hover:border-primary",
 };
 
 interface Props {
@@ -39,11 +39,11 @@ function Avatar({ content, variant = "default" }: Props) {
   return (
     <div class="avatar placeholder">
       <div
-        class={`rounded-md w-8 ${colors[content] ?? colors[variant]} ${
-          variants[variant]
-        }`}
+        class={`rounded-md duration-300 transition-all w-8 ${
+          colors[content] ?? colors[variant]
+        } ${variants[variant]}`}
       >
-        <span class="text-caption font-caption uppercase text-[12px]">
+        <span class="text-caption font-caption uppercase text-[12px] leading-[initial]">
           {colors[content] ? "" : content.substring(0, 2)}
         </span>
       </div>
