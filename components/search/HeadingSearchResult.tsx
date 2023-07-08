@@ -1,40 +1,15 @@
-import type { SectionProps } from "$live/mod.ts";
-
 export interface Props {
   text: string;
+  headingText: string;
 }
 
-export const loader = ({ text }: Props, req: Request) => {
-  const url = new URL(req.url);
-  console.log(req);
-  console.log(text);
-
-  if (new URLPattern({ pathname: "/s" }).test(url)) {
-    return {
-      headingText: url.searchParams.get("q") ?? "",
-      text: text,
-      url: url,
-    };
-  }
-
-  return {
-    headingText: "",
-    text: text,
-    url: url,
-  };
-};
-
-export default function HeadingSearchResult(
-  { text, headingText, url }: SectionProps<typeof loader>,
-) {
-  console.log(headingText);
-  console.log(url);
+export const HeadingSearchResult = (
+  { text, headingText }: Props,
+) => {
   return (
-    <div class="home-container-mobile sm:home-container text-center py-12">
-      <div class="max-w-[1280px] mx-auto">
-        <p>{text ? text : "Você buscou por:"}</p>
-        <h1>{headingText ? headingText : ""}</h1>
-      </div>
+    <div class="w-full max-w-[1920px] mx-auto p-[21px_16px] lg:p-[0_100px_0_180px] h-[90px] lg:h-auto bg-base-100">
+      <p class="text-sm text-info tracking-[.1px] lg:pt-11">{text ? text : "Você buscou por:"}</p>
+      <h1 class="text-lg lg:text-3xl text-info tracking-[.1px] mt-1 lg:pb-10">{headingText ? headingText : ""}</h1>
     </div>
   );
 }

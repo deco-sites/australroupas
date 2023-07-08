@@ -9,8 +9,8 @@ export interface Props {
 
 function ProductGallery({ products, pageType = "Category" }: Props) {
   const itemsLine = pageType == "Category"
-    ? "sm:grid-cols-3"
-    : "sm:grid-cols-4";
+    ? "lg:grid-cols-3"
+    : "lg:grid-cols-4";
   return (
     <div
       class={`grid grid-cols-2 gap-2 items-center  sm:gap-5 ${

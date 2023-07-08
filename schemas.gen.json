@@ -10106,10 +10106,15 @@
         "text": {
           "type": "string",
           "title": "Text"
+        },
+        "headingText": {
+          "type": "string",
+          "title": "Heading Text"
         }
       },
       "required": [
-        "text"
+        "text",
+        "headingText"
       ],
       "title": "deco-sites/australroupas/components/search/HeadingSearchResult.tsx@Props"
     },
