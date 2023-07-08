@@ -23,7 +23,7 @@ function WishlistGallery(props: Props) {
     );
   }
 
-  return <SearchResult {...props} />;
+  return <SearchResult {...props} headingText={""} />;
 }
 
 export default WishlistGallery;
