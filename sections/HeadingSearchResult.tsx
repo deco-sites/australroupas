@@ -1,9 +1,10 @@
 import {
   HeadingSearchResult,
   Props,
+  MainProps
 } from "$store/components/search/HeadingSearchResult.tsx";
 
-function HeadingSearchResultSection(props: Props) {
+function HeadingSearchResultSection(props: MainProps) {
   return <HeadingSearchResult {...props} />;
 }
 

@@ -1,10 +1,13 @@
 export interface Props {
   text: string;
+}
+
+export interface MainProps extends Props {
   headingText: string;
 }
 
 export const HeadingSearchResult = (
-  { text, headingText }: Props,
+  { text, headingText }: MainProps,
 ) => {
   return (
     <div class="w-full max-w-[1920px] mx-auto p-[21px_16px] lg:p-[0_100px_0_180px] h-[90px] lg:h-auto bg-base-100">
