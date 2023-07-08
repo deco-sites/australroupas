@@ -109,7 +109,7 @@ function Header(
   const searchbar = { ..._searchbar, products, suggestions };
   return (
     <>
-      <header class="h-[58px] sm:h-[97px]">
+      <header class="h-[58px] lg:h-[97px]">
         <div class="bg-white fixed w-full z-50 shadow-header">
           <Navbar
             callToUsItem={callToUsItems}

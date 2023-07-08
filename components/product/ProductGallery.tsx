@@ -4,11 +4,19 @@ import ProductCard from "./ProductCard.tsx";
 
 export interface Props {
   products: Product[] | null;
+  pageType?: "Category" | "Search";
 }
 
-function ProductGallery({ products }: Props) {
+function ProductGallery({ products, pageType = "Category" }: Props) {
+  const itemsLine = pageType == "Category"
+    ? "lg:grid-cols-3"
+    : "lg:grid-cols-4";
   return (
-    <div class="grid grid-cols-2 gap-2 items-center sm:grid-cols-3 sm:gap-5">
+    <div
+      class={`grid grid-cols-2 gap-2 items-center  sm:gap-5 ${
+        itemsLine && itemsLine
+      }`}
+    >
       {products?.map((product, index) => (
         <ProductCard product={product} preload={index === 0} />
       ))}

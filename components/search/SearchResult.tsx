@@ -14,6 +14,7 @@ export interface Props {
    * @description Use drawer for mobile like behavior on desktop. Aside for rendering the filters alongside the products
    */
   variant?: "aside" | "drawer";
+  pageType?: "Category" | "Search";
 }
 
 function NotFound() {
@@ -27,12 +28,14 @@ function NotFound() {
 function Result({
   page,
   variant,
+  pageType = "Category",
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
+  const marginLeft = pageType == "Category" ? "sm:ml-[80px]" : "";
   return (
     <>
-      <div class="home-container-mobile sm:home-container px-4 sm:py-10">
+      <div class="home-container-mobile lg:home-container px-4 sm:py-10">
         <SearchControls
           sortOptions={sortOptions}
           filters={filters}
@@ -46,8 +49,8 @@ function Result({
               <Filters filters={filters} />
             </aside>
           )}
-          <div class="flex-grow sm:ml-[80px]">
-            <ProductGallery products={products} />
+          <div class={`flex-grow ${marginLeft && marginLeft}`}>
+            <ProductGallery products={products} pageType={pageType} />
             <div class="flex justify-center my-4">
               <div class="btn-group">
                 <a

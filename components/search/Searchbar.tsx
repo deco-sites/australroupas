@@ -9,7 +9,7 @@
  * no JavaScript is shipped to the browser!
  */
 
-import { useEffect, useRef } from "preact/compat";
+import { useEffect, useRef, useState } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
 import Button from "$store/components/ui/Button.tsx";
 // import Spinner from "$store/components/ui/Spinner.tsx";
@@ -58,6 +58,17 @@ export type Props = EditableProps & {
   variant?: "desktop" | "mobile";
 };
 
+interface productCardSugestion {
+  href: string;
+  image: string;
+  label: string;
+}
+
+interface searchSugestion {
+  href: string;
+  label: string;
+}
+
 function Searchbar({
   placeholder = "What are you looking for?",
   action = "/s",
@@ -66,7 +77,12 @@ function Searchbar({
   variant = "mobile",
 }: Props) {
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const { setSearch, suggestions, loading } = useAutocomplete();
+  // const { setSearch, suggestions, loading } = useAutocomplete();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sugestions, setSugestions] = useState<Array<searchSugestion>>([]);
+  const [sugestionsProducts, setSugestionsProducts] = useState<
+    Array<productCardSugestion>
+  >([]);
   // const hasProducts = Boolean(suggestions.value?.products?.length);
   // const hasTerms = Boolean(suggestions.value?.searches?.length);
   //const notFound = !hasProducts && !hasTerms;
@@ -79,8 +95,48 @@ function Searchbar({
     searchInputRef.current.focus();
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (searchTerm.length > 2) {
+        fetch("/api/autocomplete?term=" + searchTerm, {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            "accept": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((result) => {
+            console.log(result);
+            // deno-lint-ignore no-explicit-any
+            result?.itemsReturned?.forEach((item: any) => {
+              if (item.criteria) {
+                setSugestions(
+                  (prevSugestions) => [...prevSugestions, {
+                    label: item.criteria,
+                    href: item.href.replace("https://www.austral.com.br", ""),
+                  }],
+                );
+              }
+              if (!item.criteria) {
+                setSugestionsProducts(
+                  (prevSugestionsProducts) => [...prevSugestionsProducts, {
+                    href: item.href.replace("https://www.austral.com.br", ""),
+                    image: item.thumbUrl,
+                    label: item.name,
+                  }],
+                );
+              }
+            });
+          });
+      }
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
+
   return (
-    <div class="flex flex-col bg-base-100 h-12 lg:bg-transparent">
+    <div class="flex flex-col bg-base-100 lg:bg-transparent">
       <div class="flex items-center gap-4 px-4 lg:px-5 h-12 w-64">
         <form
           id="searchbar"
@@ -104,8 +160,20 @@ function Searchbar({
                 });
               }
 
-              setSearch(value);
+              // setSearch(value);
+              setSearchTerm(value);
+
+              if (
+                // deno-lint-ignore no-explicit-any
+                (e as any).inputType == "deleteContentBackward" ||
+                // deno-lint-ignore no-explicit-any
+                (e as any).inputType == "deleteContentForward"
+              ) {
+                setSugestions([]);
+                setSugestionsProducts([]);
+              }
             }}
+            value={searchTerm}
             placeholder={placeholder}
             role="combobox"
             aria-controls="search-suggestion"
@@ -123,77 +191,40 @@ function Searchbar({
         </form>
         {/* {variant === "desktop" && <CloseButton />} */}
       </div>
-      {
-        /*<div class="flex flex-col gap-6 divide-y divide-base-200 mt-6 empty:mt-0 md:flex-row md:divide-y-0">
-
-
-          VTEX INTELIGENT SEARCH NAO ESTA INSTALADO
-
-        {notFound
-          ? (
-            <>
-              Aqui vai a mensagem de nada encontrado
-            </>
-          )
-          : (
-            <>
-              <div class="flex flex-col gap-6 md:w-[15.25rem] md:max-w-[15.25rem]\">
-                <div class="flex gap-2 items-center">
-                  <span
-                    class="font-medium text-xl"
-                    role="heading"
-                    aria-level={3}
+      {sugestions.length > 0 &&
+        sugestionsProducts.length > 0 &&
+        (
+          <div class="w-full bg-white px-4.5 lg:px-5 lg:py-5 lg:max-w-[460px] lg:absolute lg:top-[150%] lg:right-[-20%] lg:w-[460px] lg:shadow-searchsugestions lg:rounded-tl-md lg:rounded-tr-md">
+            <div class="hidden lg:block w-3 h-3 border-l border-l-[#C7C7CC] border-t border-t-[#C7C7CC] rotate-45 bg-white absolute top-[-7px] right-5">
+            </div>
+            <div class="py-2.5 pt-[5px]">
+              {sugestions.length > 0 &&
+                sugestions.map((item) => (
+                  <a
+                    class="block py-2.5 text-sm pb-5 text-black"
+                    href={item.href}
                   >
-                    Sugestões
-                  </span>
-                  {loading.value && <Spinner />}
-                </div>
-                <ul id="search-suggestion" class="flex flex-col gap-6">
-                  {suggestions.value!.searches?.map(({ term }) => (
-                    <li>
-                      <a href={`/s?q=${term}`} class="flex gap-4 items-center">
-                        <span>
-                          <Icon
-                            id="MagnifyingGlass"
-                            size={20}
-                            strokeWidth={0.01}
-                          />
-                        </span>
-                        <span>
-                          {term}
-                        </span>
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div class="flex flex-col pt-6 md:pt-0 gap-6 overflow-x-hidden">
-                <div class="flex gap-2 items-center">
-                  <span
-                    class="font-medium text-xl"
-                    role="heading"
-                    aria-level={3}
-                  >
-                    Produtos sugeridos
-                  </span>
-                  {loading.value && <Spinner />}
-                </div>
-                <Slider class="carousel">
-                  {suggestions.value!.products?.map((product, index) => (
-                    <Slider.Item
-                      index={index}
-                      class="carousel-item first:ml-4 last:mr-4 min-w-[200px] max-w-[200px]"
-                    >
-                      <ProductCard product={product} />
-                    </Slider.Item>
-                  ))}
-                </Slider>
-              </div>
-            </>
-          )}
-        }
-      </div>*/
-      }
+                    {searchTerm} em {item.label.split("¢")[0]}
+                  </a>
+                ))}
+            </div>
+            <div class="max-h-[400px] border-t border-t-[#AEAEB2] py-2.5 overflow-y-auto">
+              {sugestionsProducts.length > 0 &&
+                sugestionsProducts.map((item) => (
+                  <a class="flex my-2.5 py-2.5 items-center" href={item.href}>
+                    <img
+                      class="rounded-[15px] w-11"
+                      src={item.image}
+                      alt={item.label}
+                    />
+                    <span class="text-xs font-black capitalize">
+                      {item.label}
+                    </span>
+                  </a>
+                ))}
+            </div>
+          </div>
+        )}
     </div>
   );
 }

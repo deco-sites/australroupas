@@ -4,9 +4,10 @@
 
 import config from "./deno.json" assert { type: "json" };
 import { DecoManifest } from "$live/types.ts";
-import * as $$$$0 from "./routes/api/newsletter.tsx";
-import * as $$$$1 from "./routes/styles.css.ts";
-import * as $$$$2 from "./routes/_app.tsx";
+import * as $$$$0 from "./routes/api/autocomplete.tsx";
+import * as $$$$1 from "./routes/api/newsletter.tsx";
+import * as $$$$2 from "./routes/styles.css.ts";
+import * as $$$$3 from "./routes/_app.tsx";
 import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/HeaderButton.tsx";
 import * as $$$$$2 from "./islands/HeaderModals.tsx";
@@ -35,17 +36,18 @@ import * as $$$$$$$$8 from "./sections/DesignSystem.tsx";
 import * as $$$$$$$$9 from "./sections/Features.tsx";
 import * as $$$$$$$$10 from "./sections/Footer.tsx";
 import * as $$$$$$$$11 from "./sections/Header.tsx";
-import * as $$$$$$$$12 from "./sections/Highlights.tsx";
-import * as $$$$$$$$13 from "./sections/Instafeed.tsx";
-import * as $$$$$$$$14 from "./sections/LinkTree.tsx";
-import * as $$$$$$$$15 from "./sections/Magazine.tsx";
-import * as $$$$$$$$16 from "./sections/MyAccount.tsx";
-import * as $$$$$$$$17 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$18 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$19 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$20 from "./sections/SeoText.tsx";
-import * as $$$$$$$$21 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$22 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$12 from "./sections/HeadingSearchResult.tsx";
+import * as $$$$$$$$13 from "./sections/Highlights.tsx";
+import * as $$$$$$$$14 from "./sections/Instafeed.tsx";
+import * as $$$$$$$$15 from "./sections/LinkTree.tsx";
+import * as $$$$$$$$16 from "./sections/Magazine.tsx";
+import * as $$$$$$$$17 from "./sections/MyAccount.tsx";
+import * as $$$$$$$$18 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$19 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$20 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$21 from "./sections/SeoText.tsx";
+import * as $$$$$$$$22 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$23 from "./sections/WishlistGallery.tsx";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
 import * as $live_invoke from "$live/routes/live/invoke/index.ts";
@@ -160,10 +162,11 @@ import * as i2$$$$$19 from "deco-sites/std/actions/vtex/wishlist/removeItem.ts";
 
 const manifest = {
   "routes": {
-    "./routes/_app.tsx": $$$$2,
+    "./routes/_app.tsx": $$$$3,
     "./routes/_middleware.ts": $live_middleware,
     "./routes/[...catchall].tsx": $live_catchall,
-    "./routes/api/newsletter.tsx": $$$$0,
+    "./routes/api/autocomplete.tsx": $$$$0,
+    "./routes/api/newsletter.tsx": $$$$1,
     "./routes/index.tsx": $live_catchall,
     "./routes/live/_meta.ts": $live_meta,
     "./routes/live/editorData.ts": $live_editorData,
@@ -173,7 +176,7 @@ const manifest = {
     "./routes/live/previews/[...block].tsx": $live_previews,
     "./routes/live/release.ts": $live_release,
     "./routes/live/workbench.ts": $live_workbench,
-    "./routes/styles.css.ts": $$$$1,
+    "./routes/styles.css.ts": $$$$2,
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$0,
@@ -209,17 +212,18 @@ const manifest = {
     "deco-sites/australroupas/sections/Features.tsx": $$$$$$$$9,
     "deco-sites/australroupas/sections/Footer.tsx": $$$$$$$$10,
     "deco-sites/australroupas/sections/Header.tsx": $$$$$$$$11,
-    "deco-sites/australroupas/sections/Highlights.tsx": $$$$$$$$12,
-    "deco-sites/australroupas/sections/Instafeed.tsx": $$$$$$$$13,
-    "deco-sites/australroupas/sections/LinkTree.tsx": $$$$$$$$14,
-    "deco-sites/australroupas/sections/Magazine.tsx": $$$$$$$$15,
-    "deco-sites/australroupas/sections/MyAccount.tsx": $$$$$$$$16,
-    "deco-sites/australroupas/sections/ProductDetails.tsx": $$$$$$$$17,
-    "deco-sites/australroupas/sections/ProductShelf.tsx": $$$$$$$$18,
-    "deco-sites/australroupas/sections/SearchResult.tsx": $$$$$$$$19,
-    "deco-sites/australroupas/sections/SeoText.tsx": $$$$$$$$20,
-    "deco-sites/australroupas/sections/WhatsApp.tsx": $$$$$$$$21,
-    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$$$22,
+    "deco-sites/australroupas/sections/HeadingSearchResult.tsx": $$$$$$$$12,
+    "deco-sites/australroupas/sections/Highlights.tsx": $$$$$$$$13,
+    "deco-sites/australroupas/sections/Instafeed.tsx": $$$$$$$$14,
+    "deco-sites/australroupas/sections/LinkTree.tsx": $$$$$$$$15,
+    "deco-sites/australroupas/sections/Magazine.tsx": $$$$$$$$16,
+    "deco-sites/australroupas/sections/MyAccount.tsx": $$$$$$$$17,
+    "deco-sites/australroupas/sections/ProductDetails.tsx": $$$$$$$$18,
+    "deco-sites/australroupas/sections/ProductShelf.tsx": $$$$$$$$19,
+    "deco-sites/australroupas/sections/SearchResult.tsx": $$$$$$$$20,
+    "deco-sites/australroupas/sections/SeoText.tsx": $$$$$$$$21,
+    "deco-sites/australroupas/sections/WhatsApp.tsx": $$$$$$$$22,
+    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$$$23,
     "deco-sites/std/sections/Analytics.tsx": i2$$$$3,
     "deco-sites/std/sections/configButterCMS.global.tsx": i2$$$$4,
     "deco-sites/std/sections/configOCC.global.tsx": i2$$$$5,
