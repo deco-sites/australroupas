@@ -32,9 +32,7 @@ function Result({
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
-  const marginLeft = pageType == "Category"
-    ? "sm:ml-[80px]"
-    : "";
+  const marginLeft = pageType == "Category" ? "sm:ml-[80px]" : "";
   return (
     <>
       <div class="home-container-mobile lg:home-container px-4 sm:py-10">
@@ -51,9 +49,7 @@ function Result({
               <Filters filters={filters} />
             </aside>
           )}
-          <div class={`flex-grow ${
-            marginLeft && marginLeft
-          }`}>
+          <div class={`flex-grow ${marginLeft && marginLeft}`}>
             <ProductGallery products={products} pageType={pageType} />
             <div class="flex justify-center my-4">
               <div class="btn-group">
