@@ -107,6 +107,7 @@
               "deco-sites/australroupas/sections/MyAccount.tsx",
               "deco-sites/australroupas/sections/ProductDetails.tsx",
               "deco-sites/australroupas/sections/ProductShelf.tsx",
+              "deco-sites/australroupas/sections/SaleExpress.tsx",
               "deco-sites/australroupas/sections/SearchResult.tsx",
               "deco-sites/australroupas/sections/SeoText.tsx",
               "deco-sites/australroupas/sections/WhatsApp.tsx",
@@ -13440,6 +13441,22 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1NhbGVFeHByZXNzLnRzeA==": {
+      "title": "deco-sites/australroupas/sections/SaleExpress.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/SaleExpress.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/SaleExpress.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1NlYXJjaFJlc3VsdC50c3g=": {
       "title": "deco-sites/australroupas/sections/SearchResult.tsx",
       "type": "object",
@@ -14753,6 +14770,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1Byb2R1Y3RTaGVsZi50c3g="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1NhbGVFeHByZXNzLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1NlYXJjaFJlc3VsdC50c3g="
