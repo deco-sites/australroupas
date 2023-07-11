@@ -33,7 +33,7 @@ const sectionStyles = {
 };
 
 const containerStyles = {
-  "sidebar-right": "h-full w-full sm:max-w-lg",
+  "sidebar-right": "h-full w-full sm:max-w-[455px] sm:min-w-[320px]",
   "sidebar-left": "h-full w-full sm:max-w-lg",
   center: "",
 };
@@ -78,19 +78,19 @@ const Modal = ({
       onClose={onClose}
     >
       <section
-        class={`w-full h-full flex bg-transparent ${sectionStyles[mode]}`}
+        class={`w-full h-full flex bg-[#1c1c1e99] ${sectionStyles[mode]}`}
       >
         <div
-          class={`bg-base-100 flex flex-col max-h-full ${
+          class={`bg-white relative flex flex-col max-h-full ${
             containerStyles[mode]
           }`}
         >
-          <header class="flex px-4 py-6 justify-between items-center border-b border-base-200">
+          <header class="flex px-4 h-16 justify-between items-center border-b border-base-100">
             <h1>
-              <span class="font-medium text-2xl">{title}</span>
+              <span class="text-lg mr-5 text-info">{title}</span>
             </h1>
-            <Button class="btn btn-ghost" onClick={onClose}>
-              <Icon id="XMark" width={20} height={20} strokeWidth={2} />
+            <Button class="btn btn-ghost hover:bg-transparent p-0" onClick={onClose}>
+              <Icon id="XMark" width={35} height={35} strokeWidth={1} />
             </Button>
           </header>
           <div class="overflow-y-auto flex-grow flex flex-col">
