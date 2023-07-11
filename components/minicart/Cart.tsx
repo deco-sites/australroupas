@@ -53,16 +53,12 @@ function Cart() {
   return (
     <>
       <div class="absolute top-3 left-[30%]">
-        <div
-          class="p-1.5 text-xl relative ml-1 lg:ml-0"
-        >
+        <div class="p-1.5 text-xl relative ml-1 lg:ml-0">
           <span class="bg-primary rounded-full absolute top-1 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-4 h-4 flex items-center justify-center">
             {totalItems > 9 ? "9+" : totalItems}
           </span>
           <i
-            class={`${
-              "icon-minicart"
-            } text-lg lg:text-xl`}
+            class={`${"icon-minicart"} text-lg lg:text-xl`}
           >
           </i>
         </div>

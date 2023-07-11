@@ -89,7 +89,10 @@ const Modal = ({
             <h1>
               <span class="text-lg mr-5 text-info">{title}</span>
             </h1>
-            <Button class="btn btn-ghost hover:bg-transparent p-0" onClick={onClose}>
+            <Button
+              class="btn btn-ghost hover:bg-transparent p-0"
+              onClick={onClose}
+            >
               <Icon id="XMark" width={35} height={35} strokeWidth={1} />
             </Button>
           </header>
