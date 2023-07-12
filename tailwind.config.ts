@@ -32,6 +32,7 @@ export default {
     extend: {
       boxShadow: {
         "header": "0px 1px 3px 1px rgba(0,0,0,0.1)",
+        "searchsugestions": "0 0 5px -3px #000",
         "service": "0 0 1px 1px #C7C7CC",
       },
       maxWidth: {
