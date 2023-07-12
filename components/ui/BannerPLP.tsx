@@ -169,18 +169,20 @@ function Content(
           );
         })}
       </div>
-      <div class={`w-full flex gap-5 py-2.5 ${align}`}>
-        {content?.buttons?.map((button) => {
-          return (
-            <a
-              href={button.href}
-              class="flex items-center text-center bg-white text-black px-6 py-2 rounded-md text-[14px] tracking-wide"
-            >
-              {button.text}
-            </a>
-          );
-        })}
-      </div>
+      {content?.buttons?.length && (
+        <div class={`w-full flex gap-5 py-2.5 ${align}`}>
+          {content?.buttons?.map((button) => {
+            return (
+              <a
+                href={button.href}
+                class="flex items-center text-center bg-white text-black px-6 py-2 rounded-md text-[14px] tracking-wide"
+              >
+                {button.text}
+              </a>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

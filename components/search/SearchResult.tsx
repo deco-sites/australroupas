@@ -112,6 +112,7 @@ function Result({
                 filters={filters}
                 breadcrumb={breadcrumb}
                 displayFilter={variant === "drawer"}
+                quantityOfProducts={page.pageInfo.records}
               />
 
               <div class="flex flex-row">
