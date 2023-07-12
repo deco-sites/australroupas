@@ -30,14 +30,17 @@ function Result({
 }: Omit<Props, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
+  console.log(page);
+
   return (
     <>
-      <div class="home-container-mobile sm:home-container px-4 sm:py-10">
+      <div class="home-container-mobile sm:home-container px-4">
         <SearchControls
           sortOptions={sortOptions}
           filters={filters}
           breadcrumb={breadcrumb}
           displayFilter={variant === "drawer"}
+          quantityOfProducts={page.pageInfo.records}
         />
 
         <div class="flex flex-row">

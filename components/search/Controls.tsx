@@ -11,30 +11,38 @@ type Props =
   & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">
   & {
     displayFilter?: boolean;
-  };
+  }
+  & { quantityOfProducts: number | undefined };
 
 function SearchControls(
-  { filters, breadcrumb, displayFilter, sortOptions }: Props,
+  { filters, breadcrumb, displayFilter, sortOptions, quantityOfProducts }:
+    Props,
 ) {
   const open = useSignal(false);
 
   return (
-    <div class="flex flex-col justify-between mb-4 p-4 sm:mb-0 sm:p-0 sm:gap-4 sm:flex-row sm:h-[53px]">
+    <div class="flex flex-col justify-between mb-4 py-4 sm:mb-0 sm:p-0 sm:gap-4 sm:flex-row sm:min-h-[100px]">
       <div class="hidden sm:flex flex-row items-center sm:p-0 mb-2">
         <Breadcrumb itemListElement={breadcrumb?.itemListElement} />
       </div>
 
-      <div class="flex flex-row items-center justify-between border-b border-base-200 sm:gap-4 sm:border-none">
+      <div class="flex flex-row items-center justify-between relative mt-3">
         <Button
-          class={displayFilter ? "btn-ghost" : "btn-ghost sm:hidden"}
+          class={`border-[1px] border-[#e0e0e0] p-2.5 w-[49%] rounded-[6px] text-[#636366] text-[14px] h-[45px] ${
+            displayFilter ? "btn-ghost" : "btn-ghost sm:hidden"
+          }`}
           onClick={() => {
             open.value = true;
           }}
         >
-          Filtrar
-          <Icon id="FilterList" width={16} height={16} />
+          Filtrar Por
         </Button>
-        {sortOptions.length > 0 && <Sort sortOptions={sortOptions} />}
+        {sortOptions.length > 0 && (
+          <Sort
+            sortOptions={sortOptions}
+            quantityOfProducts={quantityOfProducts}
+          />
+        )}
       </div>
 
       <Modal
