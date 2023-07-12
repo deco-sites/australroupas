@@ -39,7 +39,6 @@ const friedlyText = (text: string) => {
 function Sort({ sortOptions, quantityOfProducts }: Props) {
   const sort = useSort();
   const isOpen = useSignal(false);
-  console.log("teste");
 
   return (
     <div class="absolute top-0 right-0 flex items-start gap-2 w-[49%] sm:w-auto">
