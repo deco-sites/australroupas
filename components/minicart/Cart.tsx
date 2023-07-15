@@ -28,7 +28,7 @@ function Cart() {
   );
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
-  console.log(cart)
+  console.log(cart);
   if (cart.value === null) {
     return null;
   }
