@@ -33,31 +33,31 @@ function QuantitySelector({ onChange, quantity, disabled, loading }: Props) {
     <div class="form-control">
       <div class="input-group">
         <Button
-          class="btn-square btn-outline"
+          class="btn-square w-[31px] h-[26px] text-[8px] text-info border border-primary rounded-tl-md rounded-bl-md"
           onClick={decrement}
           disabled={disabled}
           loading={loading}
         >
-          -
+          <i class="icon icon-minus"></i>
         </Button>
         <input
-          class="input border-base-content border-x-0 text-center"
+          class="input bg-white text-center disable:bg-white text-xs px-0 w-[30px] h-[26px] text-accent"
           type="number"
           inputMode="numeric"
           pattern="[0-9]*"
           max={QUANTITY_MAX_VALUE}
           min={1}
           value={quantity}
-          disabled={disabled}
+          // disabled={disabled}
           onBlur={(e) => onChange?.(e.currentTarget.valueAsNumber)}
         />
         <Button
-          class="btn-square btn-outline"
+          class="btn-square w-[31px] h-[26px] text-[8px] text-info border border-primary rounded-tl-md rounded-bl-md"
           onClick={increment}
           disabled={disabled}
           loading={loading}
         >
-          +
+          <i class="icon icon-plus"></i>
         </Button>
       </div>
     </div>
