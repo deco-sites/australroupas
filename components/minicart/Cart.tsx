@@ -81,7 +81,8 @@ function Cart() {
       <footer class="shadow-minicart">
         {/* Subtotal */}
         <div class="pt-4 flex flex-col">
-          {/*  ESSE CODIGO VAI PRA DENTRO DO COUPON
+          {
+            /*  ESSE CODIGO VAI PRA DENTRO DO COUPON
           {discounts?.value && (
             <div class="flex justify-between items-center px-4">
               <span class="text-sm">Descontos</span>
@@ -89,7 +90,8 @@ function Cart() {
                 {formatPrice(discounts.value / 100, currencyCode!, locale)}
               </span>
             </div>
-          )} */}
+          )} */
+          }
           <Coupon />
           <Seller />
           <Simulation />

@@ -4,8 +4,9 @@ import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import Button from "$store/components/ui/Button.tsx";
 
 function Simulation() {
-  const { cart, loading, 
-    // simulate 
+  const {
+    cart,
+    loading, // simulate
   } = useCart();
   const ref = useRef<HTMLInputElement>(null);
   // NEEDS REFACT, NOT FUNCTIONAL
