@@ -34,6 +34,7 @@ export default {
         "header": "0px 1px 3px 1px rgba(0,0,0,0.1)",
         "searchsugestions": "0 0 5px -3px #000",
         "service": "0 0 1px 1px #C7C7CC",
+        "minicart": "0px 0px 10px rgba(0,0,0,0.15)"
       },
       maxWidth: {
         "3xl": "1920px",

@@ -32,7 +32,7 @@ function CartItem({ index }: Props) {
     name,
     quantity,
   } = item;
-  console.log(item);
+
   const isGift = sellingPrice < 0.01;
 
   const notFirst = index > 0 ? "border-t border-t-base-100" : "";

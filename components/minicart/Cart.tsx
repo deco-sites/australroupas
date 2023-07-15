@@ -28,7 +28,7 @@ function Cart() {
   );
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
-
+  console.log(cart)
   if (cart.value === null) {
     return null;
   }
@@ -76,9 +76,9 @@ function Cart() {
       </ul>
 
       {/* Cart Footer */}
-      <footer>
+      <footer class="shadow-minicart">
         {/* Subtotal */}
-        <div class="border-t border-base-200 py-4 flex flex-col gap-4">
+        <div class="border-b border-base-100py-4 flex flex-col gap-4">
           {discounts?.value && (
             <div class="flex justify-between items-center px-4">
               <span class="text-sm">Descontos</span>
@@ -91,27 +91,38 @@ function Cart() {
         </div>
         {/* Total */}
         {total?.value && (
-          <div class="border-t border-base-200 pt-4 flex flex-col justify-end items-end gap-2 mx-4">
+          <div class="border-b border-base-100 pt-4 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
               <span>Total</span>
               <span class="font-medium text-xl">
                 {formatPrice(total.value / 100, currencyCode!, locale)}
               </span>
             </div>
-            <span class="text-sm text-base-300">
-              Taxas e fretes serão calculados no checkout
-            </span>
           </div>
         )}
-        <div class="p-4">
+        <div class="flex gap-2.5 px-[15px] pb-7.5">
           <a
-            class="inline-block w-full"
+            class="flex cursor-pointer justify-center items-center w-full bg-transparent border border-primary text-primary py-3 px-2.5 rounded-md mt-3 hover:text-white hover:bg-primary hover:opacity-80 transition duration-150"
+            onClick={() => {
+              displayCart.value = false;
+            }}
+          >
+            <Button
+              data-deco="buy-button"
+              class="w-full text-xs"
+              disabled={loading.value || cart.value.items.length === 0}
+            >
+              Continuar Comprando
+            </Button>
+          </a>
+          <a
+            class="flex justify-center items-center w-full bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:text-info hover:opacity-80 transition duration-150"
             target="_blank"
             href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
           >
             <Button
               data-deco="buy-button"
-              class="w-full"
+              class="w-full text-sm font-bold"
               disabled={loading.value || cart.value.items.length === 0}
               onClick={() => {
                 sendEvent({
