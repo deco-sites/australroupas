@@ -6,6 +6,8 @@ import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import CartItem from "./CartItem.tsx";
 import Coupon from "./Coupon.tsx";
+import Simulation from "./Simulation.tsx";
+import Seller from "./Seller.tsx";
 
 declare global {
   interface Window {
@@ -78,7 +80,8 @@ function Cart() {
       {/* Cart Footer */}
       <footer class="shadow-minicart">
         {/* Subtotal */}
-        <div class="border-b border-base-100py-4 flex flex-col gap-4">
+        <div class="pt-4 flex flex-col">
+          {/*  ESSE CODIGO VAI PRA DENTRO DO COUPON
           {discounts?.value && (
             <div class="flex justify-between items-center px-4">
               <span class="text-sm">Descontos</span>
@@ -86,8 +89,10 @@ function Cart() {
                 {formatPrice(discounts.value / 100, currencyCode!, locale)}
               </span>
             </div>
-          )}
+          )} */}
           <Coupon />
+          <Seller />
+          <Simulation />
         </div>
         {/* Total */}
         {total?.value && (
