@@ -32,7 +32,7 @@ function CartItem({ index }: Props) {
     name,
     quantity,
   } = item;
-  console.log(item)
+  console.log(item);
   const isGift = sellingPrice < 0.01;
 
   const notFirst = index > 0 ? "border-t border-t-base-100" : "";
@@ -49,21 +49,23 @@ function CartItem({ index }: Props) {
       <div class="flex-grow p-2.5">
         <span class="text-xs text-[#1B1B1D] whitespace-nowrap">{name}</span>
         <div class="flex items-center gap-2 my-3">
-          {
-            listPrice < sellingPrice &&
-            <span class="line-through text-base-300 text-sm">
-              {formatPrice(listPrice / 100, currencyCode!, locale)}
-            </span>
-          }
+          {listPrice < sellingPrice &&
+            (
+              <span class="line-through text-base-300 text-sm">
+                {formatPrice(listPrice / 100, currencyCode!, locale)}
+              </span>
+            )}
           <span class="text-sm text-info font-bold w-25">
             {isGift
               ? "Grátis"
               : formatPrice(sellingPrice / 100, currencyCode!, locale)}
           </span>
-          <span class="text-xs text-info">Tamanho: <span class="text-neutral">{name.split(" ").at(-1)}</span></span>
+          <span class="text-xs text-info">
+            Tamanho: <span class="text-neutral">{name.split(" ").at(-1)}</span>
+          </span>
         </div>
         <div class="max-w-min flex items-center gap-2.5">
-          <span class="text-black text-xs">Qtd: </span>
+          <span class="text-black text-xs">Qtd:</span>
           <QuantitySelector
             disabled={loading.value || isGift}
             quantity={quantity}
@@ -108,8 +110,8 @@ function CartItem({ index }: Props) {
         class="btn btn-ghost hover:bg-transparent minicart__remove disable:bg-white"
       >
         <i
-            class={`${"icon-close"} text-lg lg:text-xl`}
-          >
+          class={`${"icon-close"} text-lg lg:text-xl`}
+        >
         </i>
       </Button>
     </div>
