@@ -61,6 +61,7 @@
               "deco-sites/std/loaders/vtex/user.ts",
               "deco-sites/std/loaders/vtex/wishlist.ts",
               "./islands/AddToCartButton.tsx",
+              "./islands/Faq.tsx",
               "./islands/HeaderButton.tsx",
               "./islands/HeaderModals.tsx",
               "./islands/HeaderSearchbar.tsx",
@@ -96,13 +97,16 @@
               "deco-sites/australroupas/sections/Carousel.tsx",
               "deco-sites/australroupas/sections/CookieConsent.tsx",
               "deco-sites/australroupas/sections/DesignSystem.tsx",
+              "deco-sites/australroupas/sections/Faq.tsx",
               "deco-sites/australroupas/sections/Features.tsx",
               "deco-sites/australroupas/sections/Footer.tsx",
               "deco-sites/australroupas/sections/Header.tsx",
               "deco-sites/australroupas/sections/HeadingSearchResult.tsx",
               "deco-sites/australroupas/sections/Highlights.tsx",
               "deco-sites/australroupas/sections/Instafeed.tsx",
+              "deco-sites/australroupas/sections/InstitutionalHeading.tsx",
               "deco-sites/australroupas/sections/LinkTree.tsx",
+              "deco-sites/australroupas/sections/LookingWhereChange.tsx",
               "deco-sites/australroupas/sections/Magazine.tsx",
               "deco-sites/australroupas/sections/MyAccount.tsx",
               "deco-sites/australroupas/sections/ProductDetails.tsx",
@@ -9501,6 +9505,44 @@
       "required": [],
       "title": "deco-sites/australroupas/sections/DesignSystem.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvRmFxLnRzeA==@Question": {
+      "type": "object",
+      "properties": {
+        "question": {
+          "type": "string",
+          "title": "Question"
+        },
+        "answer": {
+          "type": "string",
+          "title": "Answer"
+        }
+      },
+      "required": [
+        "question",
+        "answer"
+      ],
+      "title": "Question"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvRmFxLnRzeA==@Question[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvRmFxLnRzeA==@Question"
+      },
+      "title": "Question[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvRmFxLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "questions": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvRmFxLnRzeA==@Question[]",
+          "title": "Questions"
+        }
+      },
+      "required": [
+        "questions"
+      ],
+      "title": "deco-sites/australroupas/components/ui/Faq.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvRmVhdHVyZXMudHN4@Feature": {
       "type": "object",
       "properties": {
@@ -10216,6 +10258,19 @@
       ],
       "title": "deco-sites/australroupas/components/ui/Instafeed.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvSW5zdGl0dXRpb25hbEhlYWRpbmcudHN4@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        }
+      },
+      "required": [
+        "title"
+      ],
+      "title": "deco-sites/australroupas/components/ui/InstitutionalHeading.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvTGlua1RyZWUudHN4@Link": {
       "type": "object",
       "properties": {
@@ -10312,6 +10367,43 @@
       },
       "required": [],
       "title": "deco-sites/australroupas/components/ui/LinkTree.tsx@Props"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvTG9va2luZ1doZXJlQ2hhbmdlLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "title": "Title"
+        },
+        "text": {
+          "type": "string",
+          "title": "Text"
+        },
+        "button": {
+          "type": "object",
+          "properties": {
+            "text": {
+              "type": "string",
+              "title": "Text"
+            },
+            "link": {
+              "type": "string",
+              "title": "Link"
+            }
+          },
+          "required": [
+            "text",
+            "link"
+          ],
+          "title": "Button"
+        }
+      },
+      "required": [
+        "title",
+        "text",
+        "button"
+      ],
+      "title": "deco-sites/australroupas/components/ui/LookingWhereChange.tsx@Props"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvTXlBY2NvdW50LnRzeA==@Props": {
       "type": "object",
@@ -12541,6 +12633,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0ZhcS50c3g=": {
+      "title": "./islands/Faq.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/Faq.tsx"
+          ],
+          "default": "./islands/Faq.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g=": {
       "title": "./islands/HeaderButton.tsx",
       "type": "object",
@@ -13215,6 +13323,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0ZhcS50c3g=": {
+      "title": "deco-sites/australroupas/sections/Faq.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvRmFxLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/Faq.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/Faq.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0ZlYXR1cmVzLnRzeA==": {
       "title": "deco-sites/australroupas/sections/Features.tsx",
       "type": "object",
@@ -13341,6 +13470,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0luc3RpdHV0aW9uYWxIZWFkaW5nLnRzeA==": {
+      "title": "deco-sites/australroupas/sections/InstitutionalHeading.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvSW5zdGl0dXRpb25hbEhlYWRpbmcudHN4@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/InstitutionalHeading.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/InstitutionalHeading.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0xpbmtUcmVlLnRzeA==": {
       "title": "deco-sites/australroupas/sections/LinkTree.tsx",
       "type": "object",
@@ -13359,6 +13509,27 @@
             "deco-sites/australroupas/sections/LinkTree.tsx"
           ],
           "default": "deco-sites/australroupas/sections/LinkTree.tsx"
+        }
+      }
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0xvb2tpbmdXaGVyZUNoYW5nZS50c3g=": {
+      "title": "deco-sites/australroupas/sections/LookingWhereChange.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvTG9va2luZ1doZXJlQ2hhbmdlLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/LookingWhereChange.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/LookingWhereChange.tsx"
         }
       }
     },
@@ -14610,6 +14781,9 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL0FkZFRvQ2FydEJ1dHRvbi50c3g="
         },
         {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0ZhcS50c3g="
+        },
+        {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g="
         },
         {
@@ -14739,6 +14913,9 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0ZhcS50c3g="
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0ZlYXR1cmVzLnRzeA=="
         },
         {
@@ -14757,7 +14934,13 @@
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0luc3RhZmVlZC50c3g="
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0luc3RpdHV0aW9uYWxIZWFkaW5nLnRzeA=="
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0xpbmtUcmVlLnRzeA=="
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0xvb2tpbmdXaGVyZUNoYW5nZS50c3g="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL01hZ2F6aW5lLnRzeA=="
