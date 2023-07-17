@@ -100,6 +100,8 @@ function Result({
 }: Omit<MainProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
 
+  console.log(page.pageInfo.records);
+
   const marginLeft = pageType == "Category" ? "sm:ml-[80px]" : "";
   return (
     <>
