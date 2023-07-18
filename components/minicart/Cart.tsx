@@ -137,9 +137,7 @@ function Cart() {
                   name: "begin_checkout",
                   params: {
                     currency: cart.value ? currencyCode! : "",
-                    value: total
-                      ? (total - (discounts?.value ?? 0)) / 100
-                      : 0,
+                    value: total ? (total - (discounts?.value ?? 0)) / 100 : 0,
                     coupon: cart.value?.marketingData?.coupon ?? undefined,
 
                     items: cart.value

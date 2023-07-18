@@ -9,7 +9,7 @@ function Simulation() {
   const {
     cart,
     loading,
-    updateItems
+    updateItems,
   } = useCart();
   const displayInput = useSignal(false);
   const postalCodeInit = cart.value?.shippingData?.availableAddresses?.at(-1)
@@ -25,8 +25,8 @@ function Simulation() {
   const [shippingPrice, setShippingPrice] = useState(0);
 
   const forceUpdateMinicart = () => {
-    updateItems({orderItems: [{index: 0, quantity: item!.quantity}]})
-  }
+    updateItems({ orderItems: [{ index: 0, quantity: item!.quantity }] });
+  };
 
   const toggleInput = () => {
     displayInput.value = !displayInput.value;
