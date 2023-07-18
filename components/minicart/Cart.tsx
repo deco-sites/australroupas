@@ -24,7 +24,8 @@ function Cart() {
   const { cart, loading, mapItemsToAnalyticsItems } = useCart();
   const isCartEmpty = cart.value?.items.length === 0;
   const totalItems = cart.value?.items.length || 0;
-  const total = cart.value?.totalizers.find((item) => item.id === "Items");
+  const subTotal = cart.value?.totalizers.find((item) => item.id === "Items");
+  const total = cart.value?.value;
   const discounts = cart.value?.totalizers.find((item) =>
     item.id === "Discounts"
   );
@@ -80,29 +81,29 @@ function Cart() {
       {/* Cart Footer */}
       <footer class="shadow-minicart">
         {/* Subtotal */}
-        <div class="pt-4 flex flex-col">
-          {
-            /*  ESSE CODIGO VAI PRA DENTRO DO COUPON
-          {discounts?.value && (
-            <div class="flex justify-between items-center px-4">
-              <span class="text-sm">Descontos</span>
-              <span class="text-sm">
-                {formatPrice(discounts.value / 100, currencyCode!, locale)}
+        {subTotal?.value && (
+          <div class="border-b border-base-100 py-2.5 pt-[45px] flex flex-col justify-end items-end gap-2 mx-4">
+            <div class="flex justify-between items-center w-full">
+              <span class="text-info text-sm">Subtotal</span>
+              <span class="text-info text-sm">
+                {formatPrice(subTotal?.value / 100, currencyCode!, locale)}
               </span>
             </div>
-          )} */
-          }
+          </div>
+        )}
+        <div class="flex flex-col">
           <Coupon />
           <Seller />
           <Simulation />
         </div>
         {/* Total */}
-        {total?.value && (
-          <div class="border-b border-base-100 pt-4 flex flex-col justify-end items-end gap-2 mx-4">
+        {total && (
+          <div class="border-b border-base-100 py-2.5 flex flex-col justify-end items-end gap-2 mx-4">
             <div class="flex justify-between items-center w-full">
-              <span>Total</span>
-              <span class="font-medium text-xl">
-                {formatPrice(total.value / 100, currencyCode!, locale)}
+              <span class="text-info text-sm">Total</span>
+              <span class="flex flex-col text-right text-info text-sm font-bold">
+                {formatPrice(total / 100, currencyCode!, locale)}
+                <span class="font-normal">{"ou " + 4 + "X de R$ 34,27"}</span>
               </span>
             </div>
           </div>
@@ -136,8 +137,8 @@ function Cart() {
                   name: "begin_checkout",
                   params: {
                     currency: cart.value ? currencyCode! : "",
-                    value: total?.value
-                      ? (total?.value - (discounts?.value ?? 0)) / 100
+                    value: total
+                      ? (total - (discounts?.value ?? 0)) / 100
                       : 0,
                     coupon: cart.value?.marketingData?.coupon ?? undefined,
 

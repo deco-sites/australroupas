@@ -24,7 +24,7 @@ function Seller() {
   };
 
   return (
-    <div class="flex justify-between items-center py-2.5 px-[15px] border-b border-base-100">
+    <div class="flex justify-between items-center py-2.5 mx-[15px] border-b border-base-100">
       <span class="text-sm text-info w-1/2">Código do Vendedor</span>
       <form class="flex w-1/2">
         <input

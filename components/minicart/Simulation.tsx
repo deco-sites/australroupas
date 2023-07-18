@@ -9,6 +9,7 @@ function Simulation() {
   const {
     cart,
     loading,
+    updateItems
   } = useCart();
   const displayInput = useSignal(false);
   const postalCodeInit = cart.value?.shippingData?.availableAddresses?.at(-1)
@@ -19,8 +20,13 @@ function Simulation() {
   const orderFormId = cart.value?.orderFormId || 0;
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
+  const item = cart.value?.items[0];
   const [postalCode, setPostalCode] = useState("");
   const [shippingPrice, setShippingPrice] = useState(0);
+
+  const forceUpdateMinicart = () => {
+    updateItems({orderItems: [{index: 0, quantity: item!.quantity}]})
+  }
 
   const toggleInput = () => {
     displayInput.value = !displayInput.value;
@@ -49,6 +55,7 @@ function Simulation() {
       // const result = await response.json();
       if (response.status == 200) {
         setPostalCode("");
+        forceUpdateMinicart();
         toggleInput();
       }
     } catch (error) {
@@ -86,6 +93,7 @@ function Simulation() {
           // deno-lint-ignore no-explicit-any
           result.totalizers.find((item: any) => item.id === "Shipping")?.value,
         );
+        forceUpdateMinicart();
         toggleInput();
       } catch (error) {
         console.log(error);
@@ -102,7 +110,7 @@ function Simulation() {
   }, []);
 
   return (
-    <div class="flex justify-between items-center py-2.5 px-[15px] border-b border-base-100">
+    <div class="flex justify-between items-center py-2.5 mx-[15px] border-b border-base-100">
       <span class="text-sm text-info w-1/2">Calcular Frete</span>
       <form class="flex w-1/2 justify-end">
         {!displayInput.value && (
