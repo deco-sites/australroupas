@@ -34,7 +34,6 @@ function Seller() {
     e.preventDefault();
 
     if (typeof sellerValue === "string") {
-
       toggleInput();
     }
   };
@@ -91,7 +90,13 @@ function Seller() {
               class="ml-2.5 text-sm w-8 h-8 px-[5px] text-primary bg-transparent border border-primary rounded-md border-primary text-primary hover:text-white hover:bg-primary hover:opacity-80 transition duration-150"
               onClick={(e) => removeSeller(e)}
             >
-              <Icon id="XMark" width={17} height={17} strokeWidth={1} class="mx-auto" />
+              <Icon
+                id="XMark"
+                width={17}
+                height={17}
+                strokeWidth={1}
+                class="mx-auto"
+              />
             </button>
           </>
         )}
