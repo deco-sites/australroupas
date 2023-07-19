@@ -62,7 +62,8 @@ function CartItem({ index }: Props) {
                 : formatPrice(sellingPrice / 100, currencyCode!, locale)}
             </span>
             <span class="text-xs text-info">
-              Tamanho: <span class="text-neutral">{name.split(" ").at(-1)}</span>
+              Tamanho:{" "}
+              <span class="text-neutral">{name.split(" ").at(-1)}</span>
             </span>
           </div>
           <div class="max-w-min flex items-center gap-2.5 lg:my-3 lg:h-fit">

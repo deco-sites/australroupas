@@ -110,7 +110,7 @@ function Simulation() {
   }, []);
 
   useEffect(() => {
-    if(shippingPriceInit?.value) {
+    if (shippingPriceInit?.value) {
       setShippingPrice(shippingPriceInit.value);
     }
   }, [shippingPriceInit?.value]);
