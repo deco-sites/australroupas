@@ -109,6 +109,12 @@ function Simulation() {
     }
   }, []);
 
+  useEffect(() => {
+    if(shippingPriceInit?.value) {
+      setShippingPrice(shippingPriceInit.value);
+    }
+  }, [shippingPriceInit?.value]);
+
   return (
     <div class="flex justify-between items-center py-2.5 mx-[15px] border-b border-base-100">
       <span class="text-sm text-info w-1/2">Calcular Frete</span>

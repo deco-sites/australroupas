@@ -48,47 +48,49 @@ function CartItem({ index }: Props) {
       />
       <div class="flex-grow p-2.5">
         <span class="text-xs text-[#1B1B1D] whitespace-nowrap">{name}</span>
-        <div class="flex items-center gap-2 my-3">
-          {listPrice < sellingPrice &&
-            (
-              <span class="line-through text-base-300 text-sm">
-                {formatPrice(listPrice / 100, currencyCode!, locale)}
-              </span>
-            )}
-          <span class="text-sm text-info font-bold w-25">
-            {isGift
-              ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
-          </span>
-          <span class="text-xs text-info">
-            Tamanho: <span class="text-neutral">{name.split(" ").at(-1)}</span>
-          </span>
-        </div>
-        <div class="max-w-min flex items-center gap-2.5">
-          <span class="text-black text-xs">Qtd:</span>
-          <QuantitySelector
-            disabled={loading.value || isGift}
-            quantity={quantity}
-            onChange={(quantity) => {
-              updateItems({ orderItems: [{ index, quantity }] });
-              const quantityDiff = quantity - item.quantity;
+        <div class="flex flex-col lg:flex-row">
+          <div class="flex items-center gap-2 my-3 lg:flex-col lg:items-start ">
+            {listPrice < sellingPrice &&
+              (
+                <span class="line-through text-base-300 text-sm">
+                  {formatPrice(listPrice / 100, currencyCode!, locale)}
+                </span>
+              )}
+            <span class="text-sm text-info font-bold w-25">
+              {isGift
+                ? "Grátis"
+                : formatPrice(sellingPrice / 100, currencyCode!, locale)}
+            </span>
+            <span class="text-xs text-info">
+              Tamanho: <span class="text-neutral">{name.split(" ").at(-1)}</span>
+            </span>
+          </div>
+          <div class="max-w-min flex items-center gap-2.5 lg:my-3 lg:h-fit">
+            <span class="text-black text-xs">Qtd:</span>
+            <QuantitySelector
+              disabled={loading.value || isGift}
+              quantity={quantity}
+              onChange={(quantity) => {
+                updateItems({ orderItems: [{ index, quantity }] });
+                const quantityDiff = quantity - item.quantity;
 
-              if (!cart.value) return;
+                if (!cart.value) return;
 
-              sendEvent({
-                name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
-                params: {
-                  items: mapItemsToAnalyticsItems({
-                    items: [{
-                      ...item,
-                      quantity: Math.abs(quantityDiff),
-                    }],
-                    marketingData: cart.value.marketingData,
-                  }),
-                },
-              });
-            }}
-          />
+                sendEvent({
+                  name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
+                  params: {
+                    items: mapItemsToAnalyticsItems({
+                      items: [{
+                        ...item,
+                        quantity: Math.abs(quantityDiff),
+                      }],
+                      marketingData: cart.value.marketingData,
+                    }),
+                  },
+                });
+              }}
+            />
+          </div>
         </div>
       </div>
       <Button
