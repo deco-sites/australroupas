@@ -96,6 +96,17 @@ function Cart() {
           <Seller />
           <Simulation />
         </div>
+        {/* Discount */}
+        {discounts?.value && (
+          <div class="border-b border-base-100 py-2.5 flex flex-col justify-end items-end gap-2 mx-4">
+            <div class="flex justify-between items-center w-full">
+              <span class="text-info text-sm">Descontos</span>
+              <span class="text-info text-sm text-neutral">
+                {formatPrice(discounts?.value / 100, currencyCode!, locale)}
+              </span>
+            </div>
+          </div>
+        )}
         {/* Total */}
         {total && (
           <div class="border-b border-base-100 py-2.5 flex flex-col justify-end items-end gap-2 mx-4">
