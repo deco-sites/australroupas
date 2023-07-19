@@ -1,4 +1,4 @@
-import { useState, useEffect } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
@@ -34,7 +34,7 @@ function Coupon() {
     <div class="flex justify-between items-center py-2.5 mx-[15px] border-b border-base-100">
       <span class="text-sm text-info w-1/2">Cupom de Desconto</span>
       <form class="flex w-1/2 justify-end">
-        {!marketingData?.coupon && ( 
+        {!marketingData?.coupon && (
           <>
             <input
               id="coupon"
