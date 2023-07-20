@@ -11,7 +11,8 @@ export const handler: Handlers = {
     const id = req.url.split("=")[1];
 
     const response = await fetch(
-      SUBDOMAIN + "/api/dataentities/VD/search?codigo=" + id + "&_fields=codigo,nome,loja,email,status&_schema=v2",
+      SUBDOMAIN + "/api/dataentities/VD/search?codigo=" + id +
+        "&_fields=codigo,nome,loja,email,status&_schema=v2",
       {
         method: "GET",
         headers: {

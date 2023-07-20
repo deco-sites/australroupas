@@ -8,7 +8,7 @@ function Seller() {
   const {
     cart,
     loading,
-    sendAttachment
+    sendAttachment,
   } = useCart();
   const displayInput = useSignal(false);
   const marketingData = cart.value?.marketingData;
@@ -23,8 +23,11 @@ function Seller() {
   const removeSeller = (e: MouseEvent) => {
     e.preventDefault();
 
-    sendAttachment({attachment: "openTextField", body: {value: ""}  });
-    sendAttachment({attachment: "marketingData", body: {utmiCampaign: "semcodigo"}  });
+    sendAttachment({ attachment: "openTextField", body: { value: "" } });
+    sendAttachment({
+      attachment: "marketingData",
+      body: { utmiCampaign: "semcodigo" },
+    });
 
     setSellerCode("");
     setNameSeller("");
@@ -40,7 +43,7 @@ function Seller() {
 
   const sellerVerification = async (e: MouseEvent) => {
     e.preventDefault();
-    
+
     if (typeof sellerCode === "string") {
       const response = await fetch(
         "/api/searchseller?id=" + sellerCode,
@@ -55,11 +58,17 @@ function Seller() {
 
       const result = await response.json();
 
-      if(result.length) {
-        if(result[0].status){
+      if (result.length) {
+        if (result[0].status) {
           setNameSeller(result[0].nome);
-          sendAttachment({attachment: "openTextField", body: {value: result[0].nome}});
-          sendAttachment({attachment: "marketingData", body: {utmiCampaign: result[0].codigo}})
+          sendAttachment({
+            attachment: "openTextField",
+            body: { value: result[0].nome },
+          });
+          sendAttachment({
+            attachment: "marketingData",
+            body: { utmiCampaign: result[0].codigo },
+          });
           toggleInput();
         }
       }
