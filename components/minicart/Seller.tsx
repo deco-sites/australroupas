@@ -8,10 +8,13 @@ function Seller() {
   const {
     cart,
     loading,
+    sendAttachment
   } = useCart();
   const displayInput = useSignal(false);
   const marketingData = cart.value?.marketingData;
-  const [sellerValue, setSellerValue] = useState("");
+  const openTextField = cart.value?.openTextField;
+  const [sellerCode, setSellerCode] = useState("");
+  const [nameSeller, setNameSeller] = useState("");
 
   const toggleInput = () => {
     displayInput.value = !displayInput.value;
@@ -20,27 +23,55 @@ function Seller() {
   const removeSeller = (e: MouseEvent) => {
     e.preventDefault();
 
-    setSellerValue("");
+    sendAttachment({attachment: "openTextField", body: {value: ""}  });
+    sendAttachment({attachment: "marketingData", body: {utmiCampaign: "semcodigo"}  });
+
+    setSellerCode("");
+    setNameSeller("");
     toggleInput();
   };
 
   const editSeller = (e: MouseEvent) => {
     e.preventDefault();
 
+    setSellerCode(nameSeller);
     toggleInput();
   };
 
-  const sellerVerification = (e: MouseEvent) => {
+  const sellerVerification = async (e: MouseEvent) => {
     e.preventDefault();
+    
+    if (typeof sellerCode === "string") {
+      const response = await fetch(
+        "/api/searchseller?id=" + sellerCode,
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+            "accept": "application/json",
+          },
+        },
+      );
 
-    if (typeof sellerValue === "string") {
-      toggleInput();
+      const result = await response.json();
+
+      if(result.length) {
+        if(result[0].status){
+          setNameSeller(result[0].nome);
+          sendAttachment({attachment: "openTextField", body: {value: result[0].nome}});
+          sendAttachment({attachment: "marketingData", body: {utmiCampaign: result[0].codigo}})
+          toggleInput();
+        }
+      }
     }
   };
 
   useEffect(() => {
-    if (marketingData?.coupon) {
-      setSellerValue(marketingData?.coupon);
+    // deno-lint-ignore no-explicit-any
+    if (marketingData?.utmiCampaign && (openTextField as any)?.value) {
+      setSellerCode(marketingData?.utmiCampaign);
+      // deno-lint-ignore no-explicit-any
+      setNameSeller((openTextField as any)?.value);
       toggleInput();
     }
   }, []);
@@ -56,10 +87,10 @@ function Seller() {
               name="coupon"
               class="w-full text-sm h-8 rounded-md p-2 text-caption font-caption outline-1 outline-[#FDB913] px-2.5 border border-[#C7C7CC]"
               type="text"
-              value={sellerValue ?? ""}
+              value={sellerCode ?? ""}
               placeholder={""}
               onChange={(e: { currentTarget: { value: string } }) =>
-                setSellerValue(e.currentTarget?.value)}
+                setSellerCode(e.currentTarget?.value)}
             />
             <Button
               class="text-sm w-8 h-8 px-[5px] text-primary bg-transparent border border-primary rounded-md ml-[3px] border-primary text-primary hover:text-white hover:bg-primary hover:opacity-80 transition duration-150"
@@ -75,14 +106,14 @@ function Seller() {
         {displayInput.value && (
           <>
             <div class="flex flex-col justify-center text-sm text-right text-info">
-              {sellerValue}
+              {nameSeller}
             </div>
             <button
-              class="ml-2.5 text-sm w-8 h-8 px-[5px] text-primary bg-transparent border border-primary rounded-md border-primary text-primary hover:text-white hover:bg-primary hover:opacity-80 transition duration-150"
+              class="group ml-2.5 text-sm w-8 h-8 px-[5px] text-primary bg-transparent border border-primary rounded-md border-primary text-primary hover:text-white hover:bg-primary hover:opacity-80 transition duration-150"
               onClick={(e) => editSeller(e)}
             >
               <i
-                class={`${"icon icon-edit"} text-xs text-primary`}
+                class={`${"icon icon-edit"} text-xs text-primary group-hover:text-white`}
               >
               </i>
             </button>
