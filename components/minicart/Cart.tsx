@@ -39,17 +39,30 @@ function Cart() {
   // Empty State
   if (isCartEmpty) {
     return (
-      <div class="flex flex-col justify-center items-center h-full gap-6">
-        <span class="font-medium text-2xl">Sua sacola está vazia</span>
-        <Button
-          class="btn-outline"
-          onClick={() => {
-            displayCart.value = false;
-          }}
-        >
-          Escolher produtos
-        </Button>
-      </div>
+      <>
+        <div class="absolute top-3 left-[30%]">
+          <div class="p-1.5 text-xl relative ml-1 lg:ml-0">
+            <span class="bg-primary rounded-full absolute top-1 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-4 h-4 flex items-center justify-center">
+              {totalItems > 9 ? "9+" : totalItems}
+            </span>
+            <i
+              class={`${"icon-minicart"} text-lg lg:text-xl`}
+            >
+            </i>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center items-center h-1/2">
+          <span class="text-sm text-info">Sua sacola de compras está vazia.</span>
+          <Button
+            class="flex justify-center items-center min-w-[250px] h-[45px] text-xs bg-primary border-none text-white mt-10 py-3 px-2.5 rounded-md hover:opacity-80 transition duration-150"
+            onClick={() => {
+              displayCart.value = false;
+            }}
+          >
+            Continuar comprando
+          </Button>
+        </div>
+      </>
     );
   }
 
