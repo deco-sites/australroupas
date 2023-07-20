@@ -52,7 +52,9 @@ function Cart() {
           </div>
         </div>
         <div class="flex flex-col justify-center items-center h-1/2">
-          <span class="text-sm text-info">Sua sacola de compras está vazia.</span>
+          <span class="text-sm text-info">
+            Sua sacola de compras está vazia.
+          </span>
           <Button
             class="flex justify-center items-center min-w-[250px] h-[45px] text-xs bg-primary border-none text-white mt-10 py-3 px-2.5 rounded-md hover:opacity-80 transition duration-150"
             onClick={() => {
