@@ -35,51 +35,63 @@ function CartItem({ index }: Props) {
 
   const isGift = sellingPrice < 0.01;
 
+  const notFirst = index > 0 ? "border-t border-t-base-100" : "";
+
   return (
-    <div class="flex flex-row justify-between items-start gap-4">
+    <div class={`flex flex-row justify-between items-start ${notFirst}`}>
       <Image
         src={imageUrl}
         alt={skuName}
-        width={108}
-        height={150}
-        class="object-cover object-center"
+        width={60}
+        height={90}
+        class="object-cover object-center my-3 rounded-md"
       />
-      <div class="flex-grow">
-        <span>{name}</span>
-        <div class="flex items-center gap-2">
-          <span class="line-through text-base-300 text-sm">
-            {formatPrice(listPrice / 100, currencyCode!, locale)}
-          </span>
-          <span class="text-sm text-secondary">
-            {isGift
-              ? "Grátis"
-              : formatPrice(sellingPrice / 100, currencyCode!, locale)}
-          </span>
-        </div>
-        <div class="mt-6 max-w-min">
-          <QuantitySelector
-            disabled={loading.value || isGift}
-            quantity={quantity}
-            onChange={(quantity) => {
-              updateItems({ orderItems: [{ index, quantity }] });
-              const quantityDiff = quantity - item.quantity;
+      <div class="flex-grow p-2.5">
+        <span class="text-xs text-[#1B1B1D] whitespace-nowrap">{name}</span>
+        <div class="flex flex-col lg:flex-row">
+          <div class="flex items-center gap-2 my-3 lg:flex-col lg:items-start ">
+            {listPrice < sellingPrice &&
+              (
+                <span class="line-through text-base-300 text-sm">
+                  {formatPrice(listPrice / 100, currencyCode!, locale)}
+                </span>
+              )}
+            <span class="text-sm text-info font-bold w-25">
+              {isGift
+                ? "Grátis"
+                : formatPrice(sellingPrice / 100, currencyCode!, locale)}
+            </span>
+            <span class="text-xs text-info">
+              Tamanho:{" "}
+              <span class="text-neutral">{name.split(" ").at(-1)}</span>
+            </span>
+          </div>
+          <div class="max-w-min flex items-center gap-2.5 lg:my-3 lg:h-fit">
+            <span class="text-black text-xs">Qtd:</span>
+            <QuantitySelector
+              disabled={loading.value || isGift}
+              quantity={quantity}
+              onChange={(quantity) => {
+                updateItems({ orderItems: [{ index, quantity }] });
+                const quantityDiff = quantity - item.quantity;
 
-              if (!cart.value) return;
+                if (!cart.value) return;
 
-              sendEvent({
-                name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
-                params: {
-                  items: mapItemsToAnalyticsItems({
-                    items: [{
-                      ...item,
-                      quantity: Math.abs(quantityDiff),
-                    }],
-                    marketingData: cart.value.marketingData,
-                  }),
-                },
-              });
-            }}
-          />
+                sendEvent({
+                  name: quantityDiff < 0 ? "remove_from_cart" : "add_to_cart",
+                  params: {
+                    items: mapItemsToAnalyticsItems({
+                      items: [{
+                        ...item,
+                        quantity: Math.abs(quantityDiff),
+                      }],
+                      marketingData: cart.value.marketingData,
+                    }),
+                  },
+                });
+              }}
+            />
+          </div>
         </div>
       </div>
       <Button
@@ -96,11 +108,14 @@ function CartItem({ index }: Props) {
             },
           });
         }}
-        disabled={loading.value || isGift}
-        loading={loading.value}
-        class="btn btn-ghost"
+        // disabled={loading.value || isGift}
+        // loading={loading.value}
+        class="btn btn-ghost hover:bg-transparent minicart__remove disable:bg-white"
       >
-        <Icon id="Trash" width={20} height={20} />
+        <i
+          class={`${"icon-close"} text-lg lg:text-xl`}
+        >
+        </i>
       </Button>
     </div>
   );

@@ -14,10 +14,20 @@ export default function ({ title }: Props) {
       </div>
       <div class="px-25">
         <Breadcrumb
-          itemListElement={[{ name: "Institucional", item: " " }, {
-            name: title,
-            item: " ",
-          }]}
+          itemListElement={[
+            {
+              name: "Institucional",
+              item: "/",
+              position: 1,
+              "@type": "ListItem",
+            },
+            {
+              name: title,
+              item: "/",
+              position: 2,
+              "@type": "ListItem",
+            },
+          ]}
         />
       </div>
     </div>

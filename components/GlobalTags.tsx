@@ -195,6 +195,10 @@ function GlobalTags() {
       .icon-pinterest:before {
           content: ""
       }
+      .minicart__remove i::before {
+        content: "";
+        font-size: 16px;
+    }
     `,
         }}
       />

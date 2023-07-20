@@ -6,8 +6,10 @@ import config from "./deno.json" assert { type: "json" };
 import { DecoManifest } from "$live/types.ts";
 import * as $$$$0 from "./routes/api/autocomplete.tsx";
 import * as $$$$1 from "./routes/api/newsletter.tsx";
-import * as $$$$2 from "./routes/styles.css.ts";
-import * as $$$$3 from "./routes/_app.tsx";
+import * as $$$$2 from "./routes/api/searchseller.tsx";
+import * as $$$$3 from "./routes/api/shippingsimulation.tsx";
+import * as $$$$4 from "./routes/styles.css.ts";
+import * as $$$$5 from "./routes/_app.tsx";
 import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/Faq.tsx";
 import * as $$$$$2 from "./islands/HeaderButton.tsx";
@@ -167,11 +169,13 @@ import * as i2$$$$$19 from "deco-sites/std/actions/vtex/wishlist/removeItem.ts";
 
 const manifest = {
   "routes": {
-    "./routes/_app.tsx": $$$$3,
+    "./routes/_app.tsx": $$$$5,
     "./routes/_middleware.ts": $live_middleware,
     "./routes/[...catchall].tsx": $live_catchall,
     "./routes/api/autocomplete.tsx": $$$$0,
     "./routes/api/newsletter.tsx": $$$$1,
+    "./routes/api/searchseller.tsx": $$$$2,
+    "./routes/api/shippingsimulation.tsx": $$$$3,
     "./routes/index.tsx": $live_catchall,
     "./routes/live/_meta.ts": $live_meta,
     "./routes/live/editorData.ts": $live_editorData,
@@ -181,7 +185,7 @@ const manifest = {
     "./routes/live/previews/[...block].tsx": $live_previews,
     "./routes/live/release.ts": $live_release,
     "./routes/live/workbench.ts": $live_workbench,
-    "./routes/styles.css.ts": $$$$2,
+    "./routes/styles.css.ts": $$$$4,
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$0,
