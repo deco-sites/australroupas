@@ -31,6 +31,8 @@ function Cart() {
   );
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
+  const maxInstallments = cart.value?.paymentData?.installmentOptions.find((item) => item.paymentSystem === "1")?.installments?.at(-1)?.count;
+  const maxValueInstallment = cart.value?.paymentData?.installmentOptions.find((item) => item.paymentSystem === "1")?.installments?.at(-1)?.value;
   console.log(cart);
   if (cart.value === null) {
     return null;
@@ -129,7 +131,7 @@ function Cart() {
               <span class="text-info text-sm">Total</span>
               <span class="flex flex-col text-right text-info text-sm font-bold">
                 {formatPrice(total / 100, currencyCode!, locale)}
-                <span class="font-normal">{"ou " + 4 + "X de R$ 34,27"}</span>
+                <span class="font-normal">{"ou " + maxInstallments + "X de " + formatPrice((maxValueInstallment || 0) / 100, currencyCode!, locale)}</span>
               </span>
             </div>
           </div>
