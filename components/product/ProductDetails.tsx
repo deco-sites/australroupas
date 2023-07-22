@@ -71,18 +71,21 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       {/* Code and name */}
       <div class="">
         <h1>
-          <span class="text-base leading-[140%] tracking-[.04rem] text-info lg:text-[22px]">{name}</span>
+          <span class="text-base leading-[140%] tracking-[.04rem] text-info lg:text-[22px]">
+            {name}
+          </span>
         </h1>
       </div>
       {/* Prices */}
       <div class="mt-5 mb-2.5">
         <div class="flex flex-row gap-2 items-center">
-          {
-            formatPrice(listPrice, offers!.priceCurrency!)! < formatPrice(price, offers!.priceCurrency!)! &&
-            <span class="line-through text-base-300 text-xs">
-              {formatPrice(listPrice, offers!.priceCurrency!)}
-            </span>
-          }
+          {formatPrice(listPrice, offers!.priceCurrency!)! <
+              formatPrice(price, offers!.priceCurrency!)! &&
+            (
+              <span class="line-through text-base-300 text-xs">
+                {formatPrice(listPrice, offers!.priceCurrency!)}
+              </span>
+            )}
           <span class="font-bold text-lg text-info">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
@@ -115,19 +118,22 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             </>
           )
           : <OutOfStock productID={productID} />}
-          <button>Share</button>
+        <button>Share</button>
       </div>
       {/* Description card */}
-      {
-        description && (
-          <div class="my-[30px] py-5">
-            <p class="text-sm text-info font-semibold mb-[15px]">Descrição do produto</p>
-            <span class="text-sm text-accent leading-[140%]" dangerouslySetInnerHTML={{
-              __html: description
-            }} />
-          </div>
-        )
-      }
+      {description && (
+        <div class="my-[30px] py-5">
+          <p class="text-sm text-info font-semibold mb-[15px]">
+            Descrição do produto
+          </p>
+          <span
+            class="text-sm text-accent leading-[140%]"
+            dangerouslySetInnerHTML={{
+              __html: description,
+            }}
+          />
+        </div>
+      )}
       {/* Analytics Event */}
       <SendEventOnLoad
         event={{
