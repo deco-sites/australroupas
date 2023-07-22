@@ -17,6 +17,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
+import NavigatorShare from "$store/islands/NavigatorShare.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -61,6 +62,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     name,
     gtin,
     isVariantOf,
+    url
   } = product;
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
@@ -99,7 +101,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="flex flex-col gap-2">
+      <div class="flex flex-row justify-center items-center gap-2 lg:max-w-[500px]">
         {availability === "https://schema.org/InStock"
           ? (
             <>
@@ -118,7 +120,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             </>
           )
           : <OutOfStock productID={productID} />}
-        <button>Share</button>
+          <NavigatorShare title={name ?? ""} url={url ?? ""} />
       </div>
       {/* Description card */}
       {description && (
@@ -329,7 +331,7 @@ function Details({
           </ul>
 
           {/* Product Info */}
-          <div class="px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-[50px] lg:sticky lg:top-[136px] lg:h-full lg:min-w-[520px]">
+          <div class="relative px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-[50px] lg:sticky lg:top-[136px] lg:h-full lg:min-w-[520px]">
             <ProductInfo page={page} />
           </div>
         </div>
