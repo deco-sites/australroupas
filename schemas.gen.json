@@ -72,6 +72,7 @@
               "./islands/Overlay.tsx",
               "./islands/ProductCardButton.tsx",
               "./islands/ProductImageZoom.tsx",
+              "./islands/ProductVariantSelector.tsx",
               "./islands/SearchControls.tsx",
               "./islands/ServiceMenu.tsx",
               "./islands/ShippingSimulation.tsx",
@@ -12824,6 +12825,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL1Byb2R1Y3RWYXJpYW50U2VsZWN0b3IudHN4": {
+      "title": "./islands/ProductVariantSelector.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/ProductVariantSelector.tsx"
+          ],
+          "default": "./islands/ProductVariantSelector.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA==": {
       "title": "./islands/SearchControls.tsx",
       "type": "object",
@@ -14817,6 +14834,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RWYXJpYW50U2VsZWN0b3IudHN4"
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1NlYXJjaENvbnRyb2xzLnRzeA=="

@@ -21,11 +21,15 @@ const colors: Record<string, string> = {
     "bg-transparent-content text-neutral border-[#878787] border-[1px] opacity-50 pointer-events-none",
   "default":
     "bg-transparent text-[#636366] border-[rgb(133,133,133)] border-[1px] hover:bg-primary hover:text-white hover:border-primary",
+  "PDP":
+    "bg-transparent text-[#636366] border-[#C7C7CC] border-[1px] hover:border-primary hover:border-primary",
 };
 
 interface Props {
-  variant?: "active" | "disabled" | "default";
+  variant?: "active" | "disabled" | "default" | "PDP";
   content: string;
+  name?: string;
+  disponibility?: boolean;
 }
 
 const variants = {
@@ -33,18 +37,39 @@ const variants = {
   disabled:
     `relative after:absolute after:left-0 after:top-1/2 after:h-[1px] after:bg-[#878787] after:w-full after:block after:-rotate-45 after:content-[""]`,
   default: "",
+  PDP: "",
 };
 
-function Avatar({ content, variant = "default" }: Props) {
+function Avatar(
+  { content, variant = "default", name, disponibility = true }: Props,
+) {
+  const disable = !disponibility
+    ? "text-[#E4E4EA] border border-[#E4E4EA] after:absolute after:top-1/2 after:h-[1px] after:bg-[#E4E4EA] after:w-full after:block after:-rotate-45 after:content-[&quot;&quot;]"
+    : "";
   return (
     <div class="avatar placeholder">
       <div
         class={`rounded-md duration-300 transition-all w-8 ${
           colors[content] ?? colors[variant]
-        } ${variants[variant]}`}
+        } ${variants[variant]} ${name == "Tamanho" ? disable : ""}`}
+        style={{
+          backgroundColor: name == "Cor" ? "transparent" : "",
+          border: name == "Cor"
+            ? (variant == "active" ? "1px solid #5881CA" : "1px solid #C7C7CC")
+            : "",
+        }}
       >
-        <span class="text-caption font-caption uppercase text-[12px] leading-[initial]">
-          {colors[content] ? "" : content.substring(0, 2)}
+        <span
+          class="color-label text-caption font-caption uppercase text-[12px] leading-[initial] rounded"
+          data-color={content}
+          style={{
+            width: name == "Cor" ? "75%" : "",
+            height: name == "Cor" ? "75%" : "",
+          }}
+        >
+          {name != "Cor"
+            ? (colors[content] ? "" : content.substring(0, 2))
+            : ""}
         </span>
       </div>
     </div>
