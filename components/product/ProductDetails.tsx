@@ -71,29 +71,32 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       {/* Code and name */}
       <div class="">
         <h1>
-          <span class="font-medium text-xl">{name}</span>
+          <span class="text-base leading-[140%] tracking-[.04rem] text-info lg:text-[22px]">{name}</span>
         </h1>
       </div>
       {/* Prices */}
-      <div class="mt-4">
+      <div class="mt-5 mb-2.5">
         <div class="flex flex-row gap-2 items-center">
-          <span class="line-through text-base-300 text-xs">
-            {formatPrice(listPrice, offers!.priceCurrency!)}
-          </span>
-          <span class="font-medium text-xl text-secondary">
+          {
+            formatPrice(listPrice, offers!.priceCurrency!)! < formatPrice(price, offers!.priceCurrency!)! &&
+            <span class="line-through text-base-300 text-xs">
+              {formatPrice(listPrice, offers!.priceCurrency!)}
+            </span>
+          }
+          <span class="font-bold text-lg text-info">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
-        <span class="text-sm text-base-300">
-          {installments}
+        <span class="text-sm text-neutral mt-[5px]">
+          ou {installments}
         </span>
       </div>
       {/* Sku Selector */}
-      <div class="mt-4 sm:mt-6">
+      <div class="">
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
+      <div class="flex flex-col gap-2">
         {availability === "https://schema.org/InStock"
           ? (
             <>
@@ -112,13 +115,19 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             </>
           )
           : <OutOfStock productID={productID} />}
+          <button>Share</button>
       </div>
       {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <span class="text-sm">
-          {description}
-        </span>
-      </div>
+      {
+        description && (
+          <div class="my-[30px] py-5">
+            <p class="text-sm text-info font-semibold mb-[15px]">Descrição do produto</p>
+            <span class="text-sm text-accent leading-[140%]" dangerouslySetInnerHTML={{
+              __html: description
+            }} />
+          </div>
+        )
+      }
       {/* Analytics Event */}
       <SendEventOnLoad
         event={{
@@ -314,7 +323,7 @@ function Details({
           </ul>
 
           {/* Product Info */}
-          <div class="px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-[50px] lg:sticky lg:top-[136px] lg:h-full">
+          <div class="px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-[50px] lg:sticky lg:top-[136px] lg:h-full lg:min-w-[520px]">
             <ProductInfo page={page} />
           </div>
         </div>
@@ -371,7 +380,7 @@ function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
     : maybeVar;
 
   return (
-    <div class="sm:home-container py-0">
+    <div class="sm:home-container py-0 lg:pb-15">
       {page ? <Details page={page} variant={variant} /> : <NotFound />}
     </div>
   );
