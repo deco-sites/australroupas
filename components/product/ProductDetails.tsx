@@ -124,7 +124,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
       {/* Description card */}
       {description && (
-        <div class="my-[30px] py-5 border-t border-base-100">
+        <div class="mt-[30px] pt-5 border-t border-base-100">
           <p class="text-sm text-info font-semibold mb-[15px]">
             Descrição do produto
           </p>
