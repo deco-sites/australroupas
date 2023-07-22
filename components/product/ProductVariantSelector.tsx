@@ -165,7 +165,7 @@ function VariantSelector({ product, product: { url } }: Props) {
               {Object.entries(possibilities[name]).map(([value, [link]]) => {
                 // deno-lint-ignore no-explicit-any
                 const hasStock = variantsProduct?.find((variant: any) =>
-                // deno-lint-ignore no-explicit-any
+                  // deno-lint-ignore no-explicit-any
                   variant?.additionalProperty.find((property: any) =>
                     property.value == value
                   )
