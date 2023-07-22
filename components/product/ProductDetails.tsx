@@ -62,7 +62,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     name,
     gtin,
     isVariantOf,
-    url
+    url,
   } = product;
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
@@ -120,7 +120,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
             </>
           )
           : <OutOfStock productID={productID} />}
-          <NavigatorShare title={name ?? ""} url={url ?? ""} />
+        <NavigatorShare title={name ?? ""} url={url ?? ""} />
       </div>
       {/* Description card */}
       {description && (
