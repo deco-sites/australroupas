@@ -256,22 +256,20 @@ function Details({
 
             {/* Desktop */}
             <div class="hidden lg:flex flex-wrap gap-[5px]">
-              {
-                images.map((img, index) => (
-                  <Image
-                    class="w-[49%] rounded-md"
-                    sizes="(max-width: 640px) 100vw, 40vw"
-                    style={{ aspectRatio: ASPECT_RATIO }}
-                    src={img.url!}
-                    alt={img.alternateName}
-                    width={WIDTH}
-                    height={HEIGHT}
-                    // Preload LCP image for better web vitals
-                    preload={index === 0}
-                    loading={index === 0 ? "eager" : "lazy"}
-                  />
-                ))
-              }
+              {images.map((img, index) => (
+                <Image
+                  class="w-[49%] rounded-md"
+                  sizes="(max-width: 640px) 100vw, 40vw"
+                  style={{ aspectRatio: ASPECT_RATIO }}
+                  src={img.url!}
+                  alt={img.alternateName}
+                  width={WIDTH}
+                  height={HEIGHT}
+                  // Preload LCP image for better web vitals
+                  preload={index === 0}
+                  loading={index === 0 ? "eager" : "lazy"}
+                />
+              ))}
             </div>
 
             <Slider.PrevButton
@@ -300,7 +298,9 @@ function Details({
           {/* Dots */}
           <ul class="flex lg:hidden gap-2 justify-center overflow-auto px-4 sm:px-0 sm:flex-col sm:col-start-1 sm:col-span-1 sm:row-start-1">
             {images.map((_, index) => (
-              <li class={`carousel-item ${(index + 1) % 4 != 0 && "sm:hidden"}`}>
+              <li
+                class={`carousel-item ${(index + 1) % 4 != 0 && "sm:hidden"}`}
+              >
                 <Slider.Dot index={index}>
                   <div class="py-4">
                     <div
