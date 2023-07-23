@@ -18,6 +18,7 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
   mode?: "sidebar-right" | "sidebar-left" | "center";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
+  datatype?: "default" | "zoom";
 };
 
 const dialogStyles = {
@@ -45,6 +46,7 @@ const Modal = ({
   onClose,
   children,
   loading,
+  datatype = "default",
   ...props
 }: Props) => {
   const lazy = useSignal(false);
@@ -52,14 +54,18 @@ const Modal = ({
 
   useEffect(() => {
     if (open === false) {
-      document.getElementsByTagName("body").item(0)?.classList.remove(
-        "no-scroll",
-      );
+      if (datatype == "default") {
+        document.getElementsByTagName("body").item(0)?.classList.remove(
+          "no-scroll",
+        );
+      }
       ref.current?.open === true && ref.current.close();
     } else if (open === true) {
-      document.getElementsByTagName("body").item(0)?.classList.add(
-        "no-scroll",
-      );
+      if (datatype == "default") {
+        document.getElementsByTagName("body").item(0)?.classList.add(
+          "no-scroll",
+        );
+      }
       ref.current?.open === false && ref.current.showModal();
       lazy.value = true;
     }
@@ -69,34 +75,48 @@ const Modal = ({
     <dialog
       {...props}
       ref={ref}
-      class={`bg-transparent p-0 m-0 max-w-full w-full max-h-full h-full backdrop-opacity-50 ${
+      class={`bg-transparent backdrop-opacity-50 p-0 m-0 max-w-full w-full max-h-full h-full ${
         dialogStyles[mode]
-      } ${props.class ?? ""}`}
+      } ${props.class ?? ""} ${datatype == "zoom" ? "w-screen h-screen" : ""}`}
       onClick={(e) =>
         (e.target as HTMLDialogElement).tagName === "SECTION" && onClose?.()}
       // @ts-expect-error - This is a bug in types.
       onClose={onClose}
     >
       <section
-        class={`w-full h-full flex bg-[#1c1c1e99] ${sectionStyles[mode]}`}
+        class={`w-full h-full flex ${
+          datatype == "zoom" ? "bg-[#ffffffe6]" : "bg-[#1c1c1e99]"
+        } ${sectionStyles[mode]}`}
       >
         <div
           class={`bg-white relative flex flex-col max-h-full ${
             containerStyles[mode]
-          }`}
+          } ${datatype == "zoom" ? "h-full" : ""}`}
         >
-          <header class="flex px-4 h-16 justify-between items-center border-b border-base-100">
+          <header
+            class={`flex px-4 h-16 justify-between items-center border-b border-base-100 ${
+              datatype == "zoom" ? "absolute right-[-25%] top-[20px]" : ""
+            }`}
+          >
             <h1>
               <span class="text-lg mr-5 text-info">{title}</span>
             </h1>
             <Button
-              class="btn btn-ghost hover:bg-transparent p-0"
+              class={`btn btn-ghost hover:bg-transparent p-0  ${
+                datatype == "zoom"
+                  ? "outline-none text-[#636366] focus-visible:outline-none"
+                  : ""
+              }`}
               onClick={onClose}
             >
-              <Icon id="XMark" width={35} height={35} strokeWidth={1} />
+              <Icon id="XMark" width={30} height={30} strokeWidth={1} />
             </Button>
           </header>
-          <div class="overflow-y-auto flex-grow flex flex-col">
+          <div
+            class={`flex-grow flex flex-col ${
+              datatype == "zoom" ? "" : "overflow-y-auto"
+            }`}
+          >
             {loading === "lazy" ? lazy.value && children : children}
           </div>
         </div>

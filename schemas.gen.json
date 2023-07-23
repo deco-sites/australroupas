@@ -66,6 +66,7 @@
               "./islands/HeaderModals.tsx",
               "./islands/HeaderSearchbar.tsx",
               "./islands/Menu.tsx",
+              "./islands/NavigatorShare.tsx",
               "./islands/NavItem.tsx",
               "./islands/Newsletter.tsx",
               "./islands/OutOfStock.tsx",
@@ -12723,6 +12724,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL05hdmlnYXRvclNoYXJlLnRzeA==": {
+      "title": "./islands/NavigatorShare.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/NavigatorShare.tsx"
+          ],
+          "default": "./islands/NavigatorShare.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL05hdkl0ZW0udHN4": {
       "title": "./islands/NavItem.tsx",
       "type": "object",
@@ -14799,6 +14816,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL01lbnUudHN4"
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL05hdmlnYXRvclNoYXJlLnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL05hdkl0ZW0udHN4"

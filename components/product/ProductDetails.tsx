@@ -17,7 +17,7 @@ import type { LoaderReturnType } from "$live/types.ts";
 
 import ProductSelector from "./ProductVariantSelector.tsx";
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
-import WishlistButton from "../wishlist/WishlistButton.tsx";
+import NavigatorShare from "$store/islands/NavigatorShare.tsx";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -30,8 +30,8 @@ export interface Props {
   variant?: Variant;
 }
 
-const WIDTH = 360;
-const HEIGHT = 500;
+const WIDTH = 424;
+const HEIGHT = 635;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
 
 /**
@@ -62,6 +62,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
     name,
     gtin,
     isVariantOf,
+    url,
   } = product;
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
@@ -69,41 +70,38 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
 
   return (
     <>
-      {/* Breadcrumb */}
-      <Breadcrumb
-        itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
-      />
       {/* Code and name */}
-      <div class="mt-4 sm:mt-8">
-        <div>
-          <span class="text-sm text-base-300">
-            Cod. {gtin}
-          </span>
-        </div>
+      <div class="">
         <h1>
-          <span class="font-medium text-xl">{name}</span>
+          <span class="text-base leading-[140%] tracking-[.04rem] text-info lg:text-[22px]">
+            {name}
+          </span>
         </h1>
       </div>
       {/* Prices */}
-      <div class="mt-4">
+      <div class="mt-5 mb-2.5">
         <div class="flex flex-row gap-2 items-center">
-          <span class="line-through text-base-300 text-xs">
-            {formatPrice(listPrice, offers!.priceCurrency!)}
-          </span>
-          <span class="font-medium text-xl text-secondary">
+          {formatPrice(listPrice, offers!.priceCurrency!)! <
+              formatPrice(price, offers!.priceCurrency!)! &&
+            (
+              <span class="line-through text-base-300 text-xs">
+                {formatPrice(listPrice, offers!.priceCurrency!)}
+              </span>
+            )}
+          <span class="font-bold text-lg text-info">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
         </div>
-        <span class="text-sm text-base-300">
-          {installments}
+        <span class="text-sm text-neutral mt-[5px]">
+          ou {installments}
         </span>
       </div>
       {/* Sku Selector */}
-      <div class="mt-4 sm:mt-6">
+      <div class="">
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="mt-4 sm:mt-10 flex flex-col gap-2">
+      <div class="flex flex-row justify-center items-center gap-2 lg:max-w-[500px]">
         {availability === "https://schema.org/InStock"
           ? (
             <>
@@ -119,36 +117,25 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
                   url={""}
                 />
               )}
-              <WishlistButton
-                variant="full"
-                productGroupID={isVariantOf?.productGroupID}
-                productID={productID}
-              />
             </>
           )
           : <OutOfStock productID={productID} />}
-      </div>
-      {/* Shipping Simulation */}
-      <div class="mt-8">
-        <ShippingSimulation
-          items={[{
-            id: Number(product.sku),
-            quantity: 1,
-            seller: seller ?? "1",
-          }]}
-        />
+        <NavigatorShare title={name ?? ""} url={url ?? ""} />
       </div>
       {/* Description card */}
-      <div class="mt-4 sm:mt-6">
-        <span class="text-sm">
-          {description && (
-            <details>
-              <summary class="cursor-pointer">Descrição</summary>
-              <div class="ml-2 mt-2">{description}</div>
-            </details>
-          )}
-        </span>
-      </div>
+      {description && (
+        <div class="mt-[30px] pt-5 border-t border-base-100">
+          <p class="text-sm text-info font-semibold mb-[15px]">
+            Descrição do produto
+          </p>
+          <span
+            class="text-sm text-accent leading-[140%]"
+            dangerouslySetInnerHTML={{
+              __html: description,
+            }}
+          />
+        </div>
+      )}
       {/* Analytics Event */}
       <SendEventOnLoad
         event={{
@@ -235,7 +222,7 @@ function Details({
   page,
   variant,
 }: { page: ProductDetailsPage; variant: Variant }) {
-  const { product } = page;
+  const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
 
@@ -249,13 +236,20 @@ function Details({
   if (variant === "slider") {
     return (
       <>
+        <div class="px-[15px] py-2.5 lg:px-0 lg:pb-5">
+          {/* Breadcrumb */}
+          <Breadcrumb
+            itemListElement={breadcrumbList?.itemListElement.slice(0, -1)}
+          />
+        </div>
         <div
           id={id}
-          class="grid grid-cols-1 gap-4 sm:grid-cols-[max-content_40vw_40vw] sm:grid-rows-1 sm:justify-center"
+          class="grid grid-cols-1 sm:justify-center lg:flex"
         >
           {/* Image Slider */}
-          <div class="relative sm:col-start-2 sm:col-span-1 sm:row-start-1">
-            <Slider class="carousel gap-6">
+          <div class="relative sm:col-start-2 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[59%]">
+            {/* Mobile */}
+            <Slider class="carousel lg:hidden">
               {images.map((img, index) => (
                 <Slider.Item
                   index={index}
@@ -277,49 +271,58 @@ function Details({
               ))}
             </Slider>
 
+            {/* Desktop */}
+            <div class="hidden lg:flex flex-wrap gap-[5px]">
+              {images.map((img, index) => (
+                <ProductImageZoom
+                  image={img.url!}
+                  width={WIDTH}
+                  height={HEIGHT}
+                  aspectRatio={ASPECT_RATIO}
+                  index={index}
+                  alternativeText={img.alternateName!}
+                />
+              ))}
+            </div>
+
             <Slider.PrevButton
-              class="no-animation absolute left-2 top-1/2 btn btn-circle btn-outline"
+              class="no-animation absolute left-2 top-1/2 lg:hidden"
               disabled
             >
-              <Icon size={20} id="ChevronLeft" strokeWidth={3} />
+              <Icon size={38} id="ChevronLeft" strokeWidth={.7} />
             </Slider.PrevButton>
 
             <Slider.NextButton
-              class="no-animation absolute right-2 top-1/2 btn btn-circle btn-outline"
+              class="no-animation absolute right-2 top-1/2 lg:hidden"
               disabled={images.length < 2}
             >
-              <Icon size={20} id="ChevronRight" strokeWidth={3} />
+              <Icon size={38} id="ChevronRight" strokeWidth={.7} />
             </Slider.NextButton>
 
             <div class="absolute top-2 right-2 bg-base-100 rounded-full">
-              <ProductImageZoom
-                images={images}
-                width={1280}
-                height={1280 * HEIGHT / WIDTH}
-              />
             </div>
           </div>
 
           {/* Dots */}
-          <ul class="flex gap-2 sm:justify-start overflow-auto px-4 sm:px-0 sm:flex-col sm:col-start-1 sm:col-span-1 sm:row-start-1">
-            {images.map((img, index) => (
-              <li class="min-w-[63px] sm:min-w-[100px]">
+          <ul class="flex lg:hidden gap-2 justify-center overflow-auto px-4 sm:px-0 sm:flex-col sm:col-start-1 sm:col-span-1 sm:row-start-1">
+            {images.map((_, index) => (
+              <li
+                class={`carousel-item ${(index + 1) % 4 != 0 && "sm:hidden"}`}
+              >
                 <Slider.Dot index={index}>
-                  <Image
-                    style={{ aspectRatio: ASPECT_RATIO }}
-                    class="group-disabled:border-base-300 border rounded "
-                    width={63}
-                    height={87.5}
-                    src={img.url!}
-                    alt={img.alternateName}
-                  />
+                  <div class="py-4">
+                    <div
+                      class={`w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)] group-disabled:bg-[#000]`}
+                      style={{ animationDuration: `${0}s` }}
+                    />
+                  </div>
                 </Slider.Dot>
               </li>
             ))}
           </ul>
 
           {/* Product Info */}
-          <div class="px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1">
+          <div class="relative px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-[50px] lg:sticky lg:top-[136px] lg:h-full lg:min-w-[520px]">
             <ProductInfo page={page} />
           </div>
         </div>
@@ -376,7 +379,7 @@ function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
     : maybeVar;
 
   return (
-    <div class="container py-0 sm:py-10">
+    <div class="sm:home-container py-0 lg:pb-15">
       {page ? <Details page={page} variant={variant} /> : <NotFound />}
     </div>
   );
