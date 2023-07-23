@@ -18,7 +18,7 @@ export type Props = JSX.IntrinsicElements["dialog"] & {
   mode?: "sidebar-right" | "sidebar-left" | "center";
   onClose?: () => Promise<void> | void;
   loading?: "lazy" | "eager";
-  datatype?: "default" | "zoom"
+  datatype?: "default" | "zoom";
 };
 
 const dialogStyles = {
@@ -54,14 +54,14 @@ const Modal = ({
 
   useEffect(() => {
     if (open === false) {
-      if(datatype == "default") {
+      if (datatype == "default") {
         document.getElementsByTagName("body").item(0)?.classList.remove(
           "no-scroll",
         );
       }
       ref.current?.open === true && ref.current.close();
     } else if (open === true) {
-      if(datatype == "default") {
+      if (datatype == "default") {
         document.getElementsByTagName("body").item(0)?.classList.add(
           "no-scroll",
         );
@@ -84,25 +84,39 @@ const Modal = ({
       onClose={onClose}
     >
       <section
-        class={`w-full h-full flex ${datatype == "zoom" ? "bg-[#ffffffe6]" : "bg-[#1c1c1e99]"} ${sectionStyles[mode]}`}
+        class={`w-full h-full flex ${
+          datatype == "zoom" ? "bg-[#ffffffe6]" : "bg-[#1c1c1e99]"
+        } ${sectionStyles[mode]}`}
       >
         <div
           class={`bg-white relative flex flex-col max-h-full ${
             containerStyles[mode]
           } ${datatype == "zoom" ? "h-full" : ""}`}
         >
-          <header class={`flex px-4 h-16 justify-between items-center border-b border-base-100 ${datatype == "zoom" ? "absolute right-[-25%] top-[20px]" : ""}`}>
+          <header
+            class={`flex px-4 h-16 justify-between items-center border-b border-base-100 ${
+              datatype == "zoom" ? "absolute right-[-25%] top-[20px]" : ""
+            }`}
+          >
             <h1>
               <span class="text-lg mr-5 text-info">{title}</span>
             </h1>
             <Button
-              class={`btn btn-ghost hover:bg-transparent p-0  ${datatype == "zoom" ? "outline-none text-[#636366] focus-visible:outline-none" : ""}`}
+              class={`btn btn-ghost hover:bg-transparent p-0  ${
+                datatype == "zoom"
+                  ? "outline-none text-[#636366] focus-visible:outline-none"
+                  : ""
+              }`}
               onClick={onClose}
             >
               <Icon id="XMark" width={30} height={30} strokeWidth={1} />
             </Button>
           </header>
-          <div class={`flex-grow flex flex-col ${datatype == "zoom" ? "" : "overflow-y-auto"}`}>
+          <div
+            class={`flex-grow flex flex-col ${
+              datatype == "zoom" ? "" : "overflow-y-auto"
+            }`}
+          >
             {loading === "lazy" ? lazy.value && children : children}
           </div>
         </div>

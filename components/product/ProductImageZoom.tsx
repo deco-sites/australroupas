@@ -13,7 +13,9 @@ interface Props {
 
 const id = "product-zoom";
 
-function ProductImageZoom({ image, alternativeText, width, height, aspectRatio, index }: Props) {
+function ProductImageZoom(
+  { image, alternativeText, width, height, aspectRatio, index }: Props,
+) {
   const open = useSignal(false);
 
   return (
