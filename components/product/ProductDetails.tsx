@@ -274,17 +274,13 @@ function Details({
             {/* Desktop */}
             <div class="hidden lg:flex flex-wrap gap-[5px]">
               {images.map((img, index) => (
-                <Image
-                  class="w-[49%] rounded-md"
-                  sizes="(max-width: 640px) 100vw, 40vw"
-                  style={{ aspectRatio: ASPECT_RATIO }}
-                  src={img.url!}
-                  alt={img.alternateName}
+                <ProductImageZoom
+                  image={img.url!}
                   width={WIDTH}
                   height={HEIGHT}
-                  // Preload LCP image for better web vitals
-                  preload={index === 0}
-                  loading={index === 0 ? "eager" : "lazy"}
+                  aspectRatio={ASPECT_RATIO}
+                  index={index}
+                  alternativeText={img.alternateName!}
                 />
               ))}
             </div>
@@ -303,12 +299,8 @@ function Details({
               <Icon size={38} id="ChevronRight" strokeWidth={.7} />
             </Slider.NextButton>
 
-            <div class="absolute top-2 right-2 bg-base-100 rounded-full lg:hidden">
-              <ProductImageZoom
-                images={images}
-                width={1280}
-                height={1280 * HEIGHT / WIDTH}
-              />
+            <div class="absolute top-2 right-2 bg-base-100 rounded-full">
+              
             </div>
           </div>
 
