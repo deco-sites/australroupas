@@ -13,7 +13,7 @@ export default function ({ title, breadcrumb }: Props) {
           {title}
         </h1>
       </div>
-      <div class="px-25 max-w-[1920px] mx-auto my-2.5">
+      <div class="px-[15px] sm:px-25 max-w-[1920px] mx-auto my-2.5">
         <Breadcrumb
           itemListElement={[
             {

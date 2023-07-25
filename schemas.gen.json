@@ -13560,10 +13560,15 @@
         "title": {
           "type": "string",
           "title": "Title"
+        },
+        "breadcrumb": {
+          "type": "string",
+          "title": "Breadcrumb"
         }
       },
       "required": [
-        "title"
+        "title",
+        "breadcrumb"
       ],
       "title": "deco-sites/australroupas/components/ui/InstitutionalHeading.tsx@Props"
     },
