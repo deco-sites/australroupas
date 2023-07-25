@@ -12,7 +12,7 @@ export default function ({ title }: Props) {
           {title}
         </h1>
       </div>
-      <div class="px-25">
+      <div class="px-25 max-w-[1920px] mx-auto my-2.5">
         <Breadcrumb
           itemListElement={[
             {

@@ -133,6 +133,7 @@
               "deco-sites/australroupas/sections/SaleExpress.tsx",
               "deco-sites/australroupas/sections/SearchResult.tsx",
               "deco-sites/australroupas/sections/SeoText.tsx",
+              "deco-sites/australroupas/sections/TextInstitutional.tsx",
               "deco-sites/australroupas/sections/WhatsApp.tsx",
               "deco-sites/australroupas/sections/WishlistGallery.tsx",
               "deco-sites/std/sections/Analytics.tsx",
@@ -13947,6 +13948,26 @@
       ],
       "title": "deco-sites/australroupas/components/ui/SeoText.tsx@Props"
     },
+    "ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML[]": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML"
+      },
+      "title": "HTML[]"
+    },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1RleHRJbnN0aXR1dGlvbmFsLnRzeA==@Props": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@HTML[]",
+          "title": "Content"
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "title": "deco-sites/australroupas/sections/TextInstitutional.tsx@Props"
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvV2hhdHNBcHAudHN4@Props": {
       "type": "object",
       "properties": {
@@ -17661,6 +17682,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1RleHRJbnN0aXR1dGlvbmFsLnRzeA==": {
+      "title": "deco-sites/australroupas/sections/TextInstitutional.tsx",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1RleHRJbnN0aXR1dGlvbmFsLnRzeA==@Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/sections/TextInstitutional.tsx"
+          ],
+          "default": "deco-sites/australroupas/sections/TextInstitutional.tsx"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1doYXRzQXBwLnRzeA==": {
       "title": "deco-sites/australroupas/sections/WhatsApp.tsx",
       "type": "object",
@@ -19195,6 +19237,9 @@
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1Nlb1RleHQudHN4"
+        },
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1RleHRJbnN0aXR1dGlvbmFsLnRzeA=="
         },
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL1doYXRzQXBwLnRzeA=="
