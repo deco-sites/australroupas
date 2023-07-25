@@ -2,9 +2,10 @@ import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
 
 export interface Props {
   title: string;
+  breadcrumb: string;
 }
 
-export default function ({ title }: Props) {
+export default function ({ title, breadcrumb }: Props) {
   return (
     <div>
       <div class="w-full flex justify-center items-center bg-[#F2F2F7]">
@@ -22,7 +23,7 @@ export default function ({ title }: Props) {
               "@type": "ListItem",
             },
             {
-              name: title,
+              name: breadcrumb,
               item: "/",
               position: 2,
               "@type": "ListItem",
