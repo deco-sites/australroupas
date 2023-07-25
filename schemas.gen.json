@@ -4093,9 +4093,6 @@
         },
         "result": {
           "title": "Result"
-        },
-        "exception": {
-          "title": "Exception"
         }
       },
       "required": [
@@ -4546,97 +4543,8 @@
       ],
       "title": "deco-cx/live/loaders/workflows/events.ts@Props"
     },
-    "ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@RuntimeParameters": {
-      "type": "object",
-      "properties": {
-        "http": {
-          "type": "object",
-          "properties": {
-            "defaultHeaders": {
-              "title": "Default Headers",
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
-          },
-          "required": [
-            "defaultHeaders"
-          ],
-          "title": "Http"
-        },
-        "websocket": {
-          "type": "object",
-          "properties": {
-            "defaultQueryParams": {
-              "title": "Default Query Params",
-              "type": "object",
-              "additionalProperties": {
-                "type": "string"
-              }
-            }
-          },
-          "required": [
-            "defaultQueryParams"
-          ],
-          "title": "Websocket"
-        }
-      },
-      "required": [
-        "http",
-        "websocket"
-      ],
-      "title": "RuntimeParameters"
-    },
-    "ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@WorkflowExecutionBase": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Id"
-        },
-        "namespace": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "title": "Namespace"
-        },
-        "workflow": {
-          "title": "Workflow"
-        },
-        "completedAt": {
-          "title": "Completed At"
-        },
-        "metadata": {
-          "title": "Metadata"
-        },
-        "runtimeParameters": {
-          "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@RuntimeParameters",
-          "title": "Runtime Parameters"
-        },
-        "input": {
-          "title": "Input"
-        },
-        "output": {
-          "title": "Output"
-        }
-      },
-      "required": [
-        "workflow"
-      ],
-      "title": "WorkflowExecutionBase"
-    },
     "ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@indexedAccessstatusWorkflowExecution+Arg": {
       "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@WorkflowExecutionBase"
-        }
-      ],
       "properties": {
         "status": {
           "title": "Status"
@@ -4647,63 +4555,60 @@
       ],
       "title": "indexedAccessstatusWorkflowExecution+Arg"
     },
+    "ZGVjby1jeC9saXZlL2NvbW1vbnMvd29ya2Zsb3dzL3R5cGVzLnRz@Arg": {
+      "title": "Arg"
+    },
     "ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@indexedAccessinputWorkflowExecution+Arg": {
       "type": "object",
-      "allOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@WorkflowExecutionBase"
+      "properties": {
+        "input": {
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2NvbW1vbnMvd29ya2Zsb3dzL3R5cGVzLnRz@Arg",
+          "title": "Input"
         }
-      ],
-      "properties": {},
+      },
       "required": [],
       "title": "indexedAccessinputWorkflowExecution+Arg"
     },
     "ZGVjby1jeC9saXZlL2NvbW1vbnMvd29ya2Zsb3dzL3R5cGVzLnRz@WorkflowExecution": {
-      "type": "object",
-      "properties": {
-        "completedAt": {
-          "title": "Completed At"
-        },
-        "id": {
-          "type": "string",
-          "title": "Id"
-        },
-        "status": {
-          "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@indexedAccessstatusWorkflowExecution+Arg",
-          "title": "Status"
-        },
-        "workflow": {
-          "type": "string",
-          "title": "Workflow"
-        },
-        "input": {
-          "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@indexedAccessinputWorkflowExecution+Arg",
-          "title": "Input"
-        },
-        "output": {
-          "title": "Output"
-        },
-        "props": {
-          "title": "Props"
-        }
-      },
-      "required": [
-        "id",
-        "status",
-        "workflow"
-      ],
-      "title": "WorkflowExecution"
-    },
-    "ZGVjby1jeC9saXZlL2NvbW1vbnMvd29ya2Zsb3dzL3R5cGVzLnRz@WorkflowExecution|null": {
       "anyOf": [
         {
           "$ref": "#/definitions/Resolvable"
         },
         {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2NvbW1vbnMvd29ya2Zsb3dzL3R5cGVzLnRz@WorkflowExecution"
-        },
-        {
-          "type": "null"
+          "type": "object",
+          "properties": {
+            "completedAt": {
+              "title": "Completed At"
+            },
+            "id": {
+              "type": "string",
+              "title": "Id"
+            },
+            "status": {
+              "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@indexedAccessstatusWorkflowExecution+Arg",
+              "title": "Status"
+            },
+            "workflow": {
+              "type": "string",
+              "title": "Workflow"
+            },
+            "input": {
+              "$ref": "#/definitions/ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@indexedAccessinputWorkflowExecution+Arg",
+              "title": "Input"
+            },
+            "output": {
+              "title": "Output"
+            },
+            "props": {
+              "title": "Props"
+            }
+          },
+          "required": [
+            "id",
+            "status",
+            "workflow"
+          ],
+          "title": "deco-cx/live/commons/workflows/types.ts@WorkflowExecution"
         },
         {
           "title": "$live/loaders/workflows/get.ts",
@@ -14638,7 +14543,7 @@
       "required": [],
       "title": "Metadata"
     },
-    "ZGVjby1jeC9saXZlL2NvbW1vbnMvd29ya2Zsb3dzL3R5cGVzLnRz@WorkflowMetadata": {
+    "ZGVjby1jeC9saXZlL2Jsb2Nrcy93b3JrZmxvdy50cw==@WorkflowMetadata": {
       "type": "object",
       "allOf": [
         {
@@ -14646,38 +14551,58 @@
         }
       ],
       "properties": {
-        "workflow": {
-          "allOf": [
-            {
+        "defaultInvokeHeaders": {
+          "title": "Default Invoke Headers",
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [],
+      "title": "WorkflowMetadata"
+    },
+    "ZGVjby1jeC9kdXJhYmxlL2JhY2tlbmRzL2JhY2tlbmQudHM=@RuntimeParameters": {
+      "type": "object",
+      "properties": {
+        "http": {
+          "type": "object",
+          "properties": {
+            "defaultHeaders": {
+              "title": "Default Headers",
               "type": "object",
-              "properties": {
-                "__resolveType": {
-                  "type": "string",
-                  "title": "__resolve Type"
-                }
-              },
-              "required": [
-                "__resolveType"
-              ]
-            },
-            {
-              "type": "object"
+              "additionalProperties": {
+                "type": "string"
+              }
             }
+          },
+          "required": [
+            "defaultHeaders"
           ],
-          "title": "Workflow"
+          "title": "Http"
         },
-        "__resolveType": {
-          "type": "string",
-          "const": "resolvable",
-          "default": "resolvable",
-          "title": "__resolve Type"
+        "websocket": {
+          "type": "object",
+          "properties": {
+            "defaultQueryParams": {
+              "title": "Default Query Params",
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "defaultQueryParams"
+          ],
+          "title": "Websocket"
         }
       },
       "required": [
-        "workflow",
-        "__resolveType"
+        "http",
+        "websocket"
       ],
-      "title": "WorkflowMetadata"
+      "title": "RuntimeParameters"
     },
     "ZGVjby1jeC9saXZlL2FjdGlvbnMvd29ya2Zsb3dzL3N0YXJ0LnRz@CommonProps": {
       "type": "object",
@@ -14690,7 +14615,7 @@
           "title": "Id"
         },
         "metadata": {
-          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2NvbW1vbnMvd29ya2Zsb3dzL3R5cGVzLnRz@WorkflowMetadata",
+          "$ref": "#/definitions/ZGVjby1jeC9saXZlL2Jsb2Nrcy93b3JrZmxvdy50cw==@WorkflowMetadata",
           "title": "Metadata"
         },
         "runtimeParameters": {

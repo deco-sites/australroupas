@@ -64,10 +64,9 @@ function ProductCard({ product, preload, itemListName }: Props) {
 
   return (
     <div
-      class="card card-compact card-bordered border-transparent group w-full rounded-md"
+      class="card card-compact card-bordered border-transparent group w-full rounded-md "
       data-deco="view-product"
       id={`product-card-${productID}`}
-      {...sendEventOnClick(clickEvent)}
     >
       <figure class="relative " style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}>
         {/* Product Images */}
