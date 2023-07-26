@@ -51,12 +51,14 @@ function SearchControls(
         class={`${
           displayFilterMenu.value ? "left-0" : "-left-full"
         } fixed top-0 transition-all w-full bg-white z-50 h-full duration-300 ease-linear`}
-      ></div>
+      >
+      </div>
       <div
         class={`${
           displayFilterMenu.value ? "left-0" : "-left-full"
         } fixed top-0 transition-all w-full bg-[#000000cc] z-50 h-full duration-300 ease-linear`}
-      ></div>
+      >
+      </div>
       <div
         class={`${
           displayFilterMenu.value ? "left-0" : "-left-full"
