@@ -108,7 +108,7 @@ function Result({
       {products.length > 0
         ? (
           <>
-            <div class="home-container-mobile lg:home-container px-4 sm:py-10">
+            <div class="home-container-mobile lg:home-container px-4 sm:pb-10">
               <SearchControls
                 sortOptions={sortOptions}
                 filters={filters}

@@ -46,7 +46,7 @@ function Sort({ sortOptions, quantityOfProducts }: Props) {
         {quantityOfProducts} produtos:
       </span>
       <div
-        class={`top-0 right-0 border-[1px] border-[#e0e0e0] w-full sm:w-[285px] z-[1000] rounded-[6px] bg-white duration-300 transition-height overflow-hidden ${
+        class={`top-0 right-0 border-[1px] border-[#e0e0e0] w-full sm:w-[285px] z-[49] rounded-[6px] bg-white duration-300 transition-height overflow-hidden ${
           isOpen.value ? "h-[370px]" : "h-[45px]"
         }`}
       >
@@ -64,7 +64,7 @@ function Sort({ sortOptions, quantityOfProducts }: Props) {
           >
           </i>
         </div>
-        <ul class="z-[1000]">
+        <ul class="z-[49]">
           {sortOptions.map(({ value, label }) => (
             <button
               class="p-2.5 hover:bg-[#e0e0e0] cursor-pointer w-full flex"
