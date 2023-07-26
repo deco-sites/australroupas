@@ -76,7 +76,6 @@
               "deco-sites/std/loaders/x/redirectsFromCsv.ts",
               "./islands/AddToCartButton.tsx",
               "./islands/Faq.tsx",
-              "./islands/Filters.tsx",
               "./islands/HeaderButton.tsx",
               "./islands/HeaderModals.tsx",
               "./islands/HeaderSearchbar.tsx",
@@ -12632,7 +12631,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@7613424e6b95082f02c5e5a6cca7652f&Colors": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors"
@@ -12648,7 +12647,7 @@
           "required": []
         }
       ],
-      "title": "7613424e6b95082f02c5e5a6cca7652f&Colors"
+      "title": "Colors&f09ebb67297b758c758edd76bb1debb8"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Miscellaneous": {
       "type": "object",
@@ -12751,7 +12750,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@7613424e6b95082f02c5e5a6cca7652f&Colors",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -16502,22 +16501,6 @@
         }
       }
     },
-    "Li9pc2xhbmRzL0ZpbHRlcnMudHN4": {
-      "title": "./islands/Filters.tsx",
-      "type": "object",
-      "required": [
-        "__resolveType"
-      ],
-      "properties": {
-        "__resolveType": {
-          "type": "string",
-          "enum": [
-            "./islands/Filters.tsx"
-          ],
-          "default": "./islands/Filters.tsx"
-        }
-      }
-    },
     "Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g=": {
       "title": "./islands/HeaderButton.tsx",
       "type": "object",
@@ -18989,9 +18972,6 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0ZhcS50c3g="
-        },
-        {
-          "$ref": "#/definitions/Li9pc2xhbmRzL0ZpbHRlcnMudHN4"
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g="

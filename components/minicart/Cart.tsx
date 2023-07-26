@@ -37,7 +37,7 @@ function Cart() {
   const maxValueInstallment = cart.value?.paymentData?.installmentOptions.find((
     item,
   ) => item.paymentSystem === "1")?.installments?.at(-1)?.value;
-  console.log(cart);
+
   if (cart.value === null) {
     return null;
   }

@@ -110,7 +110,6 @@ const beautifyName = (name: string) => {
 };
 
 function Filters({ filters }: Props) {
-  console.log(filters);
   return (
     <div>
       <p class="text-lg lg:text-[30px] font-bold mb-5">Filtrar por</p>
