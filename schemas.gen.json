@@ -76,6 +76,7 @@
               "deco-sites/std/loaders/x/redirectsFromCsv.ts",
               "./islands/AddToCartButton.tsx",
               "./islands/Faq.tsx",
+              "./islands/Filters.tsx",
               "./islands/HeaderButton.tsx",
               "./islands/HeaderModals.tsx",
               "./islands/HeaderSearchbar.tsx",
@@ -16501,6 +16502,22 @@
         }
       }
     },
+    "Li9pc2xhbmRzL0ZpbHRlcnMudHN4": {
+      "title": "./islands/Filters.tsx",
+      "type": "object",
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "./islands/Filters.tsx"
+          ],
+          "default": "./islands/Filters.tsx"
+        }
+      }
+    },
     "Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g=": {
       "title": "./islands/HeaderButton.tsx",
       "type": "object",
@@ -18972,6 +18989,9 @@
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0ZhcS50c3g="
+        },
+        {
+          "$ref": "#/definitions/Li9pc2xhbmRzL0ZpbHRlcnMudHN4"
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL0hlYWRlckJ1dHRvbi50c3g="
