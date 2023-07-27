@@ -23,7 +23,13 @@ function WishlistGallery(props: Props) {
     );
   }
 
-  return <SearchResult {...props} headingText={""} />;
+  return (
+    <SearchResult
+      {...props}
+      headingText={""}
+      SeoText={{ matcher: "", title: "", description: "" }}
+    />
+  );
 }
 
 export default WishlistGallery;
