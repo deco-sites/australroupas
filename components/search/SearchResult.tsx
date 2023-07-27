@@ -9,6 +9,15 @@ import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import { useEffect, useRef, useState } from "preact/compat";
 import Button from "$store/components/ui/Button.tsx";
+import type { HTML } from "deco-sites/std/components/types.ts";
+import Quilltext from "deco-sites/std/components/QuillText.tsx";
+
+export interface SeoText {
+  /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
+  matcher: string;
+  title?: string;
+  description?: HTML;
+}
 
 export interface Props {
   page: LoaderReturnType<ProductListingPage | null>;
@@ -17,10 +26,12 @@ export interface Props {
    */
   variant?: "aside" | "drawer";
   pageType?: "Category" | "Search";
+  SeoTexts?: SeoText[];
 }
 
 export interface MainProps extends Props {
   headingText: string;
+  SeoText: SeoText;
 }
 
 function NotFound({ headingText }: { headingText: string }) {
@@ -97,10 +108,9 @@ function Result({
   variant,
   pageType = "Category",
   headingText = "",
+  SeoText = { matcher: "", title: "", description: "" },
 }: Omit<MainProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
-
-  console.log(page.pageInfo.records);
 
   const marginLeft = pageType == "Category" ? "sm:ml-[80px]" : "";
   return (
@@ -158,6 +168,18 @@ function Result({
                       </a>
                     </div>
                   </div>
+                  {SeoText.title &&
+                    SeoText.description &&
+                    (
+                      <div>
+                        <h1 class="text-xl capitalize text-black font-bold text-center mb-5">
+                          {SeoText.title}
+                        </h1>
+                        <p class="text-base text-[#3A3A3C] text-center">
+                          <Quilltext html={SeoText.description} />
+                        </p>
+                      </div>
+                    )}
                 </div>
               </div>
             </div>
