@@ -48,6 +48,20 @@ function ProductCard({ product, preload, itemListName }: Props) {
     variant.offers?.offers[0].availability == "https://schema.org/InStock"
   );
 
+  let newInstallment = "";
+  if (installments == null) {
+    // deno-lint-ignore no-explicit-any
+    const validOffer = (isVariantOf as any)?.hasVariant.find((variant: any) =>
+      variant?.offers?.offers[0].availability == "https://schema.org/InStock"
+      // deno-lint-ignore no-explicit-any
+    )?.offers?.offers[0].priceSpecification?.filter((specification: any) =>
+      specification.name == "Mastercard"
+    ).at(-1);
+    newInstallment = `${validOffer.billingDuration}x de ${
+      formatPrice(validOffer.billingIncrement, offers!.priceCurrency!)
+    }`;
+  }
+
   const clickEvent = {
     name: "select_item" as const,
     params: {
@@ -118,7 +132,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
           <span class="text-[14px] text-[#878787]">
-            {installments}
+            {installments || newInstallment || ""}
           </span>
         </div>
       </div>
