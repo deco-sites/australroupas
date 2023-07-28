@@ -3,12 +3,15 @@ import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 export interface Props {
   content: HTML[];
+  maxWidth: "900px" | "1140px";
 }
 
-export default function TextInstitutional({ content }: Props) {
+export default function TextInstitutional({ content, maxWidth }: Props) {
+  const max = maxWidth == "900px" ? "max-w-[900px]" : "max-w-[1140px]";
+
   return (
     <div class="home-container home-container-mobile">
-      <div class="max-w-[900px] mx-auto my-8 text-[14px]">
+      <div class={`${max} mx-auto my-8 text-[14px]`}>
         {content.map((content) => {
           return <Quilltext html={content} />;
         })}

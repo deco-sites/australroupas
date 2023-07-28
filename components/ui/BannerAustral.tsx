@@ -107,6 +107,10 @@ export interface Props {
   isFirstBanner: boolean;
   /** @description Bordas arredondadas */
   borderRadius?: boolean;
+  /** @description Espaçamento embaixo */
+  marginBottom?: boolean;
+  /** @description Ícone de mouse ao centro */
+  mouseIcon?: boolean;
 }
 
 const isImage = (item: Item): item is ImageProps =>
@@ -114,13 +118,21 @@ const isImage = (item: Item): item is ImageProps =>
   typeof (item as any)?.altImage === "string";
 
 export default function Container(
-  { column, maxWidth, fullScreen, isFirstBanner, borderRadius }: Props,
+  {
+    column,
+    maxWidth,
+    fullScreen,
+    isFirstBanner,
+    borderRadius,
+    marginBottom = true,
+    mouseIcon = false,
+  }: Props,
 ) {
   return (
     <div
-      class={`mx-auto flex flex-wrap justify-center mb-10 ${
-        fullScreen ? "" : "sm:home-container"
-      }`}
+      class={`mx-auto flex flex-wrap justify-center ${
+        marginBottom && "mb-10"
+      } ${fullScreen ? "" : "sm:home-container"}`}
     >
       <div>
         <BannerAustral
@@ -129,6 +141,7 @@ export default function Container(
           fullScreen={fullScreen}
           isFirstBanner={isFirstBanner}
           borderRadius={borderRadius}
+          mouseIcon={mouseIcon}
         />
       </div>
     </div>
@@ -136,7 +149,8 @@ export default function Container(
 }
 
 function BannerAustral(
-  { column, maxWidth, fullScreen, isFirstBanner, borderRadius }: Props,
+  { column, maxWidth, fullScreen, isFirstBanner, borderRadius, mouseIcon }:
+    Props,
 ) {
   const { creativeCarousel, carouselOptions } = column;
   const id = useId();
@@ -197,7 +211,7 @@ function BannerAustral(
           />
         )}
 
-        {isFirstBanner && (
+        {isFirstBanner && mouseIcon && (
           <a
             href="#scroll"
             class="absolute bottom-[10px] hover:bottom-[5px] left-1/2 transform -translate-x-1/2 px-4 py-3 transition-all duration-150 cursor-pointer"
