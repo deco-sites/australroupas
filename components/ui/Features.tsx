@@ -1,10 +1,11 @@
-import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Feature {
   /**
    * @description Image src
    */
-  icon: AvailableIcons;
+  image: LiveImage;
   /**
    * @description Title
    */
@@ -23,24 +24,22 @@ function FeatureHighlights(
   { features }: Props,
 ) {
   return (
-    <div class="container min-h-[280px] p-6 sm:px-0 sm:py-10">
-      <div class="border-base-200 border border-solid">
-        <div class="flex flex-col justify-evenly divide-y divide-base-200 mx-6 sm:flex-row sm:divide-y-0 sm:divide-x sm:mx-0 sm:my-10">
-          {features.map(({ icon: id = "Truck", title, description }) => (
-            <div class="flex flex-row gap-4 py-6 sm:flex-col sm:py-0 sm:px-8">
-              <Icon
-                id={id}
-                width={40}
-                height={40}
-                strokeWidth={2}
-              />
-              <div class="flex flex-col gap-2">
-                <span class="font-medium text-xl">{title}</span>
-                <span class="text-sm">{description}</span>
-              </div>
+    <div class="container lg:mb-20">
+      <div class="flex flex-col justify-center items-center lg:gap-10 mx-6 sm:flex-row sm:mx-0 sm:my-10">
+        {features.map(({ image, title, description }) => (
+          <div class="flex flex-col justify-center sm:justify-normal items-center gap-4 py-3 lg:py-6 sm:py-0 w-[260px]">
+            <Image
+              class="w-[40px]"
+              src={image}
+              alt={title}
+              width={40}
+            />
+            <div class="flex flex-col gap-5 text-center">
+              <span class="text-sm leading-[1.4] text-info  font-bold">{title}</span>
+              <span class="text-[#3A3A3C] text-xs leading-[1.4]">{description}</span>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

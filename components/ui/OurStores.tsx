@@ -6,6 +6,7 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Store {
   imagePosition: "left" | "right";
+  imagePositionMobile: "top" | "bottom"
   image: LiveImage;
   alt?: string;
   text: HTML;
@@ -35,8 +36,8 @@ export default function OurStores({ stores }: Props) {
 function Store({ store }: { store: Store }) {
   return (
     <div
-      class={`${
-        store.imagePosition == "right" ? "flex-row-reverse" : "flex-row"
+      class={`${store.imagePositionMobile == "bottom" ? "flex-col-reverse" : ""} ${
+        store.imagePosition == "right" ? "lg:flex-row-reverse" : "lg:flex-row"
       } flex gap-10 sm:gap-28 lg:gap-0 flex-wrap justify-center lg:max-w-[1206px] lg:w-full`}
     >
       <div class="lg:basis-1/2">

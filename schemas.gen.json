@@ -12980,197 +12980,10 @@
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2NvbXBvbmVudHMvdWkvRmVhdHVyZXMudHN4@Feature": {
       "type": "object",
       "properties": {
-        "icon": {
-          "anyOf": [
-            {
-              "type": "string",
-              "const": "ChevronLeft",
-              "default": "ChevronLeft"
-            },
-            {
-              "type": "string",
-              "const": "ChevronRight",
-              "default": "ChevronRight"
-            },
-            {
-              "type": "string",
-              "const": "ChevronUp",
-              "default": "ChevronUp"
-            },
-            {
-              "type": "string",
-              "const": "ChevronDown",
-              "default": "ChevronDown"
-            },
-            {
-              "type": "string",
-              "const": "QuestionMarkCircle",
-              "default": "QuestionMarkCircle"
-            },
-            {
-              "type": "string",
-              "const": "User",
-              "default": "User"
-            },
-            {
-              "type": "string",
-              "const": "ShoppingCart",
-              "default": "ShoppingCart"
-            },
-            {
-              "type": "string",
-              "const": "Bars3",
-              "default": "Bars3"
-            },
-            {
-              "type": "string",
-              "const": "Heart",
-              "default": "Heart"
-            },
-            {
-              "type": "string",
-              "const": "MagnifyingGlass",
-              "default": "MagnifyingGlass"
-            },
-            {
-              "type": "string",
-              "const": "XMark",
-              "default": "XMark"
-            },
-            {
-              "type": "string",
-              "const": "Plus",
-              "default": "Plus"
-            },
-            {
-              "type": "string",
-              "const": "Minus",
-              "default": "Minus"
-            },
-            {
-              "type": "string",
-              "const": "MapPin",
-              "default": "MapPin"
-            },
-            {
-              "type": "string",
-              "const": "Phone",
-              "default": "Phone"
-            },
-            {
-              "type": "string",
-              "const": "Elo",
-              "default": "Elo"
-            },
-            {
-              "type": "string",
-              "const": "Mastercard",
-              "default": "Mastercard"
-            },
-            {
-              "type": "string",
-              "const": "Visa",
-              "default": "Visa"
-            },
-            {
-              "type": "string",
-              "const": "Pix",
-              "default": "Pix"
-            },
-            {
-              "type": "string",
-              "const": "Logo",
-              "default": "Logo"
-            },
-            {
-              "type": "string",
-              "const": "Facebook",
-              "default": "Facebook"
-            },
-            {
-              "type": "string",
-              "const": "Instagram",
-              "default": "Instagram"
-            },
-            {
-              "type": "string",
-              "const": "Tiktok",
-              "default": "Tiktok"
-            },
-            {
-              "type": "string",
-              "const": "Truck",
-              "default": "Truck"
-            },
-            {
-              "type": "string",
-              "const": "Discount",
-              "default": "Discount"
-            },
-            {
-              "type": "string",
-              "const": "Return",
-              "default": "Return"
-            },
-            {
-              "type": "string",
-              "const": "CreditCard",
-              "default": "CreditCard"
-            },
-            {
-              "type": "string",
-              "const": "Deco",
-              "default": "Deco"
-            },
-            {
-              "type": "string",
-              "const": "Discord",
-              "default": "Discord"
-            },
-            {
-              "type": "string",
-              "const": "Trash",
-              "default": "Trash"
-            },
-            {
-              "type": "string",
-              "const": "FilterList",
-              "default": "FilterList"
-            },
-            {
-              "type": "string",
-              "const": "WhatsApp",
-              "default": "WhatsApp"
-            },
-            {
-              "type": "string",
-              "const": "ArrowsPointingOut",
-              "default": "ArrowsPointingOut"
-            },
-            {
-              "type": "string",
-              "const": "LinkedIn",
-              "default": "LinkedIn"
-            },
-            {
-              "type": "string",
-              "const": "Spotify",
-              "default": "Spotify"
-            },
-            {
-              "type": "string",
-              "const": "Hipercard",
-              "default": "Hipercard"
-            },
-            {
-              "type": "string",
-              "const": "AmericanExpress",
-              "default": "AmericanExpress"
-            }
-          ],
-          "type": "string",
+        "image": {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
           "description": "Image src",
-          "title": "Icon"
+          "title": "Image"
         },
         "title": {
           "type": "string",
@@ -13184,7 +12997,7 @@
         }
       },
       "required": [
-        "icon",
+        "image",
         "title",
         "description"
       ],
@@ -13947,6 +13760,22 @@
           "type": "string",
           "title": "Image Position"
         },
+        "imagePositionMobile": {
+          "anyOf": [
+            {
+              "type": "string",
+              "const": "top",
+              "default": "top"
+            },
+            {
+              "type": "string",
+              "const": "bottom",
+              "default": "bottom"
+            }
+          ],
+          "type": "string",
+          "title": "Image Position Mobile"
+        },
         "image": {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tcG9uZW50cy90eXBlcy50cw==@Image",
           "title": "Image"
@@ -14002,6 +13831,7 @@
       },
       "required": [
         "imagePosition",
+        "imagePositionMobile",
         "image",
         "text",
         "button"
