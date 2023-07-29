@@ -10,8 +10,9 @@ export interface Store {
   alt?: string;
   text: HTML;
   button: {
-    text: string;
-    link: string;
+    text?: string;
+    link?: string;
+    openInNewTab?: true | false;
   };
 }
 
@@ -36,9 +37,9 @@ function Store({ store }: { store: Store }) {
     <div
       class={`${
         store.imagePosition == "right" ? "flex-row-reverse" : "flex-row"
-      } flex gap-10 sm:gap-28 flex-wrap justify-center`}
+      } flex gap-10 sm:gap-28 lg:gap-0 flex-wrap justify-center lg:max-w-[1206px] lg:w-full`}
     >
-      <div>
+      <div class="lg:basis-1/2">
         <Image
           src={store.image}
           alt={store.alt}
@@ -46,17 +47,21 @@ function Store({ store }: { store: Store }) {
           class="rounded-[20px] w-full max-w-[570px]"
         />
       </div>
-      <div class="flex flex-col gap-4 justify-center items-center w-[400px]">
+      <div class="flex flex-col gap-4 justify-center items-center w-[400px] lg:basis-1/2">
         <div>
           <Quilltext html={store.text} />
         </div>
-
-        <a
-          href={store.button.link}
-          class="border-[1px] border-primary text-primary hover:text-white hover:bg-primary h-[48px] w-[262px] rounded-md flex justify-center items-center transition duration-300"
-        >
-          {store.button.text}
-        </a>
+        {
+          store.button.link &&
+          store.button.text &&
+          <a
+            target={store.button.openInNewTab ? "_blank" : "_self"}
+            href={store.button.link}
+            class="border-[1px] border-primary text-primary hover:text-white hover:bg-primary h-[48px] w-[262px] rounded-md flex justify-center items-center transition duration-300"
+          >
+            {store.button.text}
+          </a>
+        }
       </div>
     </div>
   );

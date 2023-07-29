@@ -13966,18 +13966,37 @@
           "type": "object",
           "properties": {
             "text": {
-              "type": "string",
+              "type": [
+                "string",
+                "null"
+              ],
               "title": "Text"
             },
             "link": {
-              "type": "string",
+              "type": [
+                "string",
+                "null"
+              ],
               "title": "Link"
+            },
+            "openInNewTab": {
+              "anyOf": [
+                {
+                  "type": "boolean",
+                  "const": true,
+                  "default": true
+                },
+                {
+                  "type": "boolean",
+                  "const": false,
+                  "default": false
+                }
+              ],
+              "type": "boolean",
+              "title": "Open In New Tab"
             }
           },
-          "required": [
-            "text",
-            "link"
-          ],
+          "required": [],
           "title": "Button"
         }
       },
