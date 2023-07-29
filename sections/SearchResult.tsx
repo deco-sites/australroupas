@@ -18,15 +18,15 @@ export function loader(
   }
 
   const url = new URL(req.url);
-
+console.log(SeoTexts)
   const { item: canonical } = page
     .breadcrumb
     .itemListElement
     .reduce((curr, acc) => curr.position > acc.position ? curr : acc);
-
+  console.log(canonical)
   const matching = SeoTexts.find(({ matcher }) =>
     new RegExp(matcher).test(canonical)
-  );
+  );console.log(matching)
   let searchParam;
   if (new URLPattern({ pathname: "/s" }).test(url)) {
     searchParam = url.searchParams.get("q") ?? "";

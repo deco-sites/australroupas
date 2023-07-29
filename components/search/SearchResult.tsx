@@ -175,9 +175,9 @@ function Result({
                         <h1 class="text-xl capitalize text-black font-bold text-center mb-5">
                           {SeoText.title}
                         </h1>
-                        <p class="text-base text-[#3A3A3C] text-center">
+                        <div class="text-base text-[#3A3A3C] text-center tracking-[.1px] leading-[1.2]">
                           <Quilltext html={SeoText.description} />
-                        </p>
+                        </div>
                       </div>
                     )}
                 </div>
