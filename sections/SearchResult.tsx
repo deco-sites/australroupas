@@ -27,7 +27,7 @@ export function loader(
   const matching = SeoTexts.find(({ matcher }) =>
     new RegExp(matcher).test(canonical)
   );
- 
+
   let searchParam;
   if (new URLPattern({ pathname: "/s" }).test(url)) {
     searchParam = url.searchParams.get("q") ?? "";

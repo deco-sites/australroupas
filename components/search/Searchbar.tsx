@@ -107,7 +107,6 @@ function Searchbar({
         })
           .then((response) => response.json())
           .then((result) => {
-
             // deno-lint-ignore no-explicit-any
             result?.itemsReturned?.forEach((item: any) => {
               if (item.criteria) {
