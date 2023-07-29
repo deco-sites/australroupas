@@ -35,6 +35,7 @@ export default {
         "searchsugestions": "0 0 5px -3px #000",
         "service": "0 0 1px 1px #C7C7CC",
         "minicart": "0px 0px 10px rgba(0,0,0,0.15)",
+        "cookieconsent": "0px 0px 3px rgba(0,0,0,0.16)",
       },
       maxWidth: {
         "3xl": "1920px",
