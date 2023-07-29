@@ -35,8 +35,12 @@ function FeatureHighlights(
               width={40}
             />
             <div class="flex flex-col gap-5 text-center">
-              <span class="text-sm leading-[1.4] text-info  font-bold">{title}</span>
-              <span class="text-[#3A3A3C] text-xs leading-[1.4]">{description}</span>
+              <span class="text-sm leading-[1.4] text-info  font-bold">
+                {title}
+              </span>
+              <span class="text-[#3A3A3C] text-xs leading-[1.4]">
+                {description}
+              </span>
             </div>
           </div>
         ))}
