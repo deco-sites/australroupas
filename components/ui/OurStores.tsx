@@ -51,17 +51,17 @@ function Store({ store }: { store: Store }) {
         <div>
           <Quilltext html={store.text} />
         </div>
-        {
-          store.button.link &&
+        {store.button.link &&
           store.button.text &&
-          <a
-            target={store.button.openInNewTab ? "_blank" : "_self"}
-            href={store.button.link}
-            class="border-[1px] border-primary text-primary hover:text-white hover:bg-primary h-[48px] w-[262px] rounded-md flex justify-center items-center transition duration-300"
-          >
-            {store.button.text}
-          </a>
-        }
+          (
+            <a
+              target={store.button.openInNewTab ? "_blank" : "_self"}
+              href={store.button.link}
+              class="border-[1px] border-primary text-primary hover:text-white hover:bg-primary h-[48px] w-[262px] rounded-md flex justify-center items-center transition duration-300"
+            >
+              {store.button.text}
+            </a>
+          )}
       </div>
     </div>
   );
