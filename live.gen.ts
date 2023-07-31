@@ -7,8 +7,9 @@ import * as $$$$0 from "./routes/api/autocomplete.tsx";
 import * as $$$$1 from "./routes/api/newsletter.tsx";
 import * as $$$$2 from "./routes/api/searchseller.tsx";
 import * as $$$$3 from "./routes/api/shippingsimulation.tsx";
-import * as $$$$4 from "./routes/styles.css.ts";
-import * as $$$$5 from "./routes/_app.tsx";
+import * as $$$$4 from "./routes/api/[...catchall].tsx";
+import * as $$$$5 from "./routes/styles.css.ts";
+import * as $$$$6 from "./routes/_app.tsx";
 import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/Faq.tsx";
 import * as $$$$$2 from "./islands/HeaderButton.tsx";
@@ -26,7 +27,8 @@ import * as $$$$$13 from "./islands/SearchControls.tsx";
 import * as $$$$$14 from "./islands/ServiceMenu.tsx";
 import * as $$$$$15 from "./islands/ShippingSimulation.tsx";
 import * as $$$$$16 from "./islands/SliderJS.tsx";
-import * as $$$$$17 from "./islands/WishlistButton.tsx";
+import * as $$$$$17 from "./islands/TalkToUsForm.tsx";
+import * as $$$$$18 from "./islands/WishlistButton.tsx";
 import * as $$$$$$$$0 from "./sections/BannerAustral.tsx";
 import * as $$$$$$$$1 from "./sections/BannerGrid.tsx";
 import * as $$$$$$$$2 from "./sections/BannerPLP.tsx";
@@ -55,9 +57,10 @@ import * as $$$$$$$$24 from "./sections/ProductShelf.tsx";
 import * as $$$$$$$$25 from "./sections/SaleExpress.tsx";
 import * as $$$$$$$$26 from "./sections/SearchResult.tsx";
 import * as $$$$$$$$27 from "./sections/SeoText.tsx";
-import * as $$$$$$$$28 from "./sections/TextInstitutional.tsx";
-import * as $$$$$$$$29 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$30 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$28 from "./sections/TalkToUsForm.tsx";
+import * as $$$$$$$$29 from "./sections/TextInstitutional.tsx";
+import * as $$$$$$$$30 from "./sections/WhatsApp.tsx";
+import * as $$$$$$$$31 from "./sections/WishlistGallery.tsx";
 import * as $live_workflows from "$live/routes/live/workflows/run.ts";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
@@ -204,9 +207,10 @@ import * as i2$$$$$$23 from "deco-sites/std/actions/vtex/wishlist/removeItem.ts"
 
 const manifest = {
   "routes": {
-    "./routes/_app.tsx": $$$$5,
+    "./routes/_app.tsx": $$$$6,
     "./routes/_middleware.ts": $live_middleware,
     "./routes/[...catchall].tsx": $live_catchall,
+    "./routes/api/[...catchall].tsx": $$$$4,
     "./routes/api/autocomplete.tsx": $$$$0,
     "./routes/api/newsletter.tsx": $$$$1,
     "./routes/api/searchseller.tsx": $$$$2,
@@ -222,7 +226,7 @@ const manifest = {
     "./routes/live/release.ts": $live_release,
     "./routes/live/workbench.ts": $live_workbench,
     "./routes/live/workflows/run.ts": $live_workflows,
-    "./routes/styles.css.ts": $$$$4,
+    "./routes/styles.css.ts": $$$$5,
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$0,
@@ -242,7 +246,8 @@ const manifest = {
     "./islands/ServiceMenu.tsx": $$$$$14,
     "./islands/ShippingSimulation.tsx": $$$$$15,
     "./islands/SliderJS.tsx": $$$$$16,
-    "./islands/WishlistButton.tsx": $$$$$17,
+    "./islands/TalkToUsForm.tsx": $$$$$17,
+    "./islands/WishlistButton.tsx": $$$$$18,
   },
   "sections": {
     "$live/sections/Conditional_Beta.tsx": i2$$$$$0,
@@ -278,9 +283,10 @@ const manifest = {
     "deco-sites/australroupas/sections/SaleExpress.tsx": $$$$$$$$25,
     "deco-sites/australroupas/sections/SearchResult.tsx": $$$$$$$$26,
     "deco-sites/australroupas/sections/SeoText.tsx": $$$$$$$$27,
-    "deco-sites/australroupas/sections/TextInstitutional.tsx": $$$$$$$$28,
-    "deco-sites/australroupas/sections/WhatsApp.tsx": $$$$$$$$29,
-    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$$$30,
+    "deco-sites/australroupas/sections/TalkToUsForm.tsx": $$$$$$$$28,
+    "deco-sites/australroupas/sections/TextInstitutional.tsx": $$$$$$$$29,
+    "deco-sites/australroupas/sections/WhatsApp.tsx": $$$$$$$$30,
+    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$$$31,
     "deco-sites/std/sections/Analytics.tsx": i2$$$$$5,
     "deco-sites/std/sections/configButterCMS.global.tsx": i2$$$$$6,
     "deco-sites/std/sections/configLinxImpulse.global.tsx": i2$$$$$7,
