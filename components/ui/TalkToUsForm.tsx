@@ -62,8 +62,6 @@ export default function TalToUsForm({ form, button, warning }: Props) {
           showModal.value = true;
         }
       });
-
-    console.log("teste");
   }
 
   return (
