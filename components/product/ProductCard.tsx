@@ -5,6 +5,7 @@ import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { sendEventOnClick } from "$store/sdk/analytics.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+
 import ProductCardButton from "deco-sites/australroupas/components/product/ProductCardButton.tsx";
 
 interface Props {
