@@ -1,6 +1,6 @@
 import { useSignal } from "@preact/signals";
 import Image from "deco-sites/std/components/Image.tsx";
-import Modal from "$store/components/ui/Modal.tsx";
+// import Modal from "$store/components/ui/Modal.tsx";
 
 interface Props {
   image: string;
@@ -10,8 +10,6 @@ interface Props {
   height: number;
   aspectRatio: string;
 }
-
-const id = "product-zoom";
 
 function ProductImageZoom(
   { image, alternativeText, width, height, aspectRatio, index }: Props,
@@ -33,14 +31,10 @@ function ProductImageZoom(
         loading={index === 0 ? "eager" : "lazy"}
         onClick={() => open.value = true}
       />
-      <Modal
-        loading="lazy"
-        mode="center"
-        open={open.value}
-        onClose={() => {
-          open.value = false;
-        }}
-        datatype={"zoom"}
+      <div
+        onClick={() => open.value = false}
+        style={{opacity: open.value ? "1" : "0", pointerEvents: open.value ? "all" : "none"}}
+        class={`fixed left-0 top-0 z-50 transition-all duration-700 ease bg-[#ffffffe6] w-full h-full flex justify-center items-center`}
       >
         <div>
           <Image
@@ -57,7 +51,8 @@ function ProductImageZoom(
             onClick={() => open.value = false}
           />
         </div>
-      </Modal>
+        <i class="icon icon-close cursor-pointer absolute right-1/4 top-10 text-xl"></i>
+      </div>
     </>
   );
 }
