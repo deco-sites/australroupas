@@ -33,7 +33,10 @@ function ProductImageZoom(
       />
       <div
         onClick={() => open.value = false}
-        style={{opacity: open.value ? "1" : "0", pointerEvents: open.value ? "all" : "none"}}
+        style={{
+          opacity: open.value ? "1" : "0",
+          pointerEvents: open.value ? "all" : "none",
+        }}
         class={`fixed left-0 top-0 z-50 transition-all duration-700 ease bg-[#ffffffe6] w-full h-full flex justify-center items-center`}
       >
         <div>
@@ -51,7 +54,8 @@ function ProductImageZoom(
             onClick={() => open.value = false}
           />
         </div>
-        <i class="icon icon-close cursor-pointer absolute right-1/4 top-10 text-xl"></i>
+        <i class="icon icon-close cursor-pointer absolute right-1/4 top-10 text-xl">
+        </i>
       </div>
     </>
   );
