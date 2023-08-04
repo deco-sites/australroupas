@@ -93,7 +93,7 @@ export default function Gallery(props: Options) {
     ? "lg:grid-cols-3"
     : "lg:grid-cols-4";
 
-  console.log("show")
+  console.log("show");
 
   return (
     <div>
