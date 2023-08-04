@@ -22,14 +22,15 @@ import * as $$$$$7 from "./islands/NavItem.tsx";
 import * as $$$$$8 from "./islands/Newsletter.tsx";
 import * as $$$$$9 from "./islands/OutOfStock.tsx";
 import * as $$$$$10 from "./islands/Overlay.tsx";
-import * as $$$$$11 from "./islands/ProductGallery.tsx";
-import * as $$$$$12 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$13 from "./islands/SearchControls.tsx";
-import * as $$$$$14 from "./islands/ServiceMenu.tsx";
-import * as $$$$$15 from "./islands/ShippingSimulation.tsx";
-import * as $$$$$16 from "./islands/SliderJS.tsx";
-import * as $$$$$17 from "./islands/TalkToUsForm.tsx";
-import * as $$$$$18 from "./islands/WishlistButton.tsx";
+import * as $$$$$11 from "./islands/ProductCard.tsx";
+import * as $$$$$12 from "./islands/ProductGallery.tsx";
+import * as $$$$$13 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$14 from "./islands/SearchControls.tsx";
+import * as $$$$$15 from "./islands/ServiceMenu.tsx";
+import * as $$$$$16 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$17 from "./islands/SliderJS.tsx";
+import * as $$$$$18 from "./islands/TalkToUsForm.tsx";
+import * as $$$$$19 from "./islands/WishlistButton.tsx";
 import * as $$$$$$$$0 from "./sections/BannerAustral.tsx";
 import * as $$$$$$$$1 from "./sections/BannerGrid.tsx";
 import * as $$$$$$$$2 from "./sections/BannerPLP.tsx";
@@ -276,14 +277,15 @@ const manifest = {
     "./islands/Newsletter.tsx": $$$$$8,
     "./islands/OutOfStock.tsx": $$$$$9,
     "./islands/Overlay.tsx": $$$$$10,
-    "./islands/ProductGallery.tsx": $$$$$11,
-    "./islands/ProductImageZoom.tsx": $$$$$12,
-    "./islands/SearchControls.tsx": $$$$$13,
-    "./islands/ServiceMenu.tsx": $$$$$14,
-    "./islands/ShippingSimulation.tsx": $$$$$15,
-    "./islands/SliderJS.tsx": $$$$$16,
-    "./islands/TalkToUsForm.tsx": $$$$$17,
-    "./islands/WishlistButton.tsx": $$$$$18,
+    "./islands/ProductCard.tsx": $$$$$11,
+    "./islands/ProductGallery.tsx": $$$$$12,
+    "./islands/ProductImageZoom.tsx": $$$$$13,
+    "./islands/SearchControls.tsx": $$$$$14,
+    "./islands/ServiceMenu.tsx": $$$$$15,
+    "./islands/ShippingSimulation.tsx": $$$$$16,
+    "./islands/SliderJS.tsx": $$$$$17,
+    "./islands/TalkToUsForm.tsx": $$$$$18,
+    "./islands/WishlistButton.tsx": $$$$$19,
   },
   "sections": {
     "$live/sections/Conditional_Beta.tsx": i2$$$$$0,

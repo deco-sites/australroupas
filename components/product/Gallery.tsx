@@ -4,6 +4,7 @@ import { computed } from "@preact/signals";
 import type { Props as LoaderProps } from "deco-sites/australroupas/loaders/plp.ts";
 import type { Manifest } from "../../live.gen.ts";
 import type { FnContext } from "$live/mod.ts";
+import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
 import { Runtime } from "../../runtime.ts";
 import Spinner from "../ui/Spinner.tsx";
@@ -11,30 +12,12 @@ import Spinner from "../ui/Spinner.tsx";
 // deno-lint-ignore ban-types
 type Context = FnContext<{}, Manifest>;
 
-export const loader = async (
-  loaderProps: LoaderProps,
-  _req: Request,
-  ctx: Context,
-) => {
-  const page = await ctx.invoke(
-    "deco-sites/australroupas/loaders/plp.ts",
-    loaderProps,
-  );
-
-  return { page, loaderProps };
-};
-
-type PromiseOf<T> = T extends Promise<infer K> ? K : T;
-
-export type Props = PromiseOf<ReturnType<typeof loader>>;
-
 interface Options {
-  page: NonNullable<Props["page"]>;
-  loaderProps?: Props["loaderProps"];
+  page: ProductListingPage | null;
   pageType?: "Category" | "Search";
 }
 
-const usePaginationController = ({ page, loaderProps }: Options) => {
+const usePaginationController = ({ page }: Options) => {
   const ref = useRef<HTMLDivElement>(null);
   const [pages, setPages] = useState([page]);
   const [loading, setLoading] = useState(false);
@@ -47,15 +30,19 @@ const usePaginationController = ({ page, loaderProps }: Options) => {
     const observer = new IntersectionObserver(async ([entry]) => {
       if (entry?.isIntersecting) {
         try {
-          const page = pages.length + (loaderProps?.pageOffset || 0);
+          const pageNumber = pages.length + 2;
 
           const url = new URL(window.location.href);
-          url.searchParams.set("page", page.toString());
-
+          url.searchParams.set("page", pageNumber.toString());
           setLoading(true);
+
+          const page = {
+            count: 1,
+          };
+
           const maybePage = await Runtime.invoke({
             key: "deco-sites/australroupas/loaders/plp.ts",
-            props: { ...loaderProps, url: url.href },
+            props: { ...page, url: url.href },
           });
 
           // Prevent self-ddos
@@ -93,8 +80,6 @@ export default function Gallery(props: Options) {
     ? "lg:grid-cols-3"
     : "lg:grid-cols-4";
 
-  console.log("show");
-
   return (
     <div>
       <div
@@ -103,7 +88,7 @@ export default function Gallery(props: Options) {
         }`}
       >
         {pages.map((page) =>
-          page.products.map((product, index) => (
+          page?.products.map((product, index) => (
             <div class="w-full list-none ">
               <ProductCard product={product} preload={index === 0} />
             </div>
