@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "preact/hooks";
+import { useEffect, useRef, useState } from "preact/hooks";
 import { useSignal } from "@preact/signals";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import Button from "$store/components/ui/Button.tsx";
@@ -72,7 +72,10 @@ function Simulation() {
       const data = {
         address: {
           addressType: "residential",
-          postalCode: postalCode.replace("_","").replace(".","").replace("-",""),
+          postalCode: postalCode.replace("_", "").replace(".", "").replace(
+            "-",
+            "",
+          ),
           country: "BRA",
         },
       };
@@ -107,7 +110,7 @@ function Simulation() {
     const formattedCep = cep.replace(/\D/g, ""); // Remove caracteres não numéricos
     const mask = "99.999-999";
     let maskedCep = "";
-  
+
     for (let i = 0, j = 0; i < mask.length; i++) {
       if (mask[i] === "9") {
         maskedCep += formattedCep[j] || "_";
@@ -116,7 +119,7 @@ function Simulation() {
         maskedCep += mask[i];
       }
     }
-  
+
     return maskedCep;
   }
 
@@ -135,17 +138,16 @@ function Simulation() {
   }, [shippingPriceInit?.value]);
 
   useEffect(() => {
-
     if (!displayInput.value && inputRef.current) {
       // Obtenha o valor atual do input
       // deno-lint-ignore ban-ts-comment
       // @ts-ignore
       const inputValue = inputRef.current.value;
-      
+
       let position = 0;
-      for(let i = 0; i < inputValue.length; i++) {
+      for (let i = 0; i < inputValue.length; i++) {
         if (Number(inputValue[i]) || inputValue[i] == 0) {
-          position = i + 1
+          position = i + 1;
         }
       }
       // Coloque o caret no final do valor do input
@@ -189,11 +191,8 @@ function Simulation() {
             <div class="flex flex-col text-sm text-right text-info">
               {formatCEP(postalCode)}
               <span class="text-primary text-xs font-bold">
-                {
-                  shippingPrice == 0 ? 
-                  "grátis" :
-                  "+" + formatPrice(shippingPrice / 100, currencyCode!, locale) 
-                }
+                {shippingPrice == 0 ? "grátis" : "+" +
+                  formatPrice(shippingPrice / 100, currencyCode!, locale)}
               </span>
             </div>
             <button
