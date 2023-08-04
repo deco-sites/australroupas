@@ -50,6 +50,7 @@
               "$live/loaders/state.ts",
               "$live/loaders/workflows/events.ts",
               "$live/loaders/workflows/get.ts",
+              "deco-sites/australroupas/loaders/plp.ts",
               "deco-sites/std/loaders/linxImpulse/autocompletes/popular.ts",
               "deco-sites/std/loaders/linxImpulse/autocompletes/suggestions.ts",
               "deco-sites/std/loaders/linxImpulse/pages/recommendations.ts",
@@ -88,7 +89,7 @@
               "./islands/Newsletter.tsx",
               "./islands/OutOfStock.tsx",
               "./islands/Overlay.tsx",
-              "./islands/ProductCardButton.tsx",
+              "./islands/ProductGallery.tsx",
               "./islands/ProductImageZoom.tsx",
               "./islands/SearchControls.tsx",
               "./islands/ServiceMenu.tsx",
@@ -4811,6 +4812,27 @@
         "id"
       ],
       "title": "deco-cx/live/loaders/workflows/get.ts@Props"
+    },
+    "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2ludGVsbGlnZW50U2VhcmNoL3Byb2R1Y3RMaXN0aW5nUGFnZS50cw==@6e708cf083b1a3525c3b2704523b4592&Props": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2ludGVsbGlnZW50U2VhcmNoL3Byb2R1Y3RMaXN0aW5nUGFnZS50cw==@Props"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "title": "Url"
+            }
+          },
+          "required": []
+        }
+      ],
+      "title": "deco-sites/std/packs/vtex/loaders/intelligentSearch/productListingPage.ts@6e708cf083b1a3525c3b2704523b4592&Props"
     },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvbGlueEltcHVsc2UvbG9hZGVycy9hdXRvY29tcGxldGVzL3BvcHVsYXIudHM=@Props": {
       "type": "object",
@@ -11073,17 +11095,6 @@
       "required": [],
       "title": "deco-sites/australroupas/components/footer/Newsletter.tsx@Props"
     },
-    "ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductGroup|null": {
-      "anyOf": [
-        {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvY29tbWVyY2UvdHlwZXMudHM=@ProductGroup"
-        },
-        {
-          "type": "null"
-        }
-      ],
-      "title": "ProductGroup|null"
-    },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC90eXBlcy50cw==@SKU": {
       "type": "object",
       "properties": {
@@ -12943,7 +12954,7 @@
       "required": [],
       "title": "OptionalColors"
     },
-    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8": {
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@7613424e6b95082f02c5e5a6cca7652f&Colors": {
       "allOf": [
         {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors"
@@ -12959,7 +12970,7 @@
           "required": []
         }
       ],
-      "title": "Colors&f09ebb67297b758c758edd76bb1debb8"
+      "title": "7613424e6b95082f02c5e5a6cca7652f&Colors"
     },
     "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Miscellaneous": {
       "type": "object",
@@ -13062,7 +13073,7 @@
       "type": "object",
       "properties": {
         "colors": {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@Colors&f09ebb67297b758c758edd76bb1debb8",
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL3NlY3Rpb25zL0Rlc2lnblN5c3RlbS50c3g=@7613424e6b95082f02c5e5a6cca7652f&Colors",
           "title": "Colors"
         },
         "miscellaneous": {
@@ -16230,6 +16241,27 @@
         }
       }
     },
+    "ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2xvYWRlcnMvcGxwLnRz": {
+      "title": "deco-sites/australroupas/loaders/plp.ts",
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2ludGVsbGlnZW50U2VhcmNoL3Byb2R1Y3RMaXN0aW5nUGFnZS50cw==@6e708cf083b1a3525c3b2704523b4592&Props"
+        }
+      ],
+      "required": [
+        "__resolveType"
+      ],
+      "properties": {
+        "__resolveType": {
+          "type": "string",
+          "enum": [
+            "deco-sites/australroupas/loaders/plp.ts"
+          ],
+          "default": "deco-sites/australroupas/loaders/plp.ts"
+        }
+      }
+    },
     "ZGVjby1zaXRlcy9zdGQvbG9hZGVycy9saW54SW1wdWxzZS9hdXRvY29tcGxldGVzL3BvcHVsYXIudHM=": {
       "title": "Linx Impulse - Autocompletes Popular Terms",
       "type": "object",
@@ -16983,8 +17015,8 @@
         }
       }
     },
-    "Li9pc2xhbmRzL1Byb2R1Y3RDYXJkQnV0dG9uLnRzeA==": {
-      "title": "./islands/ProductCardButton.tsx",
+    "Li9pc2xhbmRzL1Byb2R1Y3RHYWxsZXJ5LnRzeA==": {
+      "title": "./islands/ProductGallery.tsx",
       "type": "object",
       "required": [
         "__resolveType"
@@ -16993,9 +17025,9 @@
         "__resolveType": {
           "type": "string",
           "enum": [
-            "./islands/ProductCardButton.tsx"
+            "./islands/ProductGallery.tsx"
           ],
-          "default": "./islands/ProductCardButton.tsx"
+          "default": "./islands/ProductGallery.tsx"
         }
       }
     },
@@ -19296,6 +19328,9 @@
           "$ref": "#/definitions/JGxpdmUvbG9hZGVycy93b3JrZmxvd3MvZ2V0LnRz"
         },
         {
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9hdXN0cmFscm91cGFzL2xvYWRlcnMvcGxwLnRz"
+        },
+        {
           "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvbG9hZGVycy9saW54SW1wdWxzZS9hdXRvY29tcGxldGVzL3BvcHVsYXIudHM="
         },
         {
@@ -19422,7 +19457,7 @@
           "$ref": "#/definitions/Li9pc2xhbmRzL092ZXJsYXkudHN4"
         },
         {
-          "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RDYXJkQnV0dG9uLnRzeA=="
+          "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RHYWxsZXJ5LnRzeA=="
         },
         {
           "$ref": "#/definitions/Li9pc2xhbmRzL1Byb2R1Y3RJbWFnZVpvb20udHN4"

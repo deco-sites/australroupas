@@ -1,16 +1,17 @@
 import Filters from "$store/components/search/Filters.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
-import SearchControls from "$store/islands/SearchControls.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
-import ProductGallery from "../product/ProductGallery.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import { useEffect, useRef, useState } from "preact/compat";
 import Button from "$store/components/ui/Button.tsx";
 import type { HTML } from "deco-sites/std/components/types.ts";
 import Quilltext from "deco-sites/std/components/QuillText.tsx";
+
+import ProductGallery from "$store/islands/ProductGallery.tsx";
+import SearchControls from "$store/islands/SearchControls.tsx";
 
 export interface SeoText {
   /** @description RegExp to enable this banner on the current URL. Use /feminino/* to display this banner on feminino category  */
@@ -134,7 +135,10 @@ function Result({
                   </aside>
                 )}
                 <div class={`flex-grow ${marginLeft && marginLeft}`}>
-                  <ProductGallery products={products} pageType={pageType} />
+                  <ProductGallery
+                    pageType={pageType}
+                    page={page}
+                  />
                   <div class="flex justify-center my-4">
                     <div class="btn-group">
                       <a
@@ -151,7 +155,7 @@ function Result({
                         />
                       </a>
                       <span class="btn btn-ghost">
-                        Page {pageInfo.currentPage + 1}
+                        Page {pageInfo.currentPage}
                       </span>
                       <a
                         aria-label="next page link"
