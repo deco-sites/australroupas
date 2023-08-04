@@ -1,4 +1,4 @@
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState, useRef } from "preact/hooks";
 import { useSignal } from "@preact/signals";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
 import Button from "$store/components/ui/Button.tsx";
@@ -23,6 +23,8 @@ function Simulation() {
   const item = cart.value?.items[0];
   const [postalCode, setPostalCode] = useState("");
   const [shippingPrice, setShippingPrice] = useState(0);
+
+  const inputRef = useRef(null);
 
   const forceUpdateMinicart = () => {
     updateItems({ orderItems: [{ index: 0, quantity: item!.quantity }] });
@@ -70,7 +72,7 @@ function Simulation() {
       const data = {
         address: {
           addressType: "residential",
-          postalCode: postalCode,
+          postalCode: postalCode.replace("_","").replace(".","").replace("-",""),
           country: "BRA",
         },
       };
@@ -101,6 +103,23 @@ function Simulation() {
     }
   };
 
+  function formatCEP(cep: string) {
+    const formattedCep = cep.replace(/\D/g, ""); // Remove caracteres não numéricos
+    const mask = "99.999-999";
+    let maskedCep = "";
+  
+    for (let i = 0, j = 0; i < mask.length; i++) {
+      if (mask[i] === "9") {
+        maskedCep += formattedCep[j] || "_";
+        j++;
+      } else {
+        maskedCep += mask[i];
+      }
+    }
+  
+    return maskedCep;
+  }
+
   useEffect(() => {
     if (shippingPriceInit?.value) {
       setShippingPrice(shippingPriceInit.value);
@@ -115,21 +134,44 @@ function Simulation() {
     }
   }, [shippingPriceInit?.value]);
 
+  useEffect(() => {
+
+    if (!displayInput.value && inputRef.current) {
+      // Obtenha o valor atual do input
+      // deno-lint-ignore ban-ts-comment
+      // @ts-ignore
+      const inputValue = inputRef.current.value;
+      
+      let position = 0;
+      for(let i = 0; i < inputValue.length; i++) {
+        if (Number(inputValue[i]) || inputValue[i] == 0) {
+          position = i + 1
+        }
+      }
+      // Coloque o caret no final do valor do input
+      // deno-lint-ignore ban-ts-comment
+      // @ts-ignore
+      inputRef.current.setSelectionRange(inputValue.length, position);
+    }
+  }, [postalCode]);
+
   return (
-    <div class="flex justify-between items-center py-2.5 mx-[15px] border-b border-base-100">
+    <div class="flex justify-between items-center py-2.5 mx-[15px] lg:mx-[25px] border-b border-base-100">
       <span class="text-sm text-info w-1/2">Calcular Frete</span>
       <form class="flex w-1/2 justify-end">
         {!displayInput.value && (
           <>
             <input
+              ref={inputRef}
               id="simulate"
               name="simulate"
               class="w-full text-sm h-8 rounded-md p-2 text-caption font-caption outline-1 outline-[#FDB913] px-2.5 border border-[#C7C7CC]"
               type="text"
-              value={postalCode ?? ""}
-              placeholder={""}
-              onChange={(e: { currentTarget: { value: string } }) =>
-                setPostalCode(e.currentTarget?.value)}
+              value={formatCEP(postalCode)}
+              placeholder={"__.___-___"}
+              // deno-lint-ignore ban-ts-comment
+              // @ts-ignore
+              onChange={(e) => setPostalCode(e.target.value)}
             />
             <Button
               class="text-sm w-8 h-8 px-[5px] text-primary bg-transparent border border-primary rounded-md ml-[3px] border-primary text-primary hover:text-white hover:bg-primary hover:opacity-80 transition duration-150"
@@ -145,9 +187,13 @@ function Simulation() {
         {displayInput.value && (
           <>
             <div class="flex flex-col text-sm text-right text-info">
-              {postalCode}
+              {formatCEP(postalCode)}
               <span class="text-primary text-xs font-bold">
-                + {formatPrice(shippingPrice / 100, currencyCode!, locale)}
+                {
+                  shippingPrice == 0 ? 
+                  "grátis" :
+                  "+" + formatPrice(shippingPrice / 100, currencyCode!, locale) 
+                }
               </span>
             </div>
             <button

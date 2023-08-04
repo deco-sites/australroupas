@@ -90,7 +90,7 @@ function Cart() {
       {/* Cart Items */}
       <ul
         role="list"
-        class="p-[15px] flex-grow overflow-y-auto flex flex-col"
+        class="container-minicart m-[15px] flex-grow overflow-y-auto flex flex-col"
       >
         {cart.value.items.map((_, index) => (
           <li>
@@ -103,7 +103,7 @@ function Cart() {
       <footer class="shadow-minicart">
         {/* Subtotal */}
         {subTotal?.value && (
-          <div class="border-b border-base-100 py-2.5 pt-[45px] flex flex-col justify-end items-end gap-2 mx-4">
+          <div class="border-b border-base-100 py-2.5 pt-[45px] flex flex-col justify-end items-end gap-2 mx-4 lg:mx-[25px]">
             <div class="flex justify-between items-center w-full">
               <span class="text-info text-sm">Subtotal</span>
               <span class="text-info text-sm">
@@ -119,7 +119,7 @@ function Cart() {
         </div>
         {/* Discount */}
         {discounts?.value && (
-          <div class="border-b border-base-100 py-2.5 flex flex-col justify-end items-end gap-2 mx-4">
+          <div class="border-b border-base-100 py-2.5 flex flex-col justify-end items-end gap-2 mx-4 lg:mx-[25px]">
             <div class="flex justify-between items-center w-full">
               <span class="text-info text-sm">Descontos</span>
               <span class="text-info text-sm text-neutral">
@@ -130,7 +130,7 @@ function Cart() {
         )}
         {/* Total */}
         {total && (
-          <div class="border-b border-base-100 py-2.5 flex flex-col justify-end items-end gap-2 mx-4">
+          <div class="border-b border-base-100 py-2.5 flex flex-col justify-end items-end gap-2 mx-4 lg:mx-[25px]">
             <div class="flex justify-between items-center w-full">
               <span class="text-info text-sm">Total</span>
               <span class="flex flex-col text-right text-info text-sm font-bold">
@@ -147,29 +147,29 @@ function Cart() {
             </div>
           </div>
         )}
-        <div class="flex gap-2.5 px-[15px] pb-7.5">
+        <div class="flex gap-2.5 px-[15px] lg:px-[25px] pb-7.5">
           <a
-            class="flex cursor-pointer justify-center items-center w-full bg-transparent border border-primary text-primary py-3 px-2.5 rounded-md mt-3 hover:text-white hover:bg-primary hover:opacity-80 transition duration-150"
+            class="flex cursor-pointer justify-center items-center w-full h-[45px] bg-transparent border border-primary text-primary py-3 px-2.5 rounded-md mt-3 hover:text-white hover:bg-primary hover:opacity-80 transition duration-150"
             onClick={() => {
               displayCart.value = false;
             }}
           >
             <Button
               data-deco="buy-button"
-              class="w-full text-xs"
+              class="w-full text-xs lg:text-base tracking-[.04em] leading-[1]"
               disabled={loading.value || cart.value.items.length === 0}
             >
               Continuar Comprando
             </Button>
           </a>
           <a
-            class="flex justify-center items-center w-full bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:text-info hover:opacity-80 transition duration-150"
+            class="flex justify-center items-center w-full h-[45px] bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:text-info hover:opacity-80 transition duration-150"
             target="_blank"
             href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
           >
             <Button
               data-deco="buy-button"
-              class="w-full text-sm font-bold"
+              class="w-full text-sm lg:text-base font-bold tracking-[.04em] leading-[1]"
               disabled={loading.value || cart.value.items.length === 0}
               onClick={() => {
                 sendEvent({
