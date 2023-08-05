@@ -5,9 +5,10 @@ import { useUI } from "$store/sdk/useUI.ts";
 import type { Props as MenuProps } from "$store/components/header/Menu.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import Loading from "$store/components/ui/Loading.tsx";
+import Cart from "$store/components/minicart/Cart.tsx";
 
 const Menu = lazy(() => import("$store/components/header/Menu.tsx"));
-const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
+// const Cart = lazy(() => import("$store/components/minicart/Cart.tsx"));
 const Searchbar = lazy(() => import("$store/components/search/Searchbar.tsx"));
 
 interface Props {
@@ -50,7 +51,7 @@ function Modals({ menu, searchbar }: Props) {
       </Modal> */
       }
 
-      <Modal
+      {/* <Modal
         title="Minha sacola"
         mode="sidebar-right"
         loading="lazy"
@@ -59,10 +60,18 @@ function Modals({ menu, searchbar }: Props) {
           displayCart.value = false;
         }}
       >
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={<Loading />}> */}
+        <div
+          style={{
+            right: displayCart.value ? "0" : "",
+            pointerEvents: displayCart.value ? "all" : "none",
+          }}
+          class={`fixed right-[-455px] top-0 z-50 transition-all duration-300 ease-linear flex items-end flex-col h-full w-full sm:max-w-[455px] sm:min-w-[320px]`}
+        > 
           <Cart />
-        </Suspense>
-      </Modal>
+        </div>
+        {/* </Suspense>
+      </Modal> */}
     </>
   );
 }

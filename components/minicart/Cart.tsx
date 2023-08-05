@@ -9,6 +9,9 @@ import Coupon from "./Coupon.tsx";
 import Simulation from "./Simulation.tsx";
 import Seller from "./Seller.tsx";
 
+import Icon from "../ui/Icon.tsx";
+
+
 declare global {
   interface Window {
     DECO_SITES_STD: {
@@ -45,8 +48,23 @@ function Cart() {
   // Empty State
   if (isCartEmpty) {
     return (
-      <>
-        <div class="absolute top-3 left-[30%]">
+      <div class="bg-white w-full h-full">
+        <header
+          class={`flex px-4 h-16 justify-between items-center border-b border-base-100`}
+        >
+          <h1>
+            <span class="text-lg mr-5 text-info">Minha sacola</span>
+          </h1>
+          <Button
+            class={`btn btn-ghost hover:bg-transparent p-0  ${
+              "outline-none text-[#636366] focus-visible:outline-none"
+            }`}
+            onClick={() => displayCart.value = false}
+          >
+            <Icon id="XMark" width={30} height={30} strokeWidth={1} />
+          </Button>
+        </header>
+        <div class="absolute top-3 left-[30%] bg-white">
           <div class="p-1.5 text-xl relative ml-1 lg:ml-0">
             <span class="bg-primary rounded-full absolute top-1 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-4 h-4 flex items-center justify-center">
               {totalItems > 9 ? "9+" : totalItems}
@@ -70,13 +88,28 @@ function Cart() {
             Continuar comprando
           </Button>
         </div>
-      </>
+      </div>
     );
   }
 
   return (
-    <>
-      <div class="absolute top-3 left-[30%]">
+    <div class="bg-white w-full h-full">
+      <header
+        class={`flex px-4 h-16 justify-between items-center border-b border-base-100`}
+      >
+        <h1>
+          <span class="text-lg mr-5 text-info">Minha sacola</span>
+        </h1>
+        <Button
+          class={`btn btn-ghost hover:bg-transparent p-0  ${
+            "outline-none text-[#636366] focus-visible:outline-none"
+          }`}
+          onClick={() => displayCart.value = false}
+        >
+          <Icon id="XMark" width={30} height={30} strokeWidth={1} />
+        </Button>
+      </header>
+      <div class="absolute top-3 left-[30%] bg-white">
         <div class="p-1.5 text-xl relative ml-1 lg:ml-0">
           <span class="bg-primary rounded-full absolute top-1 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-4 h-4 flex items-center justify-center">
             {totalItems > 9 ? "9+" : totalItems}
@@ -88,19 +121,21 @@ function Cart() {
         </div>
       </div>
       {/* Cart Items */}
-      <ul
-        role="list"
-        class="container-minicart m-[15px] flex-grow overflow-y-auto flex flex-col"
-      >
-        {cart.value.items.map((_, index) => (
-          <li>
-            <CartItem index={index} key={index} />
-          </li>
-        ))}
-      </ul>
+      <div class="overflow-hidden max-h-[calc(100%-450px)] h-full">
+        <ul
+          role="list"
+          class="container-minicart m-[15px] flex-grow overflow-y-auto h-full flex flex-col bg-white pb-5"
+        >
+          {cart.value.items.map((_, index) => (
+            <li>
+              <CartItem index={index} key={index} />
+            </li>
+          ))}
+        </ul>
+      </div>
 
       {/* Cart Footer */}
-      <footer class="shadow-minicart">
+      <footer class="shadow-minicart bg-white relative bottom-0 w-full">
         {/* Subtotal */}
         {subTotal?.value && (
           <div class="border-b border-base-100 py-2.5 pt-[45px] flex flex-col justify-end items-end gap-2 mx-4 lg:mx-[25px]">
@@ -191,7 +226,7 @@ function Cart() {
           </a>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
 
