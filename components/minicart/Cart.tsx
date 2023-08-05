@@ -11,7 +11,6 @@ import Seller from "./Seller.tsx";
 
 import Icon from "../ui/Icon.tsx";
 
-
 declare global {
   interface Window {
     DECO_SITES_STD: {
@@ -56,9 +55,7 @@ function Cart() {
             <span class="text-lg mr-5 text-info">Minha sacola</span>
           </h1>
           <Button
-            class={`btn btn-ghost hover:bg-transparent p-0  ${
-              "outline-none text-[#636366] focus-visible:outline-none"
-            }`}
+            class={`btn btn-ghost hover:bg-transparent p-0  ${"outline-none text-[#636366] focus-visible:outline-none"}`}
             onClick={() => displayCart.value = false}
           >
             <Icon id="XMark" width={30} height={30} strokeWidth={1} />
@@ -101,9 +98,7 @@ function Cart() {
           <span class="text-lg mr-5 text-info">Minha sacola</span>
         </h1>
         <Button
-          class={`btn btn-ghost hover:bg-transparent p-0  ${
-            "outline-none text-[#636366] focus-visible:outline-none"
-          }`}
+          class={`btn btn-ghost hover:bg-transparent p-0  ${"outline-none text-[#636366] focus-visible:outline-none"}`}
           onClick={() => displayCart.value = false}
         >
           <Icon id="XMark" width={30} height={30} strokeWidth={1} />

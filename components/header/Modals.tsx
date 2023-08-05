@@ -51,7 +51,8 @@ function Modals({ menu, searchbar }: Props) {
       </Modal> */
       }
 
-      {/* <Modal
+      {
+        /* <Modal
         title="Minha sacola"
         mode="sidebar-right"
         loading="lazy"
@@ -60,18 +61,21 @@ function Modals({ menu, searchbar }: Props) {
           displayCart.value = false;
         }}
       >
-        <Suspense fallback={<Loading />}> */}
-        <div
-          style={{
-            right: displayCart.value ? "0" : "",
-            pointerEvents: displayCart.value ? "all" : "none",
-          }}
-          class={`fixed right-[-455px] top-0 z-50 transition-all duration-300 ease-linear flex items-end flex-col h-full w-full sm:max-w-[455px] sm:min-w-[320px]`}
-        > 
-          <Cart />
-        </div>
-        {/* </Suspense>
-      </Modal> */}
+        <Suspense fallback={<Loading />}> */
+      }
+      <div
+        style={{
+          right: displayCart.value ? "0" : "",
+          pointerEvents: displayCart.value ? "all" : "none",
+        }}
+        class={`fixed right-[-455px] top-0 z-50 transition-all duration-300 ease-linear flex items-end flex-col h-full w-full sm:max-w-[455px] sm:min-w-[320px]`}
+      >
+        <Cart />
+      </div>
+      {
+        /* </Suspense>
+      </Modal> */
+      }
     </>
   );
 }
