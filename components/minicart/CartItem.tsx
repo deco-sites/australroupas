@@ -50,13 +50,13 @@ function CartItem({ index }: Props) {
         <span class="text-xs text-[#1B1B1D] whitespace-nowrap">{name}</span>
         <div class="flex flex-col lg:flex-row">
           <div class="flex items-center gap-2 my-3 lg:flex-col lg:items-start ">
-            {listPrice < sellingPrice &&
-              (
-                <span class="line-through text-base-300 text-sm">
-                  {formatPrice(listPrice / 100, currencyCode!, locale)}
-                </span>
-              )}
-            <span class="text-sm text-info font-bold w-25">
+            <span class="text-sm text-info font-bold w-25 flex flex-col">
+              {listPrice > sellingPrice &&
+                (
+                  <span class="line-through text-[#636366] text-xs ">
+                    {formatPrice(listPrice / 100, currencyCode!, locale)}
+                  </span>
+                )}
               {isGift
                 ? "Grátis"
                 : formatPrice(sellingPrice / 100, currencyCode!, locale)}

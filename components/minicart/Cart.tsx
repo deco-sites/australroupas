@@ -118,7 +118,7 @@ function Cart() {
         </div>
       </div>
       {/* Cart Items */}
-      <div class="overflow-hidden max-h-[calc(100%-450px)] h-full">
+      <div class="overflow-hidden max-h-[calc(100%-460px)] h-full">
         <ul
           role="list"
           class="container-minicart m-[15px] flex-grow overflow-y-auto h-full flex flex-col bg-white pb-5"
