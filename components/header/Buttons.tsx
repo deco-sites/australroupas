@@ -108,7 +108,7 @@ function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
   const total = cart.value?.totalizers.find((item) => item.id === "Items");
   let quantity = 0;
-  cart.value?.items.forEach(item => quantity += item.quantity);
+  cart.value?.items.forEach((item) => quantity += item.quantity);
   const discounts = cart.value?.totalizers.find((item) =>
     item.id === "Discounts"
   );

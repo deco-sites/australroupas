@@ -27,7 +27,7 @@ function Cart() {
   const isCartEmpty = cart.value?.items.length === 0;
   // const totalItems = cart.value?.items.length || 0;
   let quantity = 0;
-  cart.value?.items.forEach(item => quantity += item.quantity);
+  cart.value?.items.forEach((item) => quantity += item.quantity);
   const subTotal = cart.value?.totalizers.find((item) => item.id === "Items");
   const total = cart.value?.value;
   const discounts = cart.value?.totalizers.find((item) =>
