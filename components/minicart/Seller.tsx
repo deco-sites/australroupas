@@ -86,7 +86,7 @@ function Seller() {
   }, []);
 
   return (
-    <div class="flex justify-between items-center py-2.5 mx-[15px] border-b border-base-100">
+    <div class="flex justify-between items-center py-2.5 mx-[15px] lg:mx-[25px] border-b border-base-100">
       <span class="text-sm text-info w-1/2">Código do Vendedor</span>
       <form class="flex w-1/2 justify-end">
         {!displayInput.value && (
@@ -114,7 +114,7 @@ function Seller() {
         )}
         {displayInput.value && (
           <>
-            <div class="flex flex-col justify-center text-sm text-right text-info">
+            <div class="flex flex-col justify-center text-sm lg:text-xs text-right text-[#636366]">
               {nameSeller}
             </div>
             <button

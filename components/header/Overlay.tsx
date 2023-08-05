@@ -41,6 +41,23 @@ function Overlay() {
         }}
       >
       </div>
+
+      <div
+        class={`${
+          displayCart.value
+            ? "pointer-events-auto left-0"
+            : "pointer-events-none"
+        } fixed w-full h-screen -left-full top-0 transition-all z-50 ease-linear duration-300 bg-[#1C1C1E] opacity-60`}
+        onClick={() => {
+          displayCart.value = false;
+          displayMenu.value = false;
+          displaySearchbar.value = false;
+          displayOverlay.value = false;
+          displayServiceMenu.value = false;
+          displayOverlayServiceMenu.value = false;
+        }}
+      >
+      </div>
     </>
   );
 }

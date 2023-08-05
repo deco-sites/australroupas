@@ -236,4 +236,33 @@
   .filterColor[title="VERDE OLIVA"] div {
       background-color: #989f86 !important
   }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      /* display: none; <- Crashes Chrome on hover */
+      -webkit-appearance: none;
+      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+
+  input[type=number] {
+    -moz-appearance:textfield;
+    appearance:textfield;
+  }
+  input[type=number]:focus {
+    outline: 0;
+    outline-offset: 0;
+  }
+  .container-minicart::-webkit-scrollbar {
+    width: 4px;
+    background-color: #fff;
+  }
+  .container-minicart::-webkit-scrollbar-thumb {
+    background-color: #8E8E93;
+    border-radius: 2px;
+  }
+  .container-minicart::-webkit-scrollbar-track {
+    border: none;
+    background-color: #C7C7CC;
+    border-radius: 2px;
+  }
 }
