@@ -112,7 +112,7 @@ function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
   const discounts = cart.value?.totalizers.find((item) =>
     item.id === "Discounts"
   );
-  console.log(cart.value);
+
   const onClick = () => {
     displayCart.value = true;
     displaySearchbar.value = false;
