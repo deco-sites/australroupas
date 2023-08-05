@@ -25,7 +25,9 @@ function Cart() {
   const { displayCart } = useUI();
   const { cart, loading, mapItemsToAnalyticsItems } = useCart();
   const isCartEmpty = cart.value?.items.length === 0;
-  const totalItems = cart.value?.items.length || 0;
+  // const totalItems = cart.value?.items.length || 0;
+  let quantity = 0;
+  cart.value?.items.forEach(item => quantity += item.quantity);
   const subTotal = cart.value?.totalizers.find((item) => item.id === "Items");
   const total = cart.value?.value;
   const discounts = cart.value?.totalizers.find((item) =>
@@ -64,7 +66,7 @@ function Cart() {
         <div class="absolute top-3 left-[30%] bg-white">
           <div class="p-1.5 text-xl relative ml-1 lg:ml-0">
             <span class="bg-primary rounded-full absolute top-1 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-4 h-4 flex items-center justify-center">
-              {totalItems > 9 ? "9+" : totalItems}
+              {quantity > 9 ? "9+" : quantity}
             </span>
             <i
               class={`${"icon-minicart"} text-lg lg:text-xl`}
@@ -107,7 +109,7 @@ function Cart() {
       <div class="absolute top-3 left-[30%] bg-white">
         <div class="p-1.5 text-xl relative ml-1 lg:ml-0">
           <span class="bg-primary rounded-full absolute top-1 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-4 h-4 flex items-center justify-center">
-            {totalItems > 9 ? "9+" : totalItems}
+            {quantity > 9 ? "9+" : quantity}
           </span>
           <i
             class={`${"icon-minicart"} text-lg lg:text-xl`}

@@ -104,9 +104,11 @@ function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
     displayOverlayServiceMenu,
   } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
-  const totalItems = cart.value?.items.length || 0;
+  // const totalItems = cart.value?.items.length || 0;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
   const total = cart.value?.totalizers.find((item) => item.id === "Items");
+  let quantity = 0;
+  cart.value?.items.forEach(item => quantity += item.quantity);
   const discounts = cart.value?.totalizers.find((item) =>
     item.id === "Discounts"
   );
@@ -139,7 +141,7 @@ function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
     >
       <div class="">
         <span class="bg-primary rounded-full absolute top-0 right-0 text-white rounded-ful text-[10px] px-1.7 py-1 w-5 h-5 flex items-center justify-center">
-          {totalItems > 9 ? "9+" : totalItems}
+          {quantity > 9 ? "9+" : quantity}
         </span>
         <i
           class={`${
