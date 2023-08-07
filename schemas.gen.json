@@ -4814,10 +4814,10 @@
       ],
       "title": "deco-cx/live/loaders/workflows/get.ts@Props"
     },
-    "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2ludGVsbGlnZW50U2VhcmNoL3Byb2R1Y3RMaXN0aW5nUGFnZS50cw==@6e708cf083b1a3525c3b2704523b4592&Props": {
+    "ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2xlZ2FjeS9wcm9kdWN0TGlzdGluZ1BhZ2UudHM=@6e708cf083b1a3525c3b2704523b4592&Props": {
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2ludGVsbGlnZW50U2VhcmNoL3Byb2R1Y3RMaXN0aW5nUGFnZS50cw==@Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2xlZ2FjeS9wcm9kdWN0TGlzdGluZ1BhZ2UudHM=@Props"
         },
         {
           "type": "object",
@@ -4833,7 +4833,7 @@
           "required": []
         }
       ],
-      "title": "deco-sites/std/packs/vtex/loaders/intelligentSearch/productListingPage.ts@6e708cf083b1a3525c3b2704523b4592&Props"
+      "title": "deco-sites/std/packs/vtex/loaders/legacy/productListingPage.ts@6e708cf083b1a3525c3b2704523b4592&Props"
     },
     "ZGVjby1zaXRlcy9zdGQvcGFja3MvbGlueEltcHVsc2UvbG9hZGVycy9hdXRvY29tcGxldGVzL3BvcHVsYXIudHM=@Props": {
       "type": "object",
@@ -16247,7 +16247,7 @@
       "type": "object",
       "allOf": [
         {
-          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2ludGVsbGlnZW50U2VhcmNoL3Byb2R1Y3RMaXN0aW5nUGFnZS50cw==@6e708cf083b1a3525c3b2704523b4592&Props"
+          "$ref": "#/definitions/ZGVjby1zaXRlcy9zdGQvcGFja3MvdnRleC9sb2FkZXJzL2xlZ2FjeS9wcm9kdWN0TGlzdGluZ1BhZ2UudHM=@6e708cf083b1a3525c3b2704523b4592&Props"
         }
       ],
       "required": [
