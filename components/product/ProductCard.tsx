@@ -83,7 +83,10 @@ function ProductCard({ product, preload, itemListName }: Props) {
       data-deco="view-product"
       id={`product-card-${productID}`}
     >
-      <figure class="relative " style={{ aspectRatio: `${WIDTH} / ${HEIGHT}` }}>
+      <figure
+        class="relative h-full"
+        style={{ paddingBottom: `${(HEIGHT / WIDTH) * 100}%` }}
+      >
         {/* Product Images */}
         <a
           href={findStock && findStock[0] ? findStock[0].url : url}
@@ -95,7 +98,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
             alt={front.alternateName}
             width={WIDTH}
             height={HEIGHT}
-            class="absolute transition-opacity rounded-md w-full block group-hover:hidden z-10"
+            class="absolute transition-opacity rounded-md w-full block group-hover:hidden z-10 top-0"
             sizes="(max-width: 640px) 50vw, 20vw"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
@@ -106,7 +109,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
             alt={back?.alternateName ?? front.alternateName}
             width={WIDTH}
             height={HEIGHT}
-            class="absolute transition-opacity rounded-md w-full block"
+            class="absolute transition-opacity rounded-md w-full block top-0"
             sizes="(max-width: 640px) 50vw, 20vw"
             loading="lazy"
             decoding="async"

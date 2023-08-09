@@ -49,7 +49,7 @@ function Avatar(
   return (
     <div class="avatar placeholder">
       <div
-        class={`rounded-md duration-300 transition-all w-8 ${
+        class={`rounded-md h-8 duration-300 transition-all w-8 ${
           colors[content] ?? colors[variant]
         } ${variants[variant]} ${name == "Tamanho" ? disable : ""}`}
         style={{
