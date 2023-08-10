@@ -45,15 +45,13 @@ function Question({ question, idx }: { question: Question; idx: number }) {
     <li class="border-b-[1px] border-[#C7C7CC] overflow-hidden">
       <h3
         onClick={toggleQuestion}
-        class={`w-full py-5 cursor-pointer text-[14px] ${
-          opened.value ? "text-[#5881CA] font-bold" : "text-[#1C1C1E]"
-        } `}
+        class={`w-full py-5 cursor-pointer text-[14px] relative text-[#1C1C1E]`}
       >
         <span class="pr-3">{idx + 1 + "."}</span>
         {question.question}
         <i
-          class={`${
-            opened.value ? "icon-minus font-bold" : "icon-plus"
+          class={`absolute top-[50%] right-0 faq-icon ${
+            opened.value ? "icon-minus faq-icon-minus font-bold" : "icon-plus faq-icon-plus"
           } float-right text-[18px]`}
         />
       </h3>

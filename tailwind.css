@@ -265,4 +265,19 @@
     background-color: #C7C7CC;
     border-radius: 2px;
   }
+
+  .faq-icon{
+    transition: all 0.15s linear 0s;
+  }
+
+  .faq-icon-plus{
+    transform: rotate(180deg) translateY(50%);
+  }
+
+  .faq-icon-minus{
+    transform: rotate(-180deg) translateY(50%);
+    font-weight: 700 !important;
+  }
+
+
 }
