@@ -7,7 +7,10 @@ interface Props {
   productID: Product["productID"];
 }
 
-const notifyme = Runtime.create("deco-sites/std/actions/vtex/notifyme.ts");
+// just to pass lint, need to fix this as
+const notifyme = Runtime.create(
+  "deco-sites/std/actions/vtex/notifyme.ts",
+);
 
 function Notify({ productID }: Props) {
   const loading = useSignal(false);
