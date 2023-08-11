@@ -2,29 +2,30 @@ import Button from "$store/components/ui/Button.tsx";
 import { useId } from "preact/hooks";
 import Icon from "./Icon.tsx";
 
-const script = (id: string) => `
-const callback = () => {
-  const KEY = 'store-cookie-consent';
-  const ACCEPTED = 'accepted';
-  const HIDDEN = "translate-y-[200%]";
-  
-  const consent = localStorage.getItem(KEY);
-  const elem = document.getElementById("${id}");
-  
-  if (consent !== ACCEPTED) {
-    elem.querySelector('[data-button-cc-accept]').addEventListener('click', function () {
-      localStorage.setItem(KEY, ACCEPTED);
-      elem.classList.add(HIDDEN);
-    });
-    elem.querySelector('[data-button-cc-close]').addEventListener('click', function () {
-      elem.classList.add(HIDDEN);
-    });
-    elem.classList.remove(HIDDEN);
-  }
-};
+const script = (id: string) => {
+  const callback = () => {
+    const KEY = "store-cookie-consent";
+    const ACCEPTED = "accepted";
+    const HIDDEN = "translate-y-[200%]";
 
-window.addEventListener('scroll', callback, { once: true });
-`;
+    const consent = localStorage.getItem(KEY);
+    const elem = document.getElementById(id);
+
+    if (consent !== ACCEPTED && elem) {
+      const accept = elem.querySelector("[data-button-cc-accept]");
+      accept && accept.addEventListener("click", () => {
+        localStorage.setItem(KEY, ACCEPTED);
+        elem.classList.add(HIDDEN);
+      });
+      const close = elem.querySelector("[data-button-cc-close]");
+      close &&
+        close.addEventListener("click", () => elem.classList.add(HIDDEN));
+      elem.classList.remove(HIDDEN);
+    }
+  };
+
+  addEventListener("scroll", callback, { once: true });
+};
 
 function CookieConsent() {
   const id = `cookie-consent-${useId()}`;
@@ -96,7 +97,10 @@ function CookieConsent() {
           </div>
         </div>
       </div>
-      <script type="module" dangerouslySetInnerHTML={{ __html: script(id) }} />
+      <script
+        type="module"
+        dangerouslySetInnerHTML={{ __html: `(${script})("${id}");` }}
+      />
     </>
   );
 }

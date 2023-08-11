@@ -7,24 +7,25 @@
   /* Allow changing font family via CMS */
   html {
     /* font-family: var(--font-family); */
-    font-family: "Lato",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
 
   /** Remove default styles fromnput[type=number] */
- nput[type=number]::-webkit-inner-spin-button,
- nput[type=number]::-webkit-outer-spin-button {
+  nput[type=number]::-webkit-inner-spin-button,
+  nput[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 
- nput[type=number] {
+  nput[type=number] {
     -moz-appearance: textfield;
     appearance: textfield;
   }
-  
-  body{
+
+  body {
     background-color: white;
   }
+
   button:disabled {
     color: #AEAEB2 !important;
   }
@@ -51,7 +52,7 @@
     display: none;
   }
 
-  .home-container{
+  .home-container {
     width: 100%;
     max-width: 1920px;
     margin: 0px auto;
@@ -59,30 +60,30 @@
     padding-right: 100px;
   }
 
-  .home-container-mobile{
+  .home-container-mobile {
     width: 100%;
     margin: 0px auto;
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  .no-container{
+  .no-container {
     margin: 0px;
     padding: 0px;
   }
 
-  .breadcrumb-austral ul{
+  .breadcrumb-austral ul {
     display: flex;
     color: #636366;
   }
 
-  .breadcrumb-austral ul li::before{
+  .breadcrumb-austral ul li::before {
     content: '>';
     margin-right: 5px;
     margin-left: 5px;
   }
 
-  .breadcrumb-austral ul li:first-child::before{
+  .breadcrumb-austral ul li:first-child::before {
     content: '';
     margin-right: 0px;
     margin-left: 0px;
@@ -96,188 +97,196 @@
   details#footer[open] {
     max-height: 250px;
   }
-  
+
   .filterColor[title="STONE VINHO"] div {
     background-color: #924e54 !important
   }
 
   .filterColor[title="Salmão"] div {
-      background-color: #e5bbae !important
+    background-color: #e5bbae !important
   }
 
   .filterColor[title="AZUL"] div {
-      background-color: #324576 !important
+    background-color: #324576 !important
   }
 
   .filterColor[title="AZUL CLARO"] div {
-      background-color: #6d9acd !important
+    background-color: #6d9acd !important
   }
 
   .filterColor[title="AZUL MARINHO"] div {
-      background-color: #1c202b !important
+    background-color: #1c202b !important
   }
 
   .filterColor[title="BEGE"] div {
-      background-color: #c3a78b !important
+    background-color: #c3a78b !important
   }
 
   .filterColor[title="BRANCO"] div {
-      background-color: #f8f8f8 !important
+    background-color: #f8f8f8 !important
   }
 
-  .filterColor[title="CARVÃO"] div,.filterColor[title="CARVAO"] div,.filterColor[title="Carvão"] div {
-      background-color: #5d5d5f !important
+  .filterColor[title="CARVÃO"] div,
+  .filterColor[title="CARVAO"] div,
+  .filterColor[title="Carvão"] div {
+    background-color: #5d5d5f !important
   }
 
   .filterColor[title="CINZA"] div {
-      background-color: #9b9b9b !important
+    background-color: #9b9b9b !important
   }
 
   .filterColor[title="CINZA MESCLA ESCURO"] div {
-      background-color: #505050 !important
+    background-color: #505050 !important
   }
 
   .filterColor[title="CREME"] div {
-      background-color: #e3dccb !important
+    background-color: #e3dccb !important
   }
 
   .filterColor[title="JEANS CLARO"] div {
-      background-color: #aac0d0 !important
+    background-color: #aac0d0 !important
   }
 
   .filterColor[title="KHAKI"] div {
-      background-color: #c3aa86 !important
+    background-color: #c3aa86 !important
   }
 
   .filterColor[title="MARROM"] div {
-      background-color: #5b4633 !important
+    background-color: #5b4633 !important
   }
 
   .filterColor[title="NATURAL"] div {
-      background-color: #dfdbcc !important
+    background-color: #dfdbcc !important
   }
 
   .filterColor[title="OFF WHITE"] div {
-      background-color: #eee9d9 !important
+    background-color: #eee9d9 !important
   }
 
   .filterColor[title="PRETO"] div {
-      background-color: #0f0f0f !important
+    background-color: #0f0f0f !important
   }
 
   .filterColor[title="PRETO PLAIN"] div {
-      background-color: #000 !important
+    background-color: #000 !important
   }
 
   .filterColor[title="STONE AZUL BRAZILIAN"] div {
-      background-color: #526ca8 !important
+    background-color: #526ca8 !important
   }
 
   .filterColor[title="STONE AZUL MEDITERRANEO"] div {
-      background-color: #6b87af !important
+    background-color: #6b87af !important
   }
 
   .filterColor[title="STONE AZUL MIDNIGHT"] div {
-      background-color: #3f4362 !important
+    background-color: #3f4362 !important
   }
 
   .filterColor[title="STONE AZUL ROYAL"] div {
-      background-color: #566372 !important
+    background-color: #566372 !important
   }
 
-  .filterColor[title="STONE AZUL VERÃO"] div,.filterColor[title="STONE AZUL VERAO"] div {
-      background-color: #99b5db !important
+  .filterColor[title="STONE AZUL VERÃO"] div,
+  .filterColor[title="STONE AZUL VERAO"] div {
+    background-color: #99b5db !important
   }
 
   .filterColor[title="STONE BEGE"] div {
-      background-color: #bf9a76 !important
+    background-color: #bf9a76 !important
   }
 
   .filterColor[title="STONE CINZA CLARO"] div {
-      background-color: #c9c9c9 !important
+    background-color: #c9c9c9 !important
   }
 
   .filterColor[title="STONE CINZA OLD"] div {
-      background-color: #5d5d5f !important
+    background-color: #5d5d5f !important
   }
 
   .filterColor[title="STONE CORAL"] div {
-      background-color: #d9a1a3 !important
+    background-color: #d9a1a3 !important
   }
 
   .filterColor[title="STONE PRETO OLD"] div {
-      background-color: #2a292e !important
+    background-color: #2a292e !important
   }
 
   .filterColor[title="STONE VERDE FLORESTA"] div {
-      background-color: #5e6963 !important
+    background-color: #5e6963 !important
   }
 
   .filterColor[title="STONE VERDE MUSGO"] div {
-      background-color: #8b8f6d !important
+    background-color: #8b8f6d !important
   }
 
-  .filterColor[title="STONE VERDE VERÃO"] div,.filterColor[title="STONE VERDE VERAO"] div {
-      background-color: #0ea2a4 !important
+  .filterColor[title="STONE VERDE VERÃO"] div,
+  .filterColor[title="STONE VERDE VERAO"] div {
+    background-color: #0ea2a4 !important
   }
 
   .filterColor[title="TAUPE"] div {
-      background-color: #d8ccbe !important
+    background-color: #d8ccbe !important
   }
 
   .filterColor[title="VERDE"] div {
-      background-color: #717e67 !important
+    background-color: #717e67 !important
   }
 
   .filterColor[title="VERDE MILITAR"] div {
-      background-color: #5d6650 !important
+    background-color: #5d6650 !important
   }
 
   .filterColor[title="VERDE OLIVA"] div {
-      background-color: #989f86 !important
+    background-color: #989f86 !important
   }
 
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button {
-      /* display: none; <- Crashes Chrome on hover */
-      -webkit-appearance: none;
-      margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
   }
 
   input[type=number] {
-    -moz-appearance:textfield;
-    appearance:textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
   }
+
   input[type=number]:focus {
     outline: 0;
     outline-offset: 0;
   }
+
   .container-minicart::-webkit-scrollbar {
     width: 4px;
     background-color: #fff;
   }
+
   .container-minicart::-webkit-scrollbar-thumb {
     background-color: #8E8E93;
     border-radius: 2px;
   }
+
   .container-minicart::-webkit-scrollbar-track {
     border: none;
     background-color: #C7C7CC;
     border-radius: 2px;
   }
 
-  .faq-icon{
+  .faq-icon {
     transition: all 0.15s linear 0s;
   }
 
-  .faq-icon-plus{
+  .faq-icon-plus {
     transform: rotate(180deg) translateY(50%);
   }
 
-  .faq-icon-minus{
+  .faq-icon-minus {
     transform: rotate(-180deg) translateY(50%);
     font-weight: 700 !important;
   }
-
 
 }
