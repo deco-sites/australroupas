@@ -51,7 +51,9 @@ function Question({ question, idx }: { question: Question; idx: number }) {
         {question.question}
         <i
           class={`absolute top-[50%] right-0 faq-icon ${
-            opened.value ? "icon-minus faq-icon-minus font-bold" : "icon-plus faq-icon-plus"
+            opened.value
+              ? "icon-minus faq-icon-minus font-bold"
+              : "icon-plus faq-icon-plus"
           } float-right text-[18px]`}
         />
       </h3>
