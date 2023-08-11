@@ -26,6 +26,7 @@ export const theme = {
 
 export default {
   plugins: [daisyui],
+  daisyui: { themes: [], logs: false },
   content: ["./**/*.tsx"],
   theme: {
     // https://tailwindcss.com/docs/container#centering-by-default
