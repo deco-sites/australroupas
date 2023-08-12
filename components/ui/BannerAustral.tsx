@@ -305,6 +305,7 @@ function Image(
           src={(creative as ImageProps).imageMobile}
           width={414}
           height={536}
+          preload={isLcp}
         />
         <Source
           media="(min-width: 1025px)"
@@ -312,6 +313,7 @@ function Image(
           src={(creative as ImageProps).imageDesktop}
           width={1440}
           height={525}
+          preload={isLcp}
         />
         <img
           class={`object-cover w-full sm:h-full ${
