@@ -23,7 +23,7 @@ export default function TextInstitutional({ content, maxWidth }: Props) {
               }
             }
 
-          `
+          `,
         }}
       />
       <div class="home-container home-container-mobile">

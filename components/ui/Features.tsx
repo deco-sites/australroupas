@@ -9,7 +9,7 @@ export interface Feature {
    * @description Image src
    */
   image: LiveImage;
-  
+
   text: HTML;
 }
 

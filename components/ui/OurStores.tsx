@@ -24,8 +24,9 @@ export interface Props {
 export default function OurStores({ stores }: Props) {
   return (
     <>
-      <style dangerouslySetInnerHTML={{
-        __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
           .title-heading {
               font-size: 18px;
           }
@@ -42,8 +43,9 @@ export default function OurStores({ stores }: Props) {
                 padding: 0 !important;
               }
           }
-        `
-      }} />
+        `,
+        }}
+      />
       <div class="sm:home-container home-container-mobile">
         <ul class="flex flex-col gap-10 sm:gap-20 justify-center items-center py-12">
           {stores.map((store) => {
