@@ -10,16 +10,21 @@ export interface Props {
   href: string;
 }
 
+interface CardProps extends Props {
+  index?: number;
+}
+
 function Card(
-  { image, title, description, callToAction, href, subTitle = "" }: Props,
+  { image, title, description, callToAction, href, subTitle = "", index }:
+    CardProps,
 ) {
   return (
     <div class={`w-full px-4.5 lg:px-0`}>
       <a class="block w-full" href={href}>
         <Image
           class="w-full rounded-md"
-          loading={"lazy"}
-          fetchPriority="low"
+          loading={index == 0 ? "eager" : "lazy"}
+          fetchPriority={index == 0 ? "high" : "low"}
           src={image}
           alt={title}
           width={400}

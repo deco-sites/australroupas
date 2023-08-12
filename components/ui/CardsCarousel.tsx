@@ -42,6 +42,7 @@ function CardsCarousel(
                     description={card.description}
                     callToAction={card.callToAction}
                     href={card.href}
+                    index={index}
                   />
                 </div>
               </Slider.Item>
