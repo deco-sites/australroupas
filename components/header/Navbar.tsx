@@ -43,6 +43,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
             src={logo}
             alt={"Austral - Loja Oficial"}
             width={120}
+            height={35}
             class="object-cover object-center"
           />
         </a>
@@ -67,6 +68,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
               src={logo}
               alt={"Austral - Loja Oficial"}
               width={150}
+              height={44}
               class="object-cover object-center"
             />
           </a>
