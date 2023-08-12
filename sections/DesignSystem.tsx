@@ -7,7 +7,7 @@
 import { Color } from "https://deno.land/x/color@v0.3.0/mod.ts";
 import { useId } from "preact/hooks";
 import { Head } from "$fresh/runtime.ts";
-import { theme as defaultTheme } from "$store/tailwind.config.ts";
+import { theme as defaultTheme } from "deco-sites/australroupas/sdk/theme.ts";
 import Icon from "$store/components/ui/Icon.tsx";
 
 export interface OptionalColors {
