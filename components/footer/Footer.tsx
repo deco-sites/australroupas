@@ -2,6 +2,8 @@ import Icon, { AvailableIcons } from "$store/components/ui/Icon.tsx";
 import Newsletter from "$store/islands/Newsletter.tsx";
 import type { ComponentChildren } from "preact";
 import type { Props as INewsletter } from "$store/components/footer/Newsletter.tsx";
+import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import Image from "deco-sites/std/components/Image.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 
@@ -29,12 +31,20 @@ export type Section = {
   children: LinkItem[];
 };
 
+export type Logo = {
+  image: LiveImage;
+  alt: string;
+  href: string;
+  openInNewPage?: boolean;
+}
+
 export interface Props {
   newsletter: INewsletter;
   sections?: Section[];
   socialMedia?: socialMediaItem[];
   payment?: paymentItem[];
   allRightsReserved: string;
+  logos?: Logo[];
 }
 
 function SocialMediaFooter({ item }: { item: socialMediaItem }) {
@@ -72,7 +82,7 @@ function LinkItemFooter({ item }: { item: LinkItem }) {
 }
 
 function Footer(
-  { newsletter, sections = [], socialMedia, payment, allRightsReserved }: Props,
+  { newsletter, sections = [], socialMedia, payment, allRightsReserved, logos = [] }: Props,
 ) {
   return (
     <>
@@ -175,14 +185,34 @@ function Footer(
             <p class="text-info text-center sm:text-left text-[12px] tracking-wide">
               {allRightsReserved}
             </p>
-            <span class="flex items-center justify-center gap-1 text-info">
-              <a
-                href="https://www.deco.cx"
-                aria-label="powered by https://www.deco.cx"
-              >
-                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-              </a>
-            </span>
+            <div class="flex gap-5">
+              <span class="flex items-center justify-center gap-1 text-info">
+                <a
+                  href="https://www.deco.cx"
+                  aria-label="powered by https://www.deco.cx"
+                >
+                  <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
+                </a>
+              </span>
+              {
+                logos.length > 0 &&
+                logos.map(logo => (
+                  <span class="flex items-center justify-center gap-1 text-info">
+                    <a
+                      href={logo.href}
+                      aria-label={"powered by " + logo.alt}
+                    >
+                       <Image
+                        src={logo.image}
+                        alt={logo.alt}
+                        width={60}
+                        class="object-cover object-center"
+                      />
+                    </a>
+                  </span>
+                ))
+              }
+            </div>
           </div>
         </div>
       </footer>
