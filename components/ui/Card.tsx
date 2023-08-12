@@ -18,9 +18,12 @@ function Card(
       <a class="block w-full" href={href}>
         <Image
           class="w-full rounded-md"
+          loading={"lazy"}
+          fetchPriority="low"
           src={image}
           alt={title}
-          width={315}
+          width={400}
+          height={250}
         />
       </a>
       {subTitle &&

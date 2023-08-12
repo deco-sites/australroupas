@@ -47,6 +47,9 @@ export default function Instafeed({ images, title }: Props) {
                     src={image.image}
                     width={290}
                     height={290}
+                    alt={image.altText || "Austral Instagram Image"}
+                    loading={"lazy"}
+                    fetchPriority="low"
                   />
                 </a>
               </Slider.Item>
