@@ -10,12 +10,29 @@ export default function TextInstitutional({ content, maxWidth }: Props) {
   const max = maxWidth == "900px" ? "max-w-[900px]" : "max-w-[1140px]";
 
   return (
-    <div class="home-container home-container-mobile">
-      <div class={`${max} mx-auto my-8 text-[14px]`}>
-        {content.map((content) => {
-          return <Quilltext html={content} />;
-        })}
+    <>
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+            .separador {
+              width: 100% !important;
+            }
+            @media (min-width: 768px) {
+              .separador {
+                width: 70% !important;
+              }
+            }
+
+          `
+        }}
+      />
+      <div class="home-container home-container-mobile">
+        <div class={`${max} mx-auto my-8 text-[14px]`}>
+          {content.map((content) => {
+            return <Quilltext html={content} />;
+          })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }

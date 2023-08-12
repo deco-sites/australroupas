@@ -23,13 +23,35 @@ export interface Props {
 
 export default function OurStores({ stores }: Props) {
   return (
-    <div class="sm:home-container home-container-mobile">
-      <ul class="flex flex-col gap-10 sm:gap-20 justify-center items-center py-12">
-        {stores.map((store) => {
-          return <Store store={store} />;
-        })}
-      </ul>
-    </div>
+    <>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .title-heading {
+              font-size: 18px;
+          }
+
+          .description-ourstores {
+            padding: 0 10px !important;
+          }
+          
+          @media (min-width: 768px) {
+              .title-heading {
+                  font-size: 30px;
+              }
+              .description-ourstores {
+                padding: 0 !important;
+              }
+          }
+        `
+      }} />
+      <div class="sm:home-container home-container-mobile">
+        <ul class="flex flex-col gap-10 sm:gap-20 justify-center items-center py-12">
+          {stores.map((store) => {
+            return <Store store={store} />;
+          })}
+        </ul>
+      </div>
+    </>
   );
 }
 
@@ -40,9 +62,9 @@ function Store({ store }: { store: Store }) {
         store.imagePositionMobile == "bottom" ? "flex-col-reverse" : ""
       } ${
         store.imagePosition == "right" ? "lg:flex-row-reverse" : "lg:flex-row"
-      } flex gap-10 sm:gap-28 lg:gap-0 flex-wrap justify-center lg:max-w-[1206px] lg:w-full`}
+      } flex gap-4 sm:gap-28 lg:gap-0 flex-wrap justify-center lg:max-w-[1206px] w-full`}
     >
-      <div class="lg:basis-1/2">
+      <div class="lg:basis-1/2 w-full">
         <Image
           src={store.image}
           alt={store.alt}
@@ -50,7 +72,7 @@ function Store({ store }: { store: Store }) {
           class="rounded-[20px] w-full max-w-[570px]"
         />
       </div>
-      <div class="flex flex-col gap-4 justify-center items-center w-[400px] lg:basis-1/2">
+      <div class="flex flex-col gap-4 justify-center items-center lg:w-[400px] lg:basis-1/2">
         <div>
           <Quilltext html={store.text} />
         </div>
