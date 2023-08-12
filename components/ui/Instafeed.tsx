@@ -46,6 +46,7 @@ export default function Instafeed({ images, title }: Props) {
                     class="w-full rounded-md"
                     src={image.image}
                     width={290}
+                    height={290}
                   />
                 </a>
               </Slider.Item>

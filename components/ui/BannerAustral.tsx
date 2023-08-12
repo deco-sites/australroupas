@@ -164,6 +164,9 @@ function BannerAustral(
           {creativeCarousel?.map((creative, index) => {
             const { content, padding } = creative;
             if (isImage(creative.creative)) {
+              console.log(content);
+              const hasContent = ((content?.title?.length || 0) > 0) ||
+                ((content?.buttons?.length || 0) > 0);
               return (
                 <Slider.Item
                   index={index}
@@ -181,7 +184,9 @@ function BannerAustral(
                       isFirstBanner={isFirstBanner}
                     />
                   </div>
-                  <Content padding={padding} content={content} />
+                  {hasContent && (
+                    <Content padding={padding} content={content} />
+                  )}
                 </Slider.Item>
               );
             } else {
@@ -298,13 +303,15 @@ function Image(
           media="(max-width: 1024px)"
           fetchPriority={isLcp ? "high" : "low"}
           src={(creative as ImageProps).imageMobile}
-          width={360}
+          width={414}
+          height={536}
         />
         <Source
           media="(min-width: 1025px)"
           fetchPriority={isLcp ? "high" : "low"}
           src={(creative as ImageProps).imageDesktop}
           width={1440}
+          height={525}
         />
         <img
           class={`object-cover w-full sm:h-full ${
