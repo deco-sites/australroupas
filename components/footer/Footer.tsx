@@ -36,7 +36,7 @@ export type Logo = {
   alt: string;
   href: string;
   openInNewPage?: boolean;
-}
+};
 
 export interface Props {
   newsletter: INewsletter;
@@ -82,7 +82,14 @@ function LinkItemFooter({ item }: { item: LinkItem }) {
 }
 
 function Footer(
-  { newsletter, sections = [], socialMedia, payment, allRightsReserved, logos = [] }: Props,
+  {
+    newsletter,
+    sections = [],
+    socialMedia,
+    payment,
+    allRightsReserved,
+    logos = [],
+  }: Props,
 ) {
   return (
     <>
@@ -194,15 +201,14 @@ function Footer(
                   <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
                 </a>
               </span>
-              {
-                logos.length > 0 &&
-                logos.map(logo => (
+              {logos.length > 0 &&
+                logos.map((logo) => (
                   <span class="flex items-center justify-center gap-1 text-info">
                     <a
                       href={logo.href}
                       aria-label={"powered by " + logo.alt}
                     >
-                       <Image
+                      <Image
                         src={logo.image}
                         alt={logo.alt}
                         width={60}
@@ -210,8 +216,7 @@ function Footer(
                       />
                     </a>
                   </span>
-                ))
-              }
+                ))}
             </div>
           </div>
         </div>
