@@ -101,7 +101,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
         <ProductSelector product={product} />
       </div>
       {/* Add to Cart and Favorites button */}
-      <div class="flex flex-row justify-center items-center gap-2 lg:max-w-[500px]">
+      <div class="flex flex-row items-center gap-2 lg:max-w-[500px]">
         {availability === "https://schema.org/InStock"
           ? (
             <>
@@ -124,7 +124,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
       {/* Description card */}
       {description && (
-        <div class="mt-[30px] pt-5 border-t border-base-100">
+        <div class="mt-[30px] pt-5 border-t border-base-100 leading-[140%]">
           <p class="text-sm text-info font-semibold mb-[15px]">
             Descrição do produto
           </p>
@@ -244,12 +244,12 @@ function Details({
         </div>
         <div
           id={id}
-          class="grid grid-cols-1 sm:justify-center lg:flex"
+          class="grid grid-cols-1 lg:flex"
         >
           {/* Image Slider */}
-          <div class="relative sm:col-start-2 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[59%]">
+          <div class="relative sm:col-start-2 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[70%] max-w-[1000px]">
             {/* Mobile */}
-            <Slider class="carousel lg:hidden">
+            <Slider class="carousel carousel-center w-screen lg:hidden">
               {images.map((img, index) => (
                 <Slider.Item
                   index={index}
@@ -322,7 +322,7 @@ function Details({
           </ul>
 
           {/* Product Info */}
-          <div class="relative px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-[50px] lg:sticky lg:top-[136px] lg:h-full lg:min-w-[520px]">
+          <div class="relative px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-0 lg:ml-[40px] lg:sticky lg:top-[136px] lg:h-full lg:max-w-[500px]">
             <ProductInfo page={page} />
           </div>
         </div>

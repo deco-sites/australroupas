@@ -157,11 +157,11 @@ function VariantSelector({ product, product: { url } }: Props) {
         `,
         }}
       />
-      <ul class="flex flex-col gap-4">
+      <ul class="flex flex-col gap-3">
         {Object.keys(possibilities).map((name) => (
           <li class="flex flex-col gap-2">
-            <span class="text-sm">{name}</span>
-            <ul class="flex flex-row gap-3">
+            <span class="text-sm">{name}:</span>
+            <ul class="flex flex-row gap-1.5">
               {Object.entries(possibilities[name]).map(([value, [link]]) => {
                 // deno-lint-ignore no-explicit-any
                 const hasStock = variantsProduct?.find((variant: any) =>
