@@ -35,12 +35,14 @@ function Cart() {
   );
   const locale = cart.value?.clientPreferencesData.locale;
   const currencyCode = cart.value?.storePreferencesData.currencyCode;
-  const maxInstallments = cart.value?.paymentData?.installmentOptions.find((
-    item,
-  ) => item.paymentSystem === "1")?.installments?.at(-1)?.count;
-  const maxValueInstallment = cart.value?.paymentData?.installmentOptions.find((
-    item,
-  ) => item.paymentSystem === "1")?.installments?.at(-1)?.value;
+  const installmentOptions = cart.value?.paymentData?.installmentOptions.find(
+    (item) => item.paymentSystem === "1",
+  )?.installments;
+
+  const maxInstallments = installmentOptions?.[installmentOptions.length - 1]
+    ?.count;
+  const maxValueInstallment = installmentOptions
+    ?.[installmentOptions.length - 1]?.value;
 
   if (cart.value === null) {
     return null;
