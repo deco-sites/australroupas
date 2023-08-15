@@ -57,10 +57,15 @@ function ProductCard({ product, preload, itemListName }: Props) {
       // deno-lint-ignore no-explicit-any
     )?.offers?.offers[0].priceSpecification?.filter((specification: any) =>
       specification.name == "Mastercard"
-    ).at(-1);
-    newInstallment = `${validOffer.billingDuration}x de ${
-      formatPrice(validOffer.billingIncrement, offers!.priceCurrency!)
-    }`;
+    );
+
+    // Check if there are valid offers before accessing the last one
+    if (validOffer.length > 0) {
+      const lastOffer = validOffer[validOffer.length - 1];
+      newInstallment = `${lastOffer.billingDuration}x de ${
+        formatPrice(lastOffer.billingIncrement, offers!.priceCurrency!)
+      }`;
+    }
   }
 
   const clickEvent = {
