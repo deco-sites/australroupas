@@ -289,4 +289,13 @@
     font-weight: 700 !important;
   }
 
+  div.checkbox.filterColor[aria-checked="true"] {
+    border-color: #5881CA;
+    background: none;
+  }
+
+  div.checkbox.filterColor[aria-checked="true"] ~ span {
+    color: #5881CA;
+  }
+
 }

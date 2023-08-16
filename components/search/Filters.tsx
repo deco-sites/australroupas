@@ -29,7 +29,7 @@ function ValueItem(
           <>
             <div
               aria-checked={selected}
-              class="checkbox rounded w-[18px] h-[18px] border-[#878787]"
+              class="checkbox checkbox-primary rounded w-[18px] h-[18px] border-[#878787]"
             >
             </div>
             <span class="text-sm text-[#636366] py-[5px] px-[10px]">
@@ -52,9 +52,9 @@ function ValueItem(
             </span>
           </>
         )}
-      {name == "Departments" &&
+      {name == "Categories" &&
         <span class="text-sm text-[#636366] py-[5px]">{label}</span>}
-      {name == "Departments" &&
+      {name == "Categories" &&
         quantity > 0 && <span class="text-sm text-base-300">({quantity})</span>}
     </a>
   );
@@ -69,19 +69,6 @@ function FilterValues({ key, values }: FilterToggle) {
   return (
     <ul class={`flex flex-wrap gap-2 pb-[15px] ${flexDirection}`}>
       {values.map((item) => {
-        // const { url, selected, value, quantity } = item;
-
-        // if (key === "Cor" || key === "Tamanho") {
-        //   return (
-        //     <a href={url}>
-        //       <Avatar
-        //         content={value}
-        //         variant={selected ? "active" : "default"}
-        //       />
-        //     </a>
-        //   );
-        // }
-
         if (key === "price") {
           const range = parseRange(item.value);
 
