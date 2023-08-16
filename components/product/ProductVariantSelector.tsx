@@ -158,39 +158,87 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
         }}
       />
       <ul class="flex flex-col gap-3">
-        {Object.keys(possibilities).map((name) => (
-          <li class="flex flex-col gap-2">
-            <span class="text-sm">{name}:</span>
-            <ul class="flex flex-row gap-1.5">
-              {Object.entries(possibilities[name]).map(([value, [link]]) => {
-                // deno-lint-ignore no-explicit-any
-                const hasStock = variantsProduct?.find((variant: any) =>
-                  // deno-lint-ignore no-explicit-any
-                  variant?.additionalProperty.find((property: any) =>
-                    property.value == value
-                  )
-                )?.offers?.offers[0].availability ==
-                  "https://schema.org/InStock";
+        {Object.keys(possibilities).map((name) => {
+          if (name != "Cor") {
+            return (
+              <li class="flex flex-col gap-2">
+                <span class="text-sm">{name}:</span>
+                <ul class="flex flex-row gap-1.5">
+                  {Object.entries(possibilities[name]).map(([value, [link]]) => {
+                    // deno-lint-ignore no-explicit-any
+                    const hasStock = variantsProduct?.find((variant: any) =>
+                      // deno-lint-ignore no-explicit-any
+                      variant?.additionalProperty.find((property: any) =>
+                        property.value == value
+                      )
+                    )?.offers?.offers[0].availability ==
+                      "https://schema.org/InStock";
 
-                return (
-                  <li>
-                    <a
-                      href={hasStock ? link : ""}
-                      style={{ pointerEvents: !hasStock ? "none" : "" }}
-                    >
-                      <Avatar
-                        content={value}
-                        variant={currentUrl.includes(link) ? "active" : "PDP"}
-                        name={name}
-                        disponibility={hasStock}
-                      />
-                    </a>
+                    return (
+                      <li>
+                        <a
+                          href={hasStock ? link : ""}
+                          style={{ pointerEvents: !hasStock ? "none" : "" }}
+                        >
+                          <Avatar
+                            content={value}
+                            variant={currentUrl.includes(link) ? "active" : "PDP"}
+                            name={name}
+                            disponibility={hasStock}
+                          />
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            )
+          } else {
+            const currentColor = product.additionalProperty!.find(property => property.name == "Cor")!.value || "";
+
+            const colors: string[] = [currentColor];
+            const similarToBeRendered: Product[] = [product];
+
+            product.isSimilarTo?.forEach(similar => {
+              const color = similar.additionalProperty!.find(property => property.name == "Cor")!.value || "";
+              const hasStock = similar.offers?.offers[0].availability == "https://schema.org/InStock";
+
+              if (hasStock && !colors.includes(color)) {
+                colors.push(color)
+                similarToBeRendered.push(similar)
+              }
+            })
+
+            return (
+              <>
+                {similarToBeRendered.length > 1 && 
+                  <li class="flex flex-col gap-2">
+                    <span class="text-sm">{name}:</span>
+                    <ul class="flex flex-row gap-1.5">
+                      {similarToBeRendered.map((similar) => {
+                        const color = similar.additionalProperty!.find(property => property.name == "Cor")!.value || "";
+                        return (
+                          <li>
+                            <a
+                              href={similar.url!.split("?")[0]}
+                            >
+                              <Avatar
+                                content={color}
+                                variant={currentUrl.includes(similar.url!.split("?")[0]) ? "active" : "PDP"}
+                                name={name}
+                                disponibility={true}
+                              />
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
                   </li>
-                );
-              })}
-            </ul>
-          </li>
-        ))}
+                }
+              </>
+            )
+          }
+        })}
       </ul>
     </>
   );
