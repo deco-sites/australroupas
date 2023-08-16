@@ -94,7 +94,9 @@ function ProductCard({ product, preload, itemListName }: Props) {
       >
         {/* Product Images */}
         <a
-          href={findStock && findStock[0] ? findStock[0].url!.split("?")[0] : url}
+          href={findStock && findStock[0]
+            ? findStock[0].url!.split("?")[0]
+            : url}
           aria-label="view product"
           class="contents"
         >

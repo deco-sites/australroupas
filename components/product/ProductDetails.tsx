@@ -54,7 +54,9 @@ function NotFound() {
   );
 }
 
-function ProductInfo({ page, currentUrl }: { page: ProductDetailsPage, currentUrl: string }) {
+function ProductInfo(
+  { page, currentUrl }: { page: ProductDetailsPage; currentUrl: string },
+) {
   const {
     breadcrumbList,
     product,
@@ -225,8 +227,8 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
 function Details({
   page,
   variant,
-  currentUrl
-}: { page: ProductDetailsPage; variant: Variant, currentUrl: string }) {
+  currentUrl,
+}: { page: ProductDetailsPage; variant: Variant; currentUrl: string }) {
   const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
@@ -371,7 +373,9 @@ function Details({
   );
 }
 
-function ProductDetails({ page, variant: maybeVar = "auto", currentUrl }: MainProps) {
+function ProductDetails(
+  { page, variant: maybeVar = "auto", currentUrl }: MainProps,
+) {
   /**
    * Showcase the different product views we have on this template. In case there are less
    * than two images, render a front-back, otherwhise render a slider
@@ -385,10 +389,11 @@ function ProductDetails({ page, variant: maybeVar = "auto", currentUrl }: MainPr
 
   return (
     <div class="sm:home-container py-0 lg:pb-15">
-      {page ? <Details page={page} variant={variant} currentUrl={currentUrl} /> : <NotFound />}
+      {page
+        ? <Details page={page} variant={variant} currentUrl={currentUrl} />
+        : <NotFound />}
     </div>
   );
 }
-
 
 export default ProductDetails;
