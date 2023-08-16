@@ -4,12 +4,12 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 
 interface Props {
   product: Product;
+  currentUrl: string;
 }
 
-function VariantSelector({ product, product: { url } }: Props) {
+function VariantSelector({ product, product: { url }, currentUrl }: Props) {
   const possibilities = useVariantPossibilities(product);
   const variantsProduct = product?.isVariantOf?.hasVariant;
-
   return (
     <>
       <style
@@ -157,11 +157,11 @@ function VariantSelector({ product, product: { url } }: Props) {
         `,
         }}
       />
-      <ul class="flex flex-col gap-4">
+      <ul class="flex flex-col gap-3">
         {Object.keys(possibilities).map((name) => (
           <li class="flex flex-col gap-2">
-            <span class="text-sm">{name}</span>
-            <ul class="flex flex-row gap-3">
+            <span class="text-sm">{name}:</span>
+            <ul class="flex flex-row gap-1.5">
               {Object.entries(possibilities[name]).map(([value, [link]]) => {
                 // deno-lint-ignore no-explicit-any
                 const hasStock = variantsProduct?.find((variant: any) =>
@@ -180,7 +180,7 @@ function VariantSelector({ product, product: { url } }: Props) {
                     >
                       <Avatar
                         content={value}
-                        variant={link === url ? "active" : "PDP"}
+                        variant={currentUrl.includes(link) ? "active" : "PDP"}
                         name={name}
                         disponibility={hasStock}
                       />

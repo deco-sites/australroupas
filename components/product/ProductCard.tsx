@@ -19,7 +19,7 @@ interface Props {
 
 const relative = (url: string) => {
   const link = new URL(url);
-  return `${link.pathname}${link.search}`;
+  return `${link.pathname}`;
 };
 
 const WIDTH = 338;
@@ -94,7 +94,9 @@ function ProductCard({ product, preload, itemListName }: Props) {
       >
         {/* Product Images */}
         <a
-          href={findStock && findStock[0] ? findStock[0].url : url}
+          href={findStock && findStock[0]
+            ? findStock[0].url!.split("?")[0]
+            : url}
           aria-label="view product"
           class="contents"
         >
