@@ -12,8 +12,10 @@ function Simulation() {
     updateItems,
   } = useCart();
   const displayInput = useSignal(false);
-  const postalCodeInit = cart.value?.shippingData?.availableAddresses?.at(-1)
-    ?.postalCode;
+  const availableAddresses = cart.value?.shippingData?.availableAddresses;
+  const postalCodeInit = availableAddresses
+    ? availableAddresses[availableAddresses.length - 1]?.postalCode
+    : undefined;
   const shippingPriceInit = cart.value?.totalizers.find((item) =>
     item.id === "Shipping"
   );
