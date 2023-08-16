@@ -30,6 +30,10 @@ export interface Props {
   variant?: Variant;
 }
 
+export interface MainProps extends Props {
+  currentUrl: string;
+}
+
 const WIDTH = 424;
 const HEIGHT = 635;
 const ASPECT_RATIO = `${WIDTH} / ${HEIGHT}`;
@@ -50,7 +54,7 @@ function NotFound() {
   );
 }
 
-function ProductInfo({ page }: { page: ProductDetailsPage }) {
+function ProductInfo({ page, currentUrl }: { page: ProductDetailsPage, currentUrl: string }) {
   const {
     breadcrumbList,
     product,
@@ -98,7 +102,7 @@ function ProductInfo({ page }: { page: ProductDetailsPage }) {
       </div>
       {/* Sku Selector */}
       <div class="">
-        <ProductSelector product={product} />
+        <ProductSelector product={product} currentUrl={currentUrl} />
       </div>
       {/* Add to Cart and Favorites button */}
       <div class="flex flex-row items-center gap-2 lg:max-w-[500px]">
@@ -221,7 +225,8 @@ const useStableImages = (product: ProductDetailsPage["product"]) => {
 function Details({
   page,
   variant,
-}: { page: ProductDetailsPage; variant: Variant }) {
+  currentUrl
+}: { page: ProductDetailsPage; variant: Variant, currentUrl: string }) {
   const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
@@ -323,7 +328,7 @@ function Details({
 
           {/* Product Info */}
           <div class="relative px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-0 lg:ml-[40px] lg:sticky lg:top-[136px] lg:h-full lg:max-w-[500px]">
-            <ProductInfo page={page} />
+            <ProductInfo page={page} currentUrl={currentUrl} />
           </div>
         </div>
         <SliderJS rootId={id}></SliderJS>
@@ -360,13 +365,13 @@ function Details({
 
       {/* Product Info */}
       <div class="px-4 sm:pr-0 sm:pl-6">
-        <ProductInfo page={page} />
+        <ProductInfo page={page} currentUrl={currentUrl} />
       </div>
     </div>
   );
 }
 
-function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
+function ProductDetails({ page, variant: maybeVar = "auto", currentUrl }: MainProps) {
   /**
    * Showcase the different product views we have on this template. In case there are less
    * than two images, render a front-back, otherwhise render a slider
@@ -380,9 +385,10 @@ function ProductDetails({ page, variant: maybeVar = "auto" }: Props) {
 
   return (
     <div class="sm:home-container py-0 lg:pb-15">
-      {page ? <Details page={page} variant={variant} /> : <NotFound />}
+      {page ? <Details page={page} variant={variant} currentUrl={currentUrl} /> : <NotFound />}
     </div>
   );
 }
+
 
 export default ProductDetails;

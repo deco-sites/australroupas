@@ -4,12 +4,12 @@ import type { Product } from "deco-sites/std/commerce/types.ts";
 
 interface Props {
   product: Product;
+  currentUrl: string;
 }
 
-function VariantSelector({ product, product: { url } }: Props) {
+function VariantSelector({ product, product: { url }, currentUrl }: Props) {
   const possibilities = useVariantPossibilities(product);
   const variantsProduct = product?.isVariantOf?.hasVariant;
-
   return (
     <>
       <style
@@ -180,7 +180,7 @@ function VariantSelector({ product, product: { url } }: Props) {
                     >
                       <Avatar
                         content={value}
-                        variant={link === url ? "active" : "PDP"}
+                        variant={currentUrl.includes(link) ? "active" : "PDP"}
                         name={name}
                         disponibility={hasStock}
                       />
