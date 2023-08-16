@@ -232,7 +232,7 @@ function Details({
   const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
-  console.log(product.isSimilarTo)
+  console.log(product.isSimilarTo);
   /**
    * Product slider variant
    *
