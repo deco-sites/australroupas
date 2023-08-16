@@ -164,7 +164,6 @@ function BannerAustral(
           {creativeCarousel?.map((creative, index) => {
             const { content, padding } = creative;
             if (isImage(creative.creative)) {
-              console.log(content);
               const hasContent = ((content?.title?.length || 0) > 0) ||
                 ((content?.buttons?.length || 0) > 0);
               return (
