@@ -219,11 +219,15 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
             });
 
             similarToBeRendered.sort((a, b) => {
-              const colorA = a.additionalProperty?.find(prop => prop.name === "Cor")?.value || "";
-              const colorB = b.additionalProperty?.find(prop => prop.name === "Cor")?.value || "";
+              const colorA = a.additionalProperty?.find((prop) =>
+                prop.name === "Cor"
+              )?.value || "";
+              const colorB = b.additionalProperty?.find((prop) =>
+                prop.name === "Cor"
+              )?.value || "";
 
               return colorA.localeCompare(colorB);
-            })
+            });
 
             return (
               <>
