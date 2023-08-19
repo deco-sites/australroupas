@@ -57,23 +57,23 @@ function GlobalTags() {
       }
 
       summary::marker{
-        display: none;
+        display: none !important;
       }
 
       details summary::-webkit-details-marker {
-        display: none;
+        display: none !important;
       }
 
       details > summary {
-        list-style: none;
+        list-style: none !important;
       }
 
       summary.filter::marker{
-        display: block;
+        display: none !important;
     }
     
     details summary.filter::-webkit-details-marker {
-        display: block;
+        display: none !important;
     }
     
       details summary.filter p::after {
