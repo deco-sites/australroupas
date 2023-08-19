@@ -65,13 +65,23 @@ function ProductShelf({
 
       <>
         <div class="hidden relative sm:block z-10 col-start-1 row-start-3">
-          <Slider.PrevButton class="absolute left-[-35px] -rotate-90">
-            <i class="icon icon-arrow"></i>
+          <Slider.PrevButton class="absolute left-[-50px]">
+            <Icon
+              class="text-inherit"
+              size={50}
+              id="ChevronLeft"
+              strokeWidth={1}
+            />
           </Slider.PrevButton>
         </div>
         <div class="hidden relative sm:block z-10 col-start-3 row-start-3">
-          <Slider.NextButton class="absolute right-[-35px] rotate-90">
-            <i class="icon icon-arrow"></i>
+          <Slider.NextButton class="absolute right-[-50px]">
+            <Icon
+              class="text-inherit"
+              size={50}
+              id="ChevronRight"
+              strokeWidth={1}
+            />
           </Slider.NextButton>
         </div>
       </>
