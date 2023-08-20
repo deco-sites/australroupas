@@ -16,8 +16,17 @@ interface Props extends UseAddToCartProps {
 }
 
 function AddToCartButton(
-  { skuId, sellerId, discount, price, productGroupId, name, openPdp, url, currentUrl }:
-    Props,
+  {
+    skuId,
+    sellerId,
+    discount,
+    price,
+    productGroupId,
+    name,
+    openPdp,
+    url,
+    currentUrl,
+  }: Props,
 ) {
   const {
     displayModalSelectSKU,
@@ -56,7 +65,7 @@ function AddToCartButton(
           Adicionar à Sacola
         </div>
       </>
-    )
+    );
   }
 
   return (
