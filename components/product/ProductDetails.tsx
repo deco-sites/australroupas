@@ -80,7 +80,7 @@ function ProductInfo(
       <div class="">
         <h1>
           <span class="text-base leading-[140%] tracking-[.04rem] text-info lg:text-[22px]">
-            {name}
+            {currentUrl.indexOf("skuId") > -1 ? name : isVariantOf?.name}
           </span>
         </h1>
       </div>
@@ -121,6 +121,7 @@ function ProductInfo(
                   productGroupId={product.isVariantOf?.productGroupID ?? ""}
                   openPdp={false}
                   url={""}
+                  currentUrl={currentUrl}
                 />
               )}
             </>
@@ -328,7 +329,7 @@ function Details({
           </ul>
 
           {/* Product Info */}
-          <div class="relative px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-0 lg:ml-[40px] lg:sticky lg:top-[136px] lg:h-full lg:max-w-[500px]">
+          <div style={{position: "unset"}} class="relative px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-0 lg:ml-[40px] lg:sticky lg:top-[136px] lg:h-full lg:max-w-[500px]">
             <ProductInfo page={page} currentUrl={currentUrl} />
           </div>
         </div>

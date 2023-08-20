@@ -298,4 +298,30 @@
     color: #5881CA;
   }
 
+  @keyframes swal2-show {
+    0% {
+      transform: scale(.7);
+    }
+    45% {
+      transform: scale(1.05);
+    }
+    80% {
+      transform: scale(.95);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes swal2-hide {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(.5);
+      opacity: 0;
+    }
+  }
+
 }
