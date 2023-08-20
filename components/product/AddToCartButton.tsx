@@ -3,6 +3,7 @@ import {
   Options as UseAddToCartProps,
   useAddToCart,
 } from "$store/sdk/useAddToCart.ts";
+import { useUI } from "$store/sdk/useUI.ts";
 
 interface Props extends UseAddToCartProps {
   /**
@@ -11,12 +12,26 @@ interface Props extends UseAddToCartProps {
   sellerId: string;
   openPdp: boolean;
   url: string;
+  currentUrl: string;
 }
 
 function AddToCartButton(
-  { skuId, sellerId, discount, price, productGroupId, name, openPdp, url }:
-    Props,
+  {
+    skuId,
+    sellerId,
+    discount,
+    price,
+    productGroupId,
+    name,
+    openPdp,
+    url,
+    currentUrl,
+  }: Props,
 ) {
+  const {
+    displayModalSelectSKU,
+  } = useUI();
+
   const props = useAddToCart({
     skuId,
     sellerId,
@@ -27,7 +42,7 @@ function AddToCartButton(
   });
 
   const classBtn =
-    "flex justify-center items-center w-full bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:bg-primary hover:opacity-80 max-w-[385px]";
+    "flex cursor-pointer justify-center items-center w-full bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:bg-primary hover:opacity-80 max-w-[385px]";
 
   if (openPdp) {
     return (
@@ -37,6 +52,19 @@ function AddToCartButton(
       >
         Adicionar à Sacola
       </a>
+    );
+  }
+
+  if (currentUrl.indexOf("skuId") == -1) {
+    return (
+      <>
+        <div
+          class={classBtn}
+          onClick={() => displayModalSelectSKU.value = true}
+        >
+          Adicionar à Sacola
+        </div>
+      </>
     );
   }
 

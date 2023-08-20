@@ -12,6 +12,7 @@ const displayOverlay = signal(false);
 const displayServiceMenu = signal(false);
 const displayOverlayServiceMenu = signal(false);
 const displayFilterMenu = signal(false);
+const displayModalSelectSKU = signal(false);
 
 const state = {
   displayCart,
@@ -21,6 +22,7 @@ const state = {
   displayServiceMenu,
   displayOverlayServiceMenu,
   displayFilterMenu,
+  displayModalSelectSKU,
 };
 
 export const useUI = () => state;
