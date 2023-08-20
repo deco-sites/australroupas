@@ -9,6 +9,7 @@ function Overlay() {
     displayServiceMenu,
     displayOverlayServiceMenu,
     displayModalSelectSKU,
+    displayModalShare,
   } = useUI();
   return (
     <>
@@ -62,10 +63,14 @@ function Overlay() {
 
       <div
         class={`${
-          displayModalSelectSKU.value
+          displayModalSelectSKU.value || displayModalShare.value
             ? "opacity-40 pointer-events-all"
             : "pointer-events-none opacity-0"
         } fixed w-full h-screen right-0 top-0 transition-all z-50 ease-linear duration-300 bg-info`}
+        onClick={() => {
+          displayModalSelectSKU.value = false;
+          displayModalShare.value = false;
+        }}
       >
       </div>
       <div
