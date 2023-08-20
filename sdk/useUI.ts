@@ -24,7 +24,7 @@ const state = {
   displayOverlayServiceMenu,
   displayFilterMenu,
   displayModalSelectSKU,
-  displayModalShare
+  displayModalShare,
 };
 
 export const useUI = () => state;
