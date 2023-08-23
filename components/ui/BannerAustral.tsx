@@ -138,7 +138,7 @@ export default function Container(
         marginBottom && "mb-10"
       } ${fullScreen ? "" : "sm:home-container"}`}
     >
-      <div class="w-full">
+      <div class="sm:w-full">
         <BannerAustral
           column={column}
           maxWidth={maxWidth}
@@ -306,7 +306,9 @@ function Image(
           media="(max-width: 1024px)"
           fetchPriority={isLcp ? "high" : "low"}
           src={(creative as ImageProps).imageMobile}
-          width={414}
+          width={Number((creative as ImageProps).ratioMobile?.split("x")[0]) ||
+            414}
+          height={Number((creative as ImageProps).ratioMobile?.split("x")[1])}
           preload={isLcp}
         />
         <Source
@@ -319,7 +321,7 @@ function Image(
           preload={isLcp}
         />
         <img
-          class={`object-cover w-full sm:h-full ${
+          class={`object-cover w-full max-w-[100vw] sm:h-full ${
             borderRadius && "rounded-md"
           }`}
           loading={isLcp ? "eager" : "lazy"}
