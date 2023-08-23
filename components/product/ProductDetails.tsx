@@ -7,6 +7,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import SliderJS from "$store/components/ui/SliderJS.tsx";
+import ProductSizeTable from "$store/components/product/ProductSizeTable.tsx";
 import OutOfStock from "$store/islands/OutOfStock.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
@@ -73,7 +74,10 @@ function ProductInfo(
   const { price, listPrice, seller, installments, availability } = useOffer(
     offers,
   );
-
+  const categories = product.additionalProperty?.filter((property) =>
+    property.name === "category"
+  );
+  const category = categories?.at(-1)?.value;
   return (
     <>
       {/* Code and name */}
@@ -106,6 +110,7 @@ function ProductInfo(
       <div class="">
         <ProductSelector product={product} currentUrl={currentUrl} />
       </div>
+      <ProductSizeTable category={category!} />
       {/* Add to Cart and Favorites button */}
       <div class="flex flex-row items-center gap-2 lg:max-w-[500px]">
         {availability === "https://schema.org/InStock"
