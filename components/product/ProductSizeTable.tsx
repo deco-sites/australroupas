@@ -12,6 +12,12 @@ function ProductSizeTable({ category }: { category: string }) {
                             margin: 0 !important;
                             margin-top: 5px !important;
                         }
+                        .vfr__button--clean {
+                          gap: 3px;
+                        }
+                        button#szb-chart-button:before, button#szb-vfr-button:before {
+                          margin-top: -7px;
+                        }
                     `,
             }}
           />
