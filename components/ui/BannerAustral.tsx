@@ -26,8 +26,12 @@ export interface VideoProps {
 export interface ImageProps {
   /** @description Seu banner Mobile */
   imageMobile: LiveImage;
+  /** @description Para melhorar a perfomance digite a proporação no formato exemplo: 1920x1080 */
+  ratioMobile?: string;
   /** @description Seu banner Desktop */
   imageDesktop: LiveImage;
+  /** @description Para melhorar a perfomance digite a proporação no formato exemplo: 1920x1080 */
+  ratioDesktop?: string;
   /** @description Texto Alternativo */
   altImage?: string;
   /** @description Link para redirecionar */
@@ -134,7 +138,7 @@ export default function Container(
         marginBottom && "mb-10"
       } ${fullScreen ? "" : "sm:home-container"}`}
     >
-      <div>
+      <div class="w-full">
         <BannerAustral
           column={column}
           maxWidth={maxWidth}
@@ -172,7 +176,7 @@ function BannerAustral(
                   class={`relative carousel-item ${
                     fullScreen
                       ? "min-w-[100vw]"
-                      : "max-w-[calc(100vw-30px)] sm:max-w-full flex flex-col"
+                      : "max-w-[calc(100vw-30px)] sm:max-w-full w-full flex flex-col"
                   }`}
                 >
                   <div class={`${fullScreen ? `min-w-[100vw]` : `w-full`}`}>
@@ -303,15 +307,15 @@ function Image(
           fetchPriority={isLcp ? "high" : "low"}
           src={(creative as ImageProps).imageMobile}
           width={414}
-          height={536}
           preload={isLcp}
         />
         <Source
           media="(min-width: 1025px)"
           fetchPriority={isLcp ? "high" : "low"}
           src={(creative as ImageProps).imageDesktop}
-          width={1440}
-          height={525}
+          width={Number((creative as ImageProps).ratioDesktop?.split("x")[0]) ||
+            1440}
+          height={Number((creative as ImageProps).ratioDesktop?.split("x")[1])}
           preload={isLcp}
         />
         <img
