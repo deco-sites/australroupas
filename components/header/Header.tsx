@@ -1,4 +1,4 @@
-import Modals from "$store/islands/HeaderModals.tsx";
+import Cart from "$store/components/minicart/Cart.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
@@ -122,7 +122,7 @@ function Header(
 
         <Overlay />
 
-        <Modals />
+        <Cart />
       </header>
     </>
   );

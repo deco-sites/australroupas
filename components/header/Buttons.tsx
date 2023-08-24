@@ -149,6 +149,7 @@ function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
           } text-xl lg:text-2.5xl`}
         >
         </i>
+        <span class="text-[0px] hidden">Open Cart</span>
       </div>
     </Button>
   );

@@ -23,8 +23,8 @@ function Card(
       <a class="block w-full" href={href}>
         <Image
           class="w-full rounded-md"
-          loading={index == 0 ? "eager" : "lazy"}
-          fetchPriority={index == 0 ? "high" : "low"}
+          loading={"lazy"}
+          fetchPriority={"low"}
           src={image}
           alt={title}
           width={400}
