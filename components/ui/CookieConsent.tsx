@@ -84,12 +84,14 @@ function CookieConsent() {
           <div class="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
             <Button
               data-button-cc-accept
+              aria-label="Accept cookie consent"
               class="flex justify-center items-center mx-auto w-[190px] text-xs sm:text-base bg-primary border-none text-white h-10 rounded-md hover:opacity-80 transition duration-150 sm:mr-[60px]"
             >
               Ok, Entendi
             </Button>
             <Button
               data-button-cc-close
+              aria-label="Close cookie consent"
               class="absolute top-1 right-1 sm:relative sm:top-0 sm:right-0"
             >
               <Icon id="XMark" width={30} height={30} strokeWidth={1.5} />

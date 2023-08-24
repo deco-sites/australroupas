@@ -220,12 +220,9 @@ function BannerAustral(
         )}
 
         {isFirstBanner && mouseIcon && (
-          <a
-            href="#scroll"
-            class="absolute bottom-[10px] hover:bottom-[5px] left-1/2 transform -translate-x-1/2 px-4 py-3 transition-all duration-150 cursor-pointer"
-          >
+          <span class="absolute bottom-[10px] hover:bottom-[5px] left-1/2 transform -translate-x-1/2 px-4 py-3 transition-all duration-150 cursor-pointer">
             <i class="icon icon-mouse text-white text-[26px]"></i>
-          </a>
+          </span>
         )}
 
         <SliderJS

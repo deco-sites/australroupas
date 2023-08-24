@@ -11,9 +11,9 @@ import * as $$$$4 from "./routes/api/[...catchall].tsx";
 import * as $$$$5 from "./routes/styles.css.ts";
 import * as $$$$6 from "./routes/_app.tsx";
 import * as $$$$$0 from "./islands/AddToCartButton.tsx";
-import * as $$$$$1 from "./islands/Faq.tsx";
-import * as $$$$$2 from "./islands/HeaderButton.tsx";
-import * as $$$$$3 from "./islands/HeaderModals.tsx";
+import * as $$$$$1 from "./islands/Cart.tsx";
+import * as $$$$$2 from "./islands/Faq.tsx";
+import * as $$$$$3 from "./islands/HeaderButton.tsx";
 import * as $$$$$4 from "./islands/HeaderSearchbar.tsx";
 import * as $$$$$5 from "./islands/Menu.tsx";
 import * as $$$$$6 from "./islands/NavigatorShare.tsx";
@@ -275,9 +275,9 @@ const manifest = {
   },
   "islands": {
     "./islands/AddToCartButton.tsx": $$$$$0,
-    "./islands/Faq.tsx": $$$$$1,
-    "./islands/HeaderButton.tsx": $$$$$2,
-    "./islands/HeaderModals.tsx": $$$$$3,
+    "./islands/Cart.tsx": $$$$$1,
+    "./islands/Faq.tsx": $$$$$2,
+    "./islands/HeaderButton.tsx": $$$$$3,
     "./islands/HeaderSearchbar.tsx": $$$$$4,
     "./islands/Menu.tsx": $$$$$5,
     "./islands/NavigatorShare.tsx": $$$$$6,

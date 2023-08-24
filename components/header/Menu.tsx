@@ -24,11 +24,12 @@ function MenuItem({ item }: { item: INavItem }) {
           />
         )
         : ""}
-      <input
-        class="absolute right-0 w-12"
-        type="checkbox"
+      <button
+        class="absolute right-0 w-12 h-[46px] z-10"
+        // type="checkbox"
         onClick={() => setShow(!show)}
-      />
+      >
+      </button>
       <div class="collapse-title px-0 py-4 min-h-min">
         <a
           class="w-full block whitespace-nowrap text-sm leading-none"
@@ -53,6 +54,7 @@ function MenuItem({ item }: { item: INavItem }) {
                   id="ChevronLeft"
                 />
                 <button
+                  aria-label="Voltar"
                   class="w-full h-full text-left text-primary text-base leading-none px-12"
                   onClick={() => setShow(!show)}
                 >
@@ -88,6 +90,7 @@ function Menu({ items, callToUsItem }: Props) {
         } fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
       >
         <Button
+          aria-label="Close"
           class="absolute -right-10 top-2"
           onClick={() => {
             displayMenu.value = !displayMenu.value;
