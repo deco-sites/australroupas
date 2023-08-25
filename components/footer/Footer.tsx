@@ -162,17 +162,13 @@ function Footer(
           <div class="flex flex-col gap-2.5 w-full sm:w-[25%] items-center pt-12 pb-10">
             <ul class="flex w-full justify-around sm:justify-center">
               {socialMedia?.map((icon) => {
-                return (
-                  <SocialMediaFooter item={icon} />
-                );
+                return <SocialMediaFooter item={icon} />;
               })}
             </ul>
 
             <ul class="flex w-full justify-around sm:justify-center">
               {payment?.map((icon) => {
-                return (
-                  <PaymentIconFooter item={icon} />
-                );
+                return <PaymentIconFooter item={icon} />;
               })}
             </ul>
           </div>
