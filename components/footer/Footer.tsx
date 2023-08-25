@@ -49,27 +49,27 @@ export interface Props {
 
 function SocialMediaFooter({ item }: { item: socialMediaItem }) {
   return (
-    <div class="border-base-100 border border-solid py-1.5 px-2.5">
+    <li class="cursor-pointer border-base-100 border border-solid py-1.5 px-2.5">
       <Icon
         id={item.icon.icon}
         width={25}
         height={20}
         strokeWidth={1}
       />
-    </div>
+    </li>
   );
 }
 
 function PaymentIconFooter({ item }: { item: paymentItem }) {
   return (
-    <div class="border-base-100 border border-solid py-1.5 px-1">
+    <li class="border-base-100 border border-solid py-1.5 px-1">
       <Icon
         id={item.icon.icon}
         height={25}
         width={item.width}
         strokeWidth={1}
       />
-    </div>
+    </li>
   );
 }
 
@@ -100,26 +100,23 @@ function Footer(
           <ul class="hidden sm:flex flex-row justify-between w-full pt-12 pb-10">
             {sections.map((section) => (
               <li class="w-full">
-                <div>
-                  <span class="font-semibold text-[14px] text-info">
-                    <a
-                      href={section.href}
-                      target={section.openInNewPage ? "_blank" : ""}
-                    >
-                      {section.label}
-                    </a>
-                  </span>
+                <a
+                  class="font-semibold text-[14px] text-info"
+                  href={section.href}
+                  target={section.openInNewPage ? "_blank" : ""}
+                >
+                  {section.label}
+                </a>
 
-                  <ul
-                    class={`flex flex-col gap-3 pt-2 flex-wrap`}
-                  >
-                    {section.children.map((item) => (
-                      <li class="text-[14px]">
-                        <LinkItemFooter item={item} />
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul
+                  class={`flex flex-col gap-3 pt-2 flex-wrap`}
+                >
+                  {section.children.map((item) => (
+                    <li class="text-[14px]">
+                      <LinkItemFooter item={item} />
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>
@@ -127,39 +124,37 @@ function Footer(
           {/* Mobile view */}
           <ul class="flex flex-col sm:hidden sm:flex-row sm:gap-4">
             {sections.map((section) => (
-              <li>
-                <span class="text-info">
-                  <details
-                    id="footer"
-                    class="border-b-[1px] border-[#C7C7CC] group"
-                  >
-                    <summary class="py-[15px] relative">
-                      <a
-                        href={section.href}
-                        target={section.openInNewPage ? "_blank" : ""}
-                        class="text-[12px] font-semibold"
-                      >
-                        {section.label}
-                      </a>
-                      <span class="block absolute right-0 top-[22px] group-open:hidden text-[9px] text-info">
-                        <i class="icon icon-plus"></i>
-                      </span>
-                      <span class="hidden absolute right-0 top-[22px] group-open:block text-[9px] text-info">
-                        <i class="icon icon-minus"></i>
-                      </span>
-                    </summary>
-
-                    <ul
-                      class={`flex flex-col gap-2 text-[12px] mb-5`}
+              <li class="text-info">
+                <details
+                  id="footer"
+                  class="border-b-[1px] border-[#C7C7CC] group"
+                >
+                  <summary class="py-[15px] relative">
+                    <a
+                      href={section.href}
+                      target={section.openInNewPage ? "_blank" : ""}
+                      class="text-[12px] font-semibold"
                     >
-                      {section.children.map((item) => (
-                        <li>
-                          <LinkItemFooter item={item} />
-                        </li>
-                      ))}
-                    </ul>
-                  </details>
-                </span>
+                      {section.label}
+                    </a>
+                    <span class="block absolute right-0 top-[22px] group-open:hidden text-[9px] text-info">
+                      <i class="icon icon-plus"></i>
+                    </span>
+                    <span class="hidden absolute right-0 top-[22px] group-open:block text-[9px] text-info">
+                      <i class="icon icon-minus"></i>
+                    </span>
+                  </summary>
+
+                  <ul
+                    class={`flex flex-col gap-2 text-[12px] mb-5`}
+                  >
+                    {section.children.map((item) => (
+                      <li>
+                        <LinkItemFooter item={item} />
+                      </li>
+                    ))}
+                  </ul>
+                </details>
               </li>
             ))}
           </ul>
@@ -168,9 +163,7 @@ function Footer(
             <ul class="flex w-full justify-around sm:justify-center">
               {socialMedia?.map((icon) => {
                 return (
-                  <li class="cursor-pointer">
-                    <SocialMediaFooter item={icon} />
-                  </li>
+                  <SocialMediaFooter item={icon} />
                 );
               })}
             </ul>
@@ -178,9 +171,7 @@ function Footer(
             <ul class="flex w-full justify-around sm:justify-center">
               {payment?.map((icon) => {
                 return (
-                  <li>
-                    <PaymentIconFooter item={icon} />
-                  </li>
+                  <PaymentIconFooter item={icon} />
                 );
               })}
             </ul>
@@ -193,29 +184,27 @@ function Footer(
               {allRightsReserved}
             </p>
             <div class="flex gap-5">
-              <span class="flex items-center justify-center gap-1 text-info">
-                <a
-                  href="https://www.deco.cx"
-                  aria-label="powered by https://www.deco.cx"
-                >
-                  <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
-                </a>
-              </span>
+              <a
+                class="flex items-center justify-center gap-1 text-info"
+                href="https://www.deco.cx"
+                aria-label="powered by https://www.deco.cx"
+              >
+                <Icon id="Deco" height={20} width={60} strokeWidth={0.01} />
+              </a>
               {logos.length > 0 &&
                 logos.map((logo) => (
-                  <span class="flex items-center justify-center gap-1 text-info">
-                    <a
-                      href={logo.href}
-                      aria-label={"powered by " + logo.alt}
-                    >
-                      <Image
-                        src={logo.image}
-                        alt={logo.alt}
-                        width={60}
-                        class="object-cover object-center"
-                      />
-                    </a>
-                  </span>
+                  <a
+                    class="flex items-center justify-center gap-1 text-info"
+                    href={logo.href}
+                    aria-label={"powered by " + logo.alt}
+                  >
+                    <Image
+                      src={logo.image}
+                      alt={logo.alt}
+                      width={60}
+                      class="object-cover object-center"
+                    />
+                  </a>
                 ))}
             </div>
           </div>
