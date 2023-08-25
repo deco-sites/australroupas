@@ -1,8 +1,10 @@
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
+import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 
 export interface Props {
   image: LiveImage;
+  mobileImage?: LiveImage;
   subTitle?: string;
   title: string;
   description: string;
@@ -15,13 +17,13 @@ interface CardProps extends Props {
 }
 
 function Card(
-  { image, title, description, callToAction, href, subTitle = "", index }:
+  { image, title, description, callToAction, href, subTitle = "", index, mobileImage = "" }:
     CardProps,
 ) {
   return (
     <div class={`w-full px-4.5 lg:px-0`}>
       <a class="block w-full" href={href}>
-        <Image
+        {/* <Image
           class="w-full rounded-md"
           loading={"lazy"}
           fetchPriority={"low"}
@@ -29,7 +31,31 @@ function Card(
           alt={title}
           width={400}
           height={250}
-        />
+        /> */}
+        <Picture preload={false}>
+          <Source
+            media="(max-width: 1024px)"
+            fetchPriority={"low"}
+            src={mobileImage ? mobileImage : image}
+            width={400}
+            height={250}
+            preload={false}
+          />
+          <Source
+            media="(min-width: 1025px)"
+            fetchPriority={"low"}
+            src={image}
+            width={545}
+            height={341}
+            preload={false}
+          />
+          <img
+            class={`w-full rounded-md`}
+            loading={"lazy"}
+            src={image}
+            alt={title}
+          />
+        </Picture>
       </a>
       {subTitle &&
         <p class="mt-5 text-sm mb-2.5">{subTitle}</p>}
