@@ -32,21 +32,21 @@ function Card(
     <div class={`w-full px-4.5 lg:px-0`}>
       <a class="block w-full" href={href}>
         <Picture preload={false}>
-          <Source
+          <source
             media="(max-width: 1024px)"
-            fetchPriority={"low"}
+            // fetchPriority={"low"}
             src={mobileImage ? mobileImage : image}
             width={400}
             height={250}
-            preload={false}
+            // preload={false}
           />
-          <Source
+          <source
             media="(min-width: 1025px)"
-            fetchPriority={"low"}
+            // fetchPriority={"low"}
             src={image}
             width={545}
             height={341}
-            preload={false}
+            // preload={false}
           />
           <img
             class={`w-full rounded-md`}
