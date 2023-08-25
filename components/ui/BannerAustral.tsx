@@ -415,12 +415,10 @@ function Dots(
         {creativeCarousel?.map((_, index) => (
           <li class="carousel-item">
             <Slider.Dot index={index}>
-              <div class="py-5">
-                <div
-                  class="w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)] group-disabled:bg-[#000] "
-                  style={{ animationDuration: `${interval}s` }}
-                />
-              </div>
+              <div
+                class="my-5 w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)] group-disabled:bg-[#000] "
+                style={{ animationDuration: `${interval}s` }}
+              />
             </Slider.Dot>
           </li>
         ))}

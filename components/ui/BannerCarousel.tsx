@@ -107,12 +107,10 @@ function Dots({ images, interval = 0 }: Props) {
         {images?.map((_, index) => (
           <li class="carousel-item">
             <Slider.Dot index={index}>
-              <div class="py-5">
-                <div
-                  class="w-16 sm:w-20 h-0.5 rounded group-disabled:animate-progress bg-gradient-to-r from-base-100 from-[length:var(--dot-progress)] to-[rgba(255,255,255,0.4)] to-[length:var(--dot-progress)]"
-                  style={{ animationDuration: `${interval}s` }}
-                />
-              </div>
+              <div
+                class="my-5 w-16 sm:w-20 h-0.5 rounded group-disabled:animate-progress bg-gradient-to-r from-base-100 from-[length:var(--dot-progress)] to-[rgba(255,255,255,0.4)] to-[length:var(--dot-progress)]"
+                style={{ animationDuration: `${interval}s` }}
+              />
             </Slider.Dot>
           </li>
         ))}

@@ -322,12 +322,10 @@ function Details({
                 class={`carousel-item ${(index + 1) % 4 != 0 && "sm:hidden"}`}
               >
                 <Slider.Dot index={index}>
-                  <div class="py-4">
-                    <div
-                      class={`w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)] group-disabled:bg-[#000]`}
-                      style={{ animationDuration: `${0}s` }}
-                    />
-                  </div>
+                  <div
+                    class={`my-4 w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)] group-disabled:bg-[#000]`}
+                    style={{ animationDuration: `${0}s` }}
+                  />
                 </Slider.Dot>
               </li>
             ))}
