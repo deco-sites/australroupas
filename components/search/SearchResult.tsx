@@ -31,8 +31,11 @@ export interface Props {
 }
 
 export interface MainProps extends Props {
-  headingText: string;
-  SeoText: SeoText;
+  /**
+   * @description Texto para página não encontrada
+   */
+  headingText?: string;
+  SeoText?: SeoText;
 }
 
 function NotFound({ headingText }: { headingText: string }) {
@@ -180,7 +183,7 @@ function Result({
 
 function SearchResult({ page, ...props }: MainProps) {
   if (!page) {
-    return <NotFound headingText={props.headingText} />;
+    return <NotFound headingText={props.headingText || ""} />;
   }
 
   return <Result {...props} page={page} />;
