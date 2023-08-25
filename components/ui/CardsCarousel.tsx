@@ -38,6 +38,7 @@ function CardsCarousel(
                 <div>
                   <Card
                     image={card.image}
+                    mobileImage={card.mobileImage}
                     title={card.title}
                     description={card.description}
                     callToAction={card.callToAction}
