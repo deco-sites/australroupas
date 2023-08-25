@@ -35,7 +35,7 @@ function Card(
           <source
             media="(max-width: 1024px)"
             // fetchPriority={"low"}
-            src={mobileImage ? mobileImage : image}
+            srcSet={mobileImage ? mobileImage : image}
             width={400}
             height={250}
             // preload={false}
@@ -43,7 +43,7 @@ function Card(
           <source
             media="(min-width: 1025px)"
             // fetchPriority={"low"}
-            src={image}
+            srcSet={image}
             width={545}
             height={341}
             // preload={false}
