@@ -17,21 +17,20 @@ interface CardProps extends Props {
 }
 
 function Card(
-  { image, title, description, callToAction, href, subTitle = "", index, mobileImage = "" }:
-    CardProps,
+  {
+    image,
+    title,
+    description,
+    callToAction,
+    href,
+    subTitle = "",
+    index,
+    mobileImage = "",
+  }: CardProps,
 ) {
   return (
     <div class={`w-full px-4.5 lg:px-0`}>
       <a class="block w-full" href={href}>
-        {/* <Image
-          class="w-full rounded-md"
-          loading={"lazy"}
-          fetchPriority={"low"}
-          src={image}
-          alt={title}
-          width={400}
-          height={250}
-        /> */}
         <Picture preload={false}>
           <Source
             media="(max-width: 1024px)"
