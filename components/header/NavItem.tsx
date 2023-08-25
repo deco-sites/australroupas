@@ -67,7 +67,12 @@ function NavItem({ item, index }: { item: INavItem; index: number }) {
               <ul class="flex flex-col items-start justify-center">
                 {children.map((node) => (
                   <li class="py-1.7">
-                    <a class={`text-base text-info ${node.red ? "text-[#DB1616]" : ""}`} href={node.href}>
+                    <a
+                      class={`text-base text-info ${
+                        node.red ? "text-[#DB1616]" : ""
+                      }`}
+                      href={node.href}
+                    >
                       {node.label}
                     </a>
                   </li>
