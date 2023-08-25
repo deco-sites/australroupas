@@ -38,7 +38,7 @@ function CartItem({ index }: Props) {
   const notFirst = index > 0 ? "border-t border-t-base-100" : "";
 
   return (
-    <div class={`flex flex-row justify-between items-start ${notFirst}`}>
+    <li class={`flex flex-row justify-between items-start ${notFirst}`}>
       <Image
         src={imageUrl}
         alt={skuName}
@@ -116,7 +116,7 @@ function CartItem({ index }: Props) {
         >
         </i>
       </Button>
-    </div>
+    </li>
   );
 }
 

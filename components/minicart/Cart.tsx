@@ -62,8 +62,8 @@ function Cart() {
           <header
             class={`flex px-4 h-16 justify-between items-center border-b border-base-100`}
           >
-            <h1>
-              <span class="text-lg mr-5 text-info">Minha sacola</span>
+            <h1 class="text-lg mr-5 text-info">
+              Minha sacola
             </h1>
             <Button
               aria-label="Close"
@@ -115,8 +115,8 @@ function Cart() {
         <header
           class={`flex px-4 h-16 justify-between items-center border-b border-base-100`}
         >
-          <h1>
-            <span class="text-lg mr-5 text-info">Minha sacola</span>
+          <h1 class="text-lg mr-5 text-info">
+            Minha sacola
           </h1>
           <Button
             aria-label="Close"
@@ -144,9 +144,7 @@ function Cart() {
             class="container-minicart m-[15px] flex-grow overflow-y-auto h-full flex flex-col bg-white pb-5"
           >
             {cart.value.items.map((_, index) => (
-              <li>
-                <CartItem index={index} key={index} />
-              </li>
+              <CartItem index={index} key={index} />
             ))}
           </ul>
         </div>
