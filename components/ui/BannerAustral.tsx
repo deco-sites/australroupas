@@ -228,6 +228,7 @@ function BannerAustral(
         <SliderJS
           rootId={id}
           interval={carouselOptions?.interval && carouselOptions.interval * 1e3}
+          infinite={true}
         />
       </div>
     </div>

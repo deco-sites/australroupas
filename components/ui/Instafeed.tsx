@@ -62,6 +62,7 @@ export default function Instafeed({ images, title }: Props) {
         <SliderJS
           rootId={id}
           interval={0}
+          infinite={true}
         />
       </div>
     </div>

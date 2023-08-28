@@ -2,7 +2,7 @@ import { useEffect } from "preact/hooks";
 
 interface Props {
   rootId: string;
-  scroll?: "smooth" | "auto";
+  scroll?: "smooth" | "auto" | "instant";
   interval?: number;
   infinite?: boolean;
 }
@@ -84,7 +84,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     return indices;
   };
 
-  const goToItem = (index: number) => {
+  const goToItem = (index: number, behavior = scroll) => {
     const item = items.item(index);
 
     if (!isHTMLElement(item)) {
@@ -97,7 +97,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
     slider.scrollTo({
       top: 0,
-      behavior: scroll,
+      behavior: behavior,
       left: item.offsetLeft - root.offsetLeft,
     });
   };
@@ -127,13 +127,12 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   };
 
   const observer = new IntersectionObserver(
-    (elements) =>
+    (elements) => {
       elements.forEach((item) => {
         const index = Number(item.target.getAttribute("data-slider-item")) || 0;
         const dot = dots?.item(index);
-
         if (item.isIntersecting) {
-          dot?.setAttribute("disabled", "");
+          dot?.setAttribute("disabled", "true");
         } else {
           dot?.removeAttribute("disabled");
         }
@@ -154,12 +153,64 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
             }
           }
         }
-      }),
+      });
+    },
     { threshold: THRESHOLD, root: slider },
   );
 
+  const fullObserver = new IntersectionObserver((elements) => {
+    elements.forEach((item) => {
+      const currentItems = slider?.querySelectorAll(`li`);
+      if (
+        infinite ||
+        true && currentItems.length != 1 && item.isIntersecting &&
+          elements.length == 1
+      ) {
+        if (item.target == currentItems[1]) {
+          setTimeout(() => {
+            goToItem(items.length - 1, "instant");
+          }, 300);
+        }
+        if (item.target == currentItems[currentItems.length - 2]) {
+          setTimeout(() => {
+            goToItem(0, "instant");
+          }, 300);
+        }
+      }
+    });
+  }, { threshold: 1.0, root: slider });
+
+  const elementsInsideContainer = getElementsInsideContainer()
+
+  if (infinite && items.length > 1 && elementsInsideContainer.length == 1) {
+    const firstItemClone = items[0].cloneNode(true);
+    const secondItemClone = items[1]?.cloneNode(true);
+    const penultimateItemClone = items[items.length - 2]?.cloneNode(true);
+    const lastItemClone = items[items.length - 1].cloneNode(true);
+
+    (lastItemClone as HTMLElement).removeAttribute("data-slider-item");
+    (penultimateItemClone as HTMLElement)?.removeAttribute("data-slider-item");
+    (firstItemClone as HTMLElement).removeAttribute("data-slider-item");
+    (secondItemClone as HTMLElement)?.removeAttribute("data-slider-item");
+
+    slider.insertBefore(lastItemClone, items[0]);
+    penultimateItemClone &&
+      slider.insertBefore(penultimateItemClone, lastItemClone);
+    slider.appendChild(firstItemClone);
+    secondItemClone && slider.appendChild(secondItemClone);
+  }
+
+  const currentItems = slider?.querySelectorAll(`li`);
+
   items.forEach((item) => observer.observe(item));
 
+  // todo: today it just works to slider
+  // that show one element at a time
+  if(infinite && items.length > 1 && elementsInsideContainer.length == 1){
+    fullObserver.observe(currentItems[1]);
+    fullObserver.observe(currentItems[currentItems.length - 2]);
+  }
+  
   for (let it = 0; it < (dots?.length ?? 0); it++) {
     dots?.item(it).addEventListener("click", () => goToItem(it));
   }
@@ -167,7 +218,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   prev?.addEventListener("click", onClickPrev);
   next?.addEventListener("click", onClickNext);
 
-  const timeout = interval && setInterval(onClickNext, interval);
+  const timeout = 0 && setInterval(onClickNext, 0);
 
   // Unregister callbacks
   return () => {
@@ -177,7 +228,6 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
     prev?.removeEventListener("click", onClickPrev);
     next?.removeEventListener("click", onClickNext);
-
     observer.disconnect();
 
     clearInterval(timeout);
