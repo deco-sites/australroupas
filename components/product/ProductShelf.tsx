@@ -91,7 +91,7 @@ function ProductShelf({
         interval={0}
       />
 
-      <SliderJS rootId={id} />
+      <SliderJS rootId={id} infinite={true}/>
       <SendEventOnLoad
         event={{
           name: "view_item_list",

@@ -56,6 +56,7 @@ function CardsCarousel(
         <SliderJS
           rootId={id}
           interval={0}
+          infinite={true}
         />
       </div>
     </div>
