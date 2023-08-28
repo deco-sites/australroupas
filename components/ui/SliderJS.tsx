@@ -54,6 +54,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
 
+
   if (!root || !slider || !items || items.length === 0) {
     console.warn(
       "Missing necessary slider attributes. It will not work as intended. Necessary elements:",
@@ -84,22 +85,28 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     return indices;
   };
 
+  const elementsInsideContainer = getElementsInsideContainer()
+  const infiniteBehavior = infinite && elementsInsideContainer.length == 1 && items.length > 1 
+
   const goToItem = (index: number, behavior = scroll) => {
-    const item = items.item(index);
 
-    if (!isHTMLElement(item)) {
-      console.warn(
-        `Element at index ${index} is not an html element. Skipping carousel`,
-      );
+    const item = slider.querySelector(`li[data-slider-item='${index}']`)
 
-      return;
+    if(item){
+      if (!isHTMLElement(item as HTMLElement)) {
+        console.warn(
+          `Element at index ${index} is not an html element. Skipping carousel`,
+        );
+
+        return;
+      }
+
+      slider.scrollTo({
+        top: 0,
+        behavior: behavior,
+        left: (item as HTMLElement).offsetLeft - root.offsetLeft,
+      });
     }
-
-    slider.scrollTo({
-      top: 0,
-      behavior: behavior,
-      left: item.offsetLeft - root.offsetLeft,
-    });
   };
 
   const onClickPrev = () => {
@@ -111,7 +118,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     const pageIndex = Math.floor(indices[indices.length - 1] / itemsPerPage);
 
     goToItem(
-      isShowingFirst ? items.length - 1 : (pageIndex - 1) * itemsPerPage,
+      isShowingFirst ? (infiniteBehavior ? items.length : items.length - 1) : (pageIndex - 1) * itemsPerPage,
     );
   };
 
@@ -123,7 +130,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
     const pageIndex = Math.floor(indices[0] / itemsPerPage);
 
-    goToItem(isShowingLast ? 0 : (pageIndex + 1) * itemsPerPage);
+    goToItem(isShowingLast ? (infiniteBehavior ? items.length + 1 : 0) : (pageIndex + 1) * itemsPerPage);
   };
 
   const observer = new IntersectionObserver(
@@ -160,6 +167,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
   const fullObserver = new IntersectionObserver((elements) => {
     elements.forEach((item) => {
+      console.log(elements)
       const currentItems = slider?.querySelectorAll(`li`);
       if (
         infinite ||
@@ -178,19 +186,17 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
         }
       }
     });
-  }, { threshold: 1.0, root: slider });
+  }, { threshold: 0.98, root: slider });
 
-  const elementsInsideContainer = getElementsInsideContainer()
-
-  if (infinite && items.length > 1 && elementsInsideContainer.length == 1) {
+  if (infiniteBehavior) {
     const firstItemClone = items[0].cloneNode(true);
     const secondItemClone = items[1]?.cloneNode(true);
     const penultimateItemClone = items[items.length - 2]?.cloneNode(true);
     const lastItemClone = items[items.length - 1].cloneNode(true);
 
-    (lastItemClone as HTMLElement).removeAttribute("data-slider-item");
+    (lastItemClone as HTMLElement).setAttribute("data-slider-item", items.length.toString());
     (penultimateItemClone as HTMLElement)?.removeAttribute("data-slider-item");
-    (firstItemClone as HTMLElement).removeAttribute("data-slider-item");
+    (firstItemClone as HTMLElement).setAttribute("data-slider-item", (items.length + 1).toString());
     (secondItemClone as HTMLElement)?.removeAttribute("data-slider-item");
 
     slider.insertBefore(lastItemClone, items[0]);
@@ -206,7 +212,8 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
   // todo: today it just works to slider
   // that show one element at a time
-  if(infinite && items.length > 1 && elementsInsideContainer.length == 1){
+  if(infiniteBehavior){
+    console.log("entrou")
     fullObserver.observe(currentItems[1]);
     fullObserver.observe(currentItems[currentItems.length - 2]);
   }
