@@ -167,13 +167,9 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
   const fullObserver = new IntersectionObserver((elements) => {
     elements.forEach((item) => {
-      console.log(elements)
       const currentItems = slider?.querySelectorAll(`li`);
-      if (
-        infinite ||
-        true && currentItems.length != 1 && item.isIntersecting &&
-          elements.length == 1
-      ) {
+
+      if (item.isIntersecting && elements.length == 1) {
         if (item.target == currentItems[1]) {
           setTimeout(() => {
             goToItem(items.length - 1, "instant");
@@ -213,7 +209,6 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   // todo: today it just works to slider
   // that show one element at a time
   if(infiniteBehavior){
-    console.log("entrou")
     fullObserver.observe(currentItems[1]);
     fullObserver.observe(currentItems[currentItems.length - 2]);
   }
@@ -225,7 +220,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   prev?.addEventListener("click", onClickPrev);
   next?.addEventListener("click", onClickNext);
 
-  const timeout = 0 && setInterval(onClickNext, 0);
+  const timeout = interval && setInterval(onClickNext, interval);
 
   // Unregister callbacks
   return () => {
