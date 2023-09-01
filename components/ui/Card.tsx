@@ -66,17 +66,18 @@ function Card(
       <div class="font-bold text-1.5xl pt-2.5 mt-2.5">
         <HTMLRenderer html={title} />
       </div>
-      
-      <div 
-      class="text-sm mt-2.5 overflow-hidden leading-normal child:line-clamp2"
+
+      <div
+        class="text-sm mt-2.5 overflow-hidden leading-normal child:line-clamp2"
         style={{
           display: "-webkit-box",
           "-webkit-line-clamp": "2",
           "-webkit-box-orient": "vertical",
-        }}>
+        }}
+      >
         <HTMLRenderer html={description} />
       </div>
-      
+
       <a
         class="text-sm text-primary underline tracking-wider block mt-2.5"
         href={href}

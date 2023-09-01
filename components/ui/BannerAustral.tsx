@@ -174,9 +174,7 @@ function BannerAustral(
                       isFirstBanner={isFirstBanner}
                     />
                   </div>
-                  {hasContent && (
-                    <Content content={content} />
-                  )}
+                  {hasContent && <Content content={content} />}
                 </Slider.Item>
               );
             } else {

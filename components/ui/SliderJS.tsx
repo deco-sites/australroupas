@@ -54,7 +54,6 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
   const next = root?.querySelector(`[${ATTRIBUTES['data-slide="next"']}]`);
   const dots = root?.querySelectorAll(`[${ATTRIBUTES["data-dot"]}]`);
 
-
   if (!root || !slider || !items || items.length === 0) {
     console.warn(
       "Missing necessary slider attributes. It will not work as intended. Necessary elements:",
@@ -85,14 +84,14 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     return indices;
   };
 
-  const elementsInsideContainer = getElementsInsideContainer()
-  const infiniteBehavior = infinite && elementsInsideContainer.length == 1 && items.length > 1 
+  const elementsInsideContainer = getElementsInsideContainer();
+  const infiniteBehavior = infinite && elementsInsideContainer.length == 1 &&
+    items.length > 1;
 
   const goToItem = (index: number, behavior = scroll) => {
+    const item = slider.querySelector(`li[data-slider-item='${index}']`);
 
-    const item = slider.querySelector(`li[data-slider-item='${index}']`)
-
-    if(item){
+    if (item) {
       if (!isHTMLElement(item as HTMLElement)) {
         console.warn(
           `Element at index ${index} is not an html element. Skipping carousel`,
@@ -118,7 +117,9 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     const pageIndex = Math.floor(indices[indices.length - 1] / itemsPerPage);
 
     goToItem(
-      isShowingFirst ? (infiniteBehavior ? items.length : items.length - 1) : (pageIndex - 1) * itemsPerPage,
+      isShowingFirst
+        ? (infiniteBehavior ? items.length : items.length - 1)
+        : (pageIndex - 1) * itemsPerPage,
     );
   };
 
@@ -130,7 +131,11 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     const isShowingLast = indices[indices.length - 1] === items.length - 1;
     const pageIndex = Math.floor(indices[0] / itemsPerPage);
 
-    goToItem(isShowingLast ? (infiniteBehavior ? items.length + 1 : 0) : (pageIndex + 1) * itemsPerPage);
+    goToItem(
+      isShowingLast
+        ? (infiniteBehavior ? items.length + 1 : 0)
+        : (pageIndex + 1) * itemsPerPage,
+    );
   };
 
   const observer = new IntersectionObserver(
@@ -190,9 +195,15 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
     const penultimateItemClone = items[items.length - 2]?.cloneNode(true);
     const lastItemClone = items[items.length - 1].cloneNode(true);
 
-    (lastItemClone as HTMLElement).setAttribute("data-slider-item", items.length.toString());
+    (lastItemClone as HTMLElement).setAttribute(
+      "data-slider-item",
+      items.length.toString(),
+    );
     (penultimateItemClone as HTMLElement)?.removeAttribute("data-slider-item");
-    (firstItemClone as HTMLElement).setAttribute("data-slider-item", (items.length + 1).toString());
+    (firstItemClone as HTMLElement).setAttribute(
+      "data-slider-item",
+      (items.length + 1).toString(),
+    );
     (secondItemClone as HTMLElement)?.removeAttribute("data-slider-item");
 
     slider.insertBefore(lastItemClone, items[0]);
@@ -208,11 +219,11 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
   // todo: today it just works to slider
   // that show one element at a time
-  if(infiniteBehavior){
+  if (infiniteBehavior) {
     fullObserver.observe(currentItems[1]);
     fullObserver.observe(currentItems[currentItems.length - 2]);
   }
-  
+
   for (let it = 0; it < (dots?.length ?? 0); it++) {
     dots?.item(it).addEventListener("click", () => goToItem(it));
   }
