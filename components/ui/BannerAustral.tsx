@@ -45,8 +45,6 @@ export interface Creative {
   label?: string;
   /** @description Textos e Botões */
   content?: Content;
-  /** @description Margem interna */
-  padding?: Padding;
 }
 
 export interface Carousel {
@@ -80,17 +78,6 @@ export interface Content {
   verticalAlign?: "center" | "top" | "bottom";
   /** @description Botões */
   buttons?: Button[];
-}
-
-export interface Padding {
-  /** @description Margem interna esquerda */
-  paddingLeft?: number;
-  /** @description Margem interna direita */
-  paddingRight?: number;
-  /** @description Margem interna cima */
-  paddingTop?: number;
-  /** @description Margem interna baixo */
-  paddingBottom?: number;
 }
 
 export interface Column {
@@ -166,7 +153,7 @@ function BannerAustral(
       >
         <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none">
           {creativeCarousel?.map((creative, index) => {
-            const { content, padding } = creative;
+            const { content } = creative;
             if (isImage(creative.creative)) {
               const hasContent = ((content?.title?.length || 0) > 0) ||
                 ((content?.buttons?.length || 0) > 0);
@@ -188,7 +175,7 @@ function BannerAustral(
                     />
                   </div>
                   {hasContent && (
-                    <Content padding={padding} content={content} />
+                    <Content content={content} />
                   )}
                 </Slider.Item>
               );
@@ -203,7 +190,7 @@ function BannerAustral(
                   }`}
                 >
                   <VideoComponent creative={creative.creative} />
-                  <Content padding={padding} content={content} />
+                  <Content content={content} />
                 </Slider.Item>
               );
             }
@@ -236,8 +223,7 @@ function BannerAustral(
 }
 
 function Content(
-  { padding, content }: {
-    padding: Padding | undefined;
+  { content }: {
     content: Content | undefined;
   },
 ) {
@@ -254,11 +240,6 @@ function Content(
 
   return (
     <div
-      style={`
-      padding: ${padding?.paddingTop || 0}px ${padding?.paddingRight || 0}px ${
-        padding?.paddingBottom || 0
-      }px ${padding?.paddingLeft || 0}px
-      `}
       class={`w-full h-full ${
         content?.where == "Dentro" ? "absolute top-0" : ""
       } flex flex-col ${verticalAlign}`}

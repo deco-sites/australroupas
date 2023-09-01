@@ -1,13 +1,17 @@
-import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+
+import type { HTML } from "deco-sites/std/components/types.ts";
+
+import HTMLRenderer from "deco-sites/std/components/HTMLRenderer.tsx";
 
 export interface Props {
   image: LiveImage;
   mobileImage?: LiveImage;
+  altImage?: string;
   subTitle?: string;
-  title: string;
-  description: string;
+  title: HTML;
+  description: HTML;
   callToAction: string;
   href: string;
 }
@@ -19,6 +23,7 @@ interface CardProps extends Props {
 function Card(
   {
     image,
+    altImage,
     title,
     description,
     callToAction,
@@ -52,23 +57,26 @@ function Card(
             class={`w-full rounded-md`}
             loading={"lazy"}
             src={image}
-            alt={title}
+            alt={altImage}
           />
         </Picture>
       </a>
       {subTitle &&
         <p class="mt-5 text-sm mb-2.5">{subTitle}</p>}
-      <h3 class="font-bold text-1.5xl pt-2.5 mt-2.5">{title}</h3>
-      <p
-        class="text-sm h-10 mt-2.5 overflow-hidden leading-normal"
+      <div class="font-bold text-1.5xl pt-2.5 mt-2.5">
+        <HTMLRenderer html={title} />
+      </div>
+      
+      <div 
+      class="text-sm mt-2.5 overflow-hidden leading-normal child:line-clamp2"
         style={{
           display: "-webkit-box",
           "-webkit-line-clamp": "2",
           "-webkit-box-orient": "vertical",
-        }}
-      >
-        {description}
-      </p>
+        }}>
+        <HTMLRenderer html={description} />
+      </div>
+      
       <a
         class="text-sm text-primary underline tracking-wider block mt-2.5"
         href={href}
