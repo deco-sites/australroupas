@@ -82,9 +82,10 @@ function MenuButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
   const { displayMenu, displaySearchbar, displayOverlay } = useUI();
 
   return (
-    <Button
+    <label
       class="p-2.5 text-xl lg:text-2.5xl"
       aria-label="open menu"
+      for="menu"
       onClick={() => {
         displayMenu.value = true;
         displaySearchbar.value = false;
@@ -92,7 +93,7 @@ function MenuButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
       }}
     >
       <i class={iconsHeader?.menu || "icon-menu"}></i>
-    </Button>
+    </label>
   );
 }
 
