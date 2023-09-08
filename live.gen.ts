@@ -3,65 +3,64 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $$$0 from "./loaders/plp.ts";
-import * as $$$$0 from "./routes/styles.css.ts";
+import * as $$$$0 from "./routes/api/autocomplete.tsx";
 import * as $$$$1 from "./routes/api/newsletter.tsx";
-import * as $$$$2 from "./routes/api/shippingsimulation.tsx";
-import * as $$$$3 from "./routes/api/searchseller.tsx";
+import * as $$$$2 from "./routes/api/searchseller.tsx";
+import * as $$$$3 from "./routes/api/shippingsimulation.tsx";
 import * as $$$$4 from "./routes/api/[...catchall].tsx";
-import * as $$$$5 from "./routes/api/autocomplete.tsx";
+import * as $$$$5 from "./routes/styles.css.ts";
 import * as $$$$6 from "./routes/_app.tsx";
-import * as $$$$$0 from "./islands/Newsletter.tsx";
+import * as $$$$$0 from "./islands/AddToCartButton.tsx";
 import * as $$$$$1 from "./islands/Cart.tsx";
-import * as $$$$$2 from "./islands/WishlistButton.tsx";
-import * as $$$$$3 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$2 from "./islands/Faq.tsx";
+import * as $$$$$3 from "./islands/HeaderButton.tsx";
 import * as $$$$$4 from "./islands/HeaderSearchbar.tsx";
-import * as $$$$$5 from "./islands/HeaderButton.tsx";
-import * as $$$$$6 from "./islands/ServiceMenu.tsx";
-import * as $$$$$7 from "./islands/ProductCard.tsx";
-import * as $$$$$8 from "./islands/AddToCartButton.tsx";
-import * as $$$$$9 from "./islands/SliderJS.tsx";
-import * as $$$$$10 from "./islands/ProductImageZoom.tsx";
-import * as $$$$$11 from "./islands/Menu.tsx";
-import * as $$$$$12 from "./islands/TalkToUsForm.tsx";
-import * as $$$$$13 from "./islands/NavigatorShare.tsx";
-import * as $$$$$14 from "./islands/OutOfStock.tsx";
-import * as $$$$$15 from "./islands/ProductGallery.tsx";
-import * as $$$$$16 from "./islands/Faq.tsx";
-import * as $$$$$17 from "./islands/Overlay.tsx";
-import * as $$$$$18 from "./islands/NavItem.tsx";
-import * as $$$$$19 from "./islands/SearchControls.tsx";
-import * as $$$$$$$$0 from "./sections/WishlistGallery.tsx";
-import * as $$$$$$$$1 from "./sections/BannerAustral.tsx";
-import * as $$$$$$$$2 from "./sections/LinkTree.tsx";
-import * as $$$$$$$$3 from "./sections/Instafeed.tsx";
+import * as $$$$$5 from "./islands/Menu.tsx";
+import * as $$$$$6 from "./islands/NavigatorShare.tsx";
+import * as $$$$$7 from "./islands/Newsletter.tsx";
+import * as $$$$$8 from "./islands/OutOfStock.tsx";
+import * as $$$$$9 from "./islands/Overlay.tsx";
+import * as $$$$$10 from "./islands/ProductCard.tsx";
+import * as $$$$$11 from "./islands/ProductGallery.tsx";
+import * as $$$$$12 from "./islands/ProductImageZoom.tsx";
+import * as $$$$$13 from "./islands/SearchControls.tsx";
+import * as $$$$$14 from "./islands/ServiceMenu.tsx";
+import * as $$$$$15 from "./islands/ShippingSimulation.tsx";
+import * as $$$$$16 from "./islands/SliderJS.tsx";
+import * as $$$$$17 from "./islands/TalkToUsForm.tsx";
+import * as $$$$$18 from "./islands/WishlistButton.tsx";
+import * as $$$$$$$$0 from "./sections/BannerAustral.tsx";
+import * as $$$$$$$$1 from "./sections/BannerGrid.tsx";
+import * as $$$$$$$$2 from "./sections/BannerPLP.tsx";
+import * as $$$$$$$$3 from "./sections/BreadcrumbInstitutional.tsx";
 import * as $$$$$$$$4 from "./sections/Card.tsx";
-import * as $$$$$$$$5 from "./sections/InstitutionalHeading.tsx";
-import * as $$$$$$$$6 from "./sections/Features.tsx";
-import * as $$$$$$$$7 from "./sections/CardsCarousel.tsx";
-import * as $$$$$$$$8 from "./sections/BannerPLP.tsx";
-import * as $$$$$$$$9 from "./sections/TextInstitutional.tsx";
-import * as $$$$$$$$10 from "./sections/BannerGrid.tsx";
-import * as $$$$$$$$11 from "./sections/SearchResult.tsx";
-import * as $$$$$$$$12 from "./sections/BreadcrumbInstitutional.tsx";
-import * as $$$$$$$$13 from "./sections/SeoText.tsx";
-import * as $$$$$$$$14 from "./sections/ProductShelf.tsx";
-import * as $$$$$$$$15 from "./sections/OurStores.tsx";
-import * as $$$$$$$$16 from "./sections/CardPlusShelf.tsx";
-import * as $$$$$$$$17 from "./sections/HeadingSearchResult.tsx";
-import * as $$$$$$$$18 from "./sections/Footer.tsx";
+import * as $$$$$$$$5 from "./sections/CardPlusShelf.tsx";
+import * as $$$$$$$$6 from "./sections/CardsCarousel.tsx";
+import * as $$$$$$$$7 from "./sections/Carousel.tsx";
+import * as $$$$$$$$8 from "./sections/CookieConsent.tsx";
+import * as $$$$$$$$9 from "./sections/DesignSystem.tsx";
+import * as $$$$$$$$10 from "./sections/Faq.tsx";
+import * as $$$$$$$$11 from "./sections/Features.tsx";
+import * as $$$$$$$$12 from "./sections/Footer.tsx";
+import * as $$$$$$$$13 from "./sections/Header.tsx";
+import * as $$$$$$$$14 from "./sections/HeadingSearchResult.tsx";
+import * as $$$$$$$$15 from "./sections/Highlights.tsx";
+import * as $$$$$$$$16 from "./sections/Instafeed.tsx";
+import * as $$$$$$$$17 from "./sections/InstitutionalHeading.tsx";
+import * as $$$$$$$$18 from "./sections/LinkTree.tsx";
 import * as $$$$$$$$19 from "./sections/LookingWhereChange.tsx";
-import * as $$$$$$$$20 from "./sections/CookieConsent.tsx";
-import * as $$$$$$$$21 from "./sections/DesignSystem.tsx";
-import * as $$$$$$$$22 from "./sections/MyAccount.tsx";
-import * as $$$$$$$$23 from "./sections/Header.tsx";
-import * as $$$$$$$$24 from "./sections/TalkToUsForm.tsx";
-import * as $$$$$$$$25 from "./sections/ProductDetails.tsx";
-import * as $$$$$$$$26 from "./sections/Faq.tsx";
-import * as $$$$$$$$27 from "./sections/Magazine.tsx";
-import * as $$$$$$$$28 from "./sections/Highlights.tsx";
-import * as $$$$$$$$29 from "./sections/SaleExpress.tsx";
+import * as $$$$$$$$20 from "./sections/Magazine.tsx";
+import * as $$$$$$$$21 from "./sections/MyAccount.tsx";
+import * as $$$$$$$$22 from "./sections/OurStores.tsx";
+import * as $$$$$$$$23 from "./sections/ProductDetails.tsx";
+import * as $$$$$$$$24 from "./sections/ProductShelf.tsx";
+import * as $$$$$$$$25 from "./sections/SaleExpress.tsx";
+import * as $$$$$$$$26 from "./sections/SearchResult.tsx";
+import * as $$$$$$$$27 from "./sections/SeoText.tsx";
+import * as $$$$$$$$28 from "./sections/TalkToUsForm.tsx";
+import * as $$$$$$$$29 from "./sections/TextInstitutional.tsx";
 import * as $$$$$$$$30 from "./sections/WhatsApp.tsx";
-import * as $$$$$$$$31 from "./sections/Carousel.tsx";
+import * as $$$$$$$$31 from "./sections/WishlistGallery.tsx";
 import * as $live_workflows from "$live/routes/live/workflows/run.ts";
 import * as $live_middleware from "$live/routes/_middleware.ts";
 import * as $live_workbench from "$live/routes/live/workbench.ts";
@@ -256,10 +255,10 @@ const manifest = {
     "./routes/_middleware.ts": $live_middleware,
     "./routes/[...catchall].tsx": $live_catchall,
     "./routes/api/[...catchall].tsx": $$$$4,
-    "./routes/api/autocomplete.tsx": $$$$5,
+    "./routes/api/autocomplete.tsx": $$$$0,
     "./routes/api/newsletter.tsx": $$$$1,
-    "./routes/api/searchseller.tsx": $$$$3,
-    "./routes/api/shippingsimulation.tsx": $$$$2,
+    "./routes/api/searchseller.tsx": $$$$2,
+    "./routes/api/shippingsimulation.tsx": $$$$3,
     "./routes/index.tsx": $live_catchall,
     "./routes/live/_meta.ts": $live_meta,
     "./routes/live/editorData.ts": $live_editorData,
@@ -271,29 +270,28 @@ const manifest = {
     "./routes/live/release.ts": $live_release,
     "./routes/live/workbench.ts": $live_workbench,
     "./routes/live/workflows/run.ts": $live_workflows,
-    "./routes/styles.css.ts": $$$$0,
+    "./routes/styles.css.ts": $$$$5,
   },
   "islands": {
-    "./islands/AddToCartButton.tsx": $$$$$8,
+    "./islands/AddToCartButton.tsx": $$$$$0,
     "./islands/Cart.tsx": $$$$$1,
-    "./islands/Faq.tsx": $$$$$16,
-    "./islands/HeaderButton.tsx": $$$$$5,
+    "./islands/Faq.tsx": $$$$$2,
+    "./islands/HeaderButton.tsx": $$$$$3,
     "./islands/HeaderSearchbar.tsx": $$$$$4,
-    "./islands/Menu.tsx": $$$$$11,
-    "./islands/NavigatorShare.tsx": $$$$$13,
-    "./islands/NavItem.tsx": $$$$$18,
-    "./islands/Newsletter.tsx": $$$$$0,
-    "./islands/OutOfStock.tsx": $$$$$14,
-    "./islands/Overlay.tsx": $$$$$17,
-    "./islands/ProductCard.tsx": $$$$$7,
-    "./islands/ProductGallery.tsx": $$$$$15,
-    "./islands/ProductImageZoom.tsx": $$$$$10,
-    "./islands/SearchControls.tsx": $$$$$19,
-    "./islands/ServiceMenu.tsx": $$$$$6,
-    "./islands/ShippingSimulation.tsx": $$$$$3,
-    "./islands/SliderJS.tsx": $$$$$9,
-    "./islands/TalkToUsForm.tsx": $$$$$12,
-    "./islands/WishlistButton.tsx": $$$$$2,
+    "./islands/Menu.tsx": $$$$$5,
+    "./islands/NavigatorShare.tsx": $$$$$6,
+    "./islands/Newsletter.tsx": $$$$$7,
+    "./islands/OutOfStock.tsx": $$$$$8,
+    "./islands/Overlay.tsx": $$$$$9,
+    "./islands/ProductCard.tsx": $$$$$10,
+    "./islands/ProductGallery.tsx": $$$$$11,
+    "./islands/ProductImageZoom.tsx": $$$$$12,
+    "./islands/SearchControls.tsx": $$$$$13,
+    "./islands/ServiceMenu.tsx": $$$$$14,
+    "./islands/ShippingSimulation.tsx": $$$$$15,
+    "./islands/SliderJS.tsx": $$$$$16,
+    "./islands/TalkToUsForm.tsx": $$$$$17,
+    "./islands/WishlistButton.tsx": $$$$$18,
   },
   "sections": {
     "$live/sections/Conditional_Beta.tsx": i2$$$$$0,
@@ -301,38 +299,38 @@ const manifest = {
     "$live/sections/PageInclude.tsx": i2$$$$$2,
     "$live/sections/Slot.tsx": i2$$$$$3,
     "$live/sections/UseSlot.tsx": i2$$$$$4,
-    "deco-sites/australroupas/sections/BannerAustral.tsx": $$$$$$$$1,
-    "deco-sites/australroupas/sections/BannerGrid.tsx": $$$$$$$$10,
-    "deco-sites/australroupas/sections/BannerPLP.tsx": $$$$$$$$8,
-    "deco-sites/australroupas/sections/BreadcrumbInstitutional.tsx": $$$$$$$$12,
+    "deco-sites/australroupas/sections/BannerAustral.tsx": $$$$$$$$0,
+    "deco-sites/australroupas/sections/BannerGrid.tsx": $$$$$$$$1,
+    "deco-sites/australroupas/sections/BannerPLP.tsx": $$$$$$$$2,
+    "deco-sites/australroupas/sections/BreadcrumbInstitutional.tsx": $$$$$$$$3,
     "deco-sites/australroupas/sections/Card.tsx": $$$$$$$$4,
-    "deco-sites/australroupas/sections/CardPlusShelf.tsx": $$$$$$$$16,
-    "deco-sites/australroupas/sections/CardsCarousel.tsx": $$$$$$$$7,
-    "deco-sites/australroupas/sections/Carousel.tsx": $$$$$$$$31,
-    "deco-sites/australroupas/sections/CookieConsent.tsx": $$$$$$$$20,
-    "deco-sites/australroupas/sections/DesignSystem.tsx": $$$$$$$$21,
-    "deco-sites/australroupas/sections/Faq.tsx": $$$$$$$$26,
-    "deco-sites/australroupas/sections/Features.tsx": $$$$$$$$6,
-    "deco-sites/australroupas/sections/Footer.tsx": $$$$$$$$18,
-    "deco-sites/australroupas/sections/Header.tsx": $$$$$$$$23,
-    "deco-sites/australroupas/sections/HeadingSearchResult.tsx": $$$$$$$$17,
-    "deco-sites/australroupas/sections/Highlights.tsx": $$$$$$$$28,
-    "deco-sites/australroupas/sections/Instafeed.tsx": $$$$$$$$3,
-    "deco-sites/australroupas/sections/InstitutionalHeading.tsx": $$$$$$$$5,
-    "deco-sites/australroupas/sections/LinkTree.tsx": $$$$$$$$2,
+    "deco-sites/australroupas/sections/CardPlusShelf.tsx": $$$$$$$$5,
+    "deco-sites/australroupas/sections/CardsCarousel.tsx": $$$$$$$$6,
+    "deco-sites/australroupas/sections/Carousel.tsx": $$$$$$$$7,
+    "deco-sites/australroupas/sections/CookieConsent.tsx": $$$$$$$$8,
+    "deco-sites/australroupas/sections/DesignSystem.tsx": $$$$$$$$9,
+    "deco-sites/australroupas/sections/Faq.tsx": $$$$$$$$10,
+    "deco-sites/australroupas/sections/Features.tsx": $$$$$$$$11,
+    "deco-sites/australroupas/sections/Footer.tsx": $$$$$$$$12,
+    "deco-sites/australroupas/sections/Header.tsx": $$$$$$$$13,
+    "deco-sites/australroupas/sections/HeadingSearchResult.tsx": $$$$$$$$14,
+    "deco-sites/australroupas/sections/Highlights.tsx": $$$$$$$$15,
+    "deco-sites/australroupas/sections/Instafeed.tsx": $$$$$$$$16,
+    "deco-sites/australroupas/sections/InstitutionalHeading.tsx": $$$$$$$$17,
+    "deco-sites/australroupas/sections/LinkTree.tsx": $$$$$$$$18,
     "deco-sites/australroupas/sections/LookingWhereChange.tsx": $$$$$$$$19,
-    "deco-sites/australroupas/sections/Magazine.tsx": $$$$$$$$27,
-    "deco-sites/australroupas/sections/MyAccount.tsx": $$$$$$$$22,
-    "deco-sites/australroupas/sections/OurStores.tsx": $$$$$$$$15,
-    "deco-sites/australroupas/sections/ProductDetails.tsx": $$$$$$$$25,
-    "deco-sites/australroupas/sections/ProductShelf.tsx": $$$$$$$$14,
-    "deco-sites/australroupas/sections/SaleExpress.tsx": $$$$$$$$29,
-    "deco-sites/australroupas/sections/SearchResult.tsx": $$$$$$$$11,
-    "deco-sites/australroupas/sections/SeoText.tsx": $$$$$$$$13,
-    "deco-sites/australroupas/sections/TalkToUsForm.tsx": $$$$$$$$24,
-    "deco-sites/australroupas/sections/TextInstitutional.tsx": $$$$$$$$9,
+    "deco-sites/australroupas/sections/Magazine.tsx": $$$$$$$$20,
+    "deco-sites/australroupas/sections/MyAccount.tsx": $$$$$$$$21,
+    "deco-sites/australroupas/sections/OurStores.tsx": $$$$$$$$22,
+    "deco-sites/australroupas/sections/ProductDetails.tsx": $$$$$$$$23,
+    "deco-sites/australroupas/sections/ProductShelf.tsx": $$$$$$$$24,
+    "deco-sites/australroupas/sections/SaleExpress.tsx": $$$$$$$$25,
+    "deco-sites/australroupas/sections/SearchResult.tsx": $$$$$$$$26,
+    "deco-sites/australroupas/sections/SeoText.tsx": $$$$$$$$27,
+    "deco-sites/australroupas/sections/TalkToUsForm.tsx": $$$$$$$$28,
+    "deco-sites/australroupas/sections/TextInstitutional.tsx": $$$$$$$$29,
     "deco-sites/australroupas/sections/WhatsApp.tsx": $$$$$$$$30,
-    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$$$0,
+    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$$$31,
     "deco-sites/std/sections/Analytics.tsx": i2$$$$$5,
     "deco-sites/std/sections/configButterCMS.global.tsx": i2$$$$$6,
     "deco-sites/std/sections/configLinxImpulse.global.tsx": i2$$$$$7,

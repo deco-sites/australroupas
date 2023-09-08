@@ -25,15 +25,9 @@ export interface INavItem {
 
 function NavItem({ item, index }: { item: INavItem; index: number }) {
   const { href, label, children, firstCard, secondCard, red } = item;
-  const { displayOverlay, displaySearchbar } = useUI();
   return (
     <li
-      class={`group flex items-center NavItemFather${index}`}
-      onMouseEnter={() => {
-        displayOverlay.value = true;
-        displaySearchbar.value = false;
-      }}
-      onMouseLeave={() => displayOverlay.value = false}
+      class={`group flex items-center NavItemFather${index} z-30`}
     >
       <style
         dangerouslySetInnerHTML={{
