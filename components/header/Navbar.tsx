@@ -45,6 +45,8 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
             width={120}
             height={35}
             class="object-cover object-center"
+            loading="eager"
+            preload={true}
           />
         </a>
 
@@ -71,6 +73,8 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
               width={150}
               height={44}
               class="object-cover object-center"
+              loading="eager"
+              preload={true}
             />
           </a>
         </div>
