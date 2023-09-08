@@ -20,7 +20,7 @@ import * as $$$$$6 from "./islands/NavigatorShare.tsx";
 import * as $$$$$7 from "./islands/Newsletter.tsx";
 import * as $$$$$8 from "./islands/OutOfStock.tsx";
 import * as $$$$$9 from "./islands/Overlay.tsx";
-import * as $$$$$10 from "./islands/ProductCard.tsx";
+import * as $$$$$10 from "./islands/ProductCardButton.tsx";
 import * as $$$$$11 from "./islands/ProductGallery.tsx";
 import * as $$$$$12 from "./islands/ProductImageZoom.tsx";
 import * as $$$$$13 from "./islands/SearchControls.tsx";
@@ -283,7 +283,7 @@ const manifest = {
     "./islands/Newsletter.tsx": $$$$$7,
     "./islands/OutOfStock.tsx": $$$$$8,
     "./islands/Overlay.tsx": $$$$$9,
-    "./islands/ProductCard.tsx": $$$$$10,
+    "./islands/ProductCardButton.tsx": $$$$$10,
     "./islands/ProductGallery.tsx": $$$$$11,
     "./islands/ProductImageZoom.tsx": $$$$$12,
     "./islands/SearchControls.tsx": $$$$$13,

@@ -6,7 +6,7 @@ import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/product
 import { SendEventOnClick } from "$store/sdk/analytics.tsx";
 import type { Product } from "deco-sites/std/commerce/types.ts";
 
-import ProductCardButton from "deco-sites/australroupas/components/product/ProductCardButton.tsx";
+import ProductCardButton from "deco-sites/australroupas/islands/ProductCardButton.tsx";
 
 interface Props {
   product: Product;
