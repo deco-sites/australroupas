@@ -62,7 +62,8 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
 
       {/* Desktop Version */}
       <div class="hidden lg:flex mx-auto max-w-3xl flex-row justify-between items-center border-b border-base-200 w-full px-25 bg-white relative z-50">
-        <div class="flex-none">
+        <div class="absolute w-full h-full left-0 bg-white z-30" />
+        <div class="flex-none z-30">
           <a href="/" aria-label="Store logo" class="block px-4 py-3">
             <Image
               src={logo}
@@ -73,10 +74,15 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
             />
           </a>
         </div>
-        <div class="flex-auto flex justify-center ml-20">
+        <div class="containerNavItems flex justify-center ml-20 z-30">
           {items.map((item, index) => <NavItem item={item} index={index} />)}
         </div>
-        <div class="flex-none flex items-center justify-end gap-2 relative">
+
+        <div
+          class={`overlayNavItems h-0 opacity-0 z-20 fixed bg-info right-full left-0 top-0 w-full transition-all duration-300 ease-linear`}
+        />
+
+        <div class="flex-none flex items-center justify-end gap-2 relative z-30">
           <Searchbar searchbar={searchbar} />
           <Buttons
             variant="search"

@@ -329,4 +329,9 @@
     -webkit-line-clamp: "2";
     -webkit-box-orient: "vertical";
   }
+
+  .containerNavItems:hover + .overlayNavItems {
+    height: 100vh;
+    opacity: .6;
+  }
 }
