@@ -1,17 +1,13 @@
-import { useState } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
-import Button from "$store/components/ui/Button.tsx";
-import { useUI } from "$store/sdk/useUI.ts";
 
 export interface Props {
   items: INavItem[];
   callToUsItem: CallToUsItem[];
 }
 
-function MenuItem({ item }: { item: INavItem }) {
-  const [show, setShow] = useState(false);
+function MenuItem({ item, index }: { item: INavItem; index: number }) {
   return (
     <div class="collapse relative">
       {item.children?.length
@@ -24,12 +20,28 @@ function MenuItem({ item }: { item: INavItem }) {
           />
         )
         : ""}
-      <button
+
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
+          .MenuItem${index}:checked ~ .MenuItemChildren {
+            left: 0;
+          }
+        `,
+        }}
+      />
+
+      <input
+        type="checkbox"
+        class={`MenuItem${index} hidden`}
+        name={`item${index}`}
+        id={`item${index}`}
+      />
+      <label
         class="absolute right-0 w-12 h-[46px] z-10"
-        // type="checkbox"
-        onClick={() => setShow(!show)}
+        for={`item${index}`}
       >
-      </button>
+      </label>
       <div class="collapse-title px-0 py-4 min-h-min">
         <a
           class="w-full block whitespace-nowrap text-sm leading-none"
@@ -41,9 +53,8 @@ function MenuItem({ item }: { item: INavItem }) {
       {item.children?.length
         ? (
           <div
-            class={`${
-              show ? "left-0" : "-left-full"
-            } fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
+            class={`-left-full 
+            MenuItemChildren fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
           >
             <ul class="">
               <li class="border-b border-b-base-100 bg-base-100 py-4 leading-none">
@@ -53,17 +64,20 @@ function MenuItem({ item }: { item: INavItem }) {
                   size={17}
                   id="ChevronLeft"
                 />
-                <button
+                <label
                   aria-label="Voltar"
+                  for={`item${index}`}
                   class="w-full h-full text-left text-primary text-base leading-none px-12"
-                  onClick={() => setShow(!show)}
                 >
                   Voltar
-                </button>
+                </label>
               </li>
-              {item.children?.map((node) => (
+              {item.children?.map((node: INavItem, index: number) => (
                 <li class="border-b border-b-base-100 px-4">
-                  <MenuItem item={node} />
+                  <MenuItem
+                    item={node}
+                    index={Number(index.toString() + index.toString())}
+                  />
                 </li>
               ))}
             </ul>
@@ -75,26 +89,24 @@ function MenuItem({ item }: { item: INavItem }) {
 }
 
 function Menu({ items, callToUsItem }: Props) {
-  const { displayMenu } = useUI();
   return (
     <>
+      <input
+        type="checkbox"
+        class="menuModalCheckbox hidden"
+        name="menu"
+        id="menu"
+      />
       <div
-        class={`${
-          displayMenu.value ? "left-0" : "-left-full"
-        } fixed top-0 transition-all w-full bg-info opacity-60 z-40 h-full duration-300 ease-linear`}
-      >
-      </div>
+        class={`overlayMenu -left-full fixed top-0 transition-all w-full bg-info opacity-60 z-40 h-full duration-300 ease-linear`}
+      />
       <div
-        class={`${
-          displayMenu.value ? "left-0" : "-left-full"
-        } fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
+        class={`MenuModal -left-full fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
       >
-        <Button
+        <label
           aria-label="Close"
           class="absolute -right-10 top-2"
-          onClick={() => {
-            displayMenu.value = !displayMenu.value;
-          }}
+          for="menu"
         >
           <Icon
             id="XMark"
@@ -103,11 +115,11 @@ function Menu({ items, callToUsItem }: Props) {
             strokeWidth={1.5}
             class="text-white"
           />
-        </Button>
+        </label>
         <ul class={`px-4 flex-grow flex flex-col`}>
-          {items.map((item) => (
+          {items.map((item, index) => (
             <li class="border-b border-b-base-100">
-              <MenuItem item={item} />
+              <MenuItem item={item} index={index} />
             </li>
           ))}
         </ul>
