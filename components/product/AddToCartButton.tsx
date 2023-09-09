@@ -30,6 +30,7 @@ function AddToCartButton(
 ) {
   const {
     displayModalSelectSKU,
+    displayModalShare,
   } = useUI();
 
   const props = useAddToCart({
@@ -63,6 +64,46 @@ function AddToCartButton(
           onClick={() => displayModalSelectSKU.value = true}
         >
           Adicionar à Sacola
+        </div>
+
+        <div
+          class={`${
+            displayModalSelectSKU.value || displayModalShare.value
+              ? "opacity-40 pointer-events-all"
+              : "pointer-events-none opacity-0"
+          } fixed w-full h-screen right-0 top-0 transition-all z-50 ease-linear duration-300 bg-info`}
+          onClick={() => {
+            displayModalSelectSKU.value = false;
+            displayModalShare.value = false;
+          }}
+        >
+        </div>
+        <div
+          class={`${
+            displayModalSelectSKU.value
+              ? "flex pointer-events-all"
+              : "pointer-events-none hidden"
+          } fixed z-[52] fixed w-full h-screen right-0 top-0 flex justify-center items-center`}
+          onClick={() => displayModalSelectSKU.value = false}
+        >
+          <div
+            style={{
+              animation: displayModalSelectSKU.value
+                ? "swal2-show .3s"
+                : "swal2-hide .15s forwards",
+            }}
+            class={`w-[32em] bg-white p-[1.25em] rounded-[.3125em] flex flex-col justify-center items-center`}
+          >
+            <div class="text-[#f8bb86] border-[.25em] border-[#facea8] w-[5em] h-[5em] rounded-[50%] m-[1.25em_auto_1.875em]">
+              <p class="text-[3.75em] text-center relative top-[-10px]">!</p>
+            </div>
+            <h3 class="text-[#545454] text-[1.125em] mb-[1.25em]">
+              Por favor selecione o tamanho desejado!
+            </h3>
+            <button class="bg-[#000] text-white text-[1.0625em] p-[.625em_2em] m-[.3125em]">
+              OK
+            </button>
+          </div>
         </div>
       </>
     );
