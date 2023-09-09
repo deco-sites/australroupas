@@ -21,7 +21,7 @@ function Searchbar({ searchbar }: Props) {
         open
           ? "block border-y border-base-200 shadow lg:shadow-none lg:border-0"
           : "hidden"
-      } absolute lg:pointer-events-none lg:mt-0 left-0 top-0 w-screen lg:w-auto z-50 bg-base-100 lg:bg-transparent mt-[58px]`}
+      } fixed lg:absolute lg:pointer-events-none lg:mt-0 left-0 top-0 w-screen lg:w-auto z-50 bg-base-100 lg:bg-transparent mt-[58px]`}
     >
       <>
         <div

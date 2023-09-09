@@ -17,7 +17,7 @@ function ServiceMenu(
 
   return (
     <>
-      <div class="relative">
+      <div class="hidden lg:block relative z-30">
         <button
           class="lg:ml-7.5"
           aria-label="Atendimento"
