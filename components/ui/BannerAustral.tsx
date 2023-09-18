@@ -275,7 +275,7 @@ function Image(
     isFirstBanner: boolean;
   },
 ) {
-  const isLcp = isFirstBanner && index < 2;
+  const isLcp = isFirstBanner && index < 1;
   return (
     <a href={(creative as ImageProps).hrefImage}>
       <Picture preload={isLcp}>

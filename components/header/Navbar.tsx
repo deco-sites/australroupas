@@ -37,7 +37,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
           height={44}
           class="object-cover object-center"
           loading="eager"
-          preload={true}
+          preload={false}
         />
       </a>
 
