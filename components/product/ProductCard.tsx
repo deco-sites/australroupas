@@ -109,6 +109,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
             sizes="(max-width: 640px) 50vw, 20vw"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
+            fetchPriority={preload ? "high" : "low"}
             decoding="async"
           />
           <Image
@@ -119,6 +120,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
             class="absolute transition-opacity rounded-md w-full block top-0"
             sizes="(max-width: 640px) 50vw, 20vw"
             loading="lazy"
+            fetchPriority={preload ? "high" : "low"}
             decoding="async"
           />
         </a>
