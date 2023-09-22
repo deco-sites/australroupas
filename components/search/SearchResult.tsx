@@ -115,7 +115,6 @@ function Result({
   SeoText = { matcher: "", title: "", description: "" },
 }: Omit<MainProps, "page"> & { page: ProductListingPage }) {
   const { products, filters, breadcrumb, sortOptions } = page;
-  // console.log(page)
   const marginLeft = pageType == "Category" ? "sm:ml-[80px]" : "";
   return (
     <>
@@ -182,9 +181,6 @@ function Result({
 }
 
 function SearchResult({ page, ...props }: MainProps) {
-  // console.log(page)
-  // console.log(page)
-  // console.log(typeof page)
   if (!page) {
     return <NotFound headingText={props.headingText || ""} />;
   }
@@ -202,15 +198,25 @@ function SearchResult({ page, ...props }: MainProps) {
         productID: product.productID,
         url: product.url,
         name: product.name,
-        // additionalProperty: product.additionalProperty,
-        isVariantOf: product.isVariantOf,
-        image: product.image,
+        isVariantOf: {
+          "@type": "ProductGroup",
+          additionalProperty: product.isVariantOf!.additionalProperty,
+          hasVariant: product.isVariantOf!.hasVariant,
+          name: product.isVariantOf!.name,
+          productGroupID: product.isVariantOf!.productGroupID,
+          url: product.isVariantOf!.url
+        },
+        image: [
+          // @ts-expect-error: type
+          product.image[0],
+          // @ts-expect-error: type
+          product.image[1],
+        ],
         sku: product.sku,
         offers: product.offers,
       }
     })
   }
-  console.log(filteredPageProps)
 
   return <Result {...props} page={filteredPageProps} />;
 }

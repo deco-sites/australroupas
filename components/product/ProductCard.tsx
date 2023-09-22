@@ -39,7 +39,6 @@ function ProductCard({ product, preload, itemListName }: Props) {
     groupName = isVariantOf.name!;
   }
 
-  const productGroupID = isVariantOf?.productGroupID;
   const [front, back] = images ?? [];
   const { listPrice, price, installments } = useOffer(offers);
   const possibilities = useVariantPossibilities(product);
