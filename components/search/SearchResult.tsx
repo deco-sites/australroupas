@@ -114,8 +114,7 @@ function Result({
   headingText = "",
   SeoText = { matcher: "", title: "", description: "" },
 }: Omit<MainProps, "page"> & { page: ProductListingPage }) {
-  const { products, filters, breadcrumb, pageInfo, sortOptions } = page;
-
+  const { products, filters, breadcrumb, sortOptions } = page;
   const marginLeft = pageType == "Category" ? "sm:ml-[80px]" : "";
   return (
     <>
@@ -186,7 +185,40 @@ function SearchResult({ page, ...props }: MainProps) {
     return <NotFound headingText={props.headingText || ""} />;
   }
 
-  return <Result {...props} page={page} />;
+  const filteredPageProps: ProductListingPage = {
+    "@type": "ProductListingPage",
+    breadcrumb: page.breadcrumb,
+    filters: page.filters,
+    pageInfo: page.pageInfo,
+    sortOptions: page.sortOptions,
+    seo: page?.seo,
+    products: page.products.map(product => {
+      return {
+        "@type": "Product",
+        productID: product.productID,
+        url: product.url,
+        name: product.name,
+        isVariantOf: {
+          "@type": "ProductGroup",
+          additionalProperty: [],
+          hasVariant: product.isVariantOf!.hasVariant,
+          name: product.isVariantOf!.name,
+          productGroupID: product.isVariantOf!.productGroupID,
+          url: product.isVariantOf!.url
+        },
+        image: [
+          // @ts-expect-error: type
+          product.image[0],
+          // @ts-expect-error: type
+          product.image[1],
+        ],
+        sku: product.sku,
+        offers: product.offers,
+      }
+    })
+  }
+
+  return <Result {...props} page={filteredPageProps} />;
 }
 
 export default SearchResult;
