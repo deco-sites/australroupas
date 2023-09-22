@@ -17,7 +17,7 @@ export interface Props {
   twoItemsPerPage?: true | false;
 }
 
-function ProductShelf({
+function Shelf({
   title,
   products,
   twoItemsPerPage = false,
@@ -108,6 +108,53 @@ function ProductShelf({
       />
     </div>
   );
+}
+
+function ProductShelf({ title, products, twoItemsPerPage }: Props) {
+
+  const filteredProductsProps: Product[] = 
+    products?.map(product => (
+        {
+          "@type": "Product",
+          productID: product.productID,
+          url: product.url,
+          name: product.name,
+          isVariantOf: {
+            "@type": "ProductGroup",
+            additionalProperty: [],
+            hasVariant: product.isVariantOf!.hasVariant.map(variant => (
+              {
+                "@type": "Product",
+                productID: variant.productID,
+                additionalProperty: variant.additionalProperty,
+                url: variant.url,
+                name: variant.name,
+                offers: variant.offers,
+                image: [
+                  // @ts-expect-error: type
+                  variant.image[0],
+                  // @ts-expect-error: type
+                  variant.image[1],
+                ],
+                sku: product.sku,
+              }
+            )),
+            name: product.isVariantOf!.name,
+            productGroupID: product.isVariantOf!.productGroupID,
+            url: product.isVariantOf!.url
+          },
+          image: [
+            // @ts-expect-error: type
+            product.image[0],
+            // @ts-expect-error: type
+            product.image[1],
+          ],
+          sku: product.sku,
+          offers: product.offers,
+        }
+      )) || []
+  
+  return <Shelf title={title} products={filteredProductsProps} twoItemsPerPage={twoItemsPerPage} />;
 }
 
 export default ProductShelf;

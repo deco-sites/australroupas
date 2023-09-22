@@ -200,7 +200,7 @@ function SearchResult({ page, ...props }: MainProps) {
         name: product.name,
         isVariantOf: {
           "@type": "ProductGroup",
-          additionalProperty: product.isVariantOf!.additionalProperty,
+          additionalProperty: [],
           hasVariant: product.isVariantOf!.hasVariant,
           name: product.isVariantOf!.name,
           productGroupID: product.isVariantOf!.productGroupID,

@@ -2,10 +2,8 @@ import Button from "$store/components/ui/Button.tsx";
 import Icon from "$store/components/ui/Icon.tsx";
 import Filters from "$store/components/search/Filters.tsx";
 import Sort from "$store/components/search/Sort.tsx";
-// import Modal from "$store/components/ui/Modal.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
-import { useSignal } from "@preact/signals";
 import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 
 type Props =
@@ -16,10 +14,9 @@ type Props =
   & { quantityOfProducts: number | undefined };
 
 function SearchControls(
-  { filters, breadcrumb, displayFilter, sortOptions, quantityOfProducts }:
+  { filters, breadcrumb, sortOptions, quantityOfProducts }:
     Props,
 ) {
-  const open = useSignal(false);
   const { displayFilterMenu } = useUI();
 
   return (
