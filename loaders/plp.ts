@@ -1,7 +1,7 @@
 import type { Context } from "deco-sites/std/packs/vtex/accounts/vtex.ts";
 import productListingPage, {
   Props as LoaderProps,
-} from "deco-sites/std/packs/vtex/loaders/legacy/productListingPage.ts";
+} from "deco-sites/std/packs/vtex/loaders/intelligentSearch/productListingPage.ts";
 
 export type Props = LoaderProps & {
   url?: string;
