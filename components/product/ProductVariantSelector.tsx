@@ -36,7 +36,7 @@ const SelectorRow = ({
 }) => {
   const maybeVal = values[selected]?.value;
   values.sort((a, b) => {
-    const sizeOrder = ["PP", "P", "M", "G", "GG"];
+    const sizeOrder = ["XPP", "XP", "PP", "P", "M", "G", "GG"];
     const indexA = sizeOrder.findIndex((size) =>
       size.toUpperCase() === a.value.toUpperCase()
     );
