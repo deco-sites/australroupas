@@ -1,274 +1,240 @@
-import Avatar from "$store/components/ui/Avatar.tsx";
-import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
+import Avatar from "deco-sites/australroupas/components/ui/AvatarPDP.tsx";
+import { useVariations } from "deco-sites/australroupas/sdk/useVariantPossiblities.ts";
+import { inStock } from "deco-sites/australroupas/sdk/useOffer.ts";
+import { useQuickView } from "../../sdk/useQuickView.ts";
 import type { Product } from "deco-sites/std/commerce/types.ts";
+
+const capitalizeString = (str: string) =>
+  str.toLowerCase().replace(
+    /(?:^|\s|["'([{])+\S/g,
+    (match) => match.toUpperCase(),
+  );
 
 interface Props {
   product: Product;
-  currentUrl: string;
+  selectedID?: string;
+  isQuickView?: boolean;
 }
 
-function VariantSelector({ product, product: { url }, currentUrl }: Props) {
-  const possibilities = useVariantPossibilities(product);
-  const variantsProduct = product?.isVariantOf?.hasVariant;
+const SelectorRow = ({
+  name,
+  values,
+  selected,
+  onSelect,
+  isQuickView,
+}: {
+  name: "Cor" | "Tamanho";
+  selected: number;
+  values: Array<{
+    content: string;
+    disabled?: boolean;
+    value: string;
+    url: string;
+  }>;
+  onSelect?: (index: number) => void;
+  isQuickView?: boolean;
+}) => {
+  const maybeVal = values[selected]?.value;
+  values.sort((a, b) => {
+    const sizeOrder = ["PP", "P", "M", "G", "GG"];
+    const indexA = sizeOrder.findIndex((size) =>
+      size.toUpperCase() === a.value.toUpperCase()
+    );
+    const indexB = sizeOrder.findIndex((size) =>
+      size.toUpperCase() === b.value.toUpperCase()
+    );
+
+    if (indexA === -1 && indexB === -1) {
+      return 0;
+    }
+    if (indexA === -1) {
+      return 1;
+    }
+
+    if (indexB === -1) {
+      return -1;
+    }
+
+    return indexA - indexB;
+  });
+
+  
   return (
-    <>
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-            .color-label[data-color="STONE VINHO" i] {
-              background-color: #924e54 !important
-          }
-          
-          .color-label[data-color="Salmão" i] {
-              background-color: #e5bbae !important
-          }
-          
-          .color-label[data-color="AZUL" i] {
-              background-color: #324576 !important
-          }
-          
-          .color-label[data-color="AZUL CLARO" i] {
-              background-color: #6d9acd !important
-          }
-          
-          .color-label[data-color="AZUL MARINHO" i] {
-              background-color: #1c202b !important
-          }
-          
-          .color-label[data-color="BEGE" i] {
-              background-color: #c3a78b !important
-          }
-          
-          .color-label[data-color="BRANCO" i] {
-              background-color: #f8f8f8 !important
-          }
-          
-          .color-label[data-color="CARVÃO" i],.color-label[data-color="CARVAO" i],.color-label[data-color="Carvão" i] {
-              background-color: #5d5d5f !important
-          }
-          
-          .color-label[data-color="CINZA" i] {
-              background-color: #9b9b9b !important
-          }
-          
-          .color-label[data-color="CINZA MESCLA ESCURO" i] {
-              background-color: #505050 !important
-          }
-          
-          .color-label[data-color="CREME" i] {
-              background-color: #e3dccb !important
-          }
-          
-          .color-label[data-color="JEANS CLARO" i] {
-              background-color: #aac0d0 !important
-          }
-          
-          .color-label[data-color="KHAKI" i] {
-              background-color: #c3aa86 !important
-          }
-          
-          .color-label[data-color="MARROM" i] {
-              background-color: #5b4633 !important
-          }
-          
-          .color-label[data-color="NATURAL" i] {
-              background-color: #dfdbcc !important
-          }
-          
-          .color-label[data-color="OFF WHITE" i] {
-              background-color: #eee9d9 !important
-          }
-          
-          .color-label[data-color="PRETO" i] {
-              background-color: #0f0f0f !important
-          }
-          
-          .color-label[data-color="PRETO PLAIN" i] {
-              background-color: #000 !important
-          }
-          
-          .color-label[data-color="STONE AZUL BRAZILIAN" i] {
-              background-color: #526ca8 !important
-          }
-          
-          .color-label[data-color="STONE AZUL MEDITERRANEO" i] {
-              background-color: #6b87af !important
-          }
-          
-          .color-label[data-color="STONE AZUL MIDNIGHT" i] {
-              background-color: #3f4362 !important
-          }
-          
-          .color-label[data-color="STONE AZUL ROYAL" i] {
-              background-color: #566372 !important
-          }
-          
-          .color-label[data-color="STONE AZUL VERÃO" i],.color-label[data-color="STONE AZUL VERAO" i] {
-              background-color: #99b5db !important
-          }
-          
-          .color-label[data-color="STONE BEGE" i] {
-              background-color: #bf9a76 !important
-          }
-          
-          .color-label[data-color="STONE CINZA CLARO" i] {
-              background-color: #c9c9c9 !important
-          }
-          
-          .color-label[data-color="STONE CINZA OLD" i] {
-              background-color: #5d5d5f !important
-          }
-          
-          .color-label[data-color="STONE CORAL" i] {
-              background-color: #d9a1a3 !important
-          }
-          
-          .color-label[data-color="STONE PRETO OLD" i] {
-              background-color: #2a292e !important
-          }
-          
-          .color-label[data-color="STONE VERDE FLORESTA" i] {
-              background-color: #5e6963 !important
-          }
-          
-          .color-label[data-color="STONE VERDE MUSGO" i] {
-              background-color: #8b8f6d !important
-          }
-          
-          .color-label[data-color="STONE VERDE VERÃO" i],.color-label[data-color="STONE VERDE VERAO" i] {
-              background-color: #0ea2a4 !important
-          }
-          
-          .color-label[data-color="TAUPE" i] {
-              background-color: #d8ccbe !important
-          }
-          
-          .color-label[data-color="VERDE" i] {
-              background-color: #717e67 !important
-          }
-          
-          .color-label[data-color="VERDE MILITAR" i] {
-              background-color: #5d6650 !important
-          }
-          
-          .color-label[data-color="VERDE OLIVA" i] {
-              background-color: #989f86 !important
-          }
-        `,
-        }}
-      />
-      <ul class="flex flex-col gap-3">
-        {Object.keys(possibilities).map((name) => {
-          if (name != "Cor") {
-            return (
-              <li class="flex flex-col gap-2">
-                <span class="text-sm">{name}:</span>
-                <ul class="flex flex-row gap-1.5">
-                  {Object.entries(possibilities[name]).map(
-                    ([value, [link]]) => {
-                      // deno-lint-ignore no-explicit-any
-                      const hasStock = variantsProduct?.find((variant: any) =>
-                        // deno-lint-ignore no-explicit-any
-                        variant?.additionalProperty.find((property: any) =>
-                          property.value == value
-                        )
-                      )?.offers?.offers[0].availability ==
-                        "https://schema.org/InStock";
-
-                      return (
-                        <li>
-                          <a
-                            href={hasStock ? link : ""}
-                            style={{ pointerEvents: !hasStock ? "none" : "" }}
-                          >
-                            <Avatar
-                              content={value}
-                              variant={currentUrl.includes(link)
-                                ? "active"
-                                : "PDP"}
-                              name={name}
-                              disponibility={hasStock}
-                            />
-                          </a>
-                        </li>
-                      );
-                    },
-                  )}
-                </ul>
-              </li>
-            );
-          } else {
-            const currentColor = product.additionalProperty!.find((property) =>
-              property.name == "Cor"
-            )!.value || "";
-
-            const colors: string[] = [currentColor];
-            const similarToBeRendered: Product[] = [product];
-
-            product.isSimilarTo?.forEach((similar) => {
-              const color = similar.additionalProperty!.find((property) =>
-                property.name == "Cor"
-              )!.value || "";
-              const hasStock = similar.offers?.offers[0].availability ==
-                "https://schema.org/InStock";
-
-              if (hasStock && !colors.includes(color)) {
-                colors.push(color);
-                similarToBeRendered.push(similar);
-              }
-            });
-
-            similarToBeRendered.sort((a, b) => {
-              const colorA = a.additionalProperty?.find((prop) =>
-                prop.name === "Cor"
-              )?.value || "";
-              const colorB = b.additionalProperty?.find((prop) =>
-                prop.name === "Cor"
-              )?.value || "";
-
-              return colorA.localeCompare(colorB);
-            });
-
-            return (
-              <>
-                {similarToBeRendered.length > 1 &&
-                  (
-                    <li class="flex flex-col gap-2">
-                      <span class="text-sm">{name}:</span>
-                      <ul class="flex flex-row gap-1.5">
-                        {similarToBeRendered.map((similar) => {
-                          const color =
-                            similar.additionalProperty!.find((property) =>
-                              property.name == "Cor"
-                            )!.value || "";
-                          return (
-                            <li>
-                              <a
-                                href={similar.url!.split("?")[0]}
-                              >
-                                <Avatar
-                                  content={color}
-                                  variant={currentUrl.includes(
-                                      similar.url!.split("?")[0],
-                                    )
-                                    ? "active"
-                                    : "PDP"}
-                                  name={name}
-                                  disponibility={true}
-                                />
-                              </a>
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </li>
-                  )}
-              </>
-            );
-          }
+    <li class="flex flex-col gap-2">
+      <p
+        class="text-sm mt-[10px]"
+        >
+        {name}:{" "}
+      </p>
+      <ul class="flex flex-row flex-wrap gap-1.5">
+        {values.map(({ content, url, disabled }, index) => {
+          return (
+            <li>
+              <a>
+                <Avatar
+                // deno-lint-ignore ban-ts-comment
+                // @ts-expect-error
+                  onClick={(e) => {
+                    if (name !== "Cor" || isQuickView) {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      onSelect?.(index);
+                    }
+                  }}
+                  variant={(name === "Tamanho" && maybeVal === content) ||
+                  (name !== "Tamanho" && selected === index)
+                    ? "active"
+                    : (
+                      !disabled ? "PDP" : "disabled"
+                    )}
+                  content={content}
+                  selected={(name === "Tamanho" && maybeVal === content) ||
+                    (name !== "Tamanho" && selected === index)}
+                  disabled={disabled}
+                />
+              </a>
+            </li>
+          );
         })}
       </ul>
-    </>
+    </li>
+  );
+};
+
+function VariantSelector(
+  { product, selectedID, isQuickView }: Props,
+) {
+  const { select } = useQuickView();
+  const { productVariations } = useVariations(
+    product,
+  );
+  const sizes = productVariations.get("Tamanho");
+
+  const colors = [product];
+
+  product.isSimilarTo?.forEach((similar) => {
+    const colorString = similar.additionalProperty?.find((property) =>
+      property.name == "Cor Básica" || property.name == "Cor"
+    )!.value || "";
+
+    const colorGroupId = similar.isVariantOf?.productGroupID;
+
+    const alreadyIn = colors.findIndex((c) => {
+      const inColor = c.additionalProperty?.find((property) =>
+        property.name == "Cor Básica" || property.name == "Cor"
+      )!.value || "";
+
+      if (
+        inColor.toLowerCase() === colorString.toLowerCase() &&
+        colorGroupId === c.isVariantOf?.productGroupID
+      ) {
+        return true;
+      }
+    });
+
+    if (alreadyIn !== -1) {
+      return;
+    }
+
+    const hasStock = similar.offers?.offers[0].availability ==
+      "https://schema.org/InStock";
+
+    if (hasStock) {
+      colors.push(similar);
+    }
+  });
+
+  sizes?.sort((a, b) => {
+    const sizeOrder = ["PP", "P", "M", "G", "GG"];
+    const indexA = sizeOrder.findIndex((size) =>
+      size.toUpperCase() === a.property?.value?.toUpperCase()
+    );
+    const indexB = sizeOrder.findIndex((size) =>
+      size.toUpperCase() === b.property?.value?.toUpperCase()
+    );
+    if (indexA === -1 && indexB === -1) {
+      return 0;
+    }
+    if (indexA === -1) {
+      return 1;
+    }
+
+    if (indexB === -1) {
+      return -1;
+    }
+
+    return indexA - indexB;
+  });
+
+  if (sizes?.length === 1) {
+    const [uniqueSize] = sizes;
+    const { productID } = uniqueSize.item;
+    if (productID) {
+      select({ productID });
+    }
+  }
+
+  return (
+    <ul class="flex flex-col gap-8">
+      {/* {colors && (
+        <SelectorRow
+          name="Cor"
+          selected={0}
+          values={colors.map((i) => {
+            const imageIndex = i.image?.findIndex((item) =>
+              item?.alternateName?.includes("thumb") ||
+              item?.alternateName?.includes("_9")
+            );
+
+            const content = i.image?.[imageIndex || -1]?.url ?? "";
+
+            const colorString = i.additionalProperty?.find((property) =>
+              property.name == "Cor Básica" || property.name == "Cor"
+            )!.value || "";
+
+            return {
+              content: content ?? "",
+              value: capitalizeString(colorString),
+              url: i.url!,
+            };
+          })}
+          onSelect={(index) => {
+            const p = colors[index];
+            const productGroupID = p.isVariantOf?.productGroupID;
+
+            if (!productGroupID) {
+              return;
+            }
+
+            select({ productGroupID });
+          }}
+          isQuickView={isQuickView}
+        />
+      )} */}
+      {sizes &&
+        (
+          <SelectorRow
+            name="Tamanho"
+            selected={sizes.findIndex((i) => i.item.productID === selectedID)}
+            values={sizes.map((i) => ({
+              content: i.property.value!,
+              value: i.property.value!,
+              url: i.item.url!,
+              disabled: !inStock(i.item.offers),
+            }))}
+            onSelect={(index) => {
+              const p = sizes[index].item;
+
+              const productID = p.productID;
+              if (!productID) {
+                return;
+              }
+
+              select({ productID });
+            }}
+          />
+        )}
+    </ul>
   );
 }
 

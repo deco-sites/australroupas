@@ -13,12 +13,15 @@ import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/product
 import type { ProductDetailsPage } from "deco-sites/std/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 
+import ProductSimilarSelector from "./ProductSimilarSelector.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
+import { useQuickView } from "../../sdk/useQuickView.ts";
 
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import NavigatorShare from "$store/islands/NavigatorShare.tsx";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import OutOfStock from "$store/islands/OutOfStock.tsx";
+import { useVariations } from "../../sdk/useVariantPossiblities.ts";
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -78,13 +81,23 @@ function ProductInfo(
     property.name === "category"
   );
   const category = categories?.at(-1)?.value;
+
+  const { selectedSku } = useQuickView();
+
+  const { productVariations } = useVariations(
+    product,
+  );
+  const sizes = productVariations.get("Tamanho");
+
+  const newName = sizes?.find(size => size.item.sku == selectedSku.value)?.item?.name;
+
   return (
     <>
       {/* Code and name */}
       <div class="">
         <h1>
           <span class="text-base leading-[140%] tracking-[.04rem] text-info lg:text-[22px]">
-            {currentUrl.indexOf("skuId") > -1 ? name : isVariantOf?.name}
+            {!selectedSku.value ? name : newName}
           </span>
         </h1>
       </div>
@@ -108,7 +121,10 @@ function ProductInfo(
       </div>
       {/* Sku Selector */}
       <div class="">
-        <ProductSelector product={product} currentUrl={currentUrl} />
+        <ProductSimilarSelector product={product} currentUrl={currentUrl} />
+      </div>
+      <div class="">
+        <ProductSelector product={product} selectedID={selectedSku.value} />
       </div>
       <ProductSizeTable category={category!} />
       {/* Add to Cart and Favorites button */}
@@ -118,7 +134,7 @@ function ProductInfo(
             <>
               {seller && (
                 <AddToCartButton
-                  skuId={productID}
+                  skuId={selectedSku.value!}
                   sellerId={seller}
                   price={price ?? 0}
                   discount={price && listPrice ? listPrice - price : 0}
@@ -127,6 +143,7 @@ function ProductInfo(
                   openPdp={false}
                   url={""}
                   currentUrl={currentUrl}
+                  // disabled={!selectedSku.value}
                 />
               )}
             </>
