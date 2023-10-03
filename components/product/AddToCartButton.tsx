@@ -4,6 +4,7 @@ import {
   useAddToCart,
 } from "$store/sdk/useAddToCart.ts";
 import { useUI } from "$store/sdk/useUI.ts";
+import { useQuickView } from "../../sdk/useQuickView.ts";
 
 interface Props extends UseAddToCartProps {
   /**
@@ -26,6 +27,7 @@ function AddToCartButton(
     openPdp,
     url,
     currentUrl,
+    ...btnProps
   }: Props,
 ) {
   const {
@@ -42,6 +44,8 @@ function AddToCartButton(
     name,
   });
 
+  const { selectedSku } = useQuickView();
+
   const classBtn =
     "flex cursor-pointer justify-center items-center w-full bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:bg-primary hover:opacity-80 max-w-[385px]";
 
@@ -56,7 +60,7 @@ function AddToCartButton(
     );
   }
 
-  if (currentUrl.indexOf("skuId") == -1) {
+  if (!selectedSku.value) {
     return (
       <>
         <div
@@ -111,8 +115,9 @@ function AddToCartButton(
 
   return (
     <Button
-      data-deco="add-to-cart"
+      // data-deco="add-to-cart"s
       {...props}
+      {...btnProps}
       class={classBtn}
     >
       Adicionar à Sacola

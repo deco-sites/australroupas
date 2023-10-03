@@ -5,6 +5,12 @@ import type {
 
 import { formatPrice } from "$store/sdk/format.ts";
 
+const bestOffer = (aggregateOffer?: AggregateOffer) =>
+  aggregateOffer?.offers[0];
+
+export const inStock = (offer?: AggregateOffer) =>
+  bestOffer(offer)?.availability === "https://schema.org/InStock";
+
 const bestInstallment = (
   acc: UnitPriceSpecification | null,
   curr: UnitPriceSpecification,
