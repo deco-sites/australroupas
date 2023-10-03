@@ -88,6 +88,7 @@ function ProductInfo(
     product,
   );
   const sizes = productVariations.get("Tamanho");
+  console.log(product)
 
   const newName = sizes?.find(size => size.item.sku == selectedSku.value)?.item?.name;
 
@@ -97,7 +98,7 @@ function ProductInfo(
       <div class="">
         <h1>
           <span class="text-base leading-[140%] tracking-[.04rem] text-info lg:text-[22px]">
-            {!selectedSku.value ? name : newName}
+            {!selectedSku.value ? isVariantOf?.name : newName}
           </span>
         </h1>
       </div>

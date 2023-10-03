@@ -35,29 +35,6 @@ const SelectorRow = ({
   isQuickView?: boolean;
 }) => {
   const maybeVal = values[selected]?.value;
-  values.sort((a, b) => {
-    const sizeOrder = ["XPP", "XP", "PP", "P", "M", "G", "GG"];
-    const indexA = sizeOrder.findIndex((size) =>
-      size.toUpperCase() === a.value.toUpperCase()
-    );
-    const indexB = sizeOrder.findIndex((size) =>
-      size.toUpperCase() === b.value.toUpperCase()
-    );
-
-    if (indexA === -1 && indexB === -1) {
-      return 0;
-    }
-    if (indexA === -1) {
-      return 1;
-    }
-
-    if (indexB === -1) {
-      return -1;
-    }
-
-    return indexA - indexB;
-  });
-
   
   return (
     <li class="flex flex-col gap-2">
