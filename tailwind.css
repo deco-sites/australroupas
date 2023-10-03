@@ -24,6 +24,7 @@
 
   body {
     background-color: white;
+    overflow-x: hidden;
   }
 
   button:disabled {
@@ -273,6 +274,22 @@
   .container-minicart::-webkit-scrollbar-track {
     border: none;
     background-color: #C7C7CC;
+    border-radius: 2px;
+  }
+
+  .container-filter::-webkit-scrollbar {
+    width: 4px;
+    background-color: #fff;
+  }
+
+  .container-filter::-webkit-scrollbar-thumb {
+    background-color: #8E8E93;
+    border-radius: 2px;
+  }
+
+  .container-filter::-webkit-scrollbar-track {
+    border: none;
+    background-color: #fff;
     border-radius: 2px;
   }
 

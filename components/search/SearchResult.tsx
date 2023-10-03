@@ -192,7 +192,7 @@ function SearchResult({ page, ...props }: MainProps) {
     pageInfo: page.pageInfo,
     sortOptions: page.sortOptions,
     seo: page?.seo,
-    products: page.products.map(product => {
+    products: page.products.map((product) => {
       return {
         "@type": "Product",
         productID: product.productID,
@@ -204,7 +204,7 @@ function SearchResult({ page, ...props }: MainProps) {
           hasVariant: product.isVariantOf!.hasVariant,
           name: product.isVariantOf!.name,
           productGroupID: product.isVariantOf!.productGroupID,
-          url: product.isVariantOf!.url
+          url: product.isVariantOf!.url,
         },
         image: [
           // @ts-expect-error: type
@@ -214,9 +214,9 @@ function SearchResult({ page, ...props }: MainProps) {
         ],
         sku: product.sku,
         offers: product.offers,
-      }
-    })
-  }
+      };
+    }),
+  };
 
   return <Result {...props} page={filteredPageProps} />;
 }

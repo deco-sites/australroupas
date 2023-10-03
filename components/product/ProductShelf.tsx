@@ -56,7 +56,7 @@ function Shelf({
         {products?.map((product, index) => (
           <Slider.Item
             index={index}
-            class={`carousel-item w-[80%] ${itemsDesktop} first:ml-[15px] sm:first:ml-0 last:mr-[15px] mx-[0.65%] sm:last:mr-0 sm:${marginDesktop}`}
+            class={`carousel-item w-[80%] ${itemsDesktop} first:ml-[15px] sm:first:ml-0 last:mr-[15px] mx-[2%] sm:last:mr-0 sm:${marginDesktop}`}
           >
             <ProductCard product={product} itemListName={title} />
           </Slider.Item>
@@ -111,50 +111,54 @@ function Shelf({
 }
 
 function ProductShelf({ title, products, twoItemsPerPage }: Props) {
+  const filteredProductsProps: Product[] = products?.map((product) => (
+    {
+      "@type": "Product",
+      productID: product.productID,
+      url: product.url,
+      name: product.name,
+      isVariantOf: {
+        "@type": "ProductGroup",
+        additionalProperty: [],
+        hasVariant: product.isVariantOf!.hasVariant.map((variant) => (
+          {
+            "@type": "Product",
+            productID: variant.productID,
+            additionalProperty: variant.additionalProperty,
+            url: variant.url,
+            name: variant.name,
+            offers: variant.offers,
+            image: [
+              // @ts-expect-error: type
+              variant.image[0],
+              // @ts-expect-error: type
+              variant.image[1],
+            ],
+            sku: product.sku,
+          }
+        )),
+        name: product.isVariantOf!.name,
+        productGroupID: product.isVariantOf!.productGroupID,
+        url: product.isVariantOf!.url,
+      },
+      image: [
+        // @ts-expect-error: type
+        product.image[0],
+        // @ts-expect-error: type
+        product.image[1],
+      ],
+      sku: product.sku,
+      offers: product.offers,
+    }
+  )) || [];
 
-  const filteredProductsProps: Product[] = 
-    products?.map(product => (
-        {
-          "@type": "Product",
-          productID: product.productID,
-          url: product.url,
-          name: product.name,
-          isVariantOf: {
-            "@type": "ProductGroup",
-            additionalProperty: [],
-            hasVariant: product.isVariantOf!.hasVariant.map(variant => (
-              {
-                "@type": "Product",
-                productID: variant.productID,
-                additionalProperty: variant.additionalProperty,
-                url: variant.url,
-                name: variant.name,
-                offers: variant.offers,
-                image: [
-                  // @ts-expect-error: type
-                  variant.image[0],
-                  // @ts-expect-error: type
-                  variant.image[1],
-                ],
-                sku: product.sku,
-              }
-            )),
-            name: product.isVariantOf!.name,
-            productGroupID: product.isVariantOf!.productGroupID,
-            url: product.isVariantOf!.url
-          },
-          image: [
-            // @ts-expect-error: type
-            product.image[0],
-            // @ts-expect-error: type
-            product.image[1],
-          ],
-          sku: product.sku,
-          offers: product.offers,
-        }
-      )) || []
-  
-  return <Shelf title={title} products={filteredProductsProps} twoItemsPerPage={twoItemsPerPage} />;
+  return (
+    <Shelf
+      title={title}
+      products={filteredProductsProps}
+      twoItemsPerPage={twoItemsPerPage}
+    />
+  );
 }
 
 export default ProductShelf;

@@ -126,13 +126,13 @@ function Newsletter({
         <div
           class={`bg-white w-[32em] flex flex-col justify-center items-center p-5 relative`}
         >
-          <button
+          <div
             class="absolute top-3 right-3"
             onClick={() => setVisibility(false)}
           >
             <i class={`icon-close text-base text-black hover:text-[#f27474]`}>
             </i>
-          </button>
+          </div>
           {showSuccess
             ? (
               <>

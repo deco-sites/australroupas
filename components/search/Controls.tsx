@@ -14,8 +14,7 @@ type Props =
   & { quantityOfProducts: number | undefined };
 
 function SearchControls(
-  { filters, breadcrumb, sortOptions, quantityOfProducts }:
-    Props,
+  { filters, breadcrumb, sortOptions, quantityOfProducts }: Props,
 ) {
   const { displayFilterMenu } = useUI();
 

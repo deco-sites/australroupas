@@ -35,7 +35,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
           alt={"Austral - Loja Oficial"}
           width={150}
           height={44}
-          class="object-cover object-center"
+          class="object-cover object-center w-[120px] lg:w-[150px]"
           loading="eager"
           preload={false}
         />

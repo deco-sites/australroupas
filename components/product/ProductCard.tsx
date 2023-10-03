@@ -48,6 +48,10 @@ function ProductCard({ product, preload, itemListName }: Props) {
     variant.offers?.offers[0].availability == "https://schema.org/InStock"
   );
 
+  const discount = listPrice && price
+    ? ((listPrice - price) * 100) / listPrice
+    : 0;
+
   let newInstallment = "";
   if (installments == null) {
     // deno-lint-ignore no-explicit-any
@@ -59,7 +63,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
     );
 
     // Check if there are valid offers before accessing the last one
-    if (validOffer.length > 0) {
+    if (validOffer && validOffer.length > 0) {
       const lastOffer = validOffer[validOffer.length - 1];
       newInstallment = `${lastOffer.billingDuration}x de ${
         formatPrice(lastOffer.billingIncrement, offers!.priceCurrency!)
@@ -91,6 +95,12 @@ function ProductCard({ product, preload, itemListName }: Props) {
         class="relative h-full"
         style={{ paddingBottom: `${(HEIGHT / WIDTH) * 100}%` }}
       >
+        {discount >= 1 &&
+          (
+            <div class="absolute z-20 w-[14%] top-[1vw] right-[1vw] text-white text-[11px] font-bold text-center flex justify-center items-center bg-[#b3b2b7] p-[5px_20px] pointer-events-none rounded-[6px]">
+              {discount.toFixed(0)}% <br /> OFF
+            </div>
+          )}
         {/* Product Images */}
         <a
           href={findStock && findStock[0]
@@ -131,7 +141,14 @@ function ProductCard({ product, preload, itemListName }: Props) {
       </figure>
       {/* Prices & Name */}
       <div class="py-2.5">
-        <h2 class="whitespace-nowrap overflow-hidden text-[14px]">
+        <h2
+          class="overflow-hidden text-[14px]"
+          style={{
+            "-webkit-line-clamp": "1",
+            "-webkit-box-orient": "vertical",
+            display: "-webkit-box",
+          }}
+        >
           {groupName != "" ? groupName : name}
         </h2>
         <div class="flex items-end gap-2">
@@ -143,7 +160,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
           <span class="text-[14px] font-semibold">
             {formatPrice(price, offers!.priceCurrency!)}
           </span>
-          <span class="text-[14px] text-[#878787]">
+          <span class="hidden lg:block text-[14px] text-[#878787]">
             {installments || newInstallment || ""}
           </span>
         </div>

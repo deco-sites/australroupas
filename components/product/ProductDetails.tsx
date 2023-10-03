@@ -91,7 +91,7 @@ function ProductInfo(
       {/* Prices */}
       <div class="mt-5 mb-2.5">
         <div class="flex flex-row gap-2 items-center">
-          {formatPrice(listPrice, offers!.priceCurrency!)! <
+          {formatPrice(listPrice, offers!.priceCurrency!)! >
               formatPrice(price, offers!.priceCurrency!)! &&
             (
               <span class="line-through text-base-300 text-xs">
@@ -238,6 +238,19 @@ function Details({
   const { product, breadcrumbList } = page;
   const id = `product-image-gallery:${useId()}`;
   const images = useStableImages(product);
+
+  const {
+    offers,
+  } = product;
+
+  const { price, listPrice } = useOffer(
+    offers,
+  );
+
+  const discount = listPrice && price
+    ? ((listPrice - price) * 100) / listPrice
+    : 0;
+
   /**
    * Product slider variant
    *
@@ -260,6 +273,12 @@ function Details({
         >
           {/* Image Slider */}
           <div class="relative sm:col-start-2 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[70%] max-w-[1000px]">
+            {discount >= 1 &&
+              (
+                <div class="absolute text-white text-[11px] font-bold text-center flex justify-center items-center bg-[#b3b2b7] p-[5px_20px] pointer-events-none rounded-[6px]">
+                  {discount.toFixed(0)}% OFF
+                </div>
+              )}
             {/* Mobile */}
             <Slider class="carousel carousel-center w-screen lg:hidden">
               {images.map((img, index) => (
@@ -334,7 +353,7 @@ function Details({
 
           {/* Product Info */}
           <div
-            style={{ position: "unset" }}
+            style={{ position: "sticky" }}
             class="relative px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-0 lg:ml-[40px] lg:sticky lg:top-[136px] lg:h-full lg:max-w-[500px]"
           >
             <ProductInfo page={page} currentUrl={currentUrl} />

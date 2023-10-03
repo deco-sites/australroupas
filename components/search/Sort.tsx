@@ -3,7 +3,7 @@ import { ProductListingPage } from "deco-sites/std/commerce/types.ts";
 import type { JSX } from "preact";
 import { useSignal } from "@preact/signals";
 
-const SORT_QUERY_PARAM = "O";
+const SORT_QUERY_PARAM = "sort";
 
 const useSort = () =>
   useMemo(() => {
@@ -24,8 +24,8 @@ export type Props = Pick<ProductListingPage, "sortOptions"> & {
 };
 
 const friedlyText = (text: string) => {
-  if (text == "price:desc") return "Menor Preço";
-  if (text == "price:asc") return "Maior Preço";
+  if (text == "price:asc") return "Menor Preço";
+  if (text == "price:desc") return "Maior Preço";
   if (text == "orders:desc") return "Mais vendidos";
   if (text == "name:desc") return "Z a A";
   if (text == "name:asc") return "A a Z";
@@ -39,7 +39,6 @@ const friedlyText = (text: string) => {
 function Sort({ sortOptions, quantityOfProducts }: Props) {
   const sort = useSort();
   const isOpen = useSignal(false);
-
   return (
     <div class="absolute top-0 right-0 flex items-start gap-2 w-[49%] sm:w-auto">
       <span class="text-[#1C1C1E] text-[12px] min-w-[90px] hidden h-[45px] items-center sm:flex">

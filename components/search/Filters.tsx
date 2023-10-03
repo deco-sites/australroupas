@@ -23,8 +23,8 @@ function ValueItem(
   { url, selected, label, quantity, name }: FilterToggleValueWithName,
 ) {
   return (
-    <a href={url} class="flex items-center gap-2">
-      {name != "Departments" && name != "Cor" &&
+    <a href={url} class="flex items-center gap-2 w-full">
+      {name != "Departments" && name != "cor" &&
         (
           <>
             <div
@@ -37,7 +37,7 @@ function ValueItem(
             </span>
           </>
         )}
-      {name == "Cor" &&
+      {name == "cor" &&
         (
           <>
             <div
@@ -66,16 +66,30 @@ function FilterValues({ key, values }: FilterToggle) {
     : "flex-col";
   const name = key;
 
+  if (key === "price") {
+    values.sort((a, b) => {
+      const rangeA = parseRange(a.value);
+      const rangeB = parseRange(b.value);
+      if (rangeA!.from < rangeB!.from) {
+        return -1;
+      }
+      if (rangeA!.from > rangeB!.from) {
+        return 1;
+      }
+      return 0;
+    });
+  }
   return (
     <ul class={`flex flex-wrap gap-2 pb-[15px] ${flexDirection}`}>
       {values.map((item) => {
         if (key === "price") {
           const range = parseRange(item.value);
-
           return range && (
             <ValueItem
               {...item}
-              label={`${formatPrice(range.from)} - ${formatPrice(range.to)}`}
+              label={`Preço (${formatPrice(range.from)} - ${
+                formatPrice(range.to)
+              })`}
               name={name}
             />
           );
@@ -92,6 +106,7 @@ const beautifyName = (name: string) => {
   if (name == "Brands") return "Marcas";
   if (name == "Cor") return "Cor";
   if (name == "Tamanho") return "Tamanho";
+  if (name == "Preço") return "Faixa de preço";
 
   return name;
 };
@@ -100,11 +115,11 @@ function Filters({ filters }: Props) {
   return (
     <div>
       <p class="text-lg lg:text-[30px] font-bold mb-5">Filtrar por</p>
-      <ul class="flex flex-col">
+      <ul class="flex flex-col overflow-y-scroll h-[calc(100vh-280px)] container-filter">
         {filters
           .filter(isToggle)
           .map((filter) => {
-            if (filter.label == "Brands") return <></>;
+            if (filter.label == "Marca") return <></>;
 
             return (
               <details class="flex flex-col border-b border-b-[#C7C7CC]">
