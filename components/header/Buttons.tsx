@@ -4,7 +4,7 @@ import type { IconsHeader } from "$store/components/header/Header.tsx";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import { useCart } from "deco-sites/std/packs/vtex/hooks/useCart.ts";
-import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
+import { AnalyticsEvent } from "apps/commerce/types.ts";
 
 declare global {
   interface Window {

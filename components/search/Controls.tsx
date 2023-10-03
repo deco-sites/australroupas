@@ -4,7 +4,7 @@ import Filters from "$store/components/search/Filters.tsx";
 import Sort from "$store/components/search/Sort.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import Breadcrumb from "$store/components/ui/Breadcrumb.tsx";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 
 type Props =
   & Pick<ProductListingPage, "filters" | "breadcrumb" | "sortOptions">

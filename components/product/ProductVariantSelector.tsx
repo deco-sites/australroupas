@@ -2,7 +2,7 @@ import Avatar from "deco-sites/australroupas/components/ui/AvatarPDP.tsx";
 import { useVariations } from "deco-sites/australroupas/sdk/useVariantPossiblities.ts";
 import { inStock } from "deco-sites/australroupas/sdk/useOffer.ts";
 import { useQuickView } from "../../sdk/useQuickView.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 
 const capitalizeString = (str: string) =>
   str.toLowerCase().replace(

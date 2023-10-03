@@ -4,7 +4,7 @@ import { computed } from "@preact/signals";
 import type { Props as LoaderProps } from "deco-sites/australroupas/loaders/plp.ts";
 import type { Manifest } from "../../live.gen.ts";
 import type { FnContext } from "$live/mod.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 
 import { Runtime } from "../../runtime.ts";
 import Spinner from "../ui/Spinner.tsx";

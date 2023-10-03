@@ -1,7 +1,7 @@
 import type {
   AggregateOffer,
   UnitPriceSpecification,
-} from "deco-sites/std/commerce/types.ts";
+} from "apps/commerce/types.ts";
 
 import { formatPrice } from "$store/sdk/format.ts";
 

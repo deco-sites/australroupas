@@ -1,6 +1,6 @@
 import Avatar from "$store/components/ui/Avatar.tsx";
 import { useSignal } from "@preact/signals";
-import type { ProductGroup } from "deco-sites/std/commerce/types.ts";
+import type { ProductGroup } from "apps/commerce/types.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 
 import Button from "$store/components/ui/Button.tsx";

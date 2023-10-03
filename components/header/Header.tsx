@@ -2,7 +2,7 @@ import Cart from "$store/components/minicart/Cart.tsx";
 import type { Image } from "deco-sites/std/components/types.ts";
 import type { EditableProps as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { Product, Suggestion } from "deco-sites/std/commerce/types.ts";
+import type { Product, Suggestion } from "apps/commerce/types.ts";
 import type { INavItem } from "$store/components/header/NavItem.tsx";
 import Overlay from "$store/islands/Overlay.tsx";
 

@@ -1,7 +1,7 @@
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 
 import type { HTML } from "deco-sites/std/components/types.ts";
 import Quilltext from "deco-sites/std/components/QuillText.tsx";

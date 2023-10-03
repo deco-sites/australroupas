@@ -1,6 +1,6 @@
 import { effect, signal } from "@preact/signals";
 import { Runtime } from "deco-sites/australroupas/runtime.ts";
-import type { Product } from "deco-sites/std/commerce/types.ts";
+import type { Product } from "apps/commerce/types.ts";
 
 const productGroupID = signal<null | string>(null);
 const selectedSku = signal<undefined | string>(undefined);

@@ -1,4 +1,4 @@
-import type { Product, PropertyValue } from "deco-sites/std/commerce/types.ts";
+import type { Product, PropertyValue } from "apps/commerce/types.ts";
 
 export const useVariantPossibilities = (
   { url: productUrl, isVariantOf }: Product,

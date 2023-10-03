@@ -4,7 +4,7 @@ import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-import type { ProductListingPage } from "deco-sites/std/commerce/types.ts";
+import type { ProductListingPage } from "apps/commerce/types.ts";
 import { useEffect, useRef, useState } from "preact/compat";
 import Button from "$store/components/ui/Button.tsx";
 import type { HTML } from "deco-sites/std/components/types.ts";

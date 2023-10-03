@@ -17,7 +17,7 @@ import Button from "$store/components/ui/Button.tsx";
 // import Slider from "$store/components/ui/Slider.tsx";
 import { useAutocomplete } from "deco-sites/std/packs/vtex/hooks/useAutocomplete.ts";
 // import { useUI } from "$store/sdk/useUI.ts";
-import { AnalyticsEvent } from "deco-sites/std/commerce/types.ts";
+import { AnalyticsEvent } from "apps/commerce/types.ts";
 import { sendEvent } from "$store/sdk/analytics.tsx";
 
 declare global {
