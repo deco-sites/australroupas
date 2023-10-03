@@ -132,7 +132,7 @@ function Result({
 
               <div class="flex flex-row">
                 {variant === "aside" && filters.length > 0 && (
-                  <aside class="hidden sm:block w-min min-w-[20%]">
+                  <aside class="hidden sm:block w-min min-w-[20%] sticky h-full top-[120px]">
                     <Filters filters={filters} />
                   </aside>
                 )}
