@@ -108,7 +108,7 @@ function ProductInfo(
           {formatPrice(listPrice, offers!.priceCurrency!)! >
               formatPrice(price, offers!.priceCurrency!)! &&
             (
-              <span class="line-through text-base-300 text-xs">
+              <span class="line-through text-[#878787] text-[14px]">
                 {formatPrice(listPrice, offers!.priceCurrency!)}
               </span>
             )}
