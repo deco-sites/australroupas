@@ -88,9 +88,10 @@ function ProductInfo(
     product,
   );
   const sizes = productVariations.get("Tamanho");
-  console.log(product)
+  console.log(product);
 
-  const newName = sizes?.find(size => size.item.sku == selectedSku.value)?.item?.name;
+  const newName = sizes?.find((size) => size.item.sku == selectedSku.value)
+    ?.item?.name;
 
   return (
     <>

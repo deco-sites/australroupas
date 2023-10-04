@@ -21,7 +21,7 @@ function Notify({ productID }: Props) {
       const email =
         (e.currentTarget.elements.namedItem("email") as RadioNodeList)?.value;
 
-      await invoke.vtex.actions.notifyme({ skuId: productID, name, email })
+      await invoke.vtex.actions.notifyme({ skuId: productID, name, email });
     } finally {
       loading.value = false;
     }

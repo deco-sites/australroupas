@@ -5,7 +5,6 @@ import type { ProductListingPage } from "apps/commerce/types.ts";
 import { invoke } from "../../runtime.ts";
 import Spinner from "../ui/Spinner.tsx";
 
-
 interface Options {
   page: ProductListingPage | null;
   pageType?: "Category" | "Search";
@@ -30,22 +29,24 @@ const usePaginationController = ({ page }: Options) => {
           url.searchParams.set("page", pageNumber.toString());
           setLoading(true);
 
-          const maybePage = url.searchParams.get("q") 
-          ? await invoke.vtex.loaders.intelligentSearch.productListingPage({
-            count: 3,
-            page: pageNumber,
-            query: url.searchParams.get("q") || ""
-          }) :
-          await invoke.vtex.loaders.intelligentSearch.productListingPage({
-            count: 6,
-            page: pageNumber,
-            selectedFacets:  url.pathname.split("/").slice(1).map((path, idx) => {
-                return {
-                  key: `category-${idx + 1}`,
-                  value: path
-                }
+          const maybePage = url.searchParams.get("q")
+            ? await invoke.vtex.loaders.intelligentSearch.productListingPage({
+              count: 3,
+              page: pageNumber,
+              query: url.searchParams.get("q") || "",
             })
-          }, )
+            : await invoke.vtex.loaders.intelligentSearch.productListingPage({
+              count: 6,
+              page: pageNumber,
+              selectedFacets: url.pathname.split("/").slice(1).map(
+                (path, idx) => {
+                  return {
+                    key: `category-${idx + 1}`,
+                    value: path,
+                  };
+                },
+              ),
+            });
 
           // Prevent self-ddos
           if (
@@ -60,7 +61,7 @@ const usePaginationController = ({ page }: Options) => {
           !cancel && setLoading(false);
         }
       }
-    }, {rootMargin: "1000px"});
+    }, { rootMargin: "1000px" });
 
     observer.observe(ref.current);
 

@@ -25,11 +25,12 @@ effect(() => {
   const fn = async () => {
     try {
       loading.value = true;
-      const invoked = await invoke.vtex.loaders.intelligentSearch.productListingPage({
-        query: `product:${groupID}`, 
-        count: 1, 
-        similars: true
-      })
+      const invoked = await invoke.vtex.loaders.intelligentSearch
+        .productListingPage({
+          query: `product:${groupID}`,
+          count: 1,
+          similars: true,
+        });
 
       if (invoked?.products[0]) {
         payload.value = {
