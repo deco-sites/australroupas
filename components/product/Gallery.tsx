@@ -31,7 +31,7 @@ const usePaginationController = ({ page }: Options) => {
 
           const maybePage = url.searchParams.get("q")
             ? await invoke.vtex.loaders.intelligentSearch.productListingPage({
-              count: 3,
+              count: 6,
               page: pageNumber,
               query: url.searchParams.get("q") || "",
             })
