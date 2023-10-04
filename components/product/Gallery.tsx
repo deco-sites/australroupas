@@ -1,16 +1,9 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import ProductCard from "deco-sites/australroupas/components/product/ProductCard.tsx";
-import { computed } from "@preact/signals";
-import type { Props as LoaderProps } from "deco-sites/australroupas/loaders/plp.ts";
-import type { Manifest } from "../../live.gen.ts";
-import type { FnContext } from "$live/mod.ts";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 
-import { Runtime } from "../../runtime.ts";
+import { invoke } from "../../runtime.ts";
 import Spinner from "../ui/Spinner.tsx";
-
-// deno-lint-ignore ban-types
-type Context = FnContext<{}, Manifest>;
 
 interface Options {
   page: ProductListingPage | null;
@@ -36,14 +29,24 @@ const usePaginationController = ({ page }: Options) => {
           url.searchParams.set("page", pageNumber.toString());
           setLoading(true);
 
-          const page = {
-            count: 1,
-          };
-
-          const maybePage = await Runtime.invoke({
-            key: "deco-sites/australroupas/loaders/plp.ts",
-            props: { ...page, url: url.href },
-          });
+          const maybePage = url.searchParams.get("q")
+            ? await invoke.vtex.loaders.intelligentSearch.productListingPage({
+              count: 6,
+              page: pageNumber,
+              query: url.searchParams.get("q") || "",
+            })
+            : await invoke.vtex.loaders.intelligentSearch.productListingPage({
+              count: 6,
+              page: pageNumber,
+              selectedFacets: url.pathname.split("/").slice(1).map(
+                (path, idx) => {
+                  return {
+                    key: `category-${idx + 1}`,
+                    value: path,
+                  };
+                },
+              ),
+            });
 
           // Prevent self-ddos
           if (
@@ -58,7 +61,7 @@ const usePaginationController = ({ page }: Options) => {
           !cancel && setLoading(false);
         }
       }
-    });
+    }, { rootMargin: "1000px" });
 
     observer.observe(ref.current);
 

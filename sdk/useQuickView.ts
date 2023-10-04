@@ -1,5 +1,5 @@
 import { effect, signal } from "@preact/signals";
-import { Runtime } from "deco-sites/australroupas/runtime.ts";
+import { invoke } from "deco-sites/australroupas/runtime.ts";
 import type { Product } from "apps/commerce/types.ts";
 
 const productGroupID = signal<null | string>(null);
@@ -25,17 +25,16 @@ effect(() => {
   const fn = async () => {
     try {
       loading.value = true;
-      const invoked = await Runtime.invoke({
-        list: {
-          key:
-            "deco-sites/std/loaders/vtex/intelligentSearch/productListingPage.ts",
-          props: { query: `product:${groupID}`, count: 1, similars: true },
-        },
-      });
+      const invoked = await invoke.vtex.loaders.intelligentSearch
+        .productListingPage({
+          query: `product:${groupID}`,
+          count: 1,
+          similars: true,
+        });
 
-      if (invoked.list && invoked.list.products.length > 0) {
+      if (invoked?.products[0]) {
         payload.value = {
-          product: invoked.list.products[0],
+          product: invoked?.products[0],
         };
       }
     } finally {

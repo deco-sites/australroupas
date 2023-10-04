@@ -35,12 +35,10 @@ const SelectorRow = ({
   isQuickView?: boolean;
 }) => {
   const maybeVal = values[selected]?.value;
-  
+
   return (
     <li class="flex flex-col gap-2">
-      <p
-        class="text-sm mt-[10px]"
-        >
+      <p class="text-sm mt-[10px]">
         {name}:{" "}
       </p>
       <ul class="flex flex-row flex-wrap gap-1.5">
@@ -49,8 +47,8 @@ const SelectorRow = ({
             <li>
               <a>
                 <Avatar
-                // deno-lint-ignore ban-ts-comment
-                // @ts-expect-error
+                  // deno-lint-ignore ban-ts-comment
+                  // @ts-expect-error
                   onClick={(e) => {
                     if (name !== "Cor" || isQuickView) {
                       e.preventDefault();
@@ -59,7 +57,7 @@ const SelectorRow = ({
                     }
                   }}
                   variant={(name === "Tamanho" && maybeVal === content) ||
-                  (name !== "Tamanho" && selected === index)
+                      (name !== "Tamanho" && selected === index)
                     ? "active"
                     : (
                       !disabled ? "PDP" : "disabled"
@@ -153,7 +151,8 @@ function VariantSelector(
 
   return (
     <ul class="flex flex-col gap-8">
-      {/* {colors && (
+      {
+        /* {colors && (
         <SelectorRow
           name="Cor"
           selected={0}
@@ -187,7 +186,8 @@ function VariantSelector(
           }}
           isQuickView={isQuickView}
         />
-      )} */}
+      )} */
+      }
       {sizes &&
         (
           <SelectorRow

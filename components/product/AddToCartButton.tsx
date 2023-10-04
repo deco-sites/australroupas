@@ -115,8 +115,10 @@ function AddToCartButton(
 
   return (
     <Button
-      // data-deco="add-to-cart"s
-      {...props}
+      {
+        // data-deco="add-to-cart"s
+        ...props
+      }
       {...btnProps}
       class={classBtn}
     >

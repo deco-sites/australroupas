@@ -1,16 +1,11 @@
 import { useSignal } from "@preact/signals";
-import { Runtime } from "$store/runtime.ts";
+import { invoke } from "$store/runtime.ts";
 import type { Product } from "apps/commerce/types.ts";
 import type { JSX } from "preact";
 
 interface Props {
   productID: Product["productID"];
 }
-
-// just to pass lint, need to fix this as
-const notifyme = Runtime.create(
-  "deco-sites/std/actions/vtex/notifyme.ts",
-);
 
 function Notify({ productID }: Props) {
   const loading = useSignal(false);
@@ -26,7 +21,7 @@ function Notify({ productID }: Props) {
       const email =
         (e.currentTarget.elements.namedItem("email") as RadioNodeList)?.value;
 
-      await notifyme({ skuId: productID, name, email });
+      await invoke.vtex.actions.notifyme({ skuId: productID, name, email });
     } finally {
       loading.value = false;
     }

@@ -41,7 +41,8 @@ const variants = {
 };
 
 function Avatar(
-  { content, variant = "default", name, disponibility = true, ...btnProps }: Props,
+  { content, variant = "default", name, disponibility = true, ...btnProps }:
+    Props,
 ) {
   const disable = !disponibility
     ? "text-[#E4E4EA] border border-[#E4E4EA] after:absolute after:top-1/2 after:h-[1px] after:bg-[#E4E4EA] after:w-full after:block after:-rotate-45 after:content-[&quot;&quot;]"
@@ -49,7 +50,7 @@ function Avatar(
   return (
     <div class="avatar placeholder">
       <button
-      {...btnProps}
+        {...btnProps}
         class={`rounded-md h-8 duration-300 transition-all w-8 ${
           colors[content] ?? colors[variant]
         } ${variants[variant]} ${name == "Tamanho" ? disable : ""}`}
