@@ -167,7 +167,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
         }
       });
     },
-    { threshold: THRESHOLD, root: slider },
+    { threshold: THRESHOLD, root: slider, rootMargin: "100px" },
   );
 
   const fullObserver = new IntersectionObserver((elements) => {
@@ -178,16 +178,16 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
         if (item.target == currentItems[1]) {
           setTimeout(() => {
             goToItem(items.length - 1, "instant");
-          }, 300);
+          }, 800);
         }
         if (item.target == currentItems[currentItems.length - 2]) {
           setTimeout(() => {
             goToItem(0, "instant");
-          }, 300);
+          }, 800);
         }
       }
     });
-  }, { threshold: 0.98, root: slider });
+  }, { threshold: 0.70, root: slider, rootMargin: "100px" });
 
   if (infiniteBehavior) {
     const firstItemClone = items[0].cloneNode(true);
