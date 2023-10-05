@@ -45,8 +45,8 @@ function Card(
             fetchPriority={isLcp ? "high" : "low"}
             loading={isLcp ? "eager" : "lazy"}
             src={mobileImage ? mobileImage : image}
-            width={400}
-            height={250}
+            width={282}
+            height={176}
             preload={isLcp}
           />
           <Source
@@ -62,8 +62,8 @@ function Card(
             class={`w-full rounded-md`}
             loading={isLcp ? "eager" : "lazy"}
             src={image}
-            width={400}
-            height={250}
+            width={282}
+            height={176}
             alt={altImage || image}
           />
         </Picture>
