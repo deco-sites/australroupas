@@ -14,6 +14,7 @@ export interface Props {
   description: HTML;
   callToAction: string;
   href: string;
+  isLCP: boolean;
 }
 
 interface CardProps extends Props {
@@ -31,9 +32,10 @@ function Card(
     subTitle = "",
     index = 0,
     mobileImage = "",
+    isLCP
   }: CardProps,
 ) {
-  const isLcp = index > 2;
+  const isLcp = isLCP && index > 2;
   return (
     <div class={`w-full px-4.5 lg:px-0`}>
       <a class="block w-full" href={href} aria-label={altImage || image}>
