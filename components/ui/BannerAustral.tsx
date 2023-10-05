@@ -276,7 +276,6 @@ function Image(
   },
 ) {
   const isLcp = isFirstBanner && index < 1;
-  console.log((creative as ImageProps))
   return (
     <a href={(creative as ImageProps).hrefImage} aria-label={(creative as ImageProps).altImage || (creative as ImageProps).imageDesktop}>
       <Picture preload={isLcp}>
