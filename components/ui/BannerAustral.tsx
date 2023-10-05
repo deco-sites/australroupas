@@ -307,9 +307,9 @@ function Image(
           loading={isLcp ? "eager" : "lazy"}
           src={(creative as ImageProps).imageDesktop}
           alt={(creative as ImageProps).altImage || (creative as ImageProps).imageDesktop}
-          width={Number((creative as ImageProps).ratioDesktop?.split("x")[0]) ||
+          width={Number((creative as ImageProps).ratioMobile?.split("x")[0]) ||
             1440}
-          height={Number((creative as ImageProps).ratioDesktop?.split("x")[1])}
+          height={Number((creative as ImageProps).ratioMobile?.split("x")[1])}
         />
       </Picture>
     </a>
