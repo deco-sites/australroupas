@@ -41,6 +41,7 @@ function NavItem({ item, index }: { item: INavItem; index: number }) {
       <a
         href={href}
         class="border-b-2 border-b-transparent transition-all duration-300 ease-linear px-5 py-8.5 pl-8.5 group-hover:border-b-primary"
+        aria-label={label}
       >
         <span
           class={`text-sm tracking-widest leading-none ${
@@ -66,6 +67,7 @@ function NavItem({ item, index }: { item: INavItem; index: number }) {
                         node.red ? "text-[#DB1616]" : ""
                       }`}
                       href={node.href}
+                      aria-label={node.label}
                     >
                       {node.label}
                     </a>

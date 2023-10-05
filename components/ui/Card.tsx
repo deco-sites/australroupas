@@ -29,35 +29,40 @@ function Card(
     callToAction,
     href,
     subTitle = "",
-    index,
+    index = 0,
     mobileImage = "",
   }: CardProps,
 ) {
+  const isLcp = index > 2;
   return (
     <div class={`w-full px-4.5 lg:px-0`}>
-      <a class="block w-full" href={href}>
-        <Picture preload={false}>
+      <a class="block w-full" href={href} aria-label={altImage || image}>
+        <Picture preload={isLcp}>
           <Source
             media="(max-width: 1024px)"
-            fetchPriority={"low"}
+            fetchPriority={isLcp ? "high" : "low"}
+            loading={isLcp ? "eager" : "lazy"}
             src={mobileImage ? mobileImage : image}
             width={400}
             height={250}
-            preload={false}
+            preload={isLcp}
           />
           <Source
             media="(min-width: 1025px)"
-            fetchPriority={"low"}
+            fetchPriority={isLcp ? "high" : "low"}
+            loading={isLcp ? "eager" : "lazy"}
             src={image}
             width={545}
             height={341}
-            preload={false}
+            preload={isLcp}
           />
           <img
             class={`w-full rounded-md`}
-            loading={"lazy"}
+            loading={isLcp ? "eager" : "lazy"}
             src={image}
-            alt={altImage}
+            width={400}
+            height={250}
+            alt={altImage || image}
           />
         </Picture>
       </a>

@@ -276,12 +276,14 @@ function Image(
   },
 ) {
   const isLcp = isFirstBanner && index < 1;
+  console.log((creative as ImageProps))
   return (
-    <a href={(creative as ImageProps).hrefImage}>
+    <a href={(creative as ImageProps).hrefImage} aria-label={(creative as ImageProps).altImage || (creative as ImageProps).imageDesktop}>
       <Picture preload={isLcp}>
         <Source
           media="(max-width: 1024px)"
           fetchPriority={isLcp ? "high" : "low"}
+          loading={isLcp ? "eager" : "lazy"}
           src={(creative as ImageProps).imageMobile}
           width={Number((creative as ImageProps).ratioMobile?.split("x")[0]) ||
             414}
@@ -291,6 +293,7 @@ function Image(
         <Source
           media="(min-width: 1025px)"
           fetchPriority={isLcp ? "high" : "low"}
+          loading={isLcp ? "eager" : "lazy"}
           src={(creative as ImageProps).imageDesktop}
           width={Number((creative as ImageProps).ratioDesktop?.split("x")[0]) ||
             1440}
@@ -303,7 +306,7 @@ function Image(
           }`}
           loading={isLcp ? "eager" : "lazy"}
           src={(creative as ImageProps).imageDesktop}
-          alt={(creative as ImageProps).altImage}
+          alt={(creative as ImageProps).altImage || (creative as ImageProps).imageDesktop}
           width={Number((creative as ImageProps).ratioDesktop?.split("x")[0]) ||
             1440}
           height={Number((creative as ImageProps).ratioDesktop?.split("x")[1])}

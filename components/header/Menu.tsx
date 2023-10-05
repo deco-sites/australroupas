@@ -35,11 +35,11 @@ function MenuItem({ item, index }: { item: INavItem; index: number }) {
         type="checkbox"
         class={`MenuItem${index} hidden`}
         name={`item${index}`}
-        id={`item${index}`}
+        id={`item${item.label}`}
       />
       <label
         class="absolute right-0 w-12 h-[46px] z-10"
-        for={`item${index}`}
+        for={`item${item.label}`}
       >
       </label>
       <div class="collapse-title px-0 py-4 min-h-min">
