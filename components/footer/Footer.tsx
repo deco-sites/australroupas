@@ -104,6 +104,7 @@ function Footer(
                   class="font-semibold text-[14px] text-info"
                   href={section.href}
                   target={section.openInNewPage ? "_blank" : ""}
+                  aria-label={section.label}
                 >
                   {section.label}
                 </a>
