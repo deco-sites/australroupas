@@ -128,8 +128,8 @@ function ProductCard({ product, preload, itemListName }: Props) {
             height={HEIGHT}
             class="absolute transition-opacity rounded-md w-full block top-0"
             sizes="(max-width: 640px) 50vw, 20vw"
-            loading={preload ? "eager" : "lazy"}
-            fetchPriority={preload ? "high" : "low"}
+            loading={"lazy"}
+            fetchPriority={"low"}
             decoding="async"
           />
         </a>
