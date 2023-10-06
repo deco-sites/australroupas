@@ -93,7 +93,7 @@ export default function Gallery(props: Options) {
         {pages.map((page) =>
           page?.products.map((product, index) => (
             <div class="w-full list-none ">
-              <ProductCard product={product} preload={index === 0} />
+              <ProductCard product={product} preload={index < 4} />
             </div>
           ))
         )}

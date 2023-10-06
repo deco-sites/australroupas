@@ -84,14 +84,26 @@ function BannerUI(
           width={360}
           height={224}
           media="(max-width: 767px)"
+          loading="eager"
+          fetchPriority="high"
+          preload={true}
         />
         <Source
           src={image.desktop}
           width={1440}
           height={262}
           media="(min-width: 767px)"
+          loading="eager"
+          fetchPriority="high"
+          preload={true}
         />
-        <img class="w-full" src={image.desktop} alt={image.alt ?? title} />
+        <img 
+          class="w-full" 
+          src={image.desktop} 
+          alt={image.alt ?? title} 
+          loading="eager"
+          preload="true"
+        />
       </Picture>
 
       <Content padding={padding} content={content} />
