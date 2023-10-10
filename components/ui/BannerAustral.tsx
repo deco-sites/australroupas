@@ -1,5 +1,5 @@
 import type { HTML } from "deco-sites/std/components/types.ts";
-import Quilltext from "deco-sites/std/components/QuillText.tsx";
+// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
@@ -246,7 +246,7 @@ function Content(
         {content?.title?.map((title) => {
           return (
             <div class={`font-${title.font}`}>
-              <Quilltext html={title.text} />
+              <div dangerouslySetInnerHTML={{__html: title.text}} />
             </div>
           );
         })}

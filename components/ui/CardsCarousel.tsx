@@ -1,7 +1,7 @@
 import type { Props as ICard } from "$store/components/ui/Card.tsx";
 import Card from "$store/components/ui/Card.tsx";
 import Icon from "deco-sites/australroupas/components/ui/Icon.tsx";
-import Quilltext from "deco-sites/std/components/QuillText.tsx";
+// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 import type { HTML } from "deco-sites/std/components/types.ts";
 
 import Slider from "deco-sites/australroupas/components/ui/Slider.tsx";
@@ -22,7 +22,7 @@ function CardsCarousel(
   return (
     <div class="sm:home-container mb-10 lg:mb-15">
       <div class="px-4.5 lg:px-0">
-        <Quilltext html={title} />
+        <div dangerouslySetInnerHTML={{__html: title}} />
       </div>
       <div
         id={id}

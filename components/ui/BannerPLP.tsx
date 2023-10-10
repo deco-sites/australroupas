@@ -4,7 +4,7 @@ import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { ProductListingPage } from "apps/commerce/types.ts";
 
 import type { HTML } from "deco-sites/std/components/types.ts";
-import Quilltext from "deco-sites/std/components/QuillText.tsx";
+// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 export interface Padding {
   /** @description Margem interna esquerda */
@@ -175,8 +175,7 @@ function Content(
       <div class="w-full">
         {content?.title?.map((title) => {
           return (
-            <div>
-              <Quilltext html={title.text} />
+            <div dangerouslySetInnerHTML={{__html: title.text}}>
             </div>
           );
         })}

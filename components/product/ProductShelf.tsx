@@ -9,7 +9,7 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 import type { HTML } from "deco-sites/std/components/types.ts";
-import Quilltext from "deco-sites/std/components/QuillText.tsx";
+// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 export interface Props {
   title?: HTML;
@@ -46,7 +46,7 @@ function Shelf({
       {title &&
         (
           <div class="absolute home-container-mobile sm:home-container">
-            <Quilltext html={title} />
+            <div dangerouslySetInnerHTML={{__html: title}} />
           </div>
         )}
 

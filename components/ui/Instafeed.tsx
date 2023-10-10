@@ -1,7 +1,7 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { HTML } from "deco-sites/std/components/types.ts";
 import Image from "deco-sites/std/components/Image.tsx";
-import Quilltext from "deco-sites/std/components/QuillText.tsx";
+// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 import Icon from "deco-sites/australroupas/components/ui/Icon.tsx";
 import Button from "deco-sites/australroupas/components/ui/Button.tsx";
@@ -28,7 +28,7 @@ export default function Instafeed({ images, title }: Props) {
   return (
     <div class="sm:home-container">
       <div class="home-container-mobile sm:no-container">
-        <Quilltext html={title} />
+        <div dangerouslySetInnerHTML={{__html: title}} />
       </div>
       <div
         id={id}

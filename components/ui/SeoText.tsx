@@ -1,5 +1,5 @@
 import type { HTML } from "deco-sites/std/components/types.ts";
-import Quilltext from "deco-sites/std/components/QuillText.tsx";
+// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 export interface Props {
   text: HTML;
@@ -11,7 +11,7 @@ export default function SeoText({ text, ctaText, ctaLink }: Props) {
   return (
     <div class="home-container-mobile sm:home-container text-center py-12">
       <div class="max-w-[1280px] mx-auto">
-        <Quilltext html={text} />
+        <div dangerouslySetInnerHTMLgerou={{__html: text}} />
       </div>
 
       <a href={ctaLink} class="block text-[#0099ff] underline mt-2">

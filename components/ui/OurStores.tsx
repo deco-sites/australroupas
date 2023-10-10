@@ -1,5 +1,5 @@
 import type { HTML } from "deco-sites/std/components/types.ts";
-import Quilltext from "deco-sites/std/components/QuillText.tsx";
+// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
@@ -75,8 +75,7 @@ function Store({ store }: { store: Store }) {
         />
       </div>
       <div class="flex flex-col gap-4 justify-center items-center lg:w-[400px] lg:basis-1/2">
-        <div>
-          <Quilltext html={store.text} />
+        <div dangerouslySetInnerHTML={{__html: store.text}}>
         </div>
         {store.button.link &&
           store.button.text &&

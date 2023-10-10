@@ -2,7 +2,7 @@ import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 import type { HTML } from "deco-sites/std/components/types.ts";
-import Quilltext from "deco-sites/std/components/QuillText.tsx";
+// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 export interface Feature {
   /**
@@ -32,7 +32,7 @@ function FeatureHighlights(
               width={40}
             />
             <div class="flex flex-col lg:gap-5 text-center">
-              <Quilltext html={text} />
+              <div dangerouslySetInnerHTML={{__html: text}} />
             </div>
           </div>
         ))}

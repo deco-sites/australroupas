@@ -8,7 +8,7 @@ import type { ProductListingPage } from "apps/commerce/types.ts";
 import { useEffect, useRef, useState } from "preact/compat";
 import Button from "$store/components/ui/Button.tsx";
 import type { HTML } from "deco-sites/std/components/types.ts";
-import Quilltext from "deco-sites/std/components/QuillText.tsx";
+// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 import ProductGallery from "$store/islands/ProductGallery.tsx";
 import SearchControls from "$store/islands/SearchControls.tsx";
@@ -149,7 +149,7 @@ function Result({
                           {SeoText.title}
                         </h1>
                         <div class="text-base text-[#3A3A3C] text-center tracking-[.1px] leading-[1.2]">
-                          <Quilltext html={SeoText.description} />
+                          <div dangerouslySetInnerHTML={{__html: SeoText.description}} />
                         </div>
                       </div>
                     )}
