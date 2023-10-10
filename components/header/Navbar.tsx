@@ -1,5 +1,6 @@
 import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
+import MyAccountButton from "$store/islands/MyAccountButton.tsx";
 import Menu from "$store/components/header/Menu.tsx";
 import Image from "deco-sites/std/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
@@ -10,6 +11,7 @@ import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { IconsHeader } from "$store/components/header/Header.tsx";
+
 
 function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   items: INavItem[];
@@ -62,18 +64,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
         <ServiceMenu callToUsItem={callToUsItem} iconsHeader={iconsHeader} />
 
         <div class="z-30">
-          <a
-            class="p-2.5 lg:ml-7.5"
-            href="/minha-conta"
-            aria-label="Log in"
-          >
-            <i
-              class={`${
-                iconsHeader?.myAccount || "icon-user"
-              } text-xl lg:text-2.5xl`}
-            >
-            </i>
-          </a>
+          <MyAccountButton />
           <Buttons variant="cart" iconsHeader={iconsHeader} />
         </div>
       </div>

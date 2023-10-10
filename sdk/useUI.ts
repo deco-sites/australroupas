@@ -15,6 +15,8 @@ const displayFilterMenu = signal(false);
 const displayModalSelectSKU = signal(false);
 const displayModalShare = signal(false);
 
+const vtexIdScriptsLoaded = signal(false);
+
 const state = {
   displayCart,
   displayMenu,
@@ -25,6 +27,7 @@ const state = {
   displayFilterMenu,
   displayModalSelectSKU,
   displayModalShare,
+  vtexIdScriptsLoaded
 };
 
 export const useUI = () => state;
