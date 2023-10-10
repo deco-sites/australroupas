@@ -41,9 +41,9 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
         />
       </a>
 
-      <div class="containerNavItems hidden lg:flex justify-center ml-20 z-30">
+      <ul class="containerNavItems hidden lg:flex justify-center ml-20 z-30">
         {items.map((item, index) => <NavItem item={item} index={index} />)}
-      </div>
+      </ul>
 
       <div
         class={`overlayNavItems h-0 opacity-0 z-20 fixed bg-info right-full left-0 top-0 w-full transition-all duration-300 ease-linear`}
