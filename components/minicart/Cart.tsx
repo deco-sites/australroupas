@@ -90,7 +90,7 @@ function Cart() {
             </span>
             <Button
               class="flex justify-center items-center min-w-[250px] h-[45px] text-xs bg-primary border-none text-white mt-10 py-3 px-2.5 rounded-md hover:opacity-80 transition duration-150"
-              aria-label="Continar comprando"
+              aria-label="Continuar comprando"
               onClick={() => {
                 displayCart.value = false;
               }}
