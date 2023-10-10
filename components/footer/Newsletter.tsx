@@ -76,9 +76,9 @@ function Newsletter({
         <span class="text-black text-sm uppercase">
           {title ? title : "Newsletter"}
         </span>
-        <h3 class="text-black lg:text-1.5xl text-base font-bold tracking-wider">
+        <h1 class="text-black lg:text-1.5xl text-base font-bold tracking-wider">
           {subtitle ? subtitle : "Cadastre-se na nossa newsletter"}
-        </h3>
+        </h1>
         <p class="text-black text-xs">
           {description
             ? description

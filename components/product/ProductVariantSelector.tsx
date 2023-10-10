@@ -45,7 +45,6 @@ const SelectorRow = ({
         {values.map(({ content, url, disabled }, index) => {
           return (
             <li>
-              <a>
                 <Avatar
                   // deno-lint-ignore ban-ts-comment
                   // @ts-expect-error
@@ -67,7 +66,6 @@ const SelectorRow = ({
                     (name !== "Tamanho" && selected === index)}
                   disabled={disabled}
                 />
-              </a>
             </li>
           );
         })}

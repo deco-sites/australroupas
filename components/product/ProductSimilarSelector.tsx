@@ -206,6 +206,8 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
                           return (
                             <li>
                               <a
+                                aria-label={name}
+                                alt={name}
                                 href={similar.url!.split("?")[0]}
                               >
                                 <Avatar
