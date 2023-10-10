@@ -61,6 +61,7 @@ function SearchControls(
         } fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear p-[22px_18px_15px_15px]`}
       >
         <Button
+          aria-label="Close minicart"
           class="absolute -right-10 top-2"
           onClick={() => {
             displayFilterMenu.value = !displayFilterMenu.value;

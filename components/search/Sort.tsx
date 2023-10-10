@@ -65,15 +65,17 @@ function Sort({ sortOptions, quantityOfProducts }: Props) {
         </div>
         <ul class="z-[49]">
           {sortOptions.map(({ value, label }) => (
-            <button
-              class="p-2.5 hover:bg-[#e0e0e0] cursor-pointer w-full flex"
-              key={value}
-              value={value}
-              selected={value === sort}
-              onClick={applySort}
-            >
-              <span class="text-sm text-[#1C1C1E]">{friedlyText(label)}</span>
-            </button>
+            <li>
+              <button
+                class="p-2.5 hover:bg-[#e0e0e0] cursor-pointer w-full flex"
+                key={value}
+                value={value}
+                selected={value === sort}
+                onClick={applySort}
+              >
+                <span class="text-sm text-[#1C1C1E]">{friedlyText(label)}</span>
+              </button>
+            </li>
           ))}
         </ul>
       </div>

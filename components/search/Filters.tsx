@@ -23,40 +23,42 @@ function ValueItem(
   { url, selected, label, quantity, name }: FilterToggleValueWithName,
 ) {
   return (
-    <a href={url} class="flex items-center gap-2 w-full">
-      {name != "Departments" && name != "cor" &&
-        (
-          <>
-            <div
-              aria-checked={selected}
-              class="checkbox checkbox-primary rounded w-[18px] h-[18px] border-[#878787]"
-            >
-            </div>
-            <span class="text-sm text-[#636366] py-[5px] px-[10px]">
-              {label}
-            </span>
-          </>
-        )}
-      {name == "cor" &&
-        (
-          <>
-            <div
-              aria-checked={selected}
-              class="checkbox filterColor rounded flex justify-center items-center w-[18px] h-[18px] border-[#878787] p-[2px]"
-              title={label.toUpperCase()}
-            >
-              <div class="h-full w-full bg-clip-content"></div>
-            </div>
-            <span class="text-sm text-[#636366] py-[5px] px-[10px]">
-              {label}
-            </span>
-          </>
-        )}
-      {name == "Categories" &&
-        <span class="text-sm text-[#636366] py-[5px]">{label}</span>}
-      {name == "Categories" &&
-        quantity > 0 && <span class="text-sm text-base-300">({quantity})</span>}
-    </a>
+    <li>
+      <a href={url} class="flex items-center gap-2 w-full">
+        {name != "Departments" && name != "cor" &&
+          (
+            <>
+              <div
+                aria-checked={selected}
+                class="checkbox checkbox-primary rounded w-[18px] h-[18px] border-[#878787]"
+              >
+              </div>
+              <span class="text-sm text-[#636366] py-[5px] px-[10px]">
+                {label}
+              </span>
+            </>
+          )}
+        {name == "cor" &&
+          (
+            <>
+              <div
+                aria-checked={selected}
+                class="checkbox filterColor rounded flex justify-center items-center w-[18px] h-[18px] border-[#878787] p-[2px]"
+                title={label.toUpperCase()}
+              >
+                <div class="h-full w-full bg-clip-content"></div>
+              </div>
+              <span class="text-sm text-[#636366] py-[5px] px-[10px]">
+                {label}
+              </span>
+            </>
+          )}
+        {name == "Categories" &&
+          <span class="text-sm text-[#636366] py-[5px]">{label}</span>}
+        {name == "Categories" &&
+          quantity > 0 && <span class="text-sm text-base-300">({quantity})</span>}
+      </a>
+    </li>
   );
 }
 
@@ -122,19 +124,21 @@ function Filters({ filters }: Props) {
             if (filter.label == "Marca") return <></>;
 
             return (
-              <details class="flex flex-col border-b border-b-[#C7C7CC]">
-                <summary
-                  class="filter cursor-pointer relative py-[15px] text-[#636366] text-sm lg:text-base"
-                  style={{
-                    color: beautifyName(filter.label) == "Categorias"
-                      ? "#5881CA"
-                      : "inherit",
-                  }}
-                >
-                  <p>{beautifyName(filter.label)}</p>
-                </summary>
-                <FilterValues {...filter} />
-              </details>
+              <li>
+                <details class="flex flex-col border-b border-b-[#C7C7CC]">
+                  <summary
+                    class="filter cursor-pointer relative py-[15px] text-[#636366] text-sm lg:text-base"
+                    style={{
+                      color: beautifyName(filter.label) == "Categorias"
+                        ? "#5881CA"
+                        : "inherit",
+                    }}
+                  >
+                    <p>{beautifyName(filter.label)}</p>
+                  </summary>
+                  <FilterValues {...filter} />
+                </details>
+              </li>
             );
           })}
       </ul>
