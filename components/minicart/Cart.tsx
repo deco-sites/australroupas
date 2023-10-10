@@ -220,7 +220,7 @@ function Cart() {
             >
               <Button
                 data-deco="buy-button"
-                aria-label="Finalizar compra"
+                aria-label="Finalizar Compra"
                 class="w-full text-sm lg:text-base font-bold tracking-[.04em] leading-[1]"
                 disabled={loading.value || cart.value.items.length === 0}
                 onClick={() => {
