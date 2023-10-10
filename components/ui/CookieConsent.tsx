@@ -84,7 +84,7 @@ function CookieConsent() {
           <div class="flex flex-col sm:flex-row sm:items-center gap-2 w-full sm:w-auto">
             <Button
               data-button-cc-accept
-              aria-label="Accept cookie consent"
+              aria-label="Ok, Entendi"
               class="flex justify-center items-center mx-auto w-[190px] text-xs sm:text-base bg-primary border-none text-white h-10 rounded-md hover:opacity-80 transition duration-150 sm:mr-[60px]"
             >
               Ok, Entendi
