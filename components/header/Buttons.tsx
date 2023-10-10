@@ -135,7 +135,7 @@ function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
   return (
     <Button
       class="p-2.5 text-xl relative lg:ml-7.5"
-      aria-label="open cart"
+      aria-label={quantity}
       data-deco={displayCart.value && "open-cart"}
       loading={loading.value}
       onClick={onClick}
