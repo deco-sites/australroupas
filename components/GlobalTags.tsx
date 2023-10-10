@@ -31,6 +31,10 @@ function GlobalTags() {
       <style
         dangerouslySetInnerHTML={{
           __html: `
+            html {
+                overflow-x: hidden;
+            }
+
       @font-face {
         font-family: "icomoon";
         src: url("https://austral.vteximg.com.br/arquivos/icomoon.eot.css?v=0.0.8");
