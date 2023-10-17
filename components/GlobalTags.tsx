@@ -32,7 +32,7 @@ function GlobalTags() {
         dangerouslySetInnerHTML={{
           __html: `
             html {
-                overflow-x: hidden;
+                // overflow-x: hidden;
             }
 
       @font-face {

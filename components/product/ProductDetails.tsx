@@ -371,7 +371,6 @@ function Details({
 
           {/* Product Info */}
           <div
-            style={{ position: "sticky" }}
             class="relative px-4 sm:pr-0 sm:pl-6 sm:col-start-3 sm:col-span-1 sm:row-start-1 lg:w-full lg:basis-[41%] lg:px-0 lg:ml-[40px] lg:sticky lg:top-[136px] lg:h-full lg:max-w-[500px]"
           >
             <ProductInfo page={page} currentUrl={currentUrl} />
