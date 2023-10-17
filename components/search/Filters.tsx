@@ -23,7 +23,7 @@ function ValueItem(
   { url, selected, label, quantity, name }: FilterToggleValueWithName,
 ) {
   return (
-    <li>
+    <li style={{width: "100%"}}>
       <a href={url} class="flex items-center gap-2 w-full">
         {name != "Departments" && name != "cor" &&
           (
