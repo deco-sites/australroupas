@@ -97,10 +97,10 @@ function BannerUI(
           fetchPriority="high"
           preload={true}
         />
-        <img 
-          class="w-full" 
-          src={image.desktop} 
-          alt={image.alt ?? title} 
+        <img
+          class="w-full"
+          src={image.desktop}
+          alt={image.alt ?? title}
           loading="eager"
           preload="true"
         />
@@ -175,7 +175,7 @@ function Content(
       <div class="w-full">
         {content?.title?.map((title) => {
           return (
-            <div dangerouslySetInnerHTML={{__html: title.text}}>
+            <div dangerouslySetInnerHTML={{ __html: title.text }}>
             </div>
           );
         })}

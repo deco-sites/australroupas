@@ -40,9 +40,17 @@ function ProductCard({ product, preload, itemListName }: Props) {
   }
 
   const [front, back] = images ?? [];
-  const { listPrice, price, installments } = useOffer(offers);
+
   const possibilities = useVariantPossibilities(product);
   const variants = Object.entries(Object.values(possibilities)[1] ?? {});
+
+  const findFirstOffersAvailable = isVariantOf?.hasVariant.find((variant) => {
+    return variant.offers?.offers[0].availability ==
+      "https://schema.org/InStock";
+  })?.offers;
+  console.log(offers);
+  console.log(findFirstOffersAvailable);
+  const { listPrice, price, installments } = useOffer(findFirstOffersAvailable);
 
   const findStock = isVariantOf?.hasVariant.filter((variant) =>
     variant.offers?.offers[0].availability == "https://schema.org/InStock"

@@ -23,7 +23,7 @@ function ValueItem(
   { url, selected, label, quantity, name }: FilterToggleValueWithName,
 ) {
   return (
-    <li style={{width: "100%" }}>
+    <li style={{ width: "100%" }}>
       <a href={url} class="flex items-center gap-2 w-full">
         {name != "Departments" && name != "cor" &&
           (
@@ -56,7 +56,9 @@ function ValueItem(
         {name == "Categories" &&
           <span class="text-sm text-[#636366] py-[5px]">{label}</span>}
         {name == "Categories" &&
-          quantity > 0 && <span class="text-sm text-base-300">({quantity})</span>}
+          quantity > 0 && (
+          <span class="text-sm text-base-300">({quantity})</span>
+        )}
       </a>
     </li>
   );

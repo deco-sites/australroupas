@@ -46,7 +46,7 @@ function Shelf({
       {title &&
         (
           <div class="absolute home-container-mobile sm:home-container">
-            <div dangerouslySetInnerHTML={{__html: title}} />
+            <div dangerouslySetInnerHTML={{ __html: title }} />
           </div>
         )}
 
@@ -185,7 +185,11 @@ function Dots(
       />
       <ul class="flex w-full absolute bottom-0 carousel justify-center col-span-full gap-1.5 z-10 row-start-4">
         {products?.map((_, index) => (
-          <li class={`carousel-item ${(index + 1) % 4 != 0 && !twoItemsPerPage && "sm:hidden"} ${(index + 1) % 2 != 0 && twoItemsPerPage && "sm:hidden"}`}>
+          <li
+            class={`carousel-item ${
+              (index + 1) % 4 != 0 && !twoItemsPerPage && "sm:hidden"
+            } ${(index + 1) % 2 != 0 && twoItemsPerPage && "sm:hidden"}`}
+          >
             <Slider.Dot index={index}>
               <div
                 class={`my-5 w-2 h-2 rounded-full bg-[rgba(0,0,0,0.2)] group-disabled:bg-[#000]`}

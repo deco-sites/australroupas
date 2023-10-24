@@ -32,7 +32,7 @@ function FeatureHighlights(
               width={40}
             />
             <div class="flex flex-col lg:gap-5 text-center">
-              <div dangerouslySetInnerHTML={{__html: text}} />
+              <div dangerouslySetInnerHTML={{ __html: text }} />
             </div>
           </div>
         ))}

@@ -29,7 +29,7 @@ export default function TextInstitutional({ content, maxWidth }: Props) {
       <div class="home-container home-container-mobile">
         <div class={`${max} mx-auto my-8 text-[14px]`}>
           {content.map((content) => {
-            return <div dangerouslySetInnerHTML={{__html: content}} />;
+            return <div dangerouslySetInnerHTML={{ __html: content }} />;
           })}
         </div>
       </div>

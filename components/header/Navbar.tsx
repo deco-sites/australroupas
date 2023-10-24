@@ -12,7 +12,6 @@ import type { CallToUsItem } from "./Header.tsx";
 import type { Props as SearchbarProps } from "$store/components/search/Searchbar.tsx";
 import type { IconsHeader } from "$store/components/header/Header.tsx";
 
-
 function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   items: INavItem[];
   searchbar: SearchbarProps;

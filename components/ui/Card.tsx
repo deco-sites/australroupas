@@ -32,7 +32,7 @@ function Card(
     subTitle = "",
     index = 0,
     mobileImage = "",
-    isLCP
+    isLCP,
   }: CardProps,
 ) {
   const isLcp = isLCP && index > 2;

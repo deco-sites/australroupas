@@ -27,7 +27,7 @@ const state = {
   displayFilterMenu,
   displayModalSelectSKU,
   displayModalShare,
-  vtexIdScriptsLoaded
+  vtexIdScriptsLoaded,
 };
 
 export const useUI = () => state;

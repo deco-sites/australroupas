@@ -43,8 +43,6 @@ export type Item = ImageProps | VideoProps;
 export interface Creative {
   creative: Item;
   label?: string;
-  /** @description Textos e Botões */
-  content?: Content;
 }
 
 export interface Carousel {
@@ -53,31 +51,9 @@ export interface Carousel {
   interval?: number;
 }
 
-export interface Button {
-  /** @description Texto do botão */
-  text?: string;
-  /** @description Link do botão */
-  href?: string;
-  /** @description Cor do botão */
-  color: "blue" | "black" | "white" | "transparent" | "link";
-}
-
 export interface Title {
   text: HTML;
   font: "lusitana" | "nunito-sans" | "Roboto-ligth" | "Palatino";
-}
-
-export interface Content {
-  /** @description Dentro ou fora da imagem? */
-  where?: "Dentro" | "Fora";
-  /** @description Textos */
-  title?: Title[];
-  /** @description Alinhamento dos botões */
-  align?: "center" | "left" | "right";
-  /** @description Alinhamento vertical */
-  verticalAlign?: "center" | "top" | "bottom";
-  /** @description Botões */
-  buttons?: Button[];
 }
 
 export interface Column {
@@ -153,10 +129,7 @@ function BannerAustral(
       >
         <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none">
           {creativeCarousel?.map((creative, index) => {
-            const { content } = creative;
             if (isImage(creative.creative)) {
-              const hasContent = ((content?.title?.length || 0) > 0) ||
-                ((content?.buttons?.length || 0) > 0);
               return (
                 <Slider.Item
                   index={index}
@@ -174,7 +147,6 @@ function BannerAustral(
                       isFirstBanner={isFirstBanner}
                     />
                   </div>
-                  {hasContent && <Content content={content} />}
                 </Slider.Item>
               );
             } else {
@@ -188,7 +160,6 @@ function BannerAustral(
                   }`}
                 >
                   <VideoComponent creative={creative.creative} />
-                  <Content content={content} />
                 </Slider.Item>
               );
             }
@@ -220,53 +191,6 @@ function BannerAustral(
   );
 }
 
-function Content(
-  { content }: {
-    content: Content | undefined;
-  },
-) {
-  const align = content?.align == "center"
-    ? "justify-center"
-    : content?.align == "left"
-    ? "justify-start"
-    : "justify-end";
-  const verticalAlign = content?.verticalAlign == "center"
-    ? "justify-center"
-    : content?.verticalAlign == "top"
-    ? "justify-start"
-    : "justify-end";
-
-  return (
-    <div
-      class={`w-full h-full ${
-        content?.where == "Dentro" ? "absolute top-0" : ""
-      } flex flex-col ${verticalAlign}`}
-    >
-      <div class="w-full">
-        {content?.title?.map((title) => {
-          return (
-            <div class={`font-${title.font}`}>
-              <div dangerouslySetInnerHTML={{__html: title.text}} />
-            </div>
-          );
-        })}
-      </div>
-      <div class={`w-full flex gap-5 py-2.5 ${align}`}>
-        {content?.buttons?.map((button) => {
-          return (
-            <a
-              href={button.href}
-              class="flex items-center text-center bg-white text-black px-6 py-2 rounded-md text-[14px] tracking-wide"
-            >
-              {button.text}
-            </a>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 function Image(
   { creative, borderRadius, index, isFirstBanner }: {
     creative: Item;
@@ -277,7 +201,11 @@ function Image(
 ) {
   const isLcp = isFirstBanner && index < 1;
   return (
-    <a href={(creative as ImageProps).hrefImage} aria-label={(creative as ImageProps).altImage || (creative as ImageProps).imageDesktop}>
+    <a
+      href={(creative as ImageProps).hrefImage}
+      aria-label={(creative as ImageProps).altImage ||
+        (creative as ImageProps).imageDesktop}
+    >
       <Picture preload={isLcp}>
         <Source
           media="(max-width: 1024px)"
@@ -305,7 +233,8 @@ function Image(
           }`}
           loading={isLcp ? "eager" : "lazy"}
           src={(creative as ImageProps).imageDesktop}
-          alt={(creative as ImageProps).altImage || (creative as ImageProps).imageDesktop}
+          alt={(creative as ImageProps).altImage ||
+            (creative as ImageProps).imageDesktop}
           width={Number((creative as ImageProps).ratioMobile?.split("x")[0]) ||
             1440}
           height={Number((creative as ImageProps).ratioMobile?.split("x")[1])}

@@ -45,27 +45,27 @@ const SelectorRow = ({
         {values.map(({ content, url, disabled }, index) => {
           return (
             <li>
-                <Avatar
-                  // deno-lint-ignore ban-ts-comment
-                  // @ts-expect-error
-                  onClick={(e) => {
-                    if (name !== "Cor" || isQuickView) {
-                      e.preventDefault();
-                      e.stopPropagation();
-                      onSelect?.(index);
-                    }
-                  }}
-                  variant={(name === "Tamanho" && maybeVal === content) ||
-                      (name !== "Tamanho" && selected === index)
-                    ? "active"
-                    : (
-                      !disabled ? "PDP" : "disabled"
-                    )}
-                  content={content}
-                  selected={(name === "Tamanho" && maybeVal === content) ||
-                    (name !== "Tamanho" && selected === index)}
-                  disabled={disabled}
-                />
+              <Avatar
+                // deno-lint-ignore ban-ts-comment
+                // @ts-expect-error
+                onClick={(e) => {
+                  if (name !== "Cor" || isQuickView) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onSelect?.(index);
+                  }
+                }}
+                variant={(name === "Tamanho" && maybeVal === content) ||
+                    (name !== "Tamanho" && selected === index)
+                  ? "active"
+                  : (
+                    !disabled ? "PDP" : "disabled"
+                  )}
+                content={content}
+                selected={(name === "Tamanho" && maybeVal === content) ||
+                  (name !== "Tamanho" && selected === index)}
+                disabled={disabled}
+              />
             </li>
           );
         })}

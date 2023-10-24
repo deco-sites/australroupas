@@ -22,7 +22,7 @@ function CardsCarousel(
   return (
     <div class="sm:home-container mb-10 lg:mb-15">
       <div class="px-4.5 lg:px-0">
-        <div dangerouslySetInnerHTML={{__html: title}} />
+        <div dangerouslySetInnerHTML={{ __html: title }} />
       </div>
       <div
         id={id}
@@ -44,6 +44,7 @@ function CardsCarousel(
                     callToAction={card.callToAction}
                     href={card.href}
                     index={index}
+                    isLCP={false}
                   />
                 </div>
               </Slider.Item>

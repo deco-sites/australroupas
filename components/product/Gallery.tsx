@@ -4,6 +4,7 @@ import type { ProductListingPage } from "apps/commerce/types.ts";
 
 import { invoke } from "../../runtime.ts";
 import Spinner from "../ui/Spinner.tsx";
+import { Sort } from "apps/vtex/utils/types.ts";
 
 interface Options {
   page: ProductListingPage | null;
@@ -34,10 +35,12 @@ const usePaginationController = ({ page }: Options) => {
               count: 6,
               page: pageNumber,
               query: url.searchParams.get("q") || "",
+              sort: url.searchParams.get("sort") as Sort || "",
             })
             : await invoke.vtex.loaders.intelligentSearch.productListingPage({
               count: 6,
               page: pageNumber,
+              sort: url.searchParams.get("sort") as Sort || "",
               selectedFacets: url.pathname.split("/").slice(1).map(
                 (path, idx) => {
                   return {

@@ -28,7 +28,7 @@ export default function Instafeed({ images, title }: Props) {
   return (
     <div class="sm:home-container">
       <div class="home-container-mobile sm:no-container">
-        <div dangerouslySetInnerHTML={{__html: title}} />
+        <div dangerouslySetInnerHTML={{ __html: title }} />
       </div>
       <div
         id={id}
@@ -41,7 +41,12 @@ export default function Instafeed({ images, title }: Props) {
                 index={index}
                 class={`relative carousel-item w-[80%] sm:w-[24%] first:ml-[15px] last:mr-[15px] sm:first:ml-0 sm:last:mr-0 sm:mx-[0.67%]`}
               >
-                <a class="cursor-pointer" href={image.href} target="_blank" aria-label={image.altText || "Austral Instagram Image"}>
+                <a
+                  class="cursor-pointer"
+                  href={image.href}
+                  target="_blank"
+                  aria-label={image.altText || "Austral Instagram Image"}
+                >
                   <Image
                     class="w-full rounded-md"
                     src={image.image}

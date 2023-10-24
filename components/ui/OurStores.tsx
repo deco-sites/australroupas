@@ -75,7 +75,7 @@ function Store({ store }: { store: Store }) {
         />
       </div>
       <div class="flex flex-col gap-4 justify-center items-center lg:w-[400px] lg:basis-1/2">
-        <div dangerouslySetInnerHTML={{__html: store.text}}>
+        <div dangerouslySetInnerHTML={{ __html: store.text }}>
         </div>
         {store.button.link &&
           store.button.text &&
