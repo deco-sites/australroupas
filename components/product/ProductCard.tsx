@@ -2,30 +2,25 @@ import Image from "deco-sites/std/components/Image.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
-import { SendEventOnClick } from "$store/sdk/analytics.tsx";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
+import { SendEventOnClick } from "deco-sites/australroupas/components/Analytics.tsx";
 import type { Product } from "apps/commerce/types.ts";
-
 import ProductCardButton from "deco-sites/australroupas/islands/ProductCardButton.tsx";
 
 interface Props {
   product: Product;
-  /** Preload card image */
+  /** Preload card image */ 
   preload?: boolean;
 
   /** @description used for analytics event */
   itemListName?: string;
+  index?: number;
 }
-
-const relative = (url: string) => {
-  const link = new URL(url);
-  return `${link.pathname}`;
-};
 
 const WIDTH = 338;
 const HEIGHT = 506;
 
-function ProductCard({ product, preload, itemListName }: Props) {
+function ProductCard({ product, preload, itemListName, index }: Props) {
   const {
     url,
     productID,
@@ -48,8 +43,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
     return variant.offers?.offers[0].availability ==
       "https://schema.org/InStock";
   })?.offers;
-  console.log(offers);
-  console.log(findFirstOffersAvailable);
+
   const { listPrice, price, installments } = useOffer(findFirstOffersAvailable);
 
   const findStock = isVariantOf?.hasVariant.filter((variant) =>
@@ -79,19 +73,7 @@ function ProductCard({ product, preload, itemListName }: Props) {
     }
   }
 
-  const clickEvent = {
-    name: "select_item" as const,
-    params: {
-      item_list_name: itemListName,
-      items: [
-        mapProductToAnalyticsItem({
-          product,
-          price,
-          listPrice,
-        }),
-      ],
-    },
-  };
+  const id = `product-card-${productID}`;
 
   return (
     <div
@@ -99,6 +81,23 @@ function ProductCard({ product, preload, itemListName }: Props) {
       data-deco="view-product"
       id={`product-card-${productID}`}
     >
+      <SendEventOnClick
+        id={id}
+        event={{
+          name: "select_item" as const,
+          params: {
+            item_list_name: itemListName,
+            items: [
+              mapProductToAnalyticsItem({
+                product,
+                price,
+                listPrice,
+                index,
+              }),
+            ],
+          },
+        }}
+      />
       <figure
         class="relative h-full"
         style={{ paddingBottom: `${(HEIGHT / WIDTH) * 100}%` }}

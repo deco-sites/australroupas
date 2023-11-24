@@ -9,14 +9,12 @@ import ProductSizeTable from "$store/components/product/ProductSizeTable.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
-
 import ProductSimilarSelector from "./ProductSimilarSelector.tsx";
 import ProductSelector from "./ProductVariantSelector.tsx";
 import { useQuickView } from "../../sdk/useQuickView.ts";
-
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import NavigatorShare from "$store/islands/NavigatorShare.tsx";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";

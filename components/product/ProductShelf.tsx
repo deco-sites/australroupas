@@ -4,7 +4,7 @@ import Icon from "$store/components/ui/Icon.tsx";
 import Slider from "$store/components/ui/Slider.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
 import { useId } from "preact/hooks";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
@@ -30,7 +30,6 @@ function Shelf({
 
   const itemsDesktop = twoItemsPerPage ? "md:w-[49%]" : "sm:w-[24%]";
   const paddingXitemsDesktop = twoItemsPerPage ? "lg:px-[62px]" : "";
-  const gapDesktop = twoItemsPerPage ? "gap-[2.5%]" : "gap-[1.33%]";
 
   const marginDesktop = twoItemsPerPage ? "mx-[1.25%]" : "mx-[0.67%]";
 
@@ -111,51 +110,11 @@ function Shelf({
 }
 
 function ProductShelf({ title, products, twoItemsPerPage }: Props) {
-  const filteredProductsProps: Product[] = products?.map((product) => (
-    {
-      "@type": "Product",
-      productID: product.productID,
-      url: product.url,
-      name: product.name,
-      isVariantOf: {
-        "@type": "ProductGroup",
-        additionalProperty: [],
-        hasVariant: product.isVariantOf!.hasVariant.map((variant) => (
-          {
-            "@type": "Product",
-            productID: variant.productID,
-            additionalProperty: variant.additionalProperty,
-            url: variant.url,
-            name: variant.name,
-            offers: variant.offers,
-            image: [
-              // @ts-expect-error: type
-              variant.image[0],
-              // @ts-expect-error: type
-              variant.image[1],
-            ],
-            sku: product.sku,
-          }
-        )),
-        name: product.isVariantOf!.name,
-        productGroupID: product.isVariantOf!.productGroupID,
-        url: product.isVariantOf!.url,
-      },
-      image: [
-        // @ts-expect-error: type
-        product.image[0],
-        // @ts-expect-error: type
-        product.image[1],
-      ],
-      sku: product.sku,
-      offers: product.offers,
-    }
-  )) || [];
 
   return (
     <Shelf
       title={title}
-      products={filteredProductsProps}
+      products={products}
       twoItemsPerPage={twoItemsPerPage}
     />
   );

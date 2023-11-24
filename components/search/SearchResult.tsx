@@ -1,12 +1,9 @@
 import Filters from "$store/components/search/Filters.tsx";
-import Icon from "$store/components/ui/Icon.tsx";
 import { SendEventOnLoad } from "$store/sdk/analytics.tsx";
-import { mapProductToAnalyticsItem } from "deco-sites/std/commerce/utils/productToAnalyticsItem.ts";
+import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalyticsItem.ts";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { ProductListingPage } from "apps/commerce/types.ts";
-import { useEffect, useRef, useState } from "preact/compat";
-import Button from "$store/components/ui/Button.tsx";
 import type { HTML } from "deco-sites/std/components/types.ts";
 // import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
