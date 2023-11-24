@@ -9,7 +9,7 @@ import ProductCardButton from "deco-sites/australroupas/islands/ProductCardButto
 
 interface Props {
   product: Product;
-  /** Preload card image */ 
+  /** Preload card image */
   preload?: boolean;
 
   /** @description used for analytics event */

@@ -27,7 +27,6 @@ export default function ProductCardButton(
     urlInStock: string | undefined;
   },
 ) {
-
   const productGroupID = isVariantOf?.productGroupID;
 
   const selectedUrl = useSignal("");

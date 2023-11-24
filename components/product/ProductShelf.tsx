@@ -110,7 +110,6 @@ function Shelf({
 }
 
 function ProductShelf({ title, products, twoItemsPerPage }: Props) {
-
   return (
     <Shelf
       title={title}
