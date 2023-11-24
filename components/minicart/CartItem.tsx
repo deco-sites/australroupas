@@ -40,7 +40,7 @@ function CartItem({ index }: Props) {
   return (
     <li class={`flex flex-row justify-between items-start ${notFirst}`}>
       <Image
-        src={imageUrl}
+        src={imageUrl.replace("-55-55", "-120-180")}
         alt={skuName}
         width={60}
         height={90}
