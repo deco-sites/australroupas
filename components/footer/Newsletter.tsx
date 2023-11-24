@@ -71,7 +71,7 @@ function Newsletter({
   };
 
   return (
-    <div class="max-w-3xl lg:mx-25 bg-white lg:flex border-t border-t-[#E4E4EA] p-6 lg:px-0">
+    <div class="max-w-3xl lg:mx-auto bg-white lg:flex border-t border-t-[#E4E4EA] p-6 lg:px-0">
       <div class="flex flex-col lg:w-2/5 gap-2.5 mb-2.5 px-4.5 lg:px-0">
         <span class="text-black text-sm uppercase">
           {title ? title : "Newsletter"}
