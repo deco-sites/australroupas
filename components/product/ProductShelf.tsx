@@ -36,6 +36,7 @@ function Shelf({
   const gridRows = title
     ? "grid-rows-[64px_1fr_48px_1fr] pt-10"
     : "grid-rows-[1fr]";
+    console.log("teste")
 
   return (
     <div

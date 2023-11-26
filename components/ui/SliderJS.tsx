@@ -211,6 +211,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
       slider.insertBefore(penultimateItemClone, lastItemClone);
     slider.appendChild(firstItemClone);
     secondItemClone && slider.appendChild(secondItemClone);
+    goToItem(0, "instant");
   }
 
   const currentItems = slider?.querySelectorAll(`li`);
