@@ -238,11 +238,15 @@ function GlobalTags() {
       {/* Web Manifest */}
       <link rel="manifest" href={asset("/site.webmanifest")} />
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" type="text/css" href="/slick.css"/>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        referrerpolicy="no-referrer"
+      >
+      </script>
+      <link rel="stylesheet" type="text/css" href={asset("/slick.css")} />
 
-    <link rel="stylesheet" type="text/css" href="/slick-theme.css"/>
-    <script type="text/javascript" src="/slick.min.js"></script>
+      <link rel="stylesheet" type="text/css" href={asset("/slick-theme.css")} />
+      <script type="text/javascript" src={asset("/slick.min.js")}></script>
     </Head>
   );
 }

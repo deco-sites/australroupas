@@ -11,7 +11,6 @@ import type { Product } from "apps/commerce/types.ts";
 import type { HTML } from "deco-sites/std/components/types.ts";
 // import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
-
 export interface Props {
   title?: HTML;
   products: LoaderReturnType<Product[] | null>;
@@ -28,7 +27,6 @@ function Shelf({
   if (!products || products.length === 0) {
     return null;
   }
-
 
   const itemsDesktop = twoItemsPerPage ? "md:w-[49%]" : "sm:w-[24%]";
   const paddingXitemsDesktop = twoItemsPerPage ? "lg:px-[62px]" : "";

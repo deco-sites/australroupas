@@ -58,7 +58,6 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
   // Unregister callbacks
   return () => {
-
   };
 };
 
