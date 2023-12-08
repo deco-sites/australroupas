@@ -77,9 +77,9 @@ const usePaginationController = ({ page }: Options) => {
   return { pages, loading, ref };
 };
 
-export default function Gallery(props: Options) {
+export default function Gallery(props: Options & {device: string}) {
   const { pages, loading, ref } = usePaginationController(props);
-
+  console.log(props.device)
   const { pageType } = props;
 
   const itemsLine = pageType == "Category"
@@ -96,7 +96,7 @@ export default function Gallery(props: Options) {
         {pages.map((page) =>
           page?.products.map((product, index) => (
             <div class="w-full list-none ">
-              <ProductCard product={product} preload={index < 4} />
+              <ProductCard product={product} preload={index < 4} device={props.device} />
             </div>
           ))
         )}

@@ -15,12 +15,13 @@ interface Props {
   /** @description used for analytics event */
   itemListName?: string;
   index?: number;
+  device: string;
 }
 
 const WIDTH = 338;
 const HEIGHT = 506;
 
-function ProductCard({ product, preload, itemListName, index }: Props) {
+function ProductCard({ product, preload, itemListName, index, device }: Props) {
   const {
     url,
     productID,
@@ -140,11 +141,13 @@ function ProductCard({ product, preload, itemListName, index }: Props) {
             decoding="async"
           />
         </a>
-        <ProductCardButton
-          isVariantOf={isVariantOf}
-          variants={variants}
-          urlInStock={findStock && findStock[0] ? findStock[0].url : ""}
-        />
+        {device === "desktop" && (
+          <ProductCardButton
+            isVariantOf={isVariantOf}
+            variants={variants}
+            urlInStock={findStock && findStock[0] ? findStock[0].url : ""}
+          />
+        )}
       </figure>
       {/* Prices & Name */}
       <div class="py-2.5">

@@ -42,7 +42,8 @@ function Result({
   pageType = "Category",
   headingText = "",
   SeoText = { matcher: "", title: "", description: "" },
-}: Omit<MainProps, "page"> & { page: ProductListingPage }) {
+  device
+}: Omit<MainProps, "page"> & { page: ProductListingPage, device: string }) {
   const { products, filters, breadcrumb, sortOptions } = page;
   const marginLeft = pageType == "Category" ? "sm:ml-[80px]" : "";
   return (
@@ -69,6 +70,7 @@ function Result({
                   <ProductGallery
                     pageType={pageType}
                     page={page}
+                    device={device}
                   />
                   {SeoText.title &&
                     SeoText.description &&
@@ -113,11 +115,11 @@ function Result({
   );
 }
 
-function SearchResult({ page, ...props }: MainProps) {
+function SearchResult({ device, page, ...props }: MainProps & {device: string}) {
   if (!page) {
     return <NotFound headingText={props.headingText || ""} />;
   }
-  console.log("props", props);
+  console.log("props", device);
   const filteredPageProps: ProductListingPage = {
     "@type": "ProductListingPage",
     breadcrumb: page.breadcrumb,
@@ -151,7 +153,7 @@ function SearchResult({ page, ...props }: MainProps) {
     }),
   };
 
-  return <Result {...props} page={filteredPageProps} />;
+  return <Result {...props} page={filteredPageProps} device={device}/>;
 }
 
 export default SearchResult;

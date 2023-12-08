@@ -9,6 +9,8 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 import type { HTML } from "deco-sites/std/components/types.ts";
+import { UAParser } from "https://esm.sh/ua-parser-js@1.0.35";
+import { Context } from "deco/deps.ts";
 // import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 export interface Props {
@@ -21,7 +23,8 @@ function Shelf({
   title,
   products,
   twoItemsPerPage = false,
-}: Props) {
+  device,
+}: Props & { device: string }) {
   const id = useId();
 
   if (!products || products.length === 0) {
@@ -58,7 +61,11 @@ function Shelf({
             index={index}
             class={`carousel-item w-[80%] ${itemsDesktop} first:ml-[15px] sm:first:ml-0 last:mr-[15px] mx-[2%] sm:last:mr-0 sm:${marginDesktop}`}
           >
-            <ProductCard product={product} itemListName={title} />
+            <ProductCard
+              product={product}
+              itemListName={title}
+              device={device}
+            />
           </Slider.Item>
         ))}
       </Slider>
@@ -110,17 +117,38 @@ function Shelf({
   );
 }
 
-function ProductShelf({ title, products, twoItemsPerPage }: Props) {
+function ProductShelf(
+  { title, products, twoItemsPerPage, device }: Props & { device: string },
+) {
   return (
     <Shelf
       title={title}
       products={products}
       twoItemsPerPage={twoItemsPerPage}
+      device={device}
     />
   );
 }
 
 export default ProductShelf;
+
+export const loader = (
+  props: Props,
+  req: Request,
+  ctx: Context,
+) => {
+  const ua: string | null = req.headers.get("user-agent") || "";
+  const cfDeviceHint: string | null = req.headers.get("cf-device-type") ||
+    "";
+
+  const device = cfDeviceHint ||
+    (ua && new UAParser(ua).getDevice().type);
+
+  return {
+    ...props,
+    device: device || "desktop",
+  };
+};
 
 function Dots(
   { products, interval = 0, twoItemsPerPage = false }: {
