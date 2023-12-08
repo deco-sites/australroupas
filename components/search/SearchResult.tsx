@@ -121,7 +121,6 @@ function SearchResult(
   if (!page) {
     return <NotFound headingText={props.headingText || ""} />;
   }
-  console.log("props", device);
   const filteredPageProps: ProductListingPage = {
     "@type": "ProductListingPage",
     breadcrumb: page.breadcrumb,

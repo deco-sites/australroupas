@@ -9,8 +9,7 @@ import { useOffer } from "$store/sdk/useOffer.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import type { Product } from "apps/commerce/types.ts";
 import type { HTML } from "deco-sites/std/components/types.ts";
-import { UAParser } from "https://esm.sh/ua-parser-js@1.0.35";
-import { Context } from "deco/deps.ts";
+import type { FnContext } from "deco/mod.ts";
 // import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 export interface Props {
@@ -134,15 +133,10 @@ export default ProductShelf;
 export const loader = (
   props: Props,
   req: Request,
-  ctx: Context,
+  ctx: FnContext,
 ) => {
-  const ua: string | null = req.headers.get("user-agent") || "";
-  const cfDeviceHint: string | null = req.headers.get("cf-device-type") ||
-    "";
 
-  const device = cfDeviceHint ||
-    (ua && new UAParser(ua).getDevice().type);
-
+  const device = ctx.device
   return {
     ...props,
     device: device || "desktop",

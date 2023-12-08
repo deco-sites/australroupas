@@ -2,8 +2,7 @@ import SearchResult, {
   MainProps,
   Props,
 } from "$store/components/search/SearchResult.tsx";
-import { Context } from "deco/deps.ts";
-import { UAParser } from "https://esm.sh/ua-parser-js@1.0.35";
+import type { FnContext } from "deco/mod.ts";
 
 function SearchResultSection(props: MainProps & { device: string }) {
   return <SearchResult {...props} />;
@@ -12,15 +11,9 @@ function SearchResultSection(props: MainProps & { device: string }) {
 export const loader = (
   props: MainProps,
   req: Request,
-  ctx: Context,
+  ctx: FnContext,
 ) => {
-  const ua: string | null = req.headers.get("user-agent") || "";
-  const cfDeviceHint: string | null = req.headers.get("cf-device-type") ||
-    "";
-
-  const device = cfDeviceHint ||
-    (ua && new UAParser(ua).getDevice().type);
-
+  const device = ctx.device
   return {
     ...props,
     device: device || "desktop",
