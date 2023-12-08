@@ -3,7 +3,7 @@ import Newsletter from "$store/islands/Newsletter.tsx";
 import type { ComponentChildren } from "preact";
 import type { Props as INewsletter } from "$store/components/footer/Newsletter.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 
 export type IconItem = { icon: AvailableIcons };
 

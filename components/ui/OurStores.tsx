@@ -1,7 +1,7 @@
 import type { HTML } from "deco-sites/std/components/types.ts";
 // import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 
 export interface Store {

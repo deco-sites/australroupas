@@ -1,5 +1,5 @@
 import { useSignal } from "@preact/signals";
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 // import Modal from "$store/components/ui/Modal.tsx";
 
 interface Props {

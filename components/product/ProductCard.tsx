@@ -1,4 +1,4 @@
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 import { useOffer } from "$store/sdk/useOffer.ts";
 import { formatPrice } from "$store/sdk/format.ts";
 import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
@@ -133,7 +133,7 @@ function ProductCard({ product, preload, itemListName, index }: Props) {
             alt={back?.alternateName ?? front.alternateName}
             width={WIDTH}
             height={HEIGHT}
-            class="absolute transition-opacity rounded-md w-full block top-0"
+            class="absolute transition-opacity rounded-md w-full hidden sm:block top-0"
             sizes="(max-width: 640px) 50vw, 20vw"
             loading={"lazy"}
             fetchPriority={"low"}

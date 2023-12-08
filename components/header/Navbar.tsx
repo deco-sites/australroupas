@@ -2,7 +2,7 @@ import Searchbar from "$store/islands/HeaderSearchbar.tsx";
 import Buttons from "$store/islands/HeaderButton.tsx";
 import MyAccountButton from "$store/islands/MyAccountButton.tsx";
 import Menu from "$store/components/header/Menu.tsx";
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import NavItem from "./NavItem.tsx";
 
