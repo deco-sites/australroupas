@@ -1,4 +1,4 @@
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 import { useUI } from "$store/sdk/useUI.ts";
 import type { Props as ICard } from "$store/components/ui/Card.tsx";
 import Card from "$store/components/ui/Card.tsx";

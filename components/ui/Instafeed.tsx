@@ -1,6 +1,6 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import type { HTML } from "deco-sites/std/components/types.ts";
-import Image from "deco-sites/std/components/Image.tsx";
+import Image from "apps/website/components/Image.tsx";
 // import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 import Icon from "deco-sites/australroupas/components/ui/Icon.tsx";
