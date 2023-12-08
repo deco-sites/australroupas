@@ -1,5 +1,5 @@
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
-import { Picture, Source } from "deco-sites/std/components/Picture.tsx";
+import { Picture, Source } from "apps/website/components/Picture.tsx";
 
 import type { HTML } from "deco-sites/std/components/types.ts";
 

@@ -37,7 +37,6 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
           width={150}
           height={44}
           class="object-cover object-center w-[120px] lg:w-[150px]"
-          loading="eager"
           preload={false}
         />
       </a>
