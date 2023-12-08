@@ -14,7 +14,6 @@ export const loader = (
   req: Request,
   ctx: Context,
 ) => {
-
   const ua: string | null = req.headers.get("user-agent") || "";
   const cfDeviceHint: string | null = req.headers.get("cf-device-type") ||
     "";
