@@ -28,6 +28,7 @@ function WishlistGallery(props: Props) {
       {...props}
       headingText={""}
       SeoText={{ matcher: "", title: "", description: "" }}
+      device="desktop"
     />
   );
 }

@@ -122,7 +122,7 @@ function ProductCard({ product, preload, itemListName, index, device }: Props) {
             alt={front.alternateName}
             width={WIDTH}
             height={HEIGHT}
-            class="absolute transition-opacity rounded-md w-full block group-hover:hidden z-10 top-0"
+            class="absolute transition-opacity rounded-md w-full block sm:group-hover:hidden z-10 top-0"
             sizes="(max-width: 640px) 50vw, 20vw"
             preload={preload}
             loading={preload ? "eager" : "lazy"}
