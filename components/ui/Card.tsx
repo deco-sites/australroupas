@@ -37,7 +37,7 @@ function Card(
 ) {
   const isLcp = isLCP && index > 2;
   return (
-    <div class={`w-full px-4.5 lg:px-0`}>
+    <div class={`w-full px-2 lg:px-0`}>
       <a class="block w-full" href={href} aria-label={altImage || image}>
         <Picture preload={isLcp}>
           <Source
