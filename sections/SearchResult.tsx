@@ -13,7 +13,7 @@ export const loader = (
   req: Request,
   ctx: FnContext,
 ) => {
-  const device = ctx.device
+  const device = ctx.device;
   return {
     ...props,
     device: device || "desktop",
