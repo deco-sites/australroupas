@@ -19,6 +19,8 @@ const ATTRIBUTES = {
 // for it it be considered as inside the container
 const THRESHOLD = 0.6;
 
+const USE_INFINITE_BEHAVIOUR = false;
+
 const intersectionX = (element: DOMRect, container: DOMRect): number => {
   const delta = container.width / 1_000;
 
@@ -86,7 +88,7 @@ const setup = ({ rootId, scroll, interval, infinite }: Props) => {
 
   const elementsInsideContainer = getElementsInsideContainer();
   const infiniteBehavior = infinite && elementsInsideContainer.length == 1 &&
-    items.length > 1;
+    items.length > 1 && USE_INFINITE_BEHAVIOUR;
 
   const goToItem = (index: number, behavior = scroll) => {
     const item = slider.querySelector(`li[data-slider-item='${index}']`);

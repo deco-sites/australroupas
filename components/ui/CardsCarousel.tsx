@@ -33,7 +33,7 @@ function CardsCarousel(
             return (
               <Slider.Item
                 index={index}
-                class={`relative carousel-item w-[80%] sm:w-[32%] first:ml-0 last:mr-0 sm:mx-[1%]`}
+                class={`relative carousel-item w-[80%] sm:w-[32%] first:ml-[7px] last:mr-[7px] sm:mx-[1%]`}
               >
                 <div>
                   <Card
