@@ -8,7 +8,6 @@ import * as $2 from "./routes/api/autocomplete.tsx";
 import * as $3 from "./routes/api/newsletter.tsx";
 import * as $4 from "./routes/api/searchseller.tsx";
 import * as $5 from "./routes/api/shippingsimulation.tsx";
-import * as $6 from "./routes/styles.css.ts";
 import * as $$0 from "./islands/AddToCartButton.tsx";
 import * as $$1 from "./islands/Cart.tsx";
 import * as $$2 from "./islands/Faq.tsx";
@@ -39,7 +38,6 @@ const manifest = {
     "./routes/api/newsletter.tsx": $3,
     "./routes/api/searchseller.tsx": $4,
     "./routes/api/shippingsimulation.tsx": $5,
-    "./routes/styles.css.ts": $6,
   },
   islands: {
     "./islands/AddToCartButton.tsx": $$0,
