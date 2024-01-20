@@ -88,14 +88,14 @@ function VariantSelector(
   product.isSimilarTo?.forEach((similar) => {
     const colorString = similar.additionalProperty?.find((property) =>
       property.name == "Cor Básica" || property.name == "Cor"
-    )!.value || "";
+    )?.value || "";
 
     const colorGroupId = similar.isVariantOf?.productGroupID;
 
     const alreadyIn = colors.findIndex((c) => {
       const inColor = c.additionalProperty?.find((property) =>
         property.name == "Cor Básica" || property.name == "Cor"
-      )!.value || "";
+      )?.value || "";
 
       if (
         inColor.toLowerCase() === colorString.toLowerCase() &&
