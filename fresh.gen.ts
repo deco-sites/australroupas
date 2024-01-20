@@ -2,67 +2,68 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $0 from "./routes/_app.tsx";
-import * as $1 from "./routes/api/[...catchall].tsx";
-import * as $2 from "./routes/api/autocomplete.tsx";
-import * as $3 from "./routes/api/newsletter.tsx";
-import * as $4 from "./routes/api/searchseller.tsx";
-import * as $5 from "./routes/api/shippingsimulation.tsx";
-import * as $$0 from "./islands/AddToCartButton.tsx";
-import * as $$1 from "./islands/Cart.tsx";
-import * as $$2 from "./islands/Faq.tsx";
-import * as $$3 from "./islands/HeaderButton.tsx";
-import * as $$4 from "./islands/HeaderSearchbar.tsx";
-import * as $$5 from "./islands/MyAccountButton.tsx";
-import * as $$6 from "./islands/NavigatorShare.tsx";
-import * as $$7 from "./islands/Newsletter.tsx";
-import * as $$8 from "./islands/NotFound.tsx";
-import * as $$9 from "./islands/OutOfStock.tsx";
-import * as $$10 from "./islands/Overlay.tsx";
-import * as $$11 from "./islands/ProductCardButton.tsx";
-import * as $$12 from "./islands/ProductDetails.tsx";
-import * as $$13 from "./islands/ProductGallery.tsx";
-import * as $$14 from "./islands/ProductImageZoom.tsx";
-import * as $$15 from "./islands/SearchControls.tsx";
-import * as $$16 from "./islands/ServiceMenu.tsx";
-import * as $$17 from "./islands/ShippingSimulation.tsx";
-import * as $$18 from "./islands/SliderJS.tsx";
-import * as $$19 from "./islands/TalkToUsForm.tsx";
-import * as $$20 from "./islands/WishlistButton.tsx";
+import * as $_app from "./routes/_app.tsx";
+import * as $api_catchall_ from "./routes/api/[...catchall].tsx";
+import * as $api_autocomplete from "./routes/api/autocomplete.tsx";
+import * as $api_newsletter from "./routes/api/newsletter.tsx";
+import * as $api_searchseller from "./routes/api/searchseller.tsx";
+import * as $api_shippingsimulation from "./routes/api/shippingsimulation.tsx";
+import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
+import * as $Cart from "./islands/Cart.tsx";
+import * as $Faq from "./islands/Faq.tsx";
+import * as $HeaderButton from "./islands/HeaderButton.tsx";
+import * as $HeaderSearchbar from "./islands/HeaderSearchbar.tsx";
+import * as $MyAccountButton from "./islands/MyAccountButton.tsx";
+import * as $NavigatorShare from "./islands/NavigatorShare.tsx";
+import * as $Newsletter from "./islands/Newsletter.tsx";
+import * as $NotFound from "./islands/NotFound.tsx";
+import * as $OutOfStock from "./islands/OutOfStock.tsx";
+import * as $Overlay from "./islands/Overlay.tsx";
+import * as $ProductCardButton from "./islands/ProductCardButton.tsx";
+import * as $ProductDetails from "./islands/ProductDetails.tsx";
+import * as $ProductGallery from "./islands/ProductGallery.tsx";
+import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
+import * as $SearchControls from "./islands/SearchControls.tsx";
+import * as $ServiceMenu from "./islands/ServiceMenu.tsx";
+import * as $ShippingSimulation from "./islands/ShippingSimulation.tsx";
+import * as $SliderJS from "./islands/SliderJS.tsx";
+import * as $TalkToUsForm from "./islands/TalkToUsForm.tsx";
+import * as $WishlistButton from "./islands/WishlistButton.tsx";
+import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
-    "./routes/_app.tsx": $0,
-    "./routes/api/[...catchall].tsx": $1,
-    "./routes/api/autocomplete.tsx": $2,
-    "./routes/api/newsletter.tsx": $3,
-    "./routes/api/searchseller.tsx": $4,
-    "./routes/api/shippingsimulation.tsx": $5,
+    "./routes/_app.tsx": $_app,
+    "./routes/api/[...catchall].tsx": $api_catchall_,
+    "./routes/api/autocomplete.tsx": $api_autocomplete,
+    "./routes/api/newsletter.tsx": $api_newsletter,
+    "./routes/api/searchseller.tsx": $api_searchseller,
+    "./routes/api/shippingsimulation.tsx": $api_shippingsimulation,
   },
   islands: {
-    "./islands/AddToCartButton.tsx": $$0,
-    "./islands/Cart.tsx": $$1,
-    "./islands/Faq.tsx": $$2,
-    "./islands/HeaderButton.tsx": $$3,
-    "./islands/HeaderSearchbar.tsx": $$4,
-    "./islands/MyAccountButton.tsx": $$5,
-    "./islands/NavigatorShare.tsx": $$6,
-    "./islands/Newsletter.tsx": $$7,
-    "./islands/NotFound.tsx": $$8,
-    "./islands/OutOfStock.tsx": $$9,
-    "./islands/Overlay.tsx": $$10,
-    "./islands/ProductCardButton.tsx": $$11,
-    "./islands/ProductDetails.tsx": $$12,
-    "./islands/ProductGallery.tsx": $$13,
-    "./islands/ProductImageZoom.tsx": $$14,
-    "./islands/SearchControls.tsx": $$15,
-    "./islands/ServiceMenu.tsx": $$16,
-    "./islands/ShippingSimulation.tsx": $$17,
-    "./islands/SliderJS.tsx": $$18,
-    "./islands/TalkToUsForm.tsx": $$19,
-    "./islands/WishlistButton.tsx": $$20,
+    "./islands/AddToCartButton.tsx": $AddToCartButton,
+    "./islands/Cart.tsx": $Cart,
+    "./islands/Faq.tsx": $Faq,
+    "./islands/HeaderButton.tsx": $HeaderButton,
+    "./islands/HeaderSearchbar.tsx": $HeaderSearchbar,
+    "./islands/MyAccountButton.tsx": $MyAccountButton,
+    "./islands/NavigatorShare.tsx": $NavigatorShare,
+    "./islands/Newsletter.tsx": $Newsletter,
+    "./islands/NotFound.tsx": $NotFound,
+    "./islands/OutOfStock.tsx": $OutOfStock,
+    "./islands/Overlay.tsx": $Overlay,
+    "./islands/ProductCardButton.tsx": $ProductCardButton,
+    "./islands/ProductDetails.tsx": $ProductDetails,
+    "./islands/ProductGallery.tsx": $ProductGallery,
+    "./islands/ProductImageZoom.tsx": $ProductImageZoom,
+    "./islands/SearchControls.tsx": $SearchControls,
+    "./islands/ServiceMenu.tsx": $ServiceMenu,
+    "./islands/ShippingSimulation.tsx": $ShippingSimulation,
+    "./islands/SliderJS.tsx": $SliderJS,
+    "./islands/TalkToUsForm.tsx": $TalkToUsForm,
+    "./islands/WishlistButton.tsx": $WishlistButton,
   },
   baseUrl: import.meta.url,
-};
+} satisfies Manifest;
 
 export default manifest;
