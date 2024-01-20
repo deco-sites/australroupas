@@ -40,7 +40,7 @@ function Sort({ sortOptions, quantityOfProducts }: Props) {
   const sort = useSort();
   const isOpen = useSignal(false);
   return (
-    <div class="absolute top-0 right-0 flex items-start gap-2 w-[49%] sm:w-auto">
+    <div class="absolute top-0 right-0 flex items-start gap-2 w-[49%] z-30 sm:w-auto">
       <span class="text-[#1C1C1E] text-[12px] min-w-[90px] hidden h-[45px] items-center sm:flex">
         {quantityOfProducts} produtos:
       </span>
@@ -63,7 +63,7 @@ function Sort({ sortOptions, quantityOfProducts }: Props) {
           >
           </i>
         </div>
-        <ul class="z-20">
+        <ul class="z-30">
           {sortOptions.map(({ value, label }) => (
             <li>
               <button
