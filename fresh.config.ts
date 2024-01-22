@@ -5,11 +5,12 @@ import tailwind from "./tailwind.config.ts";
 import partytownPlugin from "partytown/mod.ts";
 
 export default defineConfig({
-  plugins: [ ...plugins({
-    manifest,
-    // deno-lint-ignore no-explicit-any
-    tailwind: tailwind as any,
-  }),
-  partytownPlugin(),
-]
+  plugins: [
+    ...plugins({
+      manifest,
+      // deno-lint-ignore no-explicit-any
+      tailwind: tailwind as any,
+    }),
+    partytownPlugin(),
+  ],
 });
