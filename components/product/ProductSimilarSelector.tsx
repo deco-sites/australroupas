@@ -83,6 +83,10 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
               background-color: #0f0f0f !important
           }
           
+          .color-label[data-color="SORTIDAS" i] {
+              background-color: #F8F8F8 !important
+          }
+
           .color-label[data-color="PRETO PLAIN" i] {
               background-color: #000 !important
           }
@@ -95,6 +99,14 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
               background-color: #6b87af !important
           }
           
+          .color-label[data-color="STONE AZUL CLARO" i] {
+              background-color: #95c5da !important
+          }
+          
+          .color-label[data-color="STONE AZUL ESCURO" i] {
+              background-color: #364360 !important
+          }
+
           .color-label[data-color="STONE AZUL MIDNIGHT" i] {
               background-color: #3f4362 !important
           }
@@ -127,6 +139,10 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
               background-color: #2a292e !important
           }
           
+          .color-label[data-color="STONE VERDE CLARO" i] {
+              background-color: #9eb59b !important
+          }
+
           .color-label[data-color="STONE VERDE FLORESTA" i] {
               background-color: #5e6963 !important
           }
@@ -153,6 +169,10 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
           
           .color-label[data-color="VERDE OLIVA" i] {
               background-color: #989f86 !important
+          }
+
+          .color-label[data-color="VINHO" i] {
+              background-color: #924e54 !important
           }
         `,
         }}

@@ -170,6 +170,10 @@
     background-color: #0f0f0f !important
   }
 
+  .filterColor[title="SORTIDAS"] div {
+    background-color: #f8f8f8 !important
+  }
+
   .filterColor[title="PRETO PLAIN"] div {
     background-color: #000 !important
   }
@@ -180,6 +184,14 @@
 
   .filterColor[title="STONE AZUL MEDITERRANEO"] div {
     background-color: #6b87af !important
+  }
+
+  .filterColor[title="STONE AZUL CLARO"] div {
+    background-color: #95c5da !important
+  }
+
+  .filterColor[title="STONE AZUL ESCURO"] div {
+    background-color: #364360 !important
   }
 
   .filterColor[title="STONE AZUL MIDNIGHT"] div {
@@ -215,6 +227,10 @@
     background-color: #2a292e !important
   }
 
+  .filterColor[title="STONE VERDE CLARO"] div {
+    background-color: #9eb59b !important
+  }
+
   .filterColor[title="STONE VERDE FLORESTA"] div {
     background-color: #5e6963 !important
   }
@@ -238,6 +254,10 @@
 
   .filterColor[title="VERDE MILITAR"] div {
     background-color: #5d6650 !important
+  }
+
+  .filterColor[title="VINHO"] div {
+    background-color: #924e54 !important
   }
 
   .filterColor[title="VERDE OLIVA"] div {
