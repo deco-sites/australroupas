@@ -1,26 +1,28 @@
 import type { HTML } from "deco-sites/std/components/types.ts";
-// import Quilltext from "deco-sites/std/components/QuillText.tsx";
 
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
 
 import Icon from "deco-sites/australroupas/components/ui/Icon.tsx";
-import Button from "deco-sites/australroupas/components/ui/Button.tsx";
 
 import Slider from "deco-sites/australroupas/components/ui/Slider.tsx";
 import SliderJS from "deco-sites/australroupas/islands/SliderJS.tsx";
+import type { VideoWidget } from "apps/admin/widgets.ts";
 
 import { useId } from "preact/hooks";
 
 export interface VideoProps {
-  videoPlatform: "Vimeo" | "Youtube";
-  /** @description o código do vídeo que fica no final da url ex: 539309773 */
-  videoUrlCodeMobile: string;
-  /** @description o código do vídeo que fica no final da url ex: 539309773 */
-  videoUrlCodeDesktop: string;
   /** @description O título do seu vídeo */
   title: string;
+  /** @description Insira o vídeo com resolução 375 × 486 px */
+  videoMobile: VideoWidget;
+  /** @description Para melhorar a perfomance digite a proporação no formato exemplo: 1920x1080 */
+  ratioMobile?: string;
+  /** @description Insira o vídeo com resolução 1518 × 553 px */
+  videoDesktop: VideoWidget;
+   /** @description Para melhorar a perfomance digite a proporação no formato exemplo: 1920x1080 */
+  ratioDesktop?: string;
 }
 
 export interface ImageProps {
@@ -244,15 +246,18 @@ function Image(
   );
 }
 
-function VideoComponent({ creative }: Creative) {
+function VideoComponent({ creative }: Creative, {borderRadius}: Props) {
   return (
     <>
-      <div class="block lg:hidden">
+      <div class="w-full block lg:hidden">
         <Video
-          src={(creative as VideoProps).videoUrlCodeMobile}
-          width={150}
-          height={150}
-          class="w-full h-auto"
+          src={(creative as VideoProps).videoMobile}
+          width={Number((creative as ImageProps).ratioMobile?.split("x")[0]) ||
+            414}
+          height={Number((creative as ImageProps).ratioMobile?.split("x")[1]) || 536}
+          class={`object-cover w-full max-w-[100vw] video-banner-full-mobile ${
+            borderRadius && "rounded-md"
+          }`}
           loop
           muted
           autoPlay
@@ -261,12 +266,15 @@ function VideoComponent({ creative }: Creative) {
         >
         </Video>
       </div>
-      <div class="hidden lg:block">
+      <div class="w-full hidden lg:block">
         <Video
-          src={(creative as VideoProps).videoUrlCodeDesktop}
-          width={150}
-          height={150}
-          class="w-full h-auto"
+          src={(creative as VideoProps).videoDesktop}
+          width={Number((creative as ImageProps).ratioDesktop?.split("x")[0]) ||
+            1920}
+          height={Number((creative as ImageProps).ratioDesktop?.split("x")[1]) || 700}
+          class={`object-cover w-full max-w-[100vw] sm:video-banner-full-desktop ${
+            borderRadius && "rounded-md"
+          }`}
           loop
           muted
           autoPlay
