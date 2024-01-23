@@ -61,6 +61,11 @@
   .video-banner-full-desktop{
     height: calc(100vw * (700/1920));
   }
+
+  .banner-small{
+    height: calc(57vw *(239/484));
+  }
+
   .home-container {
     width: 100%;
     max-width: 1920px;
