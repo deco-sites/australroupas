@@ -1,16 +1,7 @@
-import type { HTML } from "deco-sites/std/components/types.ts";
-
 import type { Image as LiveImage } from "deco-sites/std/components/types.ts";
 import { Picture, Source } from "apps/website/components/Picture.tsx";
 import Video from "deco-sites/std/components/Video.tsx";
-
-import Icon from "deco-sites/australroupas/components/ui/Icon.tsx";
-
-import Slider from "deco-sites/australroupas/components/ui/Slider.tsx";
-import SliderJS from "deco-sites/australroupas/islands/SliderJS.tsx";
 import type { VideoWidget } from "apps/admin/widgets.ts";
-
-import { useId } from "preact/hooks";
 
 export interface VideoProps {
   /** @description O título do seu vídeo */
@@ -31,6 +22,7 @@ export interface ImageProps {
   /** @description Seu banner Desktop */
   imageDesktop: LiveImage;
   /** @description Texto Alternativo */
+  /** @default Alt image */
   altImage?: string;
   /** @description Link para redirecionar */
   hrefImage?: string;
@@ -41,17 +33,6 @@ export type Item = ImageProps | VideoProps;
 export interface Creative {
   creative: Item;
   label?: string;
-}
-
-export interface Carousel {
-  autoplay?: boolean;
-  /** @description Intervalo de tempo para o Carrossel */
-  interval?: number;
-}
-
-export interface Title {
-  text: HTML;
-  font: "lusitana" | "nunito-sans" | "Roboto-ligth" | "Palatino";
 }
 
 export interface Props {
