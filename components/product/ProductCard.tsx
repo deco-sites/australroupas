@@ -125,9 +125,9 @@ function ProductCard({ product, preload, itemListName, index, device }: Props) {
             class="absolute transition-opacity rounded-md w-full block sm:group-hover:hidden z-10 top-0"
             sizes="(max-width: 640px) 50vw, 20vw"
             preload={preload}
-            loading={preload ? "eager" : "lazy"}
-            fetchPriority={preload ? "high" : "low"}
-            decoding="async"
+            loading={"eager"}
+            fetchPriority={"high"}
+            decoding="sync"
           />
           <Image
             src={back?.url ?? front.url!}
@@ -136,9 +136,9 @@ function ProductCard({ product, preload, itemListName, index, device }: Props) {
             height={HEIGHT}
             class="absolute transition-opacity rounded-md w-full hidden sm:block top-0"
             sizes="(max-width: 640px) 50vw, 20vw"
-            loading={"lazy"}
-            fetchPriority={"low"}
-            decoding="async"
+            loading={"eager"}
+            fetchPriority={"high"}
+            decoding="sync"
           />
         </a>
         {device === "desktop" && (
