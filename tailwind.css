@@ -66,6 +66,10 @@
     height: calc(57vw *(239/484));
   }
 
+  li.numeric-0{
+    margin-top: 20px;
+  }
+
   .home-container {
     width: 100%;
     max-width: 1920px;
