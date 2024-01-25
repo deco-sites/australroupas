@@ -52,12 +52,12 @@ function Shelf({
         )}
 
       <Slider
-        class={`carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5 snap-always`}
+        class={`lg:gap-[0.7vw] carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5 snap-always`}
       >
         {products?.map((product, index) => (
           <Slider.Item
             index={index}
-            class={`carousel-item w-[80%] ${itemsDesktop} first:ml-[15px] sm:first:ml-0 last:mr-[15px] mx-[2%] sm:last:mr-0 sm:${marginDesktop}`}
+            class={`carousel-item w-[80%] ${itemsDesktop} first:ml-[15px] sm:first:ml-0 last:mr-[15px] mx-[2%] lg:mx-0 sm:last:mr-0 sm:${marginDesktop}`}
           >
             <ProductCard
               product={product}
