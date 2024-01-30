@@ -34,7 +34,7 @@ export default function Instafeed({ images, title }: Props) {
         id={id}
         class="grid grid-cols-[48px_1fr_48px] sm:grid-cols-[120px_1fr_120px] grid-rows-[1fr_48px_1fr_48px] relative"
       >
-        <Slider class="carousel carousel-center w-full col-span-full row-span-full scrollbar-none gap-4 sm:gap-0">
+        <Slider class="carousel w-full col-span-full row-span-full scrollbar-none gap-4 sm:gap-0">
           {images.map((image, index) => {
             return (
               <Slider.Item
