@@ -20,7 +20,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   iconsHeader: IconsHeader;
 }) {
   return (
-    <div class="flex flex-row justify-between items-center w-full px-1.5 bg-white relative z-50 h-[58px] lg:h-[auto] lg:mx-auto lg:max-w-3xl lg:border-b lg:border-base-200 lg:px-25">
+    <div class="flex flex-row justify-between items-center w-full px-1.5 bg-white relative z-50 h-[58px] 2xl:position-unset lg:h-[auto] lg:mx-auto lg:max-w-3xl lg:border-b lg:border-base-200 lg:px-25">
       <div class="hidden lg:block absolute w-full h-full left-0 bg-white z-30" />
 
       <div class="lg:hidden">
