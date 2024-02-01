@@ -68,6 +68,10 @@ function SearchButton(
               displaySearchbar.value = !displaySearchbar.value;
               displayServiceMenu.value = false;
               displayOverlay.value = true;
+              const input = document.querySelector("#search-input") as HTMLInputElement;
+              setTimeout(() => {
+                input.reportValidity()
+              }, 300)
             }}
           >
             <i class={`${iconsHeader?.search || "icon-search"} text-[#636366]`}>
