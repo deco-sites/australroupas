@@ -50,12 +50,14 @@ export interface Props {
 function SocialMediaFooter({ item }: { item: socialMediaItem }) {
   return (
     <li class="cursor-pointer border-base-100 border border-solid py-1.5 px-2.5">
-      <Icon
-        id={item.icon.icon}
-        width={25}
-        height={20}
-        strokeWidth={1}
-      />
+      <a href={item.href} target={item.openInNewPage ? "_blank" : ""}>
+        <Icon
+          id={item.icon.icon}
+          width={25}
+          height={20}
+          strokeWidth={1}
+        />
+      </a>
     </li>
   );
 }
