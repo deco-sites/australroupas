@@ -63,7 +63,7 @@
   }
 
   .banner-small{
-    height: calc(57vw *(239/484));
+    height: calc(57vw *(239/484)); 
   }
 
   li.numeric-0{
