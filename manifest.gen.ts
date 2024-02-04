@@ -21,23 +21,24 @@ import * as $$$$$$14 from "./sections/Footer.tsx";
 import * as $$$$$$15 from "./sections/Header.tsx";
 import * as $$$$$$16 from "./sections/HeadingSearchResult.tsx";
 import * as $$$$$$17 from "./sections/Highlights.tsx";
-import * as $$$$$$18 from "./sections/Instafeed.tsx";
-import * as $$$$$$19 from "./sections/InstitutionalHeading.tsx";
-import * as $$$$$$20 from "./sections/LinkTree.tsx";
-import * as $$$$$$21 from "./sections/LookingWhereChange.tsx";
-import * as $$$$$$22 from "./sections/Magazine.tsx";
-import * as $$$$$$23 from "./sections/MyAccount.tsx";
-import * as $$$$$$24 from "./sections/OurStores.tsx";
-import * as $$$$$$25 from "./sections/ProductDetails.tsx";
-import * as $$$$$$26 from "./sections/ProductShelf.tsx";
-import * as $$$$$$27 from "./sections/SaleExpress.tsx";
-import * as $$$$$$28 from "./sections/SearchResult.tsx";
-import * as $$$$$$29 from "./sections/SeoText.tsx";
-import * as $$$$$$30 from "./sections/TalkToUsForm.tsx";
-import * as $$$$$$31 from "./sections/TextInstitutional.tsx";
-import * as $$$$$$32 from "./sections/Theme/Theme.tsx";
-import * as $$$$$$33 from "./sections/WhatsApp.tsx";
-import * as $$$$$$34 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$18 from "./sections/InfoCard.tsx";
+import * as $$$$$$19 from "./sections/Instafeed.tsx";
+import * as $$$$$$20 from "./sections/InstitutionalHeading.tsx";
+import * as $$$$$$21 from "./sections/LinkTree.tsx";
+import * as $$$$$$22 from "./sections/LookingWhereChange.tsx";
+import * as $$$$$$23 from "./sections/Magazine.tsx";
+import * as $$$$$$24 from "./sections/MyAccount.tsx";
+import * as $$$$$$25 from "./sections/OurStores.tsx";
+import * as $$$$$$26 from "./sections/ProductDetails.tsx";
+import * as $$$$$$27 from "./sections/ProductShelf.tsx";
+import * as $$$$$$28 from "./sections/SaleExpress.tsx";
+import * as $$$$$$29 from "./sections/SearchResult.tsx";
+import * as $$$$$$30 from "./sections/SeoText.tsx";
+import * as $$$$$$31 from "./sections/TalkToUsForm.tsx";
+import * as $$$$$$32 from "./sections/TextInstitutional.tsx";
+import * as $$$$$$33 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$34 from "./sections/WhatsApp.tsx";
+import * as $$$$$$35 from "./sections/WishlistGallery.tsx";
 import * as $$$$$$$$$$$0 from "./apps/site.ts";
 
 const manifest = {
@@ -63,23 +64,24 @@ const manifest = {
     "deco-sites/australroupas/sections/Header.tsx": $$$$$$15,
     "deco-sites/australroupas/sections/HeadingSearchResult.tsx": $$$$$$16,
     "deco-sites/australroupas/sections/Highlights.tsx": $$$$$$17,
-    "deco-sites/australroupas/sections/Instafeed.tsx": $$$$$$18,
-    "deco-sites/australroupas/sections/InstitutionalHeading.tsx": $$$$$$19,
-    "deco-sites/australroupas/sections/LinkTree.tsx": $$$$$$20,
-    "deco-sites/australroupas/sections/LookingWhereChange.tsx": $$$$$$21,
-    "deco-sites/australroupas/sections/Magazine.tsx": $$$$$$22,
-    "deco-sites/australroupas/sections/MyAccount.tsx": $$$$$$23,
-    "deco-sites/australroupas/sections/OurStores.tsx": $$$$$$24,
-    "deco-sites/australroupas/sections/ProductDetails.tsx": $$$$$$25,
-    "deco-sites/australroupas/sections/ProductShelf.tsx": $$$$$$26,
-    "deco-sites/australroupas/sections/SaleExpress.tsx": $$$$$$27,
-    "deco-sites/australroupas/sections/SearchResult.tsx": $$$$$$28,
-    "deco-sites/australroupas/sections/SeoText.tsx": $$$$$$29,
-    "deco-sites/australroupas/sections/TalkToUsForm.tsx": $$$$$$30,
-    "deco-sites/australroupas/sections/TextInstitutional.tsx": $$$$$$31,
-    "deco-sites/australroupas/sections/Theme/Theme.tsx": $$$$$$32,
-    "deco-sites/australroupas/sections/WhatsApp.tsx": $$$$$$33,
-    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$34,
+    "deco-sites/australroupas/sections/InfoCard.tsx": $$$$$$18,
+    "deco-sites/australroupas/sections/Instafeed.tsx": $$$$$$19,
+    "deco-sites/australroupas/sections/InstitutionalHeading.tsx": $$$$$$20,
+    "deco-sites/australroupas/sections/LinkTree.tsx": $$$$$$21,
+    "deco-sites/australroupas/sections/LookingWhereChange.tsx": $$$$$$22,
+    "deco-sites/australroupas/sections/Magazine.tsx": $$$$$$23,
+    "deco-sites/australroupas/sections/MyAccount.tsx": $$$$$$24,
+    "deco-sites/australroupas/sections/OurStores.tsx": $$$$$$25,
+    "deco-sites/australroupas/sections/ProductDetails.tsx": $$$$$$26,
+    "deco-sites/australroupas/sections/ProductShelf.tsx": $$$$$$27,
+    "deco-sites/australroupas/sections/SaleExpress.tsx": $$$$$$28,
+    "deco-sites/australroupas/sections/SearchResult.tsx": $$$$$$29,
+    "deco-sites/australroupas/sections/SeoText.tsx": $$$$$$30,
+    "deco-sites/australroupas/sections/TalkToUsForm.tsx": $$$$$$31,
+    "deco-sites/australroupas/sections/TextInstitutional.tsx": $$$$$$32,
+    "deco-sites/australroupas/sections/Theme/Theme.tsx": $$$$$$33,
+    "deco-sites/australroupas/sections/WhatsApp.tsx": $$$$$$34,
+    "deco-sites/australroupas/sections/WishlistGallery.tsx": $$$$$$35,
   },
   "apps": {
     "deco-sites/australroupas/apps/site.ts": $$$$$$$$$$$0,
