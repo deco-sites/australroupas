@@ -427,7 +427,7 @@
   transform: rotate(45deg);
   background: #fff;
 }
-button#loginWithAccessKeyBtn {
+.vtexIdUI button#loginWithAccessKeyBtn {
   background: #5881CA !important;
   font-family: 'Lato' !important;
   border-radius: 6px !important;
@@ -464,17 +464,17 @@ button#vtexIdUI-facebook{
   content: 'Entrar ou criar uma conta' !important;
   font-family: 'Lato' !important;
 }
-.vtexIdUI *{
+.vtexIdUI .vtexIdUI-providers-btn{
   font-family: 'Lato' !important;
 }
 button#vtexIdUI-google-plus{
   background: #e33e2b !important;
 }
-button.vtexIdUI-others-send-email{
-  background: #fff;
-  border: 1px solid #5881CA;
+.vtexIdUI button#loginWithUserAndPasswordBtn{
+  background: #fff !important;
+  border: 1px solid #5881CA !important;
   border-radius: 6px !important;
-  color: #5881CA;
+  color: #5881CA !important;
 }
 button#loginWithUserAndPasswordBtn::after{
   display: none !important;
