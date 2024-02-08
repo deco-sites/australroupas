@@ -427,3 +427,55 @@
   transform: rotate(45deg);
   background: #fff;
 }
+button#loginWithAccessKeyBtn {
+  background: #5881CA !important;
+  font-family: 'Lato' !important;
+  border-radius: 6px !important;
+}
+
+button#loginWithAccessKeyBtn::after{
+  display: none !important;
+}
+#vtexIdUI-facebook p span {
+  font-family: 'Lato' !important;
+}
+.vtexIdUI .vtexIdUI-send-email::before{
+  width: 100%;
+}
+button#vtexIdUI-facebook, #vtexIdUI-google-plus, .vtexIdUI {
+  border-radius: 6px !important;
+}
+button#vtexIdUI-facebook{
+  background-color: #2462a8 !important;
+}
+.vtexIdUI #vtexIdUI-facebook::after{
+  top: 20% !important;
+  right: unset !important;
+  left: 30px !important;
+  transform: scale(0.79);
+  transform: scaleY(0.79) !important;
+}
+.vtexIdUI #vtexIdUI-google-plus::after{
+  top: 20% !important;
+  right: unset !important;
+  left: 25px !important;
+}
+.modal-header h4.vtexIdUI-heading span::before{
+  content: 'Entrar ou criar uma conta' !important;
+  font-family: 'Lato' !important;
+}
+.vtexIdUI *{
+  font-family: 'Lato' !important;
+}
+button#vtexIdUI-google-plus{
+  background: #e33e2b !important;
+}
+button.vtexIdUI-others-send-email{
+  background: #fff;
+  border: 1px solid #5881CA;
+  border-radius: 6px !important;
+  color: #5881CA;
+}
+button#loginWithUserAndPasswordBtn::after{
+  display: none !important;
+}
