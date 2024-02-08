@@ -8,6 +8,7 @@ function Overlay() {
     displaySearchbar,
     displayServiceMenu,
     displayOverlayServiceMenu,
+    displayModalLogin,
   } = useUI();
   return (
     <>
@@ -21,6 +22,7 @@ function Overlay() {
           displaySearchbar.value = false;
           displayOverlay.value = false;
           displayServiceMenu.value = false;
+          displayModalLogin.value = false;
         }}
       >
       </div>
@@ -38,6 +40,7 @@ function Overlay() {
           displayOverlay.value = false;
           displayServiceMenu.value = false;
           displayOverlayServiceMenu.value = false;
+          displayModalLogin.value = false;
         }}
       >
       </div>
@@ -55,6 +58,7 @@ function Overlay() {
           displayOverlay.value = false;
           displayServiceMenu.value = false;
           displayOverlayServiceMenu.value = false;
+          displayModalLogin.value = false;
         }}
       >
       </div>

@@ -14,6 +14,7 @@ const displayOverlayServiceMenu = signal(false);
 const displayFilterMenu = signal(false);
 const displayModalSelectSKU = signal(false);
 const displayModalShare = signal(false);
+const displayModalLogin = signal(false);
 
 const vtexIdScriptsLoaded = signal(false);
 
@@ -28,6 +29,7 @@ const state = {
   displayModalSelectSKU,
   displayModalShare,
   vtexIdScriptsLoaded,
+  displayModalLogin,
 };
 
 export const useUI = () => state;
