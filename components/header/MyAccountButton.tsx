@@ -53,7 +53,7 @@ const MyAccountButton = () => {
         </>
         :
         <>
-          <p class={`text-black text-sm font-bold pb-[22px] mb-2.5 border-b border-[#C7C7C7]`}>Olá, ${user.value?.email}!</p>
+          <p class={`text-black text-sm font-bold pb-[22px] mb-2.5 border-b border-[#C7C7C7]`}>Olá, {user.value?.email.split("@")[0]}</p>
           <a href="/account" class={`lg:hover:underline py-2.5`}>Minha conta</a>
           <a href="/account#orders" class={`lg:hover:underline py-2.5`}>Meus pedidos</a>
           <a href="/no-cache/user/logout?returnUrl=/" class={`lg:hover:underline py-2.5 font-bold`}>Sair</a>
