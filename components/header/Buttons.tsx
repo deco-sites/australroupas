@@ -71,7 +71,7 @@ function SearchButton(
               displaySearchbar.value = !displaySearchbar.value;
               displayServiceMenu.value = false;
               displayOverlay.value = true;
-              displayModalLogin.value = false;
+              displayModalLogin.value = false; 
               const input = document.querySelector("#search-input") as HTMLInputElement;
               setTimeout(() => {
                 input.reportValidity()
