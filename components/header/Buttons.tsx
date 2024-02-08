@@ -25,6 +25,7 @@ function SearchButton(
     displayOverlay,
     displayServiceMenu,
     displayOverlayServiceMenu,
+    displayModalLogin,
   } = useUI();
 
   return (
@@ -38,6 +39,7 @@ function SearchButton(
                 displaySearchbar.value = false;
                 displayOverlay.value = false;
                 displayOverlayServiceMenu.value = false;
+                displayModalLogin.value = false;
               }}
             >
               <i class={`icon-close`}></i>
@@ -50,6 +52,7 @@ function SearchButton(
               onClick={() => {
                 displaySearchbar.value = true;
                 displayOverlay.value = true;
+                displayModalLogin.value = false;
               }}
             >
               <i
@@ -68,6 +71,7 @@ function SearchButton(
               displaySearchbar.value = !displaySearchbar.value;
               displayServiceMenu.value = false;
               displayOverlay.value = true;
+              displayModalLogin.value = false;
               const input = document.querySelector("#search-input") as HTMLInputElement;
               setTimeout(() => {
                 input.reportValidity()
@@ -83,7 +87,7 @@ function SearchButton(
 }
 
 function MenuButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
-  const { displayMenu, displaySearchbar, displayOverlay } = useUI();
+  const { displayMenu, displaySearchbar, displayOverlay, displayModalLogin } = useUI();
 
   return (
     <label
@@ -94,6 +98,7 @@ function MenuButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
         displayMenu.value = true;
         displaySearchbar.value = false;
         displayOverlay.value = false;
+        displayModalLogin.value = false;
       }}
     >
       <i class={iconsHeader?.menu || "icon-menu"}></i>
@@ -107,6 +112,7 @@ function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
     displayServiceMenu,
     displaySearchbar,
     displayOverlayServiceMenu,
+    displayModalLogin,
   } = useUI();
   const { loading, cart, mapItemsToAnalyticsItems } = useCart();
   // const totalItems = cart.value?.items.length || 0;
@@ -123,6 +129,7 @@ function CartButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
     displaySearchbar.value = false;
     displayServiceMenu.value = false;
     displayOverlayServiceMenu.value = false;
+    displayModalLogin.value = false;
     sendEvent({
       name: "view_cart",
       params: {
