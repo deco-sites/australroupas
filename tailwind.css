@@ -464,7 +464,7 @@ button#vtexIdUI-facebook{
   content: 'Entrar ou criar uma conta' !important;
   font-family: 'Lato' !important;
 }
-.vtexIdUI .vtexIdUI-providers-btn{
+.vtexIdUI .vtexIdUI-providers-btn, .vtexIdUI .vtexIdUI-others-send-email{
   font-family: 'Lato' !important;
 }
 button#vtexIdUI-google-plus{
