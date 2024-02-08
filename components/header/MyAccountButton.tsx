@@ -10,6 +10,7 @@ const MyAccountButton = () => {
     <>
     <a
       class="p-2.5 lg:ml-7.5 relative cursor-pointer"
+      href={`#`}
       aria-label="Log in"
       onClick={ (e) => {
         e.preventDefault();
