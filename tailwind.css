@@ -479,3 +479,59 @@ button#vtexIdUI-google-plus{
 button#loginWithUserAndPasswordBtn::after{
   display: none !important;
 }
+#vtexIdContainer .vtexIdUI .vtexIdUI-main-content .vtexIdUI-page.vtexIdUI-confirm-email .modal-header h4>span {
+  font-size: 0;
+  line-height: normal;
+  font-family: "Lato";
+  font-weight: 700;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 92px;
+}
+
+#vtexIdContainer .vtexIdUI .vtexIdUI-main-content .vtexIdUI-page.vtexIdUI-confirm-email .modal-body .vtexIdUI-email-field:before {
+  display: block;
+  content: "E-mail";
+  font-size: 12px;
+  color: #000;
+  position: absolute;
+  left: 0;
+  top: -20px;
+  font-family: "Lato";
+  font-weight: 400;
+}
+
+.vtexIdUI-page .modal-body .vtexIdUI-email-field input, #vtexIdContainer .vtexIdUI .vtexIdUI-main-content .vtexIdUI-page .modal-body .vtexIdUI-code-field input {
+  height: 48px;
+  line-height: 48px;
+  background: transparent;
+  border-radius: 0px;
+  border: 1px solid #ccc;
+  box-shadow: none;
+  font-size: 12px;
+  color: #3A3A3C;
+  border-radius: 6px;
+}
+
+#vtexIdContainer .vtexIdUI .vtexIdUI-main-content .vtexIdUI-page .modal-footer .btn-success{
+  height: 45px;
+  padding: 12px 10px;
+  border-radius: 6px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: #fff;
+  background: #5881CA;
+}
+#vtexIdContainer .vtexIdUI .vtexIdUI-main-content .vtexIdUI-page .modal-footer .vtexIdUI-back-link{
+  color: #5881CA;
+  background: transparent;
+  border: 1px solid #5881CA;
+  height: 45px;
+  padding: 12px 10px;
+  border-radius: 6px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
