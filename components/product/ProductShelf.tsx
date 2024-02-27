@@ -52,7 +52,7 @@ function Shelf({
         )}
 
       <Slider
-        class={`lg:gap-[0.7vw] carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5 snap-always`}
+        class={`lg:gap-[1vw] carousel carousel-center sm:carousel-end col-span-full row-start-2 row-end-5 snap-always`}
       >
         {products?.map((product, index) => (
           <Slider.Item
