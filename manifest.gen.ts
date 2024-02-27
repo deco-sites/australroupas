@@ -2,7 +2,6 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
-import * as $$$$$$$$$$$0 from "./apps/site.ts";
 import * as $$$0 from "./loaders/plp.ts";
 import * as $$$$$$0 from "./sections/BannerAustral.tsx";
 import * as $$$$$$1 from "./sections/BannerGrid.tsx";
@@ -40,6 +39,7 @@ import * as $$$$$$32 from "./sections/TextInstitutional.tsx";
 import * as $$$$$$33 from "./sections/Theme/Theme.tsx";
 import * as $$$$$$34 from "./sections/WhatsApp.tsx";
 import * as $$$$$$35 from "./sections/WishlistGallery.tsx";
+import * as $$$$$$$$$$$0 from "./apps/site.ts";
 
 const manifest = {
   "loaders": {
