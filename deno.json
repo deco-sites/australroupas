@@ -25,7 +25,7 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
-    "experimentalDecorators": true 
+    "experimentalDecorators": true
   },
   "imports": {
     "deco-sites/australroupas/": "./",

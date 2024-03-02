@@ -15,7 +15,7 @@ function Overlay() {
       <div
         class={`${
           displayOverlay.value ? "h-screen opacity-60" : "h-0 opacity-0"
-        } z-20 fixed bg-info right-full left-0 top-0 w-full transition-all duration-300 ease-linear`}
+        } z-30 fixed bg-info right-full left-0 top-0 w-full transition-all duration-300 ease-linear`}
         onClick={() => {
           displayCart.value = false;
           displayMenu.value = false;
@@ -32,7 +32,7 @@ function Overlay() {
           displayOverlayServiceMenu.value
             ? "opacity-60 pointer-events-auto"
             : "pointer-events-none opacity-0"
-        } fixed w-full h-screen left-0 top-0 transition-all z-20 ease-linear duration-300 bg-[#1C1C1E]`}
+        } fixed w-full h-screen left-0 top-0 transition-all z-30 ease-linear duration-300 bg-[#1C1C1E]`}
         onClick={() => {
           displayCart.value = false;
           displayMenu.value = false;

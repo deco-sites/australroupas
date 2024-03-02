@@ -49,7 +49,7 @@ export interface Props {
 
 function SocialMediaFooter({ item }: { item: socialMediaItem }) {
   return (
-    <li class="cursor-pointer border-base-100 border border-solid py-1.5 px-2.5">
+    <li class="cursor-pointer py-1.5 px-2.5">
       <a href={item.href} target={item.openInNewPage ? "_blank" : ""}>
         <Icon
           id={item.icon.icon}
@@ -64,7 +64,7 @@ function SocialMediaFooter({ item }: { item: socialMediaItem }) {
 
 function PaymentIconFooter({ item }: { item: paymentItem }) {
   return (
-    <li class="border-base-100 border border-solid py-1.5 px-1">
+    <li class="py-1.5 px-1">
       <Icon
         id={item.icon.icon}
         height={25}
@@ -96,7 +96,7 @@ function Footer(
   return (
     <>
       <Newsletter {...newsletter} />
-      <footer class="w-full bg-base-100 flex flex-col">
+      <footer class="w-full bg-[#F2F2F7] flex flex-col">
         <div class="home-container-mobile sm:home-container flex flex-col sm:flex-row">
           {/* Desktop view */}
           <ul class="hidden sm:flex flex-row justify-between w-full pt-12 pb-10">

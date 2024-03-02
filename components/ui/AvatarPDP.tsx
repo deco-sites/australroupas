@@ -20,9 +20,9 @@ const colors: Record<string, string> = {
   "disabled":
     "bg-transparent-content text-neutral border-[#878787] border-[1px] opacity-50 pointer-events-none",
   "default":
-    "bg-transparent text-[#636366] border-[rgb(133,133,133)] border-[1px] hover:bg-primary hover:text-white hover:border-primary",
+    "bg-transparent text-[#636366] border-[rgb(133,133,133)] border-[1px] hover:bg-primary lg:hover:text-white lg:hover:border-primary",
   "PDP":
-    "bg-transparent text-[#636366] border-[#C7C7CC] border-[1px] hover:border-primary hover:border-primary",
+    "bg-transparent text-[#636366] border-[#C7C7CC] border-[1px] lg:hover:border-primary lg:hover:border-primary",
 };
 
 interface Props {
