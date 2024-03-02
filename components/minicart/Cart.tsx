@@ -215,8 +215,7 @@ function Cart() {
             </a>
             <a
               class="flex justify-center items-center w-full h-[45px] bg-primary border-none text-white py-3 px-2.5 rounded-md mt-3 hover:text-info hover:opacity-80 transition duration-150"
-              target="_blank"
-              href={`${CHECKOUT_URL}?orderFormId=${cart.value!.orderFormId}`}
+              href={`/checkout#/cart`}
             >
               <Button
                 data-deco="buy-button"

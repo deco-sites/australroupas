@@ -70,11 +70,11 @@ function Simulation() {
   const simulateShipping = async (e: MouseEvent) => {
     e.preventDefault();
 
-    if (typeof postalCode === "string") {
+    if (typeof cep === "string") {
       const data = {
         address: {
           addressType: "residential",
-          postalCode: postalCode.replace("_", "").replace(".", "").replace(
+          postalCode: cep.replace("_", "").replace(".", "").replace(
             "-",
             "",
           ),
@@ -125,6 +125,21 @@ function Simulation() {
     return maskedCep;
   }
 
+  const [cep, setCep] = useState('');
+  // deno-lint-ignore ban-ts-comment
+  // @ts-ignore
+  const handleInputChange = (event) => {
+    let { value } = event.target;
+    // Remove todos os caracteres não numéricos
+    value = value.replace(/\D/g, '');
+    // Limita o tamanho máximo do input para 10 caracteres
+    value = value.substring(0, 10);
+    // Aplica a máscara (formato: xx.xxx-xxx)
+    const maskedValue = value.replace(/(\d{2})(\d{0,3})(\d{0,3})/, '$1.$2-$3');
+    // Atualiza o estado com o novo valor formatado
+    setCep(maskedValue);
+  };
+
   useEffect(() => {
     if (shippingPriceInit?.value) {
       setShippingPrice(shippingPriceInit.value);
@@ -169,13 +184,14 @@ function Simulation() {
               ref={inputRef}
               id="simulate"
               name="simulate"
-              class="w-full text-sm h-8 rounded-md p-2 text-caption font-caption outline-1 outline-[#FDB913] px-2.5 border border-[#C7C7CC]"
+              class="w-full hover:placeholder:opacity-100 placeholder:opacity-0 text-sm h-8 rounded-md p-2 text-caption font-caption outline-1 outline-[#FDB913] px-2.5 border border-[#C7C7CC]"
               type="text"
-              value={formatCEP(postalCode)}
-              placeholder={"__.___-___"}
+              value={cep}
+              maxLength={10}
+              placeholder={"__.___-__"}
               // deno-lint-ignore ban-ts-comment
               // @ts-ignore
-              onChange={(e) => setPostalCode(e.target.value)}
+              onInput={handleInputChange}
             />
             <Button
               class="text-sm w-8 h-8 px-[5px] text-primary bg-transparent border border-primary rounded-md ml-[3px] border-primary text-primary hover:text-white hover:bg-primary hover:opacity-80 transition duration-150"
@@ -191,7 +207,7 @@ function Simulation() {
         {displayInput.value && (
           <>
             <div class="flex flex-col text-sm text-right text-info">
-              {formatCEP(postalCode)}
+              {formatCEP(cep)}
               <span class="text-primary text-xs font-bold">
                 {shippingPrice == 0 ? "grátis" : "+" +
                   formatPrice(shippingPrice / 100, currencyCode!, locale)}
