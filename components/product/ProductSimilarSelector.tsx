@@ -191,10 +191,8 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
               const color = similar.additionalProperty!.find((property) =>
                 property.name == "Cor"
               )!.value || "";
-              const hasStock = similar.offers?.offers[0].availability ==
-                "https://schema.org/InStock";
 
-              if (hasStock && !colors.includes(color)) {
+              if (!colors.includes(color)) {
                 colors.push(color);
                 similarToBeRendered.push(similar);
               }
