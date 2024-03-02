@@ -11,6 +11,7 @@
 
 import { useEffect, useRef, useState } from "preact/compat";
 import Icon from "$store/components/ui/Icon.tsx";
+import Image from "deco-sites/std/components/Image.tsx";
 import Button from "$store/components/ui/Button.tsx";
 // import Spinner from "$store/components/ui/Spinner.tsx";
 // import ProductCard from "$store/components/product/ProductCard.tsx";
@@ -207,14 +208,18 @@ function Searchbar({
                   </a>
                 ))}
             </div>
-            <div class="max-h-[400px] border-t border-t-[#AEAEB2] py-2.5 overflow-y-auto">
+            <div class="max-h-[400px] border-t border-t-[#AEAEB2] py-2.5 overflow-y-auto search-scroll">
               {sugestionsProducts.length > 0 &&
                 sugestionsProducts.map((item) => (
                   <a class="flex my-2.5 py-2.5 items-center" href={item.href}>
-                    <img
-                      class="rounded-[15px] w-11"
+                    <Image
                       src={item.image}
                       alt={item.label}
+                      width={44}
+                      height={48}
+                      sizes="(max-width: 640px) 50vw, 20vw"
+                      loading={"eager"}
+                      decoding="async"
                     />
                     <span class="text-xs font-black capitalize">
                       {item.label}

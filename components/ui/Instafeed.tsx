@@ -39,7 +39,7 @@ export default function Instafeed({ images, title }: Props) {
             return (
               <Slider.Item
                 index={index}
-                class={`relative carousel-item w-[80%] sm:w-[24%] first:ml-[15px] last:mr-[15px] sm:first:ml-0 sm:last:mr-0 sm:mx-[0.67%]`}
+                class={`relative pl-4 carousel-item w-[80%] sm:w-[24%] first:ml-[15px] last:mr-[15px] sm:first:ml-0 sm:last:mr-0 sm:mx-[0.67%] lg:pl-0`}
               >
                 <a
                   class="cursor-pointer"

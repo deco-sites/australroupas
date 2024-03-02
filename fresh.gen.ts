@@ -9,6 +9,8 @@ import * as $api_newsletter from "./routes/api/newsletter.tsx";
 import * as $api_searchseller from "./routes/api/searchseller.tsx";
 import * as $api_shippingsimulation from "./routes/api/shippingsimulation.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
+import * as $BtnBack from "./islands/BtnBack.tsx";
+import * as $BtnClose from "./islands/BtnClose.tsx";
 import * as $Cart from "./islands/Cart.tsx";
 import * as $Faq from "./islands/Faq.tsx";
 import * as $HeaderButton from "./islands/HeaderButton.tsx";
@@ -42,6 +44,8 @@ const manifest = {
   },
   islands: {
     "./islands/AddToCartButton.tsx": $AddToCartButton,
+    "./islands/BtnBack.tsx": $BtnBack,
+    "./islands/BtnClose.tsx": $BtnClose,
     "./islands/Cart.tsx": $Cart,
     "./islands/Faq.tsx": $Faq,
     "./islands/HeaderButton.tsx": $HeaderButton,

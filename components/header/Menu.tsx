@@ -1,6 +1,8 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
+import BtnBack from "$store/components/header/BtnBack.tsx"
+import BtnClose from "deco-sites/fashion/components/header/BtnClose.tsx";
 
 export interface Props {
   items: INavItem[];
@@ -57,23 +59,9 @@ function MenuItem({ item, index }: { item: INavItem; index: number }) {
             MenuItemChildren fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
           >
             <ul class="">
-              <li class="border-b border-b-base-100 bg-base-100 py-4 leading-none">
-                <Icon
-                  class="text-primary absolute -left-2 w-12 top-4 pointer-events-none"
-                  strokeWidth={1}
-                  size={17}
-                  id="ChevronLeft"
-                />
-                <label
-                  aria-label="Voltar"
-                  for={`item${index}`}
-                  class="w-full h-full text-left text-primary text-base leading-none px-12"
-                >
-                  Voltar
-                </label>
-              </li>
+              <BtnBack label={item.label}/>
               {item.children?.map((node: INavItem, index: number) => (
-                <li class="border-b border-b-base-100 px-4">
+                <li class="border-b border-b-[#F2F2F7] px-4">
                   <MenuItem
                     item={node}
                     index={Number(index.toString() + index.toString())}
@@ -103,22 +91,10 @@ function Menu({ items, callToUsItem }: Props) {
       <div
         class={`MenuModal -left-full fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
       >
-        <label
-          aria-label="Close"
-          class="absolute -right-10 top-2"
-          for="menu"
-        >
-          <Icon
-            id="XMark"
-            width={35}
-            height={35}
-            strokeWidth={1.5}
-            class="text-white"
-          />
-        </label>
+        <BtnClose/>
         <ul class={`px-4 flex-grow flex flex-col`}>
           {items.map((item, index) => (
-            <li class="border-b border-b-base-100">
+            <li class="border-b border-b-[#F2F2F7]">
               <MenuItem item={item} index={index} />
             </li>
           ))}

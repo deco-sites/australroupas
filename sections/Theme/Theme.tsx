@@ -11,7 +11,7 @@ export interface MainColors {
   /**
    * @format color
    * @title Base
-   * @default #FFFFFF
+   * @default #F2F2F7
    */
   "base-100": string;
   /**
@@ -323,7 +323,7 @@ const defaultTheme = {
   "tertiary": "hsla(8, 69%, 65%, 1)",
   "tertiary-content": "hsla(0, 0%, 100%, 1)",
   "neutral": "hsla(0, 0%, 47%, 1)",
-  "base-100": "hsla(0, 0%, 100%, 1)",
+  "base-100": "hsla(240, 24%, 96%, 1)",
   "success": "hsl(150 62% 95%)",
   "warning": "hsl(43 100% 95%)",
   "error": "hsl(9 100% 95%)",

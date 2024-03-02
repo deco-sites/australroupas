@@ -46,7 +46,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
       </ul>
 
       <div
-        class={`overlayNavItems h-0 opacity-0 z-20 fixed bg-info right-full left-0 top-0 w-full transition-all duration-300 ease-linear`}
+        class={`overlayNavItems h-0 opacity-0 z-30 fixed bg-info right-full left-0 top-0 w-full transition-all duration-300 ease-linear`}
       />
 
       <div class="flex-none flex items-center justify-end gap-2 relative z-30">
