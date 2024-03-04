@@ -30,26 +30,11 @@ const usePaginationController = ({ page }: Options) => {
           url.searchParams.set("page", pageNumber.toString());
           setLoading(true);
 
-          const maybePage = url.searchParams.get("q")
-            ? await invoke.vtex.loaders.intelligentSearch.productListingPage({
+          const maybePage = await invoke.vtex.loaders.intelligentSearch.productListingPage({
               count: 6,
               page: pageNumber,
-              query: url.searchParams.get("q") || "",
-              sort: url.searchParams.get("sort") as Sort || "",
+              pageHref: window.location.href
             })
-            : await invoke.vtex.loaders.intelligentSearch.productListingPage({
-              count: 6,
-              page: pageNumber,
-              sort: url.searchParams.get("sort") as Sort || "",
-              selectedFacets: url.pathname.split("/").slice(1).map(
-                (path, idx) => {
-                  return {
-                    key: `category-${idx + 1}`,
-                    value: path,
-                  };
-                },
-              ),
-            });
 
           // Prevent self-ddos
           if (
