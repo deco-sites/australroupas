@@ -24,8 +24,7 @@ function ProductSizeTable({ category }: { category: string }) {
         </Head>
         <div class="content inline--default product__select"></div>
         <script
-          type="text/partytown"
-          async
+          defer
           id="sizebay-vfr-v4"
           src="/australCulture_prescript.js"
         />
