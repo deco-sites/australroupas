@@ -213,7 +213,7 @@ function Searchbar({
                 sugestionsProducts.map((item) => (
                   <a class="flex my-2.5 py-2.5 items-center" href={item.href}>
                     <Image
-                      src={item.image}
+                      src={item.image.replace("25-25", "75-75")}
                       alt={item.label}
                       width={44}
                       height={48}
