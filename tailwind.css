@@ -543,3 +543,10 @@ button#loginWithUserAndPasswordBtn::after{
   letter-spacing: 0.04em;
   text-align: center;
 }
+.szb-vfr-btns{
+  flex-direction: row-reverse !important;
+  justify-content: flex-end !important;
+}
+#szb-chart-button, #szb-vfr-button{
+  font-family: "Lato" !important;
+}

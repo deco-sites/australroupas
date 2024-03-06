@@ -20,7 +20,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
   iconsHeader: IconsHeader;
 }) {
   return (
-    <div class="flex flex-row justify-between items-center w-full px-1.5 bg-white relative z-50 h-[58px] 2xl:position-unset lg:h-[auto] lg:mx-auto lg:max-w-3xl lg:border-b lg:border-base-200 lg:px-25">
+    <div class="flex flex-row justify-between items-center w-full px-1.5 bg-white relative z-50 h-[58px] 2xl:position-unset lg:h-[auto] lg:mx-auto lg:max-w-3xl lg:border-b lg:border-base-200 lg:px-4 xl:px-25 lg:max-h-[97px]">
       <div class="hidden lg:block absolute w-full h-full left-0 bg-white z-30" />
 
       <div class="lg:hidden">
@@ -41,7 +41,7 @@ function Navbar({ items, searchbar, logo, callToUsItem, iconsHeader }: {
         />
       </a>
 
-      <ul class="containerNavItems hidden lg:flex justify-center ml-20 z-30">
+      <ul class="containerNavItems hidden lg:flex justify-center 2xl:ml-20 z-30">
         {items.map((item, index) => <NavItem item={item} index={index} />)}
       </ul>
 

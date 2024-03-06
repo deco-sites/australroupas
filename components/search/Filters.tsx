@@ -119,7 +119,7 @@ function Filters({ filters }: Props) {
   return (
     <div>
       <p class="text-lg lg:text-[30px] font-bold mb-5">Filtrar por</p>
-      <ul class="flex flex-col overflow-y-scroll h-[calc(100vh-80px)] container-filter">
+      <ul class="flex flex-col overflow-y-scroll h-[calc(100vh-160px)] container-filter">
         {filters
           .filter(isToggle)
           .map((filter) => {
