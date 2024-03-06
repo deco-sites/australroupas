@@ -52,7 +52,7 @@ function NavItem({ item, index }: { item: INavItem; index: number }) {
       />
       <a
         href={href}
-        class="border-b-2 border-b-transparent transition-all duration-300 ease-linear px-5 py-8.5 pl-8.5 group-hover:border-b-primary"
+        class="border-b-2 border-b-transparent transition-all duration-300 ease-linear px-5 py-8.5 pl-8.5 group-hover:border-b-primary lg:px-2.5 xl:px-5"
         aria-label={label}
       >
         <span
