@@ -2,6 +2,7 @@
  * This component renders the filter and selectors for skus.
  * TODO: Figure out a better name for this component.
  */
+import { useUI } from "$store/sdk/useUI.ts";
 
 const colors: Record<string, string> = {
   "azul-clara": "bg-[#87CEFA] ring-[#87CEFA]",
@@ -47,6 +48,19 @@ function Avatar(
   const disable = !disponibility
     ? "text-[#E4E4EA] border border-[#E4E4EA] after:absolute after:top-1/2 after:h-[1px] after:bg-[#E4E4EA] after:w-full after:block after:-rotate-45 after:content-[&quot;&quot;]"
     : "";
+  const { productName, productVariant } = useUI();
+
+  function handleClick() {
+    if(productVariant.value.length == 0){
+      const html = document.getElementById("product-name") as HTMLElement;
+      if(html){
+        productName.value = html.textContent + " " + content.substring(0, 2);
+        productVariant.value = html.textContent || "";
+      }
+    }else{
+      productName.value = productVariant.value + " " + content.substring(0, 2);
+    }
+  }
   return (
     <div class="avatar placeholder">
       <button
@@ -62,12 +76,13 @@ function Avatar(
         }}
       >
         <span
-          class="color-label text-caption font-caption uppercase text-[12px] leading-[initial] rounded"
+          class="color-label flex w-full h-full items-center justify-center uppercase text-[12px] leading-[initial] rounded"
           data-color={content}
           style={{
             width: name == "Cor" ? "75%" : "",
             height: name == "Cor" ? "75%" : "",
           }}
+          onClick={handleClick}
         >
           {name != "Cor"
             ? (colors[content] ? "" : content.substring(0, 2))

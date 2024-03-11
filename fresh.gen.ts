@@ -24,7 +24,9 @@ import * as $Overlay from "./islands/Overlay.tsx";
 import * as $ProductCardButton from "./islands/ProductCardButton.tsx";
 import * as $ProductDetails from "./islands/ProductDetails.tsx";
 import * as $ProductGallery from "./islands/ProductGallery.tsx";
+import * as $ProductImageGallery from "./islands/ProductImageGallery.tsx";
 import * as $ProductImageZoom from "./islands/ProductImageZoom.tsx";
+import * as $ProductName from "./islands/ProductName.tsx";
 import * as $SearchControls from "./islands/SearchControls.tsx";
 import * as $ServiceMenu from "./islands/ServiceMenu.tsx";
 import * as $ShippingSimulation from "./islands/ShippingSimulation.tsx";
@@ -59,7 +61,9 @@ const manifest = {
     "./islands/ProductCardButton.tsx": $ProductCardButton,
     "./islands/ProductDetails.tsx": $ProductDetails,
     "./islands/ProductGallery.tsx": $ProductGallery,
+    "./islands/ProductImageGallery.tsx": $ProductImageGallery,
     "./islands/ProductImageZoom.tsx": $ProductImageZoom,
+    "./islands/ProductName.tsx": $ProductName,
     "./islands/SearchControls.tsx": $SearchControls,
     "./islands/ServiceMenu.tsx": $ServiceMenu,
     "./islands/ShippingSimulation.tsx": $ShippingSimulation,

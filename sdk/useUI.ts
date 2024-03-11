@@ -4,6 +4,7 @@
  */
 
 import { signal } from "@preact/signals";
+import type { Product } from "apps/commerce/types.ts";
 
 const displayCart = signal(false);
 const displayMenu = signal(false);
@@ -15,7 +16,10 @@ const displayFilterMenu = signal(false);
 const displayModalSelectSKU = signal(false);
 const displayModalShare = signal(false);
 const displayModalLogin = signal(false);
-
+const productSimilares = signal<{ product: Product[] }>({ product: [] });
+const productSelected = signal(0);
+const productName = signal("");
+const productVariant = signal("");
 const vtexIdScriptsLoaded = signal(false);
 
 const state = {
@@ -30,6 +34,10 @@ const state = {
   displayModalShare,
   vtexIdScriptsLoaded,
   displayModalLogin,
+  productSimilares,
+  productSelected,
+  productName,
+  productVariant,
 };
 
 export const useUI = () => state;
