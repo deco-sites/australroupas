@@ -43,7 +43,7 @@ function Newsletter({
       email: email,
     };
 
-    const response = await fetch("/api/newsletter", {
+    const response = await fetch("/deco/newsletter", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

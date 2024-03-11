@@ -4,10 +4,10 @@
 
 import * as $_app from "./routes/_app.tsx";
 import * as $api_catchall_ from "./routes/api/[...catchall].tsx";
-import * as $api_autocomplete from "./routes/api/autocomplete.tsx";
-import * as $api_newsletter from "./routes/api/newsletter.tsx";
-import * as $api_searchseller from "./routes/api/searchseller.tsx";
-import * as $api_shippingsimulation from "./routes/api/shippingsimulation.tsx";
+import * as $deco_autocomplete from "./routes/deco/autocomplete.tsx";
+import * as $deco_newsletter from "./routes/deco/newsletter.tsx";
+import * as $deco_searchseller from "./routes/deco/searchseller.tsx";
+import * as $deco_shippingsimulation from "./routes/deco/shippingsimulation.tsx";
 import * as $AddToCartButton from "./islands/AddToCartButton.tsx";
 import * as $BtnBack from "./islands/BtnBack.tsx";
 import * as $BtnClose from "./islands/BtnClose.tsx";
@@ -37,10 +37,10 @@ const manifest = {
   routes: {
     "./routes/_app.tsx": $_app,
     "./routes/api/[...catchall].tsx": $api_catchall_,
-    "./routes/api/autocomplete.tsx": $api_autocomplete,
-    "./routes/api/newsletter.tsx": $api_newsletter,
-    "./routes/api/searchseller.tsx": $api_searchseller,
-    "./routes/api/shippingsimulation.tsx": $api_shippingsimulation,
+    "./routes/deco/autocomplete.tsx": $deco_autocomplete,
+    "./routes/deco/newsletter.tsx": $deco_newsletter,
+    "./routes/deco/searchseller.tsx": $deco_searchseller,
+    "./routes/deco/shippingsimulation.tsx": $deco_shippingsimulation,
   },
   islands: {
     "./islands/AddToCartButton.tsx": $AddToCartButton,

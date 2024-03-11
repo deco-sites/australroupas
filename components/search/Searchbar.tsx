@@ -99,7 +99,7 @@ function Searchbar({
   useEffect(() => {
     const timer = setTimeout(() => {
       if (searchTerm.length > 2) {
-        fetch("/api/autocomplete?term=" + searchTerm, {
+        fetch("/deco/autocomplete?term=" + searchTerm, {
           method: "GET",
           headers: {
             "content-type": "application/json",

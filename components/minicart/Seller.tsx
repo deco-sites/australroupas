@@ -46,7 +46,7 @@ function Seller() {
 
     if (typeof sellerCode === "string") {
       const response = await fetch(
-        "/api/searchseller?id=" + sellerCode,
+        "/deco/searchseller?id=" + sellerCode,
         {
           method: "GET",
           headers: {

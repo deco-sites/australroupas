@@ -45,7 +45,7 @@ function Simulation() {
 
     try {
       const response = await fetch(
-        "/api/shippingsimulation?id=" + orderFormId,
+        "/deco/shippingsimulation?id=" + orderFormId,
         {
           method: "POST",
           body: JSON.stringify(data),
@@ -84,7 +84,7 @@ function Simulation() {
 
       try {
         const response = await fetch(
-          "/api/shippingsimulation?id=" + orderFormId,
+          "/deco/shippingsimulation?id=" + orderFormId,
           {
             method: "POST",
             body: JSON.stringify(data),
