@@ -13,13 +13,14 @@ import { mapProductToAnalyticsItem } from "apps/commerce/utils/productToAnalytic
 import type { ProductDetailsPage } from "apps/commerce/types.ts";
 import type { LoaderReturnType } from "$live/types.ts";
 import ProductSimilarSelector from "./ProductSimilarSelector.tsx";
-import ProductSelector from "./ProductVariantSelector.tsx";
 import { useQuickView } from "../../sdk/useQuickView.ts";
 import ProductImageZoom from "$store/islands/ProductImageZoom.tsx";
 import NavigatorShare from "$store/islands/NavigatorShare.tsx";
 import AddToCartButton from "$store/islands/AddToCartButton.tsx";
 import OutOfStock from "$store/islands/OutOfStock.tsx";
 import { useVariations } from "../../sdk/useVariantPossiblities.ts";
+import ProductName from "./ProductName.tsx"
+import ProductImageGallery from "$store/components/product/ProductImageGallery.tsx"
 
 export type Variant = "front-back" | "slider" | "auto";
 
@@ -94,11 +95,11 @@ function ProductInfo(
     <>
       {/* Code and name */}
       <div class="">
-        <h1>
-          <span class="text-base leading-[140%] tracking-[.04rem] text-info lg:text-[22px]">
-            {!selectedSku.value ? isVariantOf?.name : newName}
-          </span>
-        </h1>
+        { isVariantOf?.name &&
+          <>
+            <ProductName name={`${isVariantOf?.name}`}/>
+          </>
+        }
       </div>
       {/* Prices */}
       <div class="mt-5 mb-2.5">
@@ -119,11 +120,11 @@ function ProductInfo(
         </span>
       </div>
       {/* Sku Selector */}
-      <div class="">
+      <div class="flex flex-col">
         <ProductSimilarSelector product={product} currentUrl={currentUrl} />
       </div>
       <div class="">
-        <ProductSelector product={product} selectedID={selectedSku.value} />
+        
       </div>
       <ProductSizeTable category={category!} />
       {/* Add to Cart and Favorites button */}
@@ -320,18 +321,7 @@ function Details({
             </Slider>
 
             {/* Desktop */}
-            <div class="hidden lg:flex flex-wrap gap-[5px]">
-              {images.map((img, index) => (
-                <ProductImageZoom
-                  image={img.url!}
-                  width={WIDTH}
-                  height={HEIGHT}
-                  aspectRatio={ASPECT_RATIO}
-                  index={index}
-                  alternativeText={img.alternateName!}
-                />
-              ))}
-            </div>
+            <ProductImageGallery product={product}/>
 
             <Slider.PrevButton
               class="no-animation absolute left-2 top-1/2 lg:hidden"

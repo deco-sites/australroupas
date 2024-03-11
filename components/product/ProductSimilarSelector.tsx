@@ -1,6 +1,9 @@
 import Avatar from "$store/components/ui/Avatar.tsx";
-import { useVariantPossibilities } from "$store/sdk/useVariantPossiblities.ts";
+import { useVariantPossibilities, useVariations } from "$store/sdk/useVariantPossiblities.ts";
 import type { Product } from "apps/commerce/types.ts";
+import ProductSelector from "./ProductVariantSelector.tsx";
+import { useQuickView } from "../../sdk/useQuickView.ts";
+import { useUI } from "$store/sdk/useUI.ts";
 
 interface Props {
   product: Product;
@@ -9,6 +12,28 @@ interface Props {
 
 function VariantSelector({ product, product: { url }, currentUrl }: Props) {
   const possibilities = useVariantPossibilities(product);
+  const { productSimilares, productSelected, productName, productVariant } = useUI();
+  function handleSimilar(color: string){
+    const productClick = productSimilares.value.product.find(product => product.additionalProperty?.find(attr => attr.value == color))
+    selectedSku.value = "";
+    if(productClick){
+      productSelected.value = productSimilares.value.product.indexOf(productClick)
+      
+      productName.value = productSimilares.value.product[productSelected.value].isVariantOf?.name || ""
+      productVariant.value = productName.value;
+    }
+  }
+  
+  const { selectedSku } = useQuickView();
+  const arrayProduct: Product[] = []
+  if(product.isSimilarTo){
+    arrayProduct.push(product)
+    {product.isSimilarTo.map((product) => {
+      arrayProduct.push(product)
+    })}
+    productSimilares.value = {product: arrayProduct}
+  }
+  console.log(productSimilares.value)
   const variantsProduct = product?.isVariantOf?.hasVariant;
   return (
     <>
@@ -226,7 +251,7 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
                               <a
                                 aria-label={name}
                                 alt={name}
-                                href={similar.url!.split("?")[0]}
+                                onClick={() => handleSimilar(color)}
                               >
                                 <Avatar
                                   content={color}
@@ -250,6 +275,7 @@ function VariantSelector({ product, product: { url }, currentUrl }: Props) {
           }
         })}
       </ul>
+      <ProductSelector product={productSimilares.value.product[productSelected.value]} selectedID={selectedSku.value} />
     </>
   );
 }
