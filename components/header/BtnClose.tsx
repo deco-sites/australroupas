@@ -3,15 +3,17 @@ import Icon from "$store/components/ui/Icon.tsx";
 function BtnClose() {
   return (
     <label
-    aria-label="Close"
-    class="absolute -right-10 top-2"
-    for="menu"
-    onClick={() => {
-      const menuPai = document.querySelectorAll<HTMLInputElement>(`input[id^="item"]`);
-      menuPai.forEach(element => {
-        element.checked = false;
-      });
-    }}
+      aria-label="Close"
+      class="absolute -right-10 top-2"
+      for="menu"
+      onClick={() => {
+        const menuPai = document.querySelectorAll<HTMLInputElement>(
+          `input[id^="item"]`,
+        );
+        menuPai.forEach((element) => {
+          element.checked = false;
+        });
+      }}
     >
       <Icon
         id="XMark"

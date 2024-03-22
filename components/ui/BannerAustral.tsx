@@ -21,7 +21,7 @@ export interface VideoProps {
   ratioMobile?: string;
   /** @description Insira o vídeo com resolução 1518 × 553 px */
   videoDesktop: VideoWidget;
-   /** @description Para melhorar a perfomance digite a proporação no formato exemplo: 1920x1080 */
+  /** @description Para melhorar a perfomance digite a proporação no formato exemplo: 1920x1080 */
   ratioDesktop?: string;
 }
 
@@ -246,7 +246,7 @@ function Image(
   );
 }
 
-function VideoComponent({ creative }: Creative, {borderRadius}: Props) {
+function VideoComponent({ creative }: Creative, { borderRadius }: Props) {
   return (
     <>
       <div class="w-full block lg:hidden">
@@ -254,7 +254,8 @@ function VideoComponent({ creative }: Creative, {borderRadius}: Props) {
           src={(creative as VideoProps).videoMobile}
           width={Number((creative as ImageProps).ratioMobile?.split("x")[0]) ||
             414}
-          height={Number((creative as ImageProps).ratioMobile?.split("x")[1]) || 536}
+          height={Number((creative as ImageProps).ratioMobile?.split("x")[1]) ||
+            536}
           class={`object-cover w-full max-w-[100vw] video-banner-full-mobile ${
             borderRadius && "rounded-md"
           }`}
@@ -271,7 +272,9 @@ function VideoComponent({ creative }: Creative, {borderRadius}: Props) {
           src={(creative as VideoProps).videoDesktop}
           width={Number((creative as ImageProps).ratioDesktop?.split("x")[0]) ||
             1920}
-          height={Number((creative as ImageProps).ratioDesktop?.split("x")[1]) || 700}
+          height={Number(
+            (creative as ImageProps).ratioDesktop?.split("x")[1],
+          ) || 700}
           class={`object-cover w-full max-w-[100vw] sm:video-banner-full-desktop ${
             borderRadius && "rounded-md"
           }`}

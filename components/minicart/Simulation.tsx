@@ -125,17 +125,17 @@ function Simulation() {
     return maskedCep;
   }
 
-  const [cep, setCep] = useState('');
+  const [cep, setCep] = useState("");
   // deno-lint-ignore ban-ts-comment
   // @ts-ignore
   const handleInputChange = (event) => {
     let { value } = event.target;
     // Remove todos os caracteres não numéricos
-    value = value.replace(/\D/g, '');
+    value = value.replace(/\D/g, "");
     // Limita o tamanho máximo do input para 10 caracteres
     value = value.substring(0, 10);
     // Aplica a máscara (formato: xx.xxx-xxx)
-    const maskedValue = value.replace(/(\d{2})(\d{0,3})(\d{0,3})/, '$1.$2-$3');
+    const maskedValue = value.replace(/(\d{2})(\d{0,3})(\d{0,3})/, "$1.$2-$3");
     // Atualiza o estado com o novo valor formatado
     setCep(maskedValue);
   };

@@ -10,7 +10,7 @@ declare global {
 }
 
 export const sendEvent = <E extends AnalyticsEvent>(event: E) => {
-  const doSend = window.DECO_SITES_STD &&
+  const doSend = globalThis.window.DECO_SITES_STD &&
     window.DECO_SITES_STD.sendAnalyticsEvent;
 
   if (typeof doSend === "function") {

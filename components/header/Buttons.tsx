@@ -71,11 +71,13 @@ function SearchButton(
               displaySearchbar.value = !displaySearchbar.value;
               displayServiceMenu.value = false;
               displayOverlay.value = true;
-              displayModalLogin.value = false; 
-              const input = document.querySelector("#search-input") as HTMLInputElement;
+              displayModalLogin.value = false;
+              const input = document.querySelector(
+                "#search-input",
+              ) as HTMLInputElement;
               setTimeout(() => {
-                input.reportValidity()
-              }, 300)
+                input.reportValidity();
+              }, 300);
             }}
           >
             <i class={`${iconsHeader?.search || "icon-search"} text-[#636366]`}>
@@ -87,7 +89,8 @@ function SearchButton(
 }
 
 function MenuButton({ iconsHeader }: { iconsHeader?: IconsHeader }) {
-  const { displayMenu, displaySearchbar, displayOverlay, displayModalLogin } = useUI();
+  const { displayMenu, displaySearchbar, displayOverlay, displayModalLogin } =
+    useUI();
 
   return (
     <label

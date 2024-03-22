@@ -3,12 +3,12 @@ import { useUI } from "$store/sdk/useUI.ts";
 import type { Props as ICard } from "$store/components/ui/Card.tsx";
 import Card from "$store/components/ui/Card.tsx";
 
-interface itemsNav{
+interface itemsNav {
   label: string;
   href: string;
   red?: true | false;
 }
-interface itemNav{
+interface itemNav {
   label: string;
   href?: string;
   red?: true | false;
@@ -75,33 +75,35 @@ function NavItem({ item, index }: { item: INavItem; index: number }) {
                 {children.map((node) => (
                   <li class="py-1.7 flex flex-col">
                     {node.label &&
-                      <a
-                      class={`text-base text-info  ${
-                        node.red ? "text-[#DB1616]" : ""
-                      } ${node.fontBold ? "font-bold" : ""}`}
-                      href={node.href}
-                      aria-label={node.label}
-                      >
-                        {node.label}
-                      </a>
-                    }
-                    {node.children && node.children?.length > 0 && 
-                      <>
-                        {node.children.map((item) => {
-                          return(
+                      (
+                        <a
+                          class={`text-base text-info  ${
+                            node.red ? "text-[#DB1616]" : ""
+                          } ${node.fontBold ? "font-bold" : ""}`}
+                          href={node.href}
+                          aria-label={node.label}
+                        >
+                          {node.label}
+                        </a>
+                      )}
+                    {node.children && node.children?.length > 0 &&
+                      (
+                        <>
+                          {node.children.map((item) => {
+                            return (
                               <a
-                              class={`text-base text-info py-2 ${
-                                item.red ? "text-[#DB1616]" : ""
-                              }`}
-                              href={item.href}
-                              aria-label={item.label}
+                                class={`text-base text-info py-2 ${
+                                  item.red ? "text-[#DB1616]" : ""
+                                }`}
+                                href={item.href}
+                                aria-label={item.label}
                               >
-                                  {item.label}
-                                </a>
-                            )
+                                {item.label}
+                              </a>
+                            );
                           })}
-                      </>
-                    }
+                        </>
+                      )}
                   </li>
                 ))}
               </ul>

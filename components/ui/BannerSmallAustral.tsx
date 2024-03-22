@@ -12,7 +12,7 @@ export interface VideoProps {
   ratioMobile?: string;
   /** @description Insira o vídeo com resolução 1518 × 553 px */
   videoDesktop: VideoWidget;
-   /** @description Para melhorar a perfomance digite a proporação no formato exemplo: 1920x1080 */
+  /** @description Para melhorar a perfomance digite a proporação no formato exemplo: 1920x1080 */
   ratioDesktop?: string;
 }
 
@@ -54,29 +54,28 @@ export default function Container(
 ) {
   return (
     <div class={`mx-auto flex justify-center py-8 px-4`}>
-        <BannerSmallAustral
-          banner={banner}
-          borderRadius={borderRadius}
-        />
+      <BannerSmallAustral
+        banner={banner}
+        borderRadius={borderRadius}
+      />
     </div>
   );
 }
 
 function BannerSmallAustral(
-  { banner, borderRadius }:
-    Props,
+  { banner, borderRadius }: Props,
 ) {
   return (
-      <div class="flex w-full">
-        {isImage(banner.creative) ? 
-            <Image
-              creative={banner.creative}
-              borderRadius={borderRadius}
-            />
-        : 
-            <VideoComponent creative={banner.creative} />
-        }
-      </div>
+    <div class="flex w-full">
+      {isImage(banner.creative)
+        ? (
+          <Image
+            creative={banner.creative}
+            borderRadius={borderRadius}
+          />
+        )
+        : <VideoComponent creative={banner.creative} />}
+    </div>
   );
 }
 
@@ -125,7 +124,7 @@ function Image(
   );
 }
 
-function VideoComponent({ creative }: Creative, {borderRadius}: Props) {
+function VideoComponent({ creative }: Creative, { borderRadius }: Props) {
   return (
     <>
       <div class="w-full block lg:hidden">

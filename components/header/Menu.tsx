@@ -1,7 +1,7 @@
 import Icon from "$store/components/ui/Icon.tsx";
 import type { INavItem } from "./NavItem.tsx";
 import type { CallToUsItem } from "./Header.tsx";
-import BtnBack from "$store/components/header/BtnBack.tsx"
+import BtnBack from "$store/components/header/BtnBack.tsx";
 import BtnClose from "deco-sites/fashion/components/header/BtnClose.tsx";
 
 export interface Props {
@@ -59,7 +59,7 @@ function MenuItem({ item, index }: { item: INavItem; index: number }) {
             MenuItemChildren fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
           >
             <ul class="">
-              <BtnBack label={item.label}/>
+              <BtnBack label={item.label} />
               {item.children?.map((node: INavItem, index: number) => (
                 <li class="border-b border-b-[#F2F2F7] px-4">
                   <MenuItem
@@ -91,7 +91,7 @@ function Menu({ items, callToUsItem }: Props) {
       <div
         class={`MenuModal -left-full fixed top-0 transition-all w-[calc(100%-40px)] bg-white z-50 h-full duration-300 ease-linear`}
       >
-        <BtnClose/>
+        <BtnClose />
         <ul class={`px-4 flex-grow flex flex-col`}>
           {items.map((item, index) => (
             <li class="border-b border-b-[#F2F2F7]">

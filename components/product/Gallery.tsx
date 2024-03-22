@@ -30,11 +30,12 @@ const usePaginationController = ({ page }: Options) => {
           url.searchParams.set("page", pageNumber.toString());
           setLoading(true);
 
-          const maybePage = await invoke.vtex.loaders.intelligentSearch.productListingPage({
+          const maybePage = await invoke.vtex.loaders.intelligentSearch
+            .productListingPage({
               count: 6,
               page: pageNumber,
-              pageHref: window.location.href
-            })
+              pageHref: window.location.href,
+            });
 
           // Prevent self-ddos
           if (
