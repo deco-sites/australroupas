@@ -1,4 +1,4 @@
-import { useUser } from "deco-sites/std/packs/vtex/hooks/useUser.ts";
+import { useUser } from "apps/vtex/hooks/useUser.ts";
 import Button from "$store/components/ui/Button.tsx";
 import { useUI } from "deco-sites/australroupas/sdk/useUI.ts";
 
