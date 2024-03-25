@@ -3,7 +3,6 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import * as $_app from "./routes/_app.tsx";
-import * as $api_catchall_ from "./routes/api/[...catchall].tsx";
 import * as $deco_autocomplete from "./routes/deco/autocomplete.tsx";
 import * as $deco_newsletter from "./routes/deco/newsletter.tsx";
 import * as $deco_searchseller from "./routes/deco/searchseller.tsx";
@@ -36,7 +35,6 @@ import { type Manifest } from "$fresh/server.ts";
 const manifest = {
   routes: {
     "./routes/_app.tsx": $_app,
-    "./routes/api/[...catchall].tsx": $api_catchall_,
     "./routes/deco/autocomplete.tsx": $deco_autocomplete,
     "./routes/deco/newsletter.tsx": $deco_newsletter,
     "./routes/deco/searchseller.tsx": $deco_searchseller,
