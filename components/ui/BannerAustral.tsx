@@ -82,9 +82,10 @@ export interface Props {
   mouseIcon?: boolean;
 }
 
-const isImage = (item: Item): item is ImageProps =>
-  // deno-lint-ignore no-explicit-any
-  typeof (item as any)?.altImage === "string";
+const isImage = (item: Item): item is ImageProps => {
+  return (item as ImageProps).imageMobile !== undefined ||
+    (item as ImageProps).imageDesktop !== undefined;
+};
 
 export default function Container(
   {
